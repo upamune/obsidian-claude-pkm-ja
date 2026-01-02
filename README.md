@@ -39,8 +39,8 @@ Obsidianの強力なノート作成機能とClaude CodeのAIアシスタンス�
 # - Claude Code CLI: https://code.claude.com/docs
 
 # 2) このリポジトリをクローン
-git clone https://github.com/ballred/obsidian-claude-pkm.git
-cd obsidian-claude-pkm
+git clone https://github.com/upamune/obsidian-claude-pkm-ja.git
+cd obsidian-claude-pkm-ja
 
 # 3) セットアップを実行（macOS/Linux）
 chmod +x scripts/setup.sh
