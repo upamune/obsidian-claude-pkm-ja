@@ -1,39 +1,39 @@
-# GitHub Action for Claude Code Integration
-# 
-# This workflow enables Claude Code to automatically process GitHub issues
-# and pull requests, allowing you to manage your PKM from anywhere.
+# Claude Code 統合用 GitHub Action
 #
-# SETUP INSTRUCTIONS:
-# 1. Copy this file to .github/workflows/claude.yml in your vault repository
-# 2. Get your Claude Code OAuth token from: https://code.claude.com/docs/en/github-actions
-# 3. Add the token as a secret in your repository:
-#    - Go to Settings > Secrets and variables > Actions
-#    - Click "New repository secret"
+# このワークフローにより、Claude Code が GitHub の Issue や
+# プルリクエストを自動的に処理し、どこからでも PKM を管理できます。
+#
+# セットアップ手順:
+# 1. このファイルを vault リポジトリの .github/workflows/claude.yml にコピー
+# 2. Claude Code OAuth トークンを取得: https://code.claude.com/docs/en/github-actions
+# 3. リポジトリにトークンをシークレットとして追加:
+#    - Settings > Secrets and variables > Actions に移動
+#    - "New repository secret" をクリック
 #    - Name: CLAUDE_CODE_OAUTH_TOKEN
-#    - Value: [Your token from step 2]
-# 4. Configure the workflow triggers below as needed
+#    - Value: [ステップ 2 で取得したトークン]
+# 4. 必要に応じて以下のワークフロートリガーを設定
 
-name: Claude Code PKM Assistant
+name: Claude Code PKM アシスタント
 
-# When this workflow runs
+# このワークフローが実行されるタイミング
 on:
-  # Trigger when issues are opened or edited
+  # Issue が開かれたり編集されたときにトリガー
   issues:
     types: [opened, edited]
-  
-  # Trigger when issue comments are created
+
+  # Issue のコメントが作成されたときにトリガー
   issue_comment:
     types: [created]
-  
-  # Trigger when pull requests are opened
+
+  # プルリクエストが開かれたり編集されたときにトリガー
   pull_request:
     types: [opened, edited]
-  
-  # Allow manual trigger from GitHub Actions tab
+
+  # GitHub Actions タブから手動実行を許可
   workflow_dispatch:
     inputs:
       command:
-        description: 'Claude command to run'
+        description: '実行する Claude コマンド'
         required: false
         default: '/daily'
         type: choice
@@ -42,246 +42,246 @@ on:
           - '/weekly'
           - '/onboard'
           - '/push'
-  
-  # Optional: Run on schedule (uncomment to enable)
-  # schedule:
-  #   # Run daily at 6 AM UTC
-  #   - cron: '0 6 * * *'
-  #   # Run weekly review on Sundays at 8 PM UTC
-  #   - cron: '0 20 * * 0'
 
-# Environment variables
+  # オプション: スケジュール実行（有効にするにはコメントを解除）
+  # schedule:
+  #   # 毎日 午前 6 時（日本時間）に実行
+  #   - cron: '0 21 * * *'
+  #   # 毎週日曜日 午後 8 時（日本時間）に週次レビュー実行
+  #   - cron: '0 11 * * 0'
+
+# 環境変数
 env:
-  # Claude Code version to use
+  # 使用する Claude Code のバージョン
   CLAUDE_CODE_VERSION: 'latest'
-  
-  # Default model for Claude to use
-  # Options: claude-3-opus, claude-3-sonnet, claude-3-haiku
+
+  # Claude で使用するデフォルトモデル
+  # オプション: claude-3-opus, claude-3-sonnet, claude-3-haiku
   CLAUDE_MODEL: 'claude-3-sonnet'
-  
-  # Timezone for date/time operations (customize this)
-  TZ: 'America/New_York'
+
+  # 日付/時刻操作用のタイムゾーン
+  TZ: 'Asia/Tokyo'
 
 jobs:
-  # Job: Process GitHub Issues as Tasks
+  # ジョブ: GitHub Issue をタスクとして処理
   process-issue:
-    name: Process Issue with Claude
+    name: Claude で Issue を処理
     runs-on: ubuntu-latest
-    
-    # Only run on issues with specific labels
+
+    # 特定のラベルが付いた Issue でのみ実行
     if: |
-      github.event_name == 'issues' && 
-      (contains(github.event.issue.labels.*.name, 'task') || 
+      github.event_name == 'issues' &&
+      (contains(github.event.issue.labels.*.name, 'task') ||
        contains(github.event.issue.labels.*.name, 'idea') ||
        contains(github.event.issue.labels.*.name, 'claude'))
-    
+
     steps:
-      # Check out the repository
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      # リポジトリをチェックアウト
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          
-      # Set up Claude Code
-      - name: Setup Claude Code
-        uses: anthropics/claude-code-action@v1
+
+      # Claude Code をセットアップ
+      - name: Claude Code をセットアップ
+        uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
         with:
           oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           version: ${{ env.CLAUDE_CODE_VERSION }}
-      
-      # Process the issue
-      - name: Process Issue Content
+
+      # Issue を処理
+      - name: Issue の内容を処理
         run: |
-          # Extract issue details
+          # Issue の詳細を抽出
           ISSUE_TITLE="${{ github.event.issue.title }}"
           ISSUE_BODY="${{ github.event.issue.body }}"
           ISSUE_NUMBER="${{ github.event.issue.number }}"
-          
-          # Determine action based on labels
+
+          # ラベルに基づいてアクションを決定
           if [[ "${{ contains(github.event.issue.labels.*.name, 'task') }}" == "true" ]]; then
-            # Add task to today's daily note
-            claude code "Add this task to today's daily note: $ISSUE_TITLE - $ISSUE_BODY"
+            # 今日のデイリーノートにタスクを追加
+            claude code "このタスクを今日のデイリーノートに追加: $ISSUE_TITLE - $ISSUE_BODY"
           elif [[ "${{ contains(github.event.issue.labels.*.name, 'idea') }}" == "true" ]]; then
-            # Capture idea in appropriate location
-            claude code "Capture this idea in the appropriate project or notes: $ISSUE_TITLE - $ISSUE_BODY"
+            # 適切な場所にアイデアを記録
+            claude code "このアイデアを適切なプロジェクトまたはノートに記録: $ISSUE_TITLE - $ISSUE_BODY"
           fi
-          
-          # Comment on issue to confirm processing
-          gh issue comment $ISSUE_NUMBER --body "✅ Processed by Claude Code and added to vault"
+
+          # 処理完了を Issue にコメント
+          gh issue comment $ISSUE_NUMBER --body "✅ Claude Code で処理され、vault に追加されました"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Commit and push changes
-      - name: Commit Changes
+
+      # 変更をコミットしてプッシュ
+      - name: 変更をコミット
         run: |
           git config --local user.email "claude-bot@example.com"
-          git config --local user.name "Claude Assistant"
+          git config --local user.name "Claude アシスタント"
           git add .
-          git diff --staged --quiet || git commit -m "Process issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+          git diff --staged --quiet || git commit -m "Issue #${{ github.event.issue.number }} を処理: ${{ github.event.issue.title }}"
           git push
 
-  # Job: Daily Note Creation
+  # ジョブ: デイリーノート作成
   daily-note:
-    name: Create Daily Note
+    name: デイリーノートを作成
     runs-on: ubuntu-latest
-    
-    # Run on schedule or manual trigger
+
+    # スケジュール実行または手動トリガーで実行
     if: |
-      github.event_name == 'workflow_dispatch' && 
+      github.event_name == 'workflow_dispatch' &&
       github.event.inputs.command == '/daily'
-    
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Setup Claude Code
-        uses: anthropics/claude-code-action@v1
+
+      - name: Claude Code をセットアップ
+        uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
         with:
           oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      
-      - name: Create Daily Note
+
+      - name: デイリーノートを作成
         run: |
-          # Load context
+          # コンテキストを読み込み
           claude code /onboard
-          
-          # Create today's daily note
+
+          # 今日のデイリーノートを作成
           claude code /daily
-          
-          # Optional: Add weather, calendar events, etc.
-          # claude code "Add today's weather forecast to the daily note"
-          # claude code "Add calendar events for today"
-      
-      - name: Commit Daily Note
+
+          # オプション: 天気予報やカレンダーイベントなどを追加
+          # claude code "今日の天気予報をデイリーノートに追加"
+          # claude code "今日のカレンダーイベントを追加"
+
+      - name: デイリーノートをコミット
         run: |
           git config --local user.email "claude-bot@example.com"
-          git config --local user.name "Claude Assistant"
+          git config --local user.name "Claude アシスタント"
           git add .
           DATE=$(date +%Y-%m-%d)
-          git diff --staged --quiet || git commit -m "Daily note for $DATE"
+          git diff --staged --quiet || git commit -m "${DATE} のデイリーノート"
           git push
 
-  # Job: Weekly Review
+  # ジョブ: 週次レビュー
   weekly-review:
-    name: Run Weekly Review
+    name: 週次レビューを実行
     runs-on: ubuntu-latest
-    
-    # Run on Sundays or manual trigger
+
+    # 日曜日または手動トリガーで実行
     if: |
-      (github.event_name == 'schedule' && contains(github.event.schedule, '0 20 * * 0')) ||
+      (github.event_name == 'schedule' && contains(github.event.schedule, '0 11 * * 0')) ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.command == '/weekly')
-    
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Setup Claude Code
-        uses: anthropics/claude-code-action@v1
+
+      - name: Claude Code をセットアップ
+        uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
         with:
           oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      
-      - name: Run Weekly Review
+
+      - name: 週次レビューを実行
         run: |
-          # Load full context
+          # 全コンテキストを読み込み
           claude code /onboard all
-          
-          # Run weekly review
+
+          # 週次レビューを実行
           claude code /weekly
-          
-          # Generate summary
-          claude code "Create a summary of this week's accomplishments and next week's priorities"
-      
-      - name: Commit Weekly Review
+
+          # サマリーを生成
+          claude code "今週の成果と来週の優先事項のサマリーを作成"
+
+      - name: 週次レビューをコミット
         run: |
           git config --local user.email "claude-bot@example.com"
-          git config --local user.name "Claude Assistant"
+          git config --local user.name "Claude アシスタント"
           git add .
           WEEK=$(date +%Y-W%V)
-          git diff --staged --quiet || git commit -m "Weekly review for $WEEK"
+          git diff --staged --quiet || git commit -m "${WEEK} の週次レビュー"
           git push
 
-  # Job: Smart Assistance on Pull Requests
+  # ジョブ: プルリクエストのスマートアシスタンス
   assist-pr:
-    name: Assist with Pull Request
+    name: プルリクエストをアシスト
     runs-on: ubuntu-latest
-    
+
     if: github.event_name == 'pull_request'
-    
+
     steps:
-      - name: Checkout PR Branch
-        uses: actions/checkout@v4
+      - name: PR ブランチをチェックアウト
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      
-      - name: Setup Claude Code
-        uses: anthropics/claude-code-action@v1
+
+      - name: Claude Code をセットアップ
+        uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
         with:
           oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      
-      - name: Review Changes
+
+      - name: 変更をレビュー
         run: |
-          # Get changed files
+          # 変更されたファイルを取得
           CHANGED_FILES=$(git diff --name-only origin/main..HEAD)
-          
-          # Have Claude review the changes
-          claude code "Review these changed files and provide feedback: $CHANGED_FILES"
-          
-          # Post review as PR comment
+
+          # Claude に変更をレビューしてもらう
+          claude code "これらの変更されたファイルをレビューしてフィードバックを提供: $CHANGED_FILES"
+
+          # レビューを PR コメントとして投稿
           gh pr comment ${{ github.event.pull_request.number }} \
-            --body "$(claude code 'Summarize your review findings')"
+            --body "$(claude code 'レビュー結果をサマリーして')"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-# Workflow Configuration Notes:
+# ワークフロー設定のノート:
 #
-# CUSTOMIZATION OPTIONS:
+# カスタマイズオプション:
 #
-# 1. **Triggers**: Adjust the 'on' section to control when the workflow runs
-#    - Remove triggers you don't need
-#    - Add schedule triggers for automation
-#    - Customize issue labels that trigger processing
+# 1. **トリガー**: 'on' セクションを調整してワークフローの実行タイミングを制御
+#    - 不要なトリガーを削除
+#    - 自動化のためのスケジュールトリガーを追加
+#    - 処理をトリガーする Issue ラベルをカスタマイズ
 #
-# 2. **Claude Model**: Change CLAUDE_MODEL in env section
-#    - claude-3-opus: Most capable, best for complex tasks
-#    - claude-3-sonnet: Balanced performance
-#    - claude-3-haiku: Fastest, good for simple tasks
+# 2. **Claude モデル**: env セクションの CLAUDE_MODEL を変更
+#    - claude-3-opus: 最も高機能、複雑なタスクに最適
+#    - claude-3-sonnet: バランスの取れたパフォーマンス
+#    - claude-3-haiku: 最速、シンプルなタスクに適している
 #
-# 3. **Time Zone**: Update TZ in env section to your local timezone
+# 3. **タイムゾーン**: env セクションの TZ をローカルタイムゾーンに更新
 #
-# 4. **Custom Commands**: Add new jobs for your specific workflows
+# 4. **カスタムコマンド**: 特定のワークフロー用に新しいジョブを追加
 #
-# SECURITY NOTES:
+# セキュリティノート:
 #
-# - Keep CLAUDE_CODE_OAUTH_TOKEN secret and never commit it
-# - Use GitHub's built-in GITHUB_TOKEN when possible
-# - Review permissions before enabling workflow
-# - Consider using environment protection rules for sensitive operations
+# - CLAUDE_CODE_OAUTH_TOKEN は秘密にして、決してコミットしない
+# - 可能な限り GitHub の組み込み GITHUB_TOKEN を使用
+# - ワークフローを有効にする前に権限を確認
+# - 機密性の高い操作には環境保護ルールの使用を検討
 #
-# USAGE EXAMPLES:
+# 使用例:
 #
-# 1. **Create task from mobile**:
-#    - Open GitHub mobile app
-#    - Create new issue with 'task' label
-#    - Claude adds it to your daily note
+# 1. **モバイルからタスクを作成**:
+#    - GitHub モバイルアプリを開く
+#    - 'task' ラベル付きの新しい Issue を作成
+#    - Claude がデイリーノートに追加
 #
-# 2. **Capture ideas on the go**:
-#    - Create issue with 'idea' label
-#    - Claude files it in appropriate project
+# 2. **外出先でアイデアをキャプチャ**:
+#    - 'idea' ラベル付きの Issue を作成
+#    - Claude が適切なプロジェクトに記録
 #
-# 3. **Remote daily planning**:
-#    - Manually trigger workflow
-#    - Select '/daily' command
-#    - Claude creates daily note
+# 3. **リモートデイリープランニング**:
+#    - ワークフローを手動トリガー
+#    - '/daily' コマンドを選択
+#    - Claude がデイリーノートを作成
 #
-# TROUBLESHOOTING:
+# トラブルシューティング:
 #
-# - Check Actions tab for workflow runs and logs
-# - Verify CLAUDE_CODE_OAUTH_TOKEN is set correctly
-# - Ensure repository has Actions enabled
-# - Check file permissions and paths
+# - ワークフローの実行とログについては Actions タブを確認
+# - CLAUDE_CODE_OAUTH_TOKEN が正しく設定されていることを確認
+# - リポジトリで Actions が有効になっていることを確認
+# - ファイルの権限とパスを確認
 #
-# For more information:
+# 詳細情報:
 # https://code.claude.com/docs/en/github-actions
