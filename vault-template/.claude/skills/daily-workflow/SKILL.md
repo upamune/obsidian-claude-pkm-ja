@@ -1,130 +1,130 @@
 ---
 name: daily-workflow
-description: Morning routine, midday check-in, and evening shutdown workflows. Structure daily planning, task review, and end-of-day reflection. Use for daily productivity routines.
+description: 朝のルーティン、昼のチェックイン、夕方のシャットダウンワークフロー。日次計画、タスクレビュー、1日の終わりの振り返りを構造化します。日々の生産性ルーティンに使用します。
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
-# Daily Workflow Skill
+# デイリーワークフロースキル
 
-Structured workflows for morning planning, midday check-ins, and evening shutdowns.
+朝の計画、昼のチェックイン、夕方のシャットダウンのための構造化されたワークフロー。
 
-## Morning Routine (5-10 minutes)
+## 朝のルーティン（5-10分）
 
-### Automated Steps
-1. Create today's daily note (if not exists)
-2. Pull incomplete tasks from yesterday
-3. Review weekly goals for today's priority
-4. Surface any calendar events or deadlines
+### 自動化ステップ
+1. 今日のデイリーノートを作成（存在しない場合）
+2. 昨日から未完了タスクを引き継ぐ
+3. 今日の優先事項のために週次目標をレビュー
+4. カレンダーイベントや期限を表示
 
-### Interactive Prompts
-- "What's your ONE thing for today?"
-- "What might get in the way?"
-- "How do you want to feel at end of day?"
+### インタラクティブプロンプト
+- "今日の1つのことは何ですか？"
+- "何が邪魔をする可能性がありますか？"
+- "1日の終わりにどのように感じたいですか？"
 
-### Morning Checklist
-- [ ] Daily note created
-- [ ] Yesterday's incomplete tasks reviewed
-- [ ] ONE priority identified
-- [ ] Time blocks set
-- [ ] Potential obstacles identified
+### 朝のチェックリスト
+- [ ] デイリーノート作成
+- [ ] 昨日の未完了タスクをレビュー
+- [ ] 1つの優先事項を特定
+- [ ] 時間ブロックを設定
+- [ ] 潜在的な障害を特定
 
-## Midday Check-in (2-3 minutes)
+## 昼のチェックイン（2-3分）
 
-### Quick Review
-1. Check morning task completion
-2. Compare actual vs planned time use
-3. Assess energy level
-4. Identify afternoon priorities
+### クイックレビュー
+1. 朝のタスク完了をチェック
+2. 実際と計画された時間使用を比較
+3. エネルギーレベルを評価
+4. 午後の優先事項を特定
 
-### Adjustments
-- Reschedule incomplete morning tasks
-- Add urgent items that emerged
-- Reorder by current energy level
-- Note any blockers
+### 調整
+- 未完了の朝のタスクをリスケジュール
+- 発生した緊急項目を追加
+- 現在のエネルギーレベルで並べ替え
+- ブロッカーを記録
 
-### Midday Questions
-- "How's your energy right now?"
-- "What's the most important thing for this afternoon?"
-- "What can you let go of today?"
+### 昼の質問
+- "今あなたのエネルギーはどうですか？"
+- "この午後の最も重要なことは何ですか？"
+- "今日何を手放すことができますか？"
 
-## Evening Shutdown (5 minutes)
+## 夕方のシャットダウン（5分）
 
-### Capture
-1. Mark completed tasks with [x]
-2. Add notes and learnings
-3. Log energy levels (1-10)
-4. Record gratitude items
+### キャプチャ
+1. 完了したタスクに[x]をマーク
+2. ノートと学びを追加
+3. エネルギーレベルを記録（1-10）
+4. 感謝項目を記録
 
-### Reflect
-- What went well today?
-- What could be better?
-- What did I learn?
-- What am I grateful for?
+### 振り返り
+- 今日うまくいったことは何か？
+- より良くできることは何か？
+- 何を学んだか？
+- 何に感謝しているか？
 
-### Prepare
-1. Identify tomorrow's priority (preview)
-2. Move incomplete tasks to tomorrow or delete
-3. Commit changes to git (`/push`)
+### 準備
+1. 明日の優先事項を特定（プレビュー）
+2. 未完了タスクを明日に移動または削除
+3. gitに変更をコミット（`/push`）
 
-### Shutdown Checklist
-- [ ] All tasks updated (done/moved/deleted)
-- [ ] Reflection completed
-- [ ] Tomorrow's priority identified
-- [ ] Changes committed
+### シャットダウンチェックリスト
+- [ ] すべてのタスクを更新（完了/移動/削除）
+- [ ] リフレクション完了
+- [ ] 明日の優先事項を特定
+- [ ] 変更をコミット
 
-## Daily Note Sections
+## デイリーノートのセクション
 
-Standard daily note structure:
+標準的なデイリーノート構造：
 
 ```markdown
 # {{date}}
 
-## Focus
-> What's the ONE thing that would make today successful?
+## フォーカス
+> 今日を成功させる1つのことは何か？
 
-## Time Blocks
-- 🌅 Morning (9-12):
-- ☀️ Afternoon (12-5):
-- 🌙 Evening (5+):
+## 時間ブロック
+- 🌅 朝（9-12）：
+- ☀️ 午後（12-5）：
+- 🌙 夕方（5+）：
 
-## Tasks
-### Must Do Today
+## タスク
+### 今日やらなければならない
 - [ ]
 
-### Work
+### 仕事
 - [ ]
 
-### Personal
+### 個人
 - [ ]
 
-## Notes
-[Capture thoughts, meeting notes, ideas]
+## ノート
+[思考、ミーティングメモ、アイデアをキャプチャ]
 
-## Reflection
-- **Wins:**
-- **Challenges:**
-- **Learned:**
-- **Grateful for:**
-- **Energy:** /10
-- **Tomorrow's priority:**
+## リフレクション
+- **成果：**
+- **課題：**
+- **学んだこと：**
+- **感謝：**
+- **エネルギー：** /10
+- **明日の優先事項：**
 ```
 
-## Time Block Strategies
+## 時間ブロック戦略
 
-### Energy-Based
-- High energy tasks in morning
-- Administrative work after lunch
-- Creative work when naturally alert
+### エネルギーベース
+- 朝に高エネルギータスク
+- 昼食後に管理作業
+- 自然に注意が続くときに創造的作業
 
-### Context-Based
-- Batch similar tasks together
-- Minimize context switching
-- Protect deep work blocks
+### コンテキストベース
+- 似たタスクをまとめる
+- コンテキストスイッチングを最小化
+- 深い作業ブロックを保護
 
-## Integration
+## 統合
 
-Works with:
-- `/daily` command for note creation
-- `/push` command for end-of-day commit
-- Productivity Coach for accountability
-- Goal Tracking skill for alignment
+以下と連携：
+- ノート作成のための`/daily`コマンド
+- 1日の終わりのコミットのための`/push`コマンド
+- 説明責任のためのProductivity Coach
+- 整合性のためのGoal Trackingスキル

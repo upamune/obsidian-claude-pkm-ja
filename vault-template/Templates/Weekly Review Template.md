@@ -1,187 +1,187 @@
-# Weekly Review - Week of {{date:YYYY-MM-DD}}
+# 週次レビュー - {{date:YYYY-MM-DD}}の週
 
-## 🎯 Week at a Glance
-**Week Number:** Week {{date:w}} of 52
-**Theme/Focus:** [Define this week's primary focus]
-**Energy Available:** [High/Medium/Low]
-
----
-
-## 📊 Quick Stats
-- **Tasks Completed:** [X/Y]
-- **Projects Advanced:** [List projects worked on]
-- **Habits Maintained:** [X/7 days]
-- **One Metric Progress:** [Update from [[1. Yearly Goals]]]
+## 🎯 週の概要
+**週番号：** 52週中の第{{date:w}}週
+**テーマ/フォーカス：** [今週の主要フォーカスを定義]
+**利用可能なエネルギー：** [高/中/低]
 
 ---
 
-## 🔍 Last Week Review
-
-### What Went Well? (Wins) 🎉
-1. 
-2. 
-3. 
-
-### What Didn't Go Well? (Challenges) 🤔
-1. 
-2. 
-3. 
-
-### Key Lessons Learned 📚
-- 
-- 
-
-### Incomplete Tasks (Carry Forward?)
-- [ ] [Task] - Action: [Reschedule/Delegate/Delete]
-- [ ] [Task] - Action: [Reschedule/Delegate/Delete]
+## 📊 クイック統計
+- **完了タスク：** [X/Y]
+- **進めたプロジェクト：** [取り組んだプロジェクトをリスト]
+- **維持した習慣：** [X/7日]
+- **1つの指標の進捗：** [[[1. Yearly Goals]]から更新]
 
 ---
 
-## 📅 This Week's Plan
+## 🔍 先週のレビュー
 
-### 🎯 ONE Big Thing
-**If I accomplish nothing else this week, I will:**
+### うまくいったこと（成果）
+1.
+2.
+3.
 
+### うまくいかなかったこと（課題）
+1.
+2.
+3.
 
-### Priority Matrix
+### 学んだ主な教訓
+-
+-
 
-#### 🔴 Urgent & Important
-- [ ] 
-- [ ] 
-
-#### 🟡 Important Not Urgent  
-- [ ] 
-- [ ] 
-
-#### 🟢 Quick Wins
-- [ ] 
-- [ ] 
-
----
-
-## 🗓️ Day by Day
-
-### Monday {{date+1:MM/DD}}
-**Focus:** 
-- [ ] Priority task
-- [ ] 
-
-### Tuesday {{date+2:MM/DD}}
-**Focus:** 
-- [ ] Priority task
-- [ ] 
-
-### Wednesday {{date+3:MM/DD}}
-**Focus:** 
-- [ ] Priority task
-- [ ] 
-
-### Thursday {{date+4:MM/DD}}
-**Focus:** 
-- [ ] Priority task
-- [ ] 
-
-### Friday {{date+5:MM/DD}}
-**Focus:** 
-- [ ] Priority task
-- [ ] 
-
-### Weekend
-**Personal/Family Focus:**
-- [ ] 
-- [ ] 
+### 未完了タスク（持ち越し？）
+- [ ] [タスク] - アクション：[再スケジュール/委任/削除]
+- [ ] [タスク] - アクション：[再スケジュール/委任/削除]
 
 ---
 
-## 🏗️ Project Status
+## 📅 今週の計画
 
-### Active Projects
-1. **[Project Name]**
-   - This week's goal:
-   - Status: [On track/Behind/Ahead]
-   - Next action:
+### 🎯 1つの大きなこと
+**今週他に何も達成できなくても、これだけは達成する：**
 
-2. **[Project Name]**
-   - This week's goal:
-   - Status: [On track/Behind/Ahead]
-   - Next action:
 
----
+### 優先度マトリックス
 
-## 🧘 Habits & Routines
+#### 🔴 緊急かつ重要
+- [ ]
+- [ ]
 
-### Habit Scorecard
-- [ ] Daily Morning Routine (Target: 7/7)
-- [ ] Exercise (Target: 3x)
-- [ ] Meditation (Target: 5x)
-- [ ] Reading (Target: 30 min/day)
-- [ ] Weekly Review (Target: Sunday)
+#### 🟡 重要だが緊急ではない
+- [ ]
+- [ ]
+
+#### 🟢 クイックウィン
+- [ ]
+- [ ]
 
 ---
 
-## 📚 Learning Focus
+## 🗓️ 日ごとの計画
 
-**This Week's Topic:** 
-**Resource:** 
-**Time Allocated:** 
-**Key Question to Answer:** 
+### 月曜日 {{date+1:MM/DD}}
+**フォーカス：**
+- [ ] 優先タスク
+- [ ]
 
----
+### 火曜日 {{date+2:MM/DD}}
+**フォーカス：**
+- [ ] 優先タスク
+- [ ]
 
-## 💭 Reflection
+### 水曜日 {{date+3:MM/DD}}
+**フォーカス：**
+- [ ] 優先タスク
+- [ ]
 
-### Energy Check
-- **Physical:** [1-10] - Plan:
-- **Mental:** [1-10] - Plan:
-- **Emotional:** [1-10] - Plan:
+### 木曜日 {{date+4:MM/DD}}
+**フォーカス：**
+- [ ] 優先タスク
+- [ ]
 
-### This Week's Intention
-*How do I want to show up?*
+### 金曜日 {{date+5:MM/DD}}
+**フォーカス：**
+- [ ] 優先タスク
+- [ ]
 
-
-### Potential Obstacles & Strategies
-1. **Obstacle:** 
-   - **Strategy:** 
-
-2. **Obstacle:** 
-   - **Strategy:** 
-
----
-
-## 📝 Brain Dump
-*Ideas, thoughts, things to remember*
-
-- 
-- 
-- 
+### 週末
+**個人/家族フォーカス：**
+- [ ]
+- [ ]
 
 ---
 
-## ✅ Review Checklist
+## 🏗️ プロジェクトステータス
 
-- [ ] Reviewed last week's accomplishments
-- [ ] Processed all inbox items
-- [ ] Updated project statuses
-- [ ] Checked upcoming calendar
-- [ ] Reviewed [[2. Monthly Goals]]
-- [ ] Planned this week's priorities
-- [ ] Blocked time for deep work
-- [ ] Set ONE big thing for the week
-- [ ] Cleaned up digital workspace
-- [ ] Committed changes to Git
+### アクティブなプロジェクト
+1. **[プロジェクト名]**
+   - 今週の目標：
+   - ステータス：[順調/遅れ/先行]
+   - 次のアクション：
 
----
-
-## 🔗 Navigation
-- [[2. Monthly Goals|Current Month]]
-- [[1. Yearly Goals|Current Year]]
-- Previous: [[{{date-7:YYYY-MM-DD}} Weekly Review]]
-- Next: [[{{date+7:YYYY-MM-DD}} Weekly Review]]
+2. **[プロジェクト名]**
+   - 今週の目標：
+   - ステータス：[順調/遅れ/先行]
+   - 次のアクション：
 
 ---
 
-*Review Started: {{time}}*
-*Review Completed: [TIME]*
-*Time Invested: [X minutes]*
+## 🧘 習慣とルーティン
 
-**This Week's Mantra:** 
+### 習慣スコアカード
+- [ ] 毎日の朝ルーティン（目標：7/7）
+- [ ] 運動（目標：3回）
+- [ ] 瞑想（目標：5回）
+- [ ] 読書（目標：30分/日）
+- [ ] 週次レビュー（目標：日曜日）
+
+---
+
+## 📚 学習フォーカス
+
+**今週のトピック：**
+**リソース：**
+**割り当て時間：**
+**答えるべき主な質問：**
+
+---
+
+## 💭 振り返り
+
+### エネルギーチェック
+- **身体的：** [1-10] - 計画：
+- **精神的：** [1-10] - 計画：
+- **感情的：** [1-10] - 計画：
+
+### 今週の意図
+*どのように自分を示したいか？*
+
+
+### 潜在的な障害と戦略
+1. **障害：**
+   - **戦略：**
+
+2. **障害：**
+   - **戦略：**
+
+---
+
+## 📝 ブレインダンプ
+*アイデア、考え、覚えておくこと*
+
+-
+-
+-
+
+---
+
+## ✅ レビューチェックリスト
+
+- [ ] 先週の成果をレビューした
+- [ ] すべてのインボックスアイテムを処理した
+- [ ] プロジェクトステータスを更新した
+- [ ] 今後のカレンダーをチェックした
+- [ ] [[2. Monthly Goals]]をレビューした
+- [ ] 今週の優先事項を計画した
+- [ ] 集中作業のための時間をブロックした
+- [ ] 週の1つの大きなことを設定した
+- [ ] デジタルワークスペースをクリーンアップした
+- [ ] Gitに変更をコミットした
+
+---
+
+## 🔗 ナビゲーション
+- [[2. Monthly Goals|今月]]
+- [[1. Yearly Goals|今年]]
+- 前回：[[{{date-7:YYYY-MM-DD}} Weekly Review]]
+- 次回：[[{{date+7:YYYY-MM-DD}} Weekly Review]]
+
+---
+
+*レビュー開始：{{time}}*
+*レビュー完了：[時刻]*
+*投資時間：[X分]*
+
+**今週のマントラ：**

@@ -2,42 +2,42 @@
 paths: "**/*.md"
 ---
 
-# Markdown Standards for Vault
+# Vaultのためのマークダウン標準
 
-These conventions apply to all markdown files in the vault.
+これらの規約はvault内のすべてのマークダウンファイルに適用されます。
 
-## File Naming
+## ファイル命名
 
-- **Daily notes:** `YYYY-MM-DD.md` (e.g., `2024-01-15.md`)
-- **Project folders:** PascalCase (e.g., `MyProject/`)
-- **General notes:** kebab-case (e.g., `meeting-notes.md`)
-- **Templates:** Title Case with space (e.g., `Daily Template.md`)
+- **デイリーノート:** `YYYY-MM-DD.md`（例：`2024-01-15.md`）
+- **プロジェクトフォルダ:** PascalCase（例：`MyProject/`）
+- **一般ノート:** kebab-case（例：`meeting-notes.md`）
+- **テンプレート:** スペースを含むタイトルケース（例：`Daily Template.md`）
 
-## Heading Structure
+## 見出し構造
 
-- H1 (`#`) for note title only - one per file
-- H2 (`##`) for major sections
-- H3 (`###`) for subsections
-- Never skip heading levels (no H1 -> H3)
+- H1（`#`）はノートタイトルのみ - 1ファイルに1つ
+- H2（`##`）は主要なセクション用
+- H3（`###`）はサブセクション用
+- 見出しレベルをスキップしない（H1 -> H3は不可）
 
-## Links
+## リンク
 
-### Internal Links (Wiki-style)
+### 内部リンク（Wiki形式）
 ```markdown
-[[Note Name]]                    # Link to note
-[[Note Name|Display Text]]       # Link with alias
-[[Note Name#Section]]            # Link to heading
-[[Folder/Note Name]]             # Link with path
+[[ノート名]]                    # ノートへのリンク
+[[ノート名|表示テキスト]]       # エイリアス付きリンク
+[[ノート名#セクション]]         # 見出しへのリンク
+[[フォルダ/ノート名]]           # パス付きリンク
 ```
 
-### External Links
+### 外部リンク
 ```markdown
-[Display Text](https://url.com)
+[表示テキスト](https://url.com)
 ```
 
-## Tags
+## タグ
 
-### Standard Tag Hierarchy
+### 標準タグ階層
 ```
 #priority/high
 #priority/medium
@@ -55,22 +55,22 @@ These conventions apply to all markdown files in the vault.
 #context/family
 ```
 
-### Tag Placement
-- In YAML frontmatter: `tags: [tag1, tag2]`
-- Inline: at end of relevant line or paragraph
+### タグの配置
+- YAMLフロントマター内：`tags: [tag1, tag2]`
+- インライン：関連する行または段落の最後
 
-## Task Format
+## タスク形式
 
 ```markdown
-- [ ] Incomplete task
-- [x] Completed task
-- [ ] Task with context #work @home
-- [ ] Task with due date 📅 2024-01-20
+- [ ] 未完了タスク
+- [x] 完了タスク
+- [ ] コンテキスト付きタスク #work @home
+- [ ] 期限付きタスク 📅 2024-01-20
 ```
 
-## YAML Frontmatter
+## YAMLフロントマター
 
-All notes should include frontmatter:
+すべてのノートにフロントマターを含めるべき：
 ```yaml
 ---
 date: YYYY-MM-DD
@@ -79,30 +79,30 @@ status: active|completed|archived
 ---
 ```
 
-## Text Formatting
+## テキスト装飾
 
-- **Bold** for emphasis and key terms
-- *Italic* for subtle emphasis
-- `Code` for commands, paths, technical terms
-- > Blockquotes for important callouts
+- **太字**は強調と重要な用語用
+- *斜体*は控えめな強調用
+- `コード`はコマンド、パス、技術用語用
+- > 引用ブロックは重要な注意事項用
 
-## Lists
+## リスト
 
-- Use `-` for unordered lists
-- Use `1.` for ordered lists
-- Indent with 2 spaces for nested items
+- 順序なしリストには`-`を使用
+- 順序ありリストには`1.`を使用
+- ネストされた項目は2スペースでインデント
 
-## Code Blocks
+## コードブロック
 
-Use fenced code blocks with language:
+言語を指定したフェンスコードブロックを使用：
 ```javascript
 const example = "code";
 ```
 
-## Best Practices
+## ベストプラクティス
 
-1. One idea per paragraph
-2. Use blank lines between sections
-3. Keep lines under 100 characters when possible
-4. Include links to related notes
-5. Add meaningful frontmatter
+1. 1つの段落に1つのアイデア
+2. セクション間に空白行を使用
+3. 可能な限り行を100文字以下に保つ
+4. 関連ノートへのリンクを含める
+5. 意味のあるフロントマターを追加

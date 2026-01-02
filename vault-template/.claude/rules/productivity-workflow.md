@@ -2,116 +2,116 @@
 paths: "Goals/**/*.md, Daily Notes/**/*.md"
 ---
 
-# Productivity Workflow Rules
+# 生産性ワークフロールール
 
-These conventions apply to goal files and daily notes.
+これらの規約は目標ファイルとデイリーノートに適用されます。
 
-## Goal Cascade Principle
+## 目標カスケードの原則
 
-Goals flow from long-term vision to daily actions:
+目標は長期ビジョンから日々のアクションへと流れます：
 ```
-3-Year Vision (life direction)
-    → Yearly Goals (annual objectives)
-        → Monthly Goals (current focus)
-            → Weekly Review (this week's plan)
-                → Daily Tasks (today's actions)
+3年ビジョン（人生の方向性）
+    → 年間目標（年次目的）
+        → 月次目標（現在のフォーカス）
+            → 週次レビュー（今週の計画）
+                → デイリータスク（今日のアクション）
 ```
 
-## Goal Setting Standards
+## 目標設定の標準
 
-### SMART Goals
-Every goal should be:
-- **S**pecific - Clear and well-defined
-- **M**easurable - Has quantifiable outcomes
-- **A**chievable - Realistic given constraints
-- **R**elevant - Aligned with higher-level goals
-- **T**ime-bound - Has a deadline
+### SMART目標
+すべての目標は以下であるべき：
+- **S**pecific（具体的） - 明確で定義された
+- **M**easurable（測定可能） - 定量化可能な成果がある
+- **A**chievable（達成可能） - 制約を考慮して現実的
+- **R**elevant（関連性） - より高レベルの目標と整合
+- **T**ime-bound（期限付き） - 期限がある
 
-### Goal Limits
-- Maximum 3 active high-priority goals at once
-- Each goal should have clear success criteria
-- Goals without action in 14+ days need review
+### 目標の制限
+- 一度にアクティブな高優先度目標は最大3つ
+- 各目標には明確な成功基準が必要
+- 14日以上アクションがない目標はレビューが必要
 
-## Daily Planning Rules
+## デイリー計画ルール
 
-### Morning (5 minutes)
-1. Create daily note or open existing
-2. Identify ONE Big Thing for the day
-3. Review yesterday's incomplete tasks
-4. Set realistic time blocks
+### 朝（5分）
+1. デイリーノートを作成または既存のものを開く
+2. 1日の1つの大きなことを特定
+3. 昨日の未完了タスクをレビュー
+4. 現実的な時間ブロックを設定
 
-### The ONE Thing
-> "What's the ONE thing I can do today such that by doing it everything else will be easier or unnecessary?"
+### 1つのこと
+> "今日できる1つのことは何か。それを行うことで他のすべてが簡単になるか不要になるか？"
 
-Always answer this question in the Focus section.
+常にフォーカスセクションでこの質問に答えます。
 
-### Task Prioritization
-1. Must Do Today - Non-negotiable, deadline-driven
-2. Should Do - Important but flexible timing
-3. Could Do - Nice to have if time permits
-4. Won't Do - Explicitly dropped (acknowledge trade-offs)
+### タスクの優先順位付け
+1. 今日やらなければならない - 譲れない、期限駆動
+2. やるべき - 重要だが時期は柔軟
+3. できればやる - 時間があればやりたい
+4. やらない - 明示的に落とす（トレードオフを認識）
 
-## Weekly Review Rules
+## 週次レビュールール
 
-### When: Sunday or Monday
-### Duration: 30 minutes minimum
+### いつ：日曜日または月曜日
+### 期間：最低30分
 
-### Required Elements
-1. **Collect** - Gather all loose ends
-2. **Process** - Decide on each item
-3. **Review** - Check goal progress
-4. **Plan** - Set next week's priorities
+### 必須要素
+1. **収集** - すべての緩い端を集める
+2. **処理** - 各項目について決定する
+3. **レビュー** - 目標の進捗をチェック
+4. **計画** - 来週の優先事項を設定
 
-### Checklist
-- [ ] All inboxes emptied
-- [ ] All daily notes from week reviewed
-- [ ] Goal progress calculated
-- [ ] Next week's ONE Big Thing identified
-- [ ] Calendar reviewed for commitments
+### チェックリスト
+- [ ] すべてのインボックスを空にした
+- [ ] 週のすべてのデイリーノートをレビューした
+- [ ] 目標の進捗を計算した
+- [ ] 来週の1つの大きなことを特定した
+- [ ] コミットメントのためにカレンダーをレビューした
 
-## Progress Tracking
+## 進捗トラッキング
 
-### Checkbox Format
+### チェックボックス形式
 ```markdown
-- [ ] Not started
-- [/] In progress (optional)
-- [x] Completed
+- [ ] 開始していない
+- [/] 進行中（オプション）
+- [x] 完了
 ```
 
-### Percentage Updates
-Update percentages when progress is made:
+### 進捗率の更新
+進捗があったときに率を更新：
 ```markdown
-- [ ] Learn Spanish (25% → 30%)
+- [ ] スペイン語を学ぶ（25% → 30%）
 ```
 
-### Milestone Dates
-Record significant progress:
+### マイルストーン日付
+重要な進捗を記録：
 ```markdown
-- [x] Complete course Module 1 ✓ 2024-01-15
+- [x] コースモジュール1完了 ✓ 2024-01-15
 ```
 
-## Time Management
+## 時間管理
 
-### Time Blocks
-Structure days around energy:
-- 🌅 Morning: High-focus work (9-12)
-- ☀️ Afternoon: Meetings, admin (12-5)
-- 🌙 Evening: Light tasks, learning (5+)
+### 時間ブロック
+エネルギーに基づいて1日を構成：
+- 🌅 朝：高フォーカス作業（9-12）
+- ☀️ 午後：ミーティング、管理業務（12-5）
+- 🌙 夕方：軽いタスク、学習（5+）
 
-### Energy Tracking
-Log energy levels daily (1-10):
+### エネルギートラッキング
+エネルギーレベルを毎日記録（1-10）：
 ```markdown
-**Energy:** 7/10 - Good morning, afternoon slump
+**エネルギー:** 7/10 - 午前中は良好、午後にスランプ
 ```
 
-## Archive Rules
+## アーカイブルール
 
-Move to Archives when:
-- Project completed
-- Goal achieved or abandoned
-- Daily notes older than 30 days (optional)
+以下の場合にArchivesに移動：
+- プロジェクト完了
+- 目標達成または放棄
+- 30日以上前のデイリーノート（オプション）
 
-Archive format:
+アーカイブ形式：
 ```
 Archives/
 ├── Projects/

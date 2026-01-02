@@ -1,509 +1,509 @@
-# Troubleshooting Guide
+# トラブルシューティングガイド
 
-Common issues and their solutions. If you can't find your issue here, check the community forums or documentation.
+よくある問題とその解決策。ここで問題が見つからない場合は、コミュニティフォーラムまたはドキュメントを確認してください。
 
-## Quick Fixes
+## クイックフィックス
 
-### Before Anything Else, Try These:
+### 何よりも先に、これらを試してください:
 
-1. **Restart Obsidian**
-   - Completely close and reopen
-   - Many issues resolve with a fresh start
+1. **Obsidianを再起動**
+   - 完全に閉じて再度開く
+   - 多くの問題は新規起動で解決します
 
-2. **Check File Permissions**
+2. **ファイル権限を確認**
    ```bash
    ls -la ~/Documents/ObsidianPKM
-   # Should show your user as owner
+   # あなたのユーザーが所有者として表示されるはずです
    ```
 
-3. **Verify Claude Code**
+3. **Claude Codeを確認**
    ```bash
    claude --version
-   # Should show version number
+   # バージョン番号が表示されるはずです
    ```
 
-4. **Pull Latest Changes**
+4. **最新の変更を取得**
    ```bash
    git pull origin main
-   # Get any updates
+   # 更新を取得
    ```
 
-## Common Issues
+## よくある問題
 
-### Obsidian Issues
+### Obsidianの問題
 
-#### "Cannot open vault" Error
-**Problem**: Obsidian won't open your vault folder
+#### 「ボルトを開けません」エラー
+**問題**: Obsidianがボルトフォルダを開けない
 
-**Solutions**:
-1. Check folder exists:
+**解決策**:
+1. フォルダが存在することを確認:
    ```bash
    cd ~/Documents/ObsidianPKM
    ls -la
    ```
 
-2. Reset Obsidian settings:
+2. Obsidian設定をリセット:
    ```bash
-   # Backup first
+   # まずバックアップ
    mv .obsidian .obsidian.backup
-   # Restart Obsidian
+   # Obsidianを再起動
    ```
 
-3. Check for corrupted files:
+3. 破損したファイルを確認:
    ```bash
-   # Find files with issues
+   # 問題のあるファイルを検索
    find . -name "*.md" -exec file {} \; | grep -v "ASCII text"
    ```
 
-#### Templates Not Working
-**Problem**: Daily template doesn't create properly
+#### テンプレートが動作しない
+**問題**: デイリーテンプレートが正しく作成されない
 
-**Solutions**:
-1. Verify template location:
+**解決策**:
+1. テンプレートの場所を確認:
    ```
-   Templates/Daily Template.md should exist
+   Templates/Daily Template.md が存在するはずです
    ```
 
-2. Check template settings:
-   - Settings → Templates
-   - Template folder location: "Templates"
+2. テンプレート設定を確認:
+   - 設定 → テンプレート
+   - テンプレートフォルダの場所: "Templates"
 
-3. Check date format:
+3. 日付形式を確認:
    ```markdown
-   {{date}} and {{time}} should work
+   {{date}} と {{time}} が機能するはずです
    ```
 
-#### Links Not Working
-**Problem**: [[Wiki links]] don't connect
+#### リンクが動作しない
+**問題**: [[Wikiリンク]]が接続されない
 
-**Solutions**:
-1. Check link format in settings:
-   - Settings → Files & Links
-   - Use [[Wiki Links]]: ON
-   - New link format: Relative path
+**解決策**:
+1. 設定でリンク形式を確認:
+   - 設定 → ファイルとリンク
+   - [[Wikiリンク]]を使用: オン
+   - 新規リンク形式: 相対パス
 
-2. Verify file exists:
-   - Broken links appear faded
-   - Click to create missing file
+2. ファイルが存在することを確認:
+   - 壊れたリンクは薄く表示されます
+   - クリックして欠落ファイルを作成
 
-### Claude Code Issues
+### Claude Codeの問題
 
-#### "Command not found: claude"
-**Problem**: Claude Code CLI not installed or not in PATH
+#### 「コマンドが見つかりません: claude」
+**問題**: Claude Code CLIがインストールされていないかPATHにない
 
-**Solutions**:
-1. Install Claude Code:
+**解決策**:
+1. Claude Codeをインストール:
    ```bash
-   # Check installation guide
+   # インストールガイドを確認
    # https://code.claude.com/docs
    ```
 
-2. Add to PATH:
+2. PATHに追加:
    ```bash
-   # Add to ~/.bashrc or ~/.zshrc
+   # ~/.bashrc または ~/.zshrc に追加
    export PATH="$PATH:/path/to/claude"
    source ~/.bashrc
    ```
 
-#### Commands Not Recognized
-**Problem**: /daily, /weekly etc. not working
+#### コマンドが認識されない
+**問題**: /daily、/weekly等が動作しない
 
-**Solutions**:
-1. Check command files exist:
+**解決策**:
+1. コマンドファイルが存在することを確認:
    ```bash
    ls -la .claude/commands/
-   # Should show daily.md, weekly.md, etc.
+   # daily.md, weekly.md等が表示されるはずです
    ```
 
-2. Copy commands if missing:
+2. 欠落している場合はコマンドをコピー:
    ```bash
    cp claude-commands/* .claude/commands/
    ```
 
-3. Check file permissions:
+3. ファイル権限を確認:
    ```bash
    chmod 644 .claude/commands/*.md
    ```
 
-#### "Context too long" Error
-**Problem**: Too many files loaded with /onboard
+#### 「コンテキストが長すぎます」エラー
+**問題**: /onboard で読み込むファイルが多すぎる
 
-**Solutions**:
-1. Load specific context:
+**解決策**:
+1. 特定のコンテキストを読み込む:
    ```bash
    claude code /onboard Projects/CurrentProject
    ```
 
-2. Clean up CLAUDE.md files:
-   - Remove outdated information
-   - Keep only essential context
+2. CLAUDE.mdファイルをクリーンアップ:
+   - 古い情報を削除
+   - 必須のコンテキストのみを保持
 
-3. Use selective loading:
+3. 選択的読み込みを使用:
    ```bash
-   # Skip old projects
+   # 古いプロジェクトをスキップ
    claude code /onboard --exclude Archives
    ```
 
-### Git Issues
+### Gitの問題
 
-#### "Failed to push" Error
-**Problem**: Can't push to GitHub
+#### 「プッシュに失敗しました」エラー
+**問題**: GitHubにプッシュできない
 
-**Solutions**:
-1. Pull first:
+**解決策**:
+1. まずプル:
    ```bash
    git pull --rebase origin main
    git push
    ```
 
-2. Check remote:
+2. リモートを確認:
    ```bash
    git remote -v
-   # Should show origin URLs
+   # origin URLsが表示されるはずです
    ```
 
-3. Fix authentication:
+3. 認証を修正:
    ```bash
-   # Use personal access token
+   # 個人アクセストークンを使用
    git remote set-url origin https://TOKEN@github.com/user/repo.git
    ```
 
-#### Merge Conflicts
-**Problem**: Conflicts when pulling/pushing
+#### マージコンフリクト
+**問題**: プル/プッシュ時のコンフリクト
 
-**Solutions**:
-1. View conflicts:
+**解決策**:
+1. コンフリクトを表示:
    ```bash
    git status
-   # Shows conflicted files
+   # コンフリクトしているファイルを表示
    ```
 
-2. Resolve manually:
-   - Open conflicted files
-   - Look for <<<<<<< markers
-   - Choose correct version
-   - Remove markers
+2. 手動で解決:
+   - コンフリクトしているファイルを開く
+   - <<<<<<< マーカーを探す
+   - 正しいバージョンを選択
+   - マーカーを削除
 
-3. Complete merge:
+3. マージを完了:
    ```bash
    git add .
    git commit -m "Resolved conflicts"
    git push
    ```
 
-#### Large File Issues
-**Problem**: Git rejects large files
+#### 大きなファイルの問題
+**問題**: Gitが大きなファイルを拒否
 
-**Solutions**:
-1. Use Git LFS:
+**解決策**:
+1. Git LFSを使用:
    ```bash
    git lfs track "*.pdf"
    git lfs track "*.png"
    git add .gitattributes
    ```
 
-2. Add to .gitignore:
+2. .gitignoreに追加:
    ```
    *.pdf
    *.mov
    *.zip
    ```
 
-3. Remove from history:
+3. 履歴から削除:
    ```bash
    git filter-branch --tree-filter 'rm -f path/to/large/file' HEAD
    ```
 
-### Daily Note Issues
+### デイリーノートの問題
 
-#### Wrong Date Format
-**Problem**: Daily note has incorrect date
+#### 誤った日付形式
+**問題**: デイリーノートの日付が正しくない
 
-**Solutions**:
-1. Check template variables:
+**解決策**:
+1. テンプレート変数を確認:
    ```markdown
-   {{date:YYYY-MM-DD}}  # Standard format
-   {{date:dddd, MMMM DD, YYYY}}  # Long format
+   {{date:YYYY-MM-DD}}  # 標準形式
+   {{date:dddd, MMMM DD, YYYY}}  # 長い形式
    ```
 
-2. Verify system date:
+2. システム日付を確認:
    ```bash
    date
-   # Should show correct date/time
+   # 正しい日付/時刻が表示されるはずです
    ```
 
-3. Set timezone:
+3. タイムゾーンを設定:
    ```bash
-   export TZ='America/New_York'
+   export TZ='Asia/Tokyo'
    ```
 
-#### Duplicate Daily Notes
-**Problem**: Multiple notes for same day
+#### 重複したデイリーノート
+**問題**: 同じ日に複数のノート
 
-**Solutions**:
-1. Check naming convention:
-   - Should be YYYY-MM-DD.md
-   - No spaces or special characters
+**解決策**:
+1. 命名規則を確認:
+   - YYYY-MM-DD.md であるべき
+   - スペースや特殊文字なし
 
-2. Merge duplicates:
+2. 重複をマージ:
    ```bash
-   # Copy content from duplicate
-   # Paste into main note
-   # Delete duplicate
+   # 重複からコンテンツをコピー
+   # メインノートに貼り付け
+   # 重複を削除
    ```
 
-3. Prevent future duplicates:
-   - Always use /daily command
-   - Don't create manually
+3. 今後の重複を防止:
+   - 常に/dailyコマンドを使用
+   - 手動で作成しない
 
-### GitHub Action Issues
+### GitHub Actionの問題
 
-#### Workflow Not Triggering
-**Problem**: GitHub Action doesn't run
+#### ワークフローがトリガーされない
+**問題**: GitHub Actionが実行されない
 
-**Solutions**:
-1. Check workflow file:
+**解決策**:
+1. ワークフローファイルを確認:
    ```yaml
-   # .github/workflows/claude.yml should exist
+   # .github/workflows/claude.yml が存在するはずです
    ```
 
-2. Verify triggers:
+2. トリガーを確認:
    ```yaml
    on:
      issues:
        types: [opened, edited]
    ```
 
-3. Check Actions enabled:
-   - Repository → Settings → Actions
+3. Actionsが有効になっていることを確認:
+   - リポジトリ → Settings → Actions
    - Actions permissions: Allow
 
-#### OAuth Token Invalid
-**Problem**: CLAUDE_CODE_OAUTH_TOKEN not working
+#### OAuthトークンが無効
+**問題**: CLAUDE_CODE_OAUTH_TOKENが動作しない
 
-**Solutions**:
-1. Regenerate token:
-   - Visit Claude Code documentation
-   - Follow OAuth setup guide
+**解決策**:
+1. トークンを再生成:
+   - Claude Codeドキュメントにアクセス
+   - OAuth設定ガイドに従う
 
-2. Update secret:
-   - Repository → Settings → Secrets
-   - Update CLAUDE_CODE_OAUTH_TOKEN
+2. シークレットを更新:
+   - リポジトリ → Settings → Secrets
+   - CLAUDE_CODE_OAUTH_TOKENを更新
 
-3. Check token permissions:
-   - Needs repo access
-   - Needs workflow access
+3. トークン権限を確認:
+   - repoアクセスが必要
+   - workflowアクセスが必要
 
-### Performance Issues
+### パフォーマンスの問題
 
-#### Obsidian Running Slowly
-**Problem**: Vault takes long to load or respond
+#### Obsidianが遅い
+**問題**: ボルトの読み込みや応答に時間がかかる
 
-**Solutions**:
-1. Reduce vault size:
+**解決策**:
+1. ボルトサイズを削減:
    ```bash
-   # Archive old notes
+   # 古いノートをアーカイブ
    mv "Daily Notes/2023*" Archives/2023/
    ```
 
-2. Disable unused plugins:
-   - Settings → Community plugins
-   - Disable what you don't use
+2. 未使用のプラグインを無効化:
+   - 設定 → コミュニティプラグイン
+   - 使用していないものを無効化
 
-3. Clear cache:
+3. キャッシュをクリア:
    ```bash
    rm -rf .obsidian/cache
    ```
 
-4. Optimize images:
+4. 画像を最適化:
    ```bash
-   # Compress images
+   # 画像を圧縮
    find . -name "*.png" -exec pngquant --ext .png --force {} \;
    ```
 
-#### Search Not Working
-**Problem**: Can't find notes with search
+#### 検索が動作しない
+**問題**: 検索でノートが見つからない
 
-**Solutions**:
-1. Rebuild search index:
-   - Settings → About → Reindex vault
+**解決策**:
+1. 検索インデックスを再構築:
+   - 設定 → About → Reindex vault
 
-2. Check search syntax:
+2. 検索構文を確認:
    ```
-   "exact phrase"
+   "完全一致フレーズ"
    tag:#daily
    file:2024-01-15
    ```
 
-3. Remove special characters from filenames
+3. ファイル名から特殊文字を削除
 
-## Platform-Specific Issues
+## プラットフォーム固有の問題
 
 ### macOS
 
-#### "Operation not permitted"
+#### 「操作が許可されていません」
 ```bash
-# Grant Obsidian full disk access
-System Preferences → Security & Privacy → Full Disk Access
+# Obsidianにフルディスクアクセスを付与
+システム環境設定 → セキュリティとプライバシー → フルディスクアクセス
 ```
 
-#### iCloud Sync Issues
-- Don't put vault in iCloud Drive
-- Use Git for synchronization instead
-- Or use Obsidian Sync service
+#### iCloud同期の問題
+- ボルトをiCloud Driveに置かない
+- 代わりにGitで同期を使用
+- またはObsidian Syncサービスを使用
 
 ### Windows
 
-#### Path Too Long
+#### パスが長すぎる
 ```powershell
-# Enable long paths
+# 長いパスを有効化
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 ```
 
-#### Line Ending Issues
+#### 行末の問題
 ```bash
-# Configure Git
+# Gitを設定
 git config --global core.autocrlf true
 ```
 
 ### Linux
 
-#### Permission Denied
+#### 権限が拒否されました
 ```bash
-# Fix permissions
+# 権限を修正
 chmod -R 755 ~/Documents/ObsidianPKM
 chown -R $USER:$USER ~/Documents/ObsidianPKM
 ```
 
-#### Missing Dependencies
+#### 依存関係の欠落
 ```bash
-# Install required packages
+# 必要なパッケージをインストール
 sudo apt-get update
 sudo apt-get install git curl
 ```
 
-## Recovery Procedures
+## 復旧手順
 
-### Restore from Backup
+### バックアップから復元
 
-#### Using Git
+#### Gitを使用
 ```bash
-# View history
+# 履歴を表示
 git log --oneline
 
-# Restore to previous commit
+# 以前のコミットに復元
 git reset --hard COMMIT_HASH
 
-# Or restore single file
+# または単一ファイルを復元
 git checkout COMMIT_HASH -- path/to/file.md
 ```
 
-#### Using File System
+#### ファイルシステムを使用
 ```bash
-# If you have Time Machine (macOS)
-# Or File History (Windows)
-# Or Backups (Linux)
+# Time Machine (macOS)がある場合
+# またはFile History (Windows)
+# またはBackups (Linux)
 ```
 
-### Rebuild Vault
+### ボルトの再構築
 
-If vault is corrupted:
+ボルトが破損している場合:
 ```bash
-# 1. Backup current vault
+# 1. 現在のボルトをバックアップ
 cp -r ~/Documents/ObsidianPKM ~/Documents/ObsidianPKM.backup
 
-# 2. Create fresh vault
+# 2. 新しいボルトを作成
 cp -r vault-template ~/NewVault
 
-# 3. Copy your notes
+# 3. ノートをコピー
 cp -r ~/Documents/ObsidianPKM.backup/Daily\ Notes/* ~/NewVault/Daily\ Notes/
 cp -r ~/Documents/ObsidianPKM.backup/Projects/* ~/NewVault/Projects/
 
-# 4. Reinitialize Git
+# 4. Gitを再初期化
 cd ~/NewVault
 git init
 git add .
 git commit -m "Rebuilt vault"
 ```
 
-### Emergency Access
+### 緊急アクセス
 
-When locked out:
-1. Access via GitHub.com
-2. Edit files in browser
-3. Download as ZIP if needed
-4. Use mobile app as backup
+ロックアウトされた場合:
+1. GitHub.com経由でアクセス
+2. ブラウザでファイルを編集
+3. 必要に応じてZIPとしてダウンロード
+4. バックアップとしてモバイルアプリを使用
 
-## Preventive Measures
+## 予防措置
 
-### Regular Maintenance
+### 定期メンテナンス
 
-#### Weekly
+#### 週次
 ```bash
-# Clean up
+# クリーンアップ
 claude code "Archive completed tasks and old notes"
 
-# Backup
+# バックアップ
 git push origin main
 ```
 
-#### Monthly
+#### 月次
 ```bash
-# Optimize
+# 最適化
 claude code "Identify and remove duplicate content"
 
-# Update
+# 更新
 git pull origin main
 ```
 
-#### Quarterly
+#### 四半期ごと
 ```bash
-# Review system
+# システムのレビュー
 claude code "Analyze vault structure and suggest improvements"
 
-# Clean dependencies
+# 依存関係のクリーン
 rm -rf node_modules .obsidian/cache
 ```
 
-### Backup Strategy
+### バックアップ戦略
 
-1. **Version Control**: Git commits daily
-2. **Cloud Backup**: GitHub private repo
-3. **Local Backup**: Time Machine/File History
-4. **Export Backup**: Monthly markdown export
+1. **バージョン管理**: 毎日Gitコミット
+2. **クラウドバックアップ**: GitHubプライベートリポジトリ
+3. **ローカルバックアップ**: Time Machine/ファイル履歴
+4. **エクスポートバックアップ**: 月次markdownエクスポート
 
-## Getting Help
+## ヘルプの取得
 
-### Resources
+### リソース
 - [Obsidian Forum](https://forum.obsidian.md/)
 - [Claude Code Docs](https://code.claude.com/docs)
 - [GitHub Issues](https://github.com/ballred/obsidian-claude-pkm/issues)
 
-### Debug Information
-When asking for help, provide:
+### デバッグ情報
+ヘルプを求める際に提供する情報:
 ```bash
-# System info
+# システム情報
 uname -a
 
-# Obsidian version
-# (Check in Settings → About)
+# Obsidianバージョン
+# (設定 → Aboutで確認)
 
-# Claude version
+# Claudeバージョン
 claude --version
 
-# Git status
+# Gitステータス
 git status
 git remote -v
 
-# Vault structure
+# ボルト構造
 ls -la ~/Documents/ObsidianPKM
 ```
 
-### Community Support
-- Discord channels
+### コミュニティサポート
+- Discordチャンネル
 - Reddit: r/ObsidianMD
 - Twitter: #ObsidianMD
 
 ---
 
-**Remember**: Most issues have simple solutions. Stay calm, check the basics, and work through systematically.
+**覚えておいてください**: ほとんどの問題にはシンプルな解決策があります。落ち着いて、基本を確認し、体系的に取り組んでください。

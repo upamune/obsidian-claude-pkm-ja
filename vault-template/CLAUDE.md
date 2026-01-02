@@ -1,96 +1,96 @@
-# Obsidian PKM Vault Context
+# Obsidian PKM Vaultコンテキスト
 
-## System Purpose
-[CUSTOMIZE: Add your personal mission statement here]
+## システムの目的
+[カスタマイズ：ここにあなたの個人的なミッションステートメントを追加]
 
-*Example: "Build meaningful technology while maintaining balance across health, relationships, and personal growth."*
+*例："健康、人間関係、個人の成長のバランスを維持しながら、意味のある技術を構築する。"*
 
-## Directory Structure
+## ディレクトリ構造
 
-| Folder | Purpose |
+| フォルダ | 目的 |
 |--------|---------|
-| `Daily Notes/` | Daily journal entries (`YYYY-MM-DD.md`) |
-| `Goals/` | Goal cascade (3-year → yearly → monthly → weekly) |
-| `Projects/` | Active projects with their own `CLAUDE.md` |
-| `Templates/` | Reusable note structures |
-| `Archives/` | Completed/inactive content |
-| `Inbox/` | Uncategorized captures (optional) |
+| `Daily Notes/` | デイリージャーナルエントリ（`YYYY-MM-DD.md`） |
+| `Goals/` | 目標カスケード（3年 → 年次 → 月次 → 週次） |
+| `Projects/` | 独自の`CLAUDE.md`を持つアクティブプロジェクト |
+| `Templates/` | 再利用可能なノート構造 |
+| `Archives/` | 完了/非アクティブコンテンツ |
+| `Inbox/` | 未分類キャプチャ（オプション） |
 
-## Current Focus
+## 現在のフォーカス
 
-See @Goals/2. Monthly Goals.md for this month's priorities.
+今月の優先事項については@Goals/2. Monthly Goals.mdを参照してください。
 
-## Tag System
+## タグシステム
 
-**Priority:** `#priority/high`, `#priority/medium`, `#priority/low`
-**Status:** `#active`, `#waiting`, `#completed`, `#archived`
-**Context:** `#work`, `#personal`, `#health`, `#learning`, `#family`
+**優先度：** `#priority/high`、`#priority/medium`、`#priority/low`
+**ステータス：** `#active`、`#waiting`、`#completed`、`#archived`
+**コンテキスト：** `#work`、`#personal`、`#health`、`#learning`、`#family`
 
-## Available Commands
+## 利用可能なコマンド
 
-| Command | Purpose |
+| コマンド | 目的 |
 |---------|---------|
-| `/daily` | Create today's daily note from template |
-| `/weekly` | Run weekly review process |
-| `/push` | Commit and push changes to Git |
-| `/onboard` | Load full vault context |
+| `/daily` | テンプレートから今日のデイリーノートを作成 |
+| `/weekly` | 週次レビュープロセスを実行 |
+| `/push` | 変更をGitにコミットしてプッシュ |
+| `/onboard` | 完全なvaultコンテキストをロード |
 
-## Available Agents
+## 利用可能なエージェント
 
-| Agent | Purpose |
+| エージェント | 目的 |
 |-------|---------|
-| `note-organizer` | Organize vault, fix links, consolidate notes |
-| `weekly-reviewer` | Facilitate weekly review aligned with goals |
-| `goal-aligner` | Check daily/weekly alignment with long-term goals |
-| `inbox-processor` | GTD-style inbox processing |
+| `note-organizer` | vaultを整理、リンクを修正、ノートを統合 |
+| `weekly-reviewer` | 目標と整合した週次レビューを促進 |
+| `goal-aligner` | 日次/週次と長期目標の整合をチェック |
+| `inbox-processor` | GTDスタイルのインボックス処理 |
 
-## Available Skills
+## 利用可能なスキル
 
-- **obsidian-vault-ops** - Read/write vault files, manage wiki-links
-- **goal-tracking** - Track progress across goal cascade
-- **daily-workflow** - Morning/midday/evening routines
+- **obsidian-vault-ops** - vaultファイルの読み書き、wikiリンクの管理
+- **goal-tracking** - 目標カスケード全体で進捗を追跡
+- **daily-workflow** - 朝/昼/夕方のルーティン
 
-## Output Styles
+## 出力スタイル
 
 **Productivity Coach** (`/output-style coach`)
-- Challenges assumptions constructively
-- Holds you accountable to commitments
-- Asks powerful questions for clarity
-- Connects daily work to mission
+- 建設的に前提に挑戦
+- コミットメントに対して説明責任を保持
+- 明確さのための強力な質問
+- 日々の作業をミッションに接続
 
-## Daily Workflow
+## デイリーワークフロー
 
-### Morning (5 min)
-1. Run `/daily` to create today's note
-2. Identify ONE main focus
-3. Review yesterday's incomplete tasks
-4. Set time blocks
+### 朝（5分）
+1. `/daily`を実行して今日のノートを作成
+2. 1つの主要フォーカスを特定
+3. 昨日の未完了タスクをレビュー
+4. 時間ブロックを設定
 
-### Evening (5 min)
-1. Complete reflection section
-2. Move unfinished tasks
-3. Run `/push` to save changes
+### 夕方（5分）
+1. リフレクションセクションを完了
+2. 未完了タスクを移動
+3. `/push`を実行して変更を保存
 
-### Weekly (30 min - Sunday)
-1. Run `/weekly` for guided review
-2. Calculate goal progress
-3. Plan next week's focus
-4. Archive old notes
+### 週次（30分 - 日曜日）
+1. ガイド付きレビューのために`/weekly`を実行
+2. 目標進捗を計算
+3. 来週のフォーカスを計画
+4. 古いノートをアーカイブ
 
-## Best Practices
+## ベストプラクティス
 
-1. **Be Specific** - Give clear context about what you need
-2. **Reference Goals** - Connect daily tasks to objectives
-3. **Use Coach Mode** - When you need accountability
-4. **Keep It Current** - Update project CLAUDE.md files regularly
+1. **具体的に** - 必要なことについて明確なコンテキストを提供
+2. **目標を参照** - 日々のタスクを目標に接続
+3. **コーチモードを使用** - 説明責任が必要な場合
+4. **最新に保つ** - プロジェクトCLAUDE.mdファイルを定期的に更新
 
-## Customization
+## カスタマイズ
 
-For personal overrides that shouldn't be committed, create `CLAUDE.local.md`.
-See `CLAUDE.local.md.template` for format.
+コミットすべきでない個人的なオーバーライドについては、`CLAUDE.local.md`を作成してください。
+形式については`CLAUDE.local.md.template`を参照してください。
 
 ---
 
-*See @.claude/rules/ for detailed conventions*
-*Last Updated: 2024-12-19*
-*System Version: 2.0*
+*詳細な規約については@.claude/rules/を参照*
+*最終更新：2024-12-19*
+*システムバージョン：2.0*

@@ -1,46 +1,48 @@
-# Obsidian + Claude Code PKM Starter Kit 🚀
+# Obsidian + Claude Code PKM スターターキット 🚀
 
-A complete personal knowledge management system that combines Obsidian's powerful note-taking with Claude Code's AI assistance. Go from zero to a fully functional PKM in 15 minutes or less.
+Obsidianの強力なノート作成機能とClaude CodeのAIアシスタンスを組み合わせた、完全な個人ナレッジマネジメントシステムです。15分以内にゼロから完全に機能するPKMを構築できます。
 
-**v2.0** - Now with hooks, custom agents, skills, and modular rules.
+> **Note:** これは [ballred/obsidian-claude-pkm](https://github.com/ballred/obsidian-claude-pkm) の日本語翻訳版です。
 
-## ✨ Features
+**v2.0** - フック、カスタムエージェント、スキル、モジュール型ルールを追加しました。
 
-### Core PKM
-- **🎯 Goal-Aligned System** - Cascading goals from 3-year vision to daily tasks
-- **📅 Daily Notes System** - Structured daily planning and reflection
-- **📱 Mobile Ready** - GitHub integration for notes on any device
-- **🔄 Version Controlled** - Never lose a thought with automatic Git backups
-- **🎨 Fully Customizable** - Adapt templates and structure to your needs
+## ✨ 機能
 
-### AI-Powered (v2.0)
-- **🪝 Hooks** - Auto-commit on save, session initialization
-- **🤖 Custom Agents** - Note organizer, weekly reviewer, goal aligner, inbox processor
-- **⚡ Skills** - Auto-discovered capabilities for vault ops, goal tracking, daily workflows
-- **📏 Modular Rules** - Path-specific conventions for markdown, productivity, projects
-- **🧠 Output Styles** - Productivity Coach for accountability
-- **📊 Status Line** - Vault stats in terminal (note count, inbox, uncommitted changes)
+### コアPKM
+- **🎯 目標連携システム** - 3年ビジョンから日次タスクまでの階層的な目標管理
+- **📅 デイリーノートシステム** - 構造化された日次計画と振り返り
+- **📱 モバイル対応** - GitHub連携によりあらゆるデバイスでノート管理
+- **🔄 バージョン管理** - 自動Gitバックアップで思考を失わない
+- **🎨 完全カスタマイズ可能** - テンプレートと構造を自分のニーズに合わせて調整
 
-## 🚀 Quick Start
+### AI機能 (v2.0)
+- **🪝 フック** - 保存時の自動コミット、セッション初期化
+- **🤖 カスタムエージェント** - ノート整理、週次レビュー、目標調整、インボックス処理
+- **⚡ スキル** - Vault操作、目標追跡、日次ワークフローの自動検出機能
+- **📏 モジュール型ルール** - Markdown、生産性、プロジェクトのパス固有の規約
+- **🧠 出力スタイル** - アカウンタビリティのための生産性コーチ
+- **📊 ステータスライン** - ターミナルでのVault統計表示（ノート数、インボックス、未コミット変更）
 
-### Prerequisites
-- [Obsidian](https://obsidian.md/) installed
-- [Claude Code CLI](https://code.claude.com/docs) installed
-- Git installed
-- GitHub account (optional, for mobile sync)
+## 🚀 クイックスタート
 
-### 15-Minute Quickstart
+### 前提条件
+- [Obsidian](https://obsidian.md/) がインストール済み
+- [Claude Code CLI](https://code.claude.com/docs) がインストール済み
+- Git がインストール済み
+- GitHubアカウント（オプション、モバイル同期用）
+
+### 15分クイックスタート
 ```bash
-# 1) Install prerequisites (once)
+# 1) 前提条件をインストール（初回のみ）
 # - Obsidian: https://obsidian.md/
 # - Git: https://git-scm.com/
 # - Claude Code CLI: https://code.claude.com/docs
 
-# 2) Clone this repository
+# 2) このリポジトリをクローン
 git clone https://github.com/ballred/obsidian-claude-pkm.git
 cd obsidian-claude-pkm
 
-# 3) Run setup (macOS/Linux)
+# 3) セットアップを実行（macOS/Linux）
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 
@@ -48,56 +50,56 @@ chmod +x scripts/setup.sh
 scripts\setup.bat
 ```
 
-### Manual Copy (alternative)
+### 手動コピー（代替方法）
 ```bash
-# Copy the vault template to your preferred location
+# Vaultテンプレートを任意の場所にコピー
 cp -r vault-template ~/Documents/ObsidianPKM
 ```
 
-### Open in Obsidian
-1. Launch Obsidian
-2. Click "Open folder as vault"
-3. Select your vault folder (e.g., ~/Documents/ObsidianPKM)
-4. Start with today's daily note!
+### Obsidianで開く
+1. Obsidianを起動
+2. 「フォルダをVaultとして開く」をクリック
+3. Vaultフォルダを選択（例：~/Documents/ObsidianPKM）
+4. 今日のデイリーノートから始めましょう！
 
-## 📖 Documentation
+## 📖 ドキュメント
 
-- **[Setup Guide](docs/SETUP_GUIDE.md)** - Detailed installation instructions
-- **[Customization](docs/CUSTOMIZATION.md)** - Make it yours
-- **[Workflow Examples](docs/WORKFLOW_EXAMPLES.md)** - Daily routines and best practices
-- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[セットアップガイド](docs/SETUP_GUIDE.md)** - 詳細なインストール手順
+- **[カスタマイズ](docs/CUSTOMIZATION.md)** - 自分好みにカスタマイズ
+- **[ワークフロー例](docs/WORKFLOW_EXAMPLES.md)** - 日常ルーチンとベストプラクティス
+- **[トラブルシューティング](docs/TROUBLESHOOTING.md)** - よくある問題と解決方法
 
-## 🗂️ Structure
+## 🗂️ 構造
 
 ```
 Your Vault/
-├── CLAUDE.md                    # AI context and navigation
-├── CLAUDE.local.md.template     # Template for personal overrides
+├── CLAUDE.md                    # AIコンテキストとナビゲーション
+├── CLAUDE.local.md.template     # 個人設定オーバーライド用テンプレート
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest
+│   └── plugin.json              # プラグインマニフェスト
 ├── .claude/
-│   ├── commands/                # Slash commands (/daily, /weekly, /push, /onboard)
-│   ├── agents/                  # Custom AI agents (NEW)
+│   ├── commands/                # スラッシュコマンド (/daily, /weekly, /push, /onboard)
+│   ├── agents/                  # カスタムAIエージェント（新機能）
 │   │   ├── note-organizer.md
 │   │   ├── weekly-reviewer.md
 │   │   ├── goal-aligner.md
 │   │   └── inbox-processor.md
-│   ├── skills/                  # Auto-discovered capabilities (NEW)
+│   ├── skills/                  # 自動検出される機能（新機能）
 │   │   ├── obsidian-vault-ops/
 │   │   ├── goal-tracking/
 │   │   └── daily-workflow/
-│   ├── hooks/                   # Event automation (NEW)
+│   ├── hooks/                   # イベント自動化（新機能）
 │   │   ├── session-init.sh
 │   │   └── auto-commit.sh
-│   ├── rules/                   # Path-specific conventions (NEW)
+│   ├── rules/                   # パス固有の規約（新機能）
 │   │   ├── markdown-standards.md
 │   │   ├── productivity-workflow.md
 │   │   └── project-management.md
 │   ├── scripts/
-│   │   └── statusline.sh        # Terminal status display (NEW)
+│   │   └── statusline.sh        # ターミナルステータス表示（新機能）
 │   ├── output-styles/
-│   │   └── coach.md             # Productivity Coach
-│   └── settings.json            # Permissions and config (NEW)
+│   │   └── coach.md             # 生産性コーチ
+│   └── settings.json            # 権限と設定（新機能）
 ├── Daily Notes/
 ├── Goals/
 ├── Projects/
@@ -105,48 +107,48 @@ Your Vault/
 └── Archives/
 ```
 
-## 🧠 Output Styles
+## 🧠 出力スタイル
 
-This starter kit includes a **Productivity Coach** output style that transforms Claude into an accountability partner. The coach will:
+このスターターキットには、Claudeをアカウンタビリティパートナーに変える**生産性コーチ**出力スタイルが含まれています。コーチは以下を実行します：
 
-- Challenge you to clarify your true intentions
-- Point out misalignments between stated goals and actions
-- Ask powerful questions to drive momentum
-- Hold you accountable to your commitments
-- Help you identify and overcome resistance
+- 真の意図を明確にするよう促す
+- 目標と行動の不一致を指摘する
+- 前進を促す強力な質問をする
+- コミットメントに対する責任を保持する
+- 抵抗を特定し克服するのを支援する
 
-To use the coach style in Claude Code:
-1. The output style is automatically included in `.claude/output-styles/`
-2. Start Claude Code and type `/output-style` to select from available styles
-3. Or directly activate with: `/output-style coach`
-4. The style preference is automatically saved for your project
+Claude Codeでコーチスタイルを使用するには：
+1. 出力スタイルは自動的に`.claude/output-styles/`に含まれます
+2. Claude Codeを起動し、`/output-style`と入力して利用可能なスタイルから選択
+3. または直接アクティブ化：`/output-style coach`
+4. スタイル設定はプロジェクトに自動保存されます
 
-Learn more about [customizing output styles](docs/CUSTOMIZATION.md#output-styles).
+[出力スタイルのカスタマイズ](docs/CUSTOMIZATION.md#output-styles)の詳細はこちら。
 
-## 🤖 Custom Agents (v2.0)
+## 🤖 カスタムエージェント (v2.0)
 
-Ask Claude to use specialized agents for common PKM tasks:
+一般的なPKMタスクのために特化したエージェントを使用するようClaudeに依頼できます：
 
 ```bash
-# Organize your vault and fix broken links
-claude "Use the note-organizer agent to audit my vault"
+# Vaultを整理し、壊れたリンクを修正
+claude "note-organizer エージェントを使用してVaultを監査してください"
 
-# Facilitate weekly review aligned with goals
-claude "Use the weekly-reviewer agent for my weekly review"
+# 目標に沿った週次レビューを実施
+claude "weekly-reviewer エージェントを使用して週次レビューを行ってください"
 
-# Check if daily work aligns with long-term goals
-claude "Use the goal-aligner agent to analyze my recent activity"
+# 日々の作業が長期目標と一致しているか確認
+claude "goal-aligner エージェントを使用して最近のアクティビティを分析してください"
 
-# Process inbox items using GTD principles
-claude "Use the inbox-processor agent to clear my inbox"
+# GTD原則を使用してインボックスアイテムを処理
+claude "inbox-processor エージェントを使用してインボックスをクリアしてください"
 ```
 
-## 🔄 Upgrading from v1.x
+## 🔄 v1.xからのアップグレード
 
-If you have an existing vault from v1.x:
+v1.xから既存のVaultがある場合：
 
 ```bash
-# 1. Copy new directories to your vault
+# 1. 新しいディレクトリをVaultにコピー
 cp -r vault-template/.claude-plugin your-vault/
 cp -r vault-template/.claude/agents your-vault/.claude/
 cp -r vault-template/.claude/skills your-vault/.claude/
@@ -156,22 +158,22 @@ cp -r vault-template/.claude/scripts your-vault/.claude/
 cp vault-template/.claude/settings.json your-vault/.claude/
 cp vault-template/CLAUDE.local.md.template your-vault/
 
-# 2. Review and merge CLAUDE.md changes
-# Your customizations are preserved, just add references to new features
+# 2. CLAUDE.mdの変更をレビューしてマージ
+# カスタマイズは保持され、新機能への参照を追加するだけです
 
-# 3. Make hook scripts executable
+# 3. フックスクリプトを実行可能にする
 chmod +x your-vault/.claude/hooks/*.sh
 chmod +x your-vault/.claude/scripts/*.sh
 ```
 
-## 🤝 Contributing
+## 🤝 コントリビュート
 
-Found a bug or have a feature idea? Please open an issue or submit a PR!
+バグを見つけた、または機能のアイデアがありますか？Issueを開くか、PRを送信してください！
 
-## 📄 License
+## 📄 ライセンス
 
-MIT - Use this freely for your personal knowledge management journey.
+MIT - 個人のナレッジマネジメントに自由にお使いください。
 
 ---
 
-**Ready to transform your note-taking?** Follow the [Setup Guide](docs/SETUP_GUIDE.md) to get started!
+**ノート作成を変革する準備はできましたか？** [セットアップガイド](docs/SETUP_GUIDE.md)に従って始めましょう！

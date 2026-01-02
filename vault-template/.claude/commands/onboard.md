@@ -1,302 +1,303 @@
-# Onboard Command
+# Onboard コマンド
 
-Loads all CLAUDE.md files from your vault to provide comprehensive context to Claude Code for intelligent assistance.
+Claude Codeがインテリジェントな支援を提供するために、vaultからすべてのCLAUDE.mdファイルをロードして包括的なコンテキストを提供します。
 
-## Installation
-Copy this file to `.claude/commands/onboard.md` in your vault root.
+## インストール
 
-## Usage
+このファイルをvaultルートの`.claude/commands/onboard.md`にコピーします。
+
+## 使用方法
 ```
 claude code /onboard
 ```
 
-For specific project context:
+特定のプロジェクトコンテキスト用：
 ```
 claude code /onboard Projects/MyProject
 ```
 
-## Configuration
-Customize context loading:
+## 設定
+コンテキストの読み込みをカスタマイズ：
 
 ```javascript
-// Configuration
+// 設定
 const CLAUDE_FILE_NAME = "CLAUDE.md";
-const MAX_DEPTH = 5; // How deep to search for CLAUDE.md files
-const INCLUDE_TEMPLATES = false; // Load template files too
-const LOAD_RECENT_NOTES = true; // Include last 7 days of daily notes
+const MAX_DEPTH = 5; // CLAUDE.mdファイルを検索する深さ
+const INCLUDE_TEMPLATES = false; // テンプレートファイルも読み込む
+const LOAD_RECENT_NOTES = true; // 過去7日間のデイリーノートを含める
 ```
 
-## What This Command Does
+## このコマンドが行うこと
 
-1. **Discovers Context Files**
-   - Searches for all CLAUDE.md files
-   - Traverses project directories
-   - Respects depth limits
+1. **コンテキストファイルの発見**
+   - すべてのCLAUDE.mdファイルを検索
+   - プロジェクトディレクトリを走査
+   - 深さの制限を尊重
 
-2. **Loads Hierarchical Context**
-   - Root CLAUDE.md first (global context)
-   - Project-specific CLAUDE.md files
-   - Recent daily notes for current state
+2. **階層的コンテキストの読み込み**
+   - ルートCLAUDE.mdが最初（グローバルコンテキスト）
+   - プロジェクト固有のCLAUDE.mdファイル
+   - 現在の状態のための最近のデイリーノート
 
-3. **Builds Understanding**
-   - Your personal mission/goals
-   - Project structures and status
-   - Workflow preferences
-   - Custom conventions
+3. **理解の構築**
+   - あなたの個人的なミッション/目標
+   - プロジェクト構造と状態
+   - ワークフローの好み
+   - カスタム規約
 
-## Context Hierarchy
+## コンテキスト階層
 
 ```
 vault/
-├── CLAUDE.md                 # [1] Global context - loaded first
+├── CLAUDE.md                 # [1] グローバルコンテキスト - 最初に読み込み
 ├── Projects/
 │   ├── Project A/
-│   │   └── CLAUDE.md         # [2] Project context - loaded second
+│   │   └── CLAUDE.md         # [2] プロジェクトコンテキスト - 2番目に読み込み
 │   └── Project B/
-│       └── CLAUDE.md         # [3] Another project context
+│       └── CLAUDE.md         # [3] 別のプロジェクトコンテキスト
 └── Areas/
     └── Health/
-        └── CLAUDE.md         # [4] Area-specific context
+        └── CLAUDE.md         # [4] エリア固有のコンテキスト
 ```
 
-## CLAUDE.md File Structure
+## CLAUDE.mdファイル構造
 
-### Root CLAUDE.md Should Include
+### ルートCLAUDE.mdに含めるべき内容
 ```markdown
-# System Context for Claude
+# Claudeのためのシステムコンテキスト
 
-## Personal Mission
-[Your life mission/purpose]
+## 個人的なミッション
+[あなたの人生のミッション/目的]
 
-## Current Focus
-[What you're working on now]
+## 現在のフォーカス
+[現在取り組んでいること]
 
-## Preferences
-- Writing style: [Formal/Casual/Technical]
-- Detail level: [High/Medium/Low]
-- Decision making: [Collaborative/Directive]
+## 好み
+- 文体：[フォーマル/カジュアル/技術的]
+- 詳細レベル：[高/中/低]
+- 意思決定：[協調的/指示的]
 
-## Conventions
-- File naming: [Your patterns]
-- Tag system: [Your tags]
-- Workflow: [Your process]
+## 規約
+- ファイル命名：[あなたのパターン]
+- タグシステム：[あなたのタグ]
+- ワークフロー：[あなたのプロセス]
 ```
 
-### Project CLAUDE.md Should Include
+### プロジェクトCLAUDE.mdに含めるべき内容
 ```markdown
-# Project: [Name]
+# プロジェクト: [名前]
 
-## Overview
-[What this project is about]
+## 概要
+[このプロジェクトについて]
 
-## Current Status
-[Where things stand]
+## 現在の状態
+[物事がどこにあるか]
 
-## Key Decisions
-[Important choices made]
+## 重要な決定
+[行われた重要な選択]
 
-## Next Steps
-[What needs to happen]
+## 次のステップ
+[何が起こる必要があるか]
 
-## Context for Claude
-[Specific things Claude should know]
+## Claudeのためのコンテキスト
+[Claudeが知っておくべき特定の事項]
 ```
 
-## Smart Context Loading
+## スマートコンテキスト読み込み
 
-### Recent Activity
-Automatically includes:
+### 最近の活動
+自動的に以下を含めます：
 ```javascript
-// Last 7 days of daily notes
+// 過去7日間のデイリーノート
 const recentNotes = getDailyNotes(7);
-// Current week's review
+// 現在の週のレビュー
 const weeklyReview = getCurrentWeekReview();
-// Active project updates
-const activeProjects = getModifiedProjects(3); // days
+// アクティブなプロジェクトの更新
+const activeProjects = getModifiedProjects(3); // 日数
 ```
 
-### Selective Loading
-For focused assistance:
+### 選択的読み込み
+集中的な支援のために：
 ```bash
-# Load only specific project
+# 特定のプロジェクトのみ読み込み
 claude code /onboard Projects/WebApp
 
-# Load only certain areas
+# 特定のエリアのみ読み込み
 claude code /onboard Areas/Health
 
-# Full context load
+# 完全なコンテキスト読み込み
 claude code /onboard all
 ```
 
-## Use Cases
+## ユースケース
 
-### Project Work
+### プロジェクト作業
 ```bash
 claude code /onboard Projects/MyApp
-claude code "Help me refactor the authentication module"
+claude code "認証モジュールのリファクタリングを手伝って"
 ```
 
-### Daily Planning
+### 日次計画
 ```bash
 claude code /onboard
-claude code "Review my goals and suggest today's priorities"
+claude code "目標をレビューして今日の優先事項を提案して"
 ```
 
-### Weekly Review
+### 週次レビュー
 ```bash
 claude code /onboard Goals
-claude code "Analyze my week and suggest improvements"
+claude code "今週を分析して改善を提案して"
 ```
 
-## Context Variables
+## コンテキスト変数
 
-Your CLAUDE.md files can include variables:
+CLAUDE.mdファイルに変数を含めることができます：
 
 ```markdown
-## Variables for Claude
+## Claudeのための変数
 - DEFAULT_LANGUAGE: JavaScript
 - TIMEZONE: America/New_York
 - WORK_HOURS: 9am-5pm
 - PREFERRED_FRAMEWORKS: React, Node.js
-- COMMUNICATION_STYLE: Direct and concise
+- COMMUNICATION_STYLE: 直接的で簡潔
 ```
 
-Claude will use these for better assistance.
+Claudeはこれらをより良い支援のために使用します。
 
-## Advanced Features
+## 高度な機能
 
-### Conditional Context
+### 条件付きコンテキスト
 ```markdown
-## Context by Day
+## 曜日別のコンテキスト
 <!-- IF: Monday -->
-Focus on weekly planning and goal setting
+週次計画と目標設定に焦点を当てる
 <!-- IF: Friday -->
-Focus on review and closure
+レビューとクロージャーに焦点を当てる
 <!-- ENDIF -->
 ```
 
-### Project Templates
+### プロジェクトテンプレート
 ```markdown
-## When Creating New Projects
-Use this structure:
-1. Create project folder
-2. Add CLAUDE.md
-3. Set up initial files
-4. Create project note from template
+## 新しいプロジェクトを作成する際
+この構造を使用：
+1. プロジェクトフォルダを作成
+2. CLAUDE.mdを追加
+3. 初期ファイルをセットアップ
+4. テンプレートからプロジェクトノートを作成
 ```
 
-### Workflow Triggers
+### ワークフロートリガー
 ```markdown
-## Automated Workflows
-When I say "morning routine":
-1. Create daily note
-2. Review yesterday's tasks
-3. Set today's priority
-4. Check calendar
+## 自動化されたワークフロー
+「朝のルーティン」と言ったとき：
+1. デイリーノートを作成
+2. 昨日のタスクをレビュー
+3. 今日の優先事項を設定
+4. カレンダーを確認
 ```
 
-## Performance Optimization
+## パフォーマンス最適化
 
-### Large Vaults
-For vaults with many files:
+### 大きなVault
+多くのファイルがあるvaultの場合：
 ```javascript
-// Limit context loading
+// コンテキスト読み込みを制限
 const OPTIONS = {
   maxFiles: 10,
-  maxSizePerFile: 50000, // characters
+  maxSizePerFile: 50000, // 文字数
   prioritize: ["Goals", "Active Projects"]
 };
 ```
 
-### Caching
-Context is cached for session:
+### キャッシング
+コンテキストはセッション用にキャッシュされます：
 ```javascript
-// Cache duration
-const CACHE_DURATION = 3600000; // 1 hour
-// Force refresh
+// キャッシュ期間
+const CACHE_DURATION = 3600000; // 1時間
+// 強制更新
 claude code /onboard --refresh
 ```
 
-## Privacy & Security
+## プライバシーとセキュリティ
 
-### Sensitive Information
-Never include in CLAUDE.md:
-- Passwords or credentials
-- Personal identification numbers
-- Financial account details
-- Private personal information
+### 機密情報
+CLAUDE.mdに含めてはいけないもの：
+- パスワードや認証情報
+- 個人識別番号
+- 金融口座の詳細
+- 個人的なプライベート情報
 
-### Safe Context Examples
-✅ "I work in healthcare technology"
-✅ "My projects involve web development"
-✅ "I prefer morning work sessions"
+### 安全なコンテキストの例
+✅ "私はヘルスケア技術で働いています"
+✅ "私のプロジェクトはWeb開発に関係しています"
+✅ "朝の作業セッションを好みます"
 
-❌ "My SSN is..."
-❌ "My bank account..."
-❌ "My private API key..."
+❌ "私のSSNは..."
+❌ "私の銀行口座..."
+❌ "私のプライベートAPIキー..."
 
-## Best Practices
+## ベストプラクティス
 
-### Keep Context Updated
-- Review CLAUDE.md files monthly
-- Update after major decisions
-- Remove outdated information
-- Add new learnings
+### コンテキストを最新に保つ
+- CLAUDE.mdファイルを月次でレビュー
+- 主要な決定の後に更新
+- 古い情報を削除
+- 新しい学びを追加
 
-### Be Specific
-- Clear project descriptions
-- Specific preferences
-- Concrete examples
-- Defined conventions
+### 具体的に
+- 明確なプロジェクト説明
+- 具体的な好み
+- 具体的な例
+- 定義された規約
 
-### Hierarchical Information
-- Global → Area → Project → Task
-- General → Specific
-- Strategic → Tactical
+### 階層的情報
+- グローバル → エリア → プロジェクト → タスク
+- 一般的 → 具体的
+- 戦略的 → 戦術的
 
-## Troubleshooting
+## トラブルシューティング
 
-### Context Not Loading?
-- Check file names (CLAUDE.md exactly)
-- Verify file permissions
-- Ensure valid markdown
-- Check file encoding (UTF-8)
+### コンテキストが読み込まれない？
+- ファイル名を確認（正確にCLAUDE.md）
+- ファイル権限を確認
+- 有効なmarkdownであることを確認
+- ファイルエンコーディングを確認（UTF-8）
 
-### Too Much Context?
-- Use selective loading
-- Reduce MAX_DEPTH
-- Archive old projects
-- Clean up CLAUDE.md files
+### コンテキストが多すぎる？
+- 選択的読み込みを使用
+- MAX_DEPTHを減らす
+- 古いプロジェクトをアーカイブ
+- CLAUDE.mdファイルをクリーンアップ
 
-### Conflicting Instructions?
-- More specific overrides general
-- Project overrides global
-- Recent overrides old
+### 指示が矛盾している？
+- より具体的なものが一般的なものを上書き
+- プロジェクトがグローバルを上書き
+- 最近のものが古いものを上書き
 
-## Integration Examples
+## 統合例
 
-### With Daily Command
+### Dailyコマンドとの統合
 ```bash
 claude code /onboard
 claude code /daily
-# Claude now knows your full context for the daily note
+# Claudeは今、デイリーノートのための完全なコンテキストを知っています
 ```
 
-### With Push Command
+### Pushコマンドとの統合
 ```bash
 claude code /onboard
-# Make changes with Claude's help
-claude code /push "Changes guided by Claude"
+# Claudeの助けを借りて変更を行う
+claude code /push "Claudeによって導かれた変更"
 ```
 
-## Related Commands
-- `/daily` - Create daily note
-- `/weekly` - Run weekly review
-- `/push` - Save to Git
+## 関連コマンド
+- `/daily` - デイリーノートの作成
+- `/weekly` - 週次レビューの実行
+- `/push` - Gitへの保存
 
 ---
 
-*Command Version: 1.0*
-*Optimized for: Quick context loading*
+*コマンドバージョン: 1.0*
+*最適化: 素早いコンテキスト読み込み*
 
-**Remember:** Good context leads to better assistance. Keep your CLAUDE.md files current!
+**覚えておいてください：** 良いコンテキストはより良い支援につながります。CLAUDE.mdファイルを最新に保ちましょう！

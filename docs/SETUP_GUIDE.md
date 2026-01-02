@@ -1,387 +1,387 @@
-# Complete Setup Guide
+# 完全セットアップガイド
 
-This guide will walk you through setting up your Obsidian + Claude Code PKM system step by step. Total time: ~15 minutes if prerequisites are installed.
+このガイドでは、Obsidian + Claude Code PKMシステムのセットアップを段階的に説明します。前提条件がインストール済みであれば所要時間は約15分です。
 
-## Prerequisites Checklist
+## 前提条件チェックリスト
 
-Before starting, ensure you have:
+開始前に、以下が揃っていることを確認してください:
 
-- [ ] **Obsidian** installed ([Download here](https://obsidian.md/))
-- [ ] **Git** installed ([Download here](https://git-scm.com/))
-- [ ] **Claude Code CLI** installed ([Instructions](https://code.claude.com/docs))
-- [ ] **GitHub account** (optional, for sync) ([Sign up](https://github.com))
-- [ ] **Text editor** (for configuration files)
+- [ ] **Obsidian** のインストール ([ダウンロードはこちら](https://obsidian.md/))
+- [ ] **Git** のインストール ([ダウンロードはこちら](https://git-scm.com/))
+- [ ] **Claude Code CLI** のインストール ([手順はこちら](https://code.claude.com/docs))
+- [ ] **GitHubアカウント** (オプション、同期用) ([サインアップはこちら](https://github.com))
+- [ ] **テキストエディタ** (設定ファイル編集用)
 
-### Verify Prerequisites
+### 前提条件の確認
 
-Open terminal/command prompt and run:
+ターミナル/コマンドプロンプトを開いて以下を実行:
 ```bash
-# Check Git
+# Gitの確認
 git --version
 
-# Check Claude Code
+# Claude Codeの確認
 claude --version
 ```
 
-## Phase 1: Initial Setup (5 minutes)
+## フェーズ1: 初期セットアップ (5分)
 
-### Step 1: Clone the Repository
+### ステップ1: リポジトリのクローン
 
 ```bash
-# Option A: If you have git
+# オプションA: gitがある場合
 git clone https://github.com/ballred/obsidian-claude-pkm.git
 cd obsidian-claude-pkm
 
-# Option B: Download ZIP
-# 1. Download from GitHub
-# 2. Extract to your desired location
+# オプションB: ZIPダウンロード
+# 1. GitHubからダウンロード
+# 2. 希望する場所に展開
 ```
 
-### Step 2: Run Setup Script
+### ステップ2: セットアップスクリプトの実行
 
 ```bash
-# Make script executable (Mac/Linux)
+# スクリプトを実行可能にする (Mac/Linux)
 chmod +x scripts/setup.sh
 
-# Run setup
+# セットアップの実行
 ./scripts/setup.sh
 
-# For Windows, use:
+# Windowsの場合:
 # scripts\setup.bat
 ```
 
-The setup script will:
-1. Ask for your vault location preference
-2. Copy the vault template
-3. Set up Claude commands
-4. Initialize git (if desired)
+セットアップスクリプトは以下を行います:
+1. ボルトの保存場所を尋ねます
+2. ボルトテンプレートをコピーします
+3. Claudeコマンドをセットアップします
+4. gitを初期化します(希望する場合)
 
-### Step 3: Manual Setup (if script fails)
+### ステップ3: 手動セットアップ (スクリプトが失敗した場合)
 
 ```bash
-# Copy vault template to your preferred location
+# ボルトテンプレートを希望する場所にコピー
 cp -r vault-template ~/Documents/ObsidianPKM
 
-# The .claude/commands directory is already included in the template
-# Verify commands are present
+# .claude/commandsディレクトリはテンプレートに既に含まれています
+# コマンドが存在することを確認
 ls ~/Documents/ObsidianPKM/.claude/commands/
 
-# Initialize git
+# gitの初期化
 cd ~/Documents/ObsidianPKM
 git init
 ```
 
-## Phase 2: Open in Obsidian (5 minutes)
+## フェーズ2: Obsidianで開く (5分)
 
-### Step 1: Open Obsidian
-1. Launch Obsidian
-2. Click "Open folder as vault"
-3. Navigate to your vault folder
-4. Click "Select"
+### ステップ1: Obsidianを開く
+1. Obsidianを起動
+2. 「フォルダをボルトとして開く」をクリック
+3. ボルトフォルダに移動
+4. 「選択」をクリック
 
-### Step 2: Trust and Enable
-When prompted:
-- Click "Trust author and enable plugins" (if you added community plugins)
-- This is safe for the template vault
+### ステップ2: 信頼と有効化
+プロンプトが表示されたら:
+- 「作者を信頼してプラグインを有効にする」をクリック (コミュニティプラグインを追加した場合)
+- テンプレートボルトでは安全です
 
-### Step 3: Initial Exploration
-1. Open `CLAUDE.md` in the root
-2. Read through the structure
-3. Explore the Goals folder
-4. Check out the example daily note
+### ステップ3: 初期探索
+1. ルートにある `CLAUDE.md` を開く
+2. 構造を読み通す
+3. Goalsフォルダを探索
+4. サンプルのデイリーノートを確認
 
-### Step 4: Basic Settings (Optional)
-1. Settings → Appearance → Choose theme
-2. Settings → Editor → Set your preferences
-3. Settings → Files & Links → Confirm settings:
-   - Default location for new notes: "Daily Notes"
-   - New link format: "Relative path to file"
+### ステップ4: 基本設定 (オプション)
+1. 設定 → 外観 → テーマを選択
+2. 設定 → エディタ → 好みを設定
+3. 設定 → ファイルとリンク → 以下の設定を確認:
+   - 新規ノートのデフォルト保存場所: "Daily Notes"
+   - 新規リンクの形式: "ファイルへの相対パス"
 
-## Phase 3: Claude Code Integration (10 minutes)
+## フェーズ3: Claude Code統合 (10分)
 
-### New in v2.0: Plugin Features
+### v2.0の新機能: プラグイン機能
 
-Your vault now includes a full Claude Code plugin with advanced features:
+ボルトには、高度な機能を持つ完全なClaude Codeプラグインが含まれています:
 
-| Feature | Description |
+| 機能 | 説明 |
 |---------|-------------|
-| **Hooks** | Auto-commit on file changes, session initialization |
-| **Agents** | Specialized AI assistants for note organization, weekly review, goal alignment |
-| **Skills** | Auto-discovered capabilities for vault operations, goal tracking, daily workflows |
-| **Rules** | Path-specific conventions for markdown, productivity, projects |
-| **Status Line** | Terminal display of vault stats (note count, inbox, uncommitted changes) |
+| **フック** | ファイル変更時の自動コミット、セッション初期化 |
+| **エージェント** | ノート整理、週次レビュー、目標整合性のための専門AIアシスタント |
+| **スキル** | ボルト操作、目標追跡、日次ワークフローの自動検出機能 |
+| **ルール** | Markdown、生産性、プロジェクトのパス固有の規則 |
+| **ステータスライン** | ボルト統計のターミナル表示(ノート数、インボックス、未コミット変更) |
 
-These work automatically once your vault is set up.
+これらはボルトのセットアップが完了すると自動的に動作します。
 
-### Step 1: Configure Claude Code
+### ステップ1: Claude Codeの設定
 
 ```bash
-# Navigate to your vault
+# ボルトに移動
 cd ~/Documents/ObsidianPKM
 
-# Initialize Claude Code
+# Claude Codeの初期化
 claude init
 
-# Test the connection
+# 接続のテスト
 claude "Hello, I'm setting up my PKM system"
 ```
 
-### Step 2: Set Up Commands
+### ステップ2: コマンドのセットアップ
 
 ```bash
-# The commands should already be in .claude/commands/
-# Verify they exist:
+# コマンドは既に.claude/commands/にあるはずです
+# 存在を確認:
 ls .claude/commands/
 
-# You should see:
+# 以下が表示されるはずです:
 # daily.md  weekly.md  push.md  onboard.md
 ```
 
-### Step 3: Test Commands
+### ステップ3: コマンドのテスト
 
 ```bash
-# Load your context
+# コンテキストを読み込む
 claude code /onboard
 
-# Create your first daily note
+# 最初のデイリーノートを作成
 claude code /daily
 
-# You should see a new file in Daily Notes/
+# Daily Notes/に新しいファイルが表示されるはずです
 ```
 
-### Step 4: Configure Output Styles
+### ステップ4: 出力スタイルの設定
 
-The vault includes a Productivity Coach output style that makes Claude more accountability-focused:
+ボルトには、Claudeをより責任重視にする「Productivity Coach」出力スタイルが含まれています:
 
 ```bash
-# Start Claude Code
+# Claude Codeを起動
 claude
 
-# Then use the output style commands:
-/output-style              # Opens interactive menu to choose a style
-/output-style coach        # Directly activates the coach style
+# 次に出力スタイルコマンドを使用:
+/output-style              # インタラクティブメニューを開いてスタイルを選択
+/output-style coach        # コーチスタイルを直接有効化
 
-# The coach will challenge you with questions like:
-# - "What's the ONE thing that would make everything else easier?"
-# - "What are you avoiding by reorganizing instead of doing?"
+# コーチは次のような質問であなたに挑戦します:
+# - 「他の全てを簡単にする唯一のことは何ですか?」
+# - 「実行する代わりに整理することで何を避けていますか?」
 ```
 
-Your style preference is automatically saved in `.claude/settings.local.json`. The output style file is located at `.claude/output-styles/coach.md` if you want to customize it.
+スタイルの設定は `.claude/settings.local.json` に自動保存されます。出力スタイルファイルは `.claude/output-styles/coach.md` にあり、カスタマイズできます。
 
-### Step 5: Using Agents (New in v2.0)
+### ステップ5: エージェントの使用 (v2.0の新機能)
 
-The vault includes 4 specialized agents for common PKM tasks:
+ボルトには一般的なPKMタスク用の4つの専門エージェントが含まれています:
 
 ```bash
-# Organize your vault, fix broken links
+# ボルトを整理し、壊れたリンクを修正
 claude "Use the note-organizer agent to audit my vault"
 
-# Run a guided weekly review
+# ガイド付き週次レビューを実行
 claude "Use the weekly-reviewer agent to help with my weekly review"
 
-# Check goal alignment
+# 目標の整合性を確認
 claude "Use the goal-aligner agent to analyze my recent activity"
 
-# Process your inbox
+# インボックスを処理
 claude "Use the inbox-processor agent to clear my inbox"
 ```
 
-### Step 6: Customize Context
+### ステップ6: コンテキストのカスタマイズ
 
-Edit `CLAUDE.md` in your vault root:
-1. Add your personal mission statement
-2. Define your working preferences
-3. Set your current focus areas
-4. Add any specific instructions for Claude
+ボルトのルートにある `CLAUDE.md` を編集:
+1. 個人のミッションステートメントを追加
+2. 作業の好みを定義
+3. 現在の焦点領域を設定
+4. Claude向けの具体的な指示を追加
 
-For personal overrides, copy `CLAUDE.local.md.template` to `CLAUDE.local.md` (gitignored).
+個人的な上書き設定には、`CLAUDE.local.md.template` を `CLAUDE.local.md` にコピーしてください(gitignore済み)。
 
-## Phase 4: Git Setup (5 minutes)
+## フェーズ4: Git設定 (5分)
 
-### Step 1: Initialize Repository
+### ステップ1: リポジトリの初期化
 
 ```bash
-# If not already initialized
+# まだ初期化していない場合
 git init
 
-# Configure git
+# gitの設定
 git config user.name "Your Name"
 git config user.email "your.email@example.com"
 
-# Add all files
+# 全ファイルを追加
 git add .
 
-# First commit
+# 最初のコミット
 git commit -m "Initial PKM setup"
 ```
 
-### Step 2: Create GitHub Repository
+### ステップ2: GitHubリポジトリの作成
 
 ```bash
-# Using GitHub CLI (if installed)
+# GitHub CLI使用(インストール済みの場合)
 gh repo create my-pkm --private
 
-# Or create manually on GitHub.com
-# Then add remote:
+# または GitHub.com で手動作成
+# その後リモートを追加:
 git remote add origin https://github.com/ballred/my-pkm.git
 
-# Push to GitHub
+# GitHubにプッシュ
 git push -u origin main
 ```
 
-### Step 3: Set Up GitHub Action (Optional)
+### ステップ3: GitHub Actionのセットアップ (オプション)
 
-1. Copy the workflow file:
+1. ワークフローファイルをコピー:
 ```bash
 mkdir -p .github/workflows
 cp github-actions/claude.yml .github/workflows/
 ```
 
-2. Get Claude Code OAuth token:
-   - Visit: https://code.claude.com/docs/en/github-actions
-   - Follow instructions to get token
+2. Claude Code OAuthトークンを取得:
+   - アクセス: https://code.claude.com/docs/en/github-actions
+   - 手順に従ってトークンを取得
 
-3. Add token to GitHub:
-   - Go to your repository on GitHub
+3. トークンをGitHubに追加:
+   - GitHubのリポジトリに移動
    - Settings → Secrets and variables → Actions
    - New repository secret
    - Name: `CLAUDE_CODE_OAUTH_TOKEN`
-   - Value: [Your token]
+   - Value: [取得したトークン]
 
-## Phase 5: Personalization (10 minutes)
+## フェーズ5: パーソナライゼーション (10分)
 
-### Step 1: Customize Your Mission
+### ステップ1: ミッションのカスタマイズ
 
-Edit `vault-template/CLAUDE.md`:
+`vault-template/CLAUDE.md` を編集:
 ```markdown
 ## 🎯 System Purpose
-[Replace with your personal mission]
+[個人のミッションに置き換えてください]
 ```
 
-### Step 2: Set Your Goals
+### ステップ2: 目標の設定
 
-1. Open `Goals/0. Three Year Goals.md`
-2. Replace placeholder goals with your actual 3-year vision
-3. Open `Goals/1. Yearly Goals.md`
-4. Set your annual objectives
-5. Open `Goals/2. Monthly Goals.md`
-6. Define this month's priorities
+1. `Goals/0. Three Year Goals.md` を開く
+2. プレースホルダーの目標を実際の3年ビジョンに置き換える
+3. `Goals/1. Yearly Goals.md` を開く
+4. 年間目標を設定
+5. `Goals/2. Monthly Goals.md` を開く
+6. 今月の優先事項を定義
 
-### Step 3: Customize Daily Template
+### ステップ3: デイリーテンプレートのカスタマイズ
 
-Edit `Templates/Daily Template.md`:
-1. Add your personal mission statement at the top
-2. Adjust time blocks to match your schedule
-3. Modify task categories to fit your life
-4. Add/remove sections as needed
+`Templates/Daily Template.md` を編集:
+1. 冒頭に個人のミッションステートメントを追加
+2. スケジュールに合わせてタイムブロックを調整
+3. 生活に合わせてタスクカテゴリを修正
+4. 必要に応じてセクションを追加/削除
 
-### Step 4: Create Your First Project
+### ステップ4: 最初のプロジェクトの作成
 
 ```bash
-# Using Claude
+# Claudeを使用
 claude code "Create a new project folder for [Your Project Name]"
 
-# Or manually
-1. Create folder in Projects/
-2. Copy CLAUDE.md template
-3. Define project goals
+# または手動で
+1. Projects/にフォルダを作成
+2. CLAUDE.mdテンプレートをコピー
+3. プロジェクト目標を定義
 ```
 
-## Verification Checklist
+## 検証チェックリスト
 
-Run through this checklist to ensure everything is working:
+全てが正常に動作していることを確認するため、このチェックリストを実行してください:
 
-- [ ] Obsidian opens your vault without errors
-- [ ] CLAUDE.md has your personalized content
-- [ ] `/daily` command creates today's note
-- [ ] `/onboard` command loads your context
-- [ ] Git commits work locally
-- [ ] GitHub remote is connected (if using)
-- [ ] Goals files have your objectives
-- [ ] Daily template has your customizations
+- [ ] Obsidianがエラーなくボルトを開ける
+- [ ] CLAUDE.mdに個人のコンテンツが設定されている
+- [ ] `/daily` コマンドで今日のノートが作成される
+- [ ] `/onboard` コマンドでコンテキストが読み込まれる
+- [ ] Gitコミットがローカルで動作する
+- [ ] GitHubリモートが接続されている(使用する場合)
+- [ ] Goalsファイルに目標が設定されている
+- [ ] デイリーテンプレートがカスタマイズされている
 
-## Daily Workflow
+## 日次ワークフロー
 
-### Morning Routine (5 minutes)
+### 朝のルーティン (5分)
 ```bash
-# Start your day
+# 1日を開始
 claude code /onboard
 claude code /daily
 
-# Claude will:
-# - Create today's note
-# - Review yesterday's tasks
-# - Help plan your day
+# Claudeが実行すること:
+# - 今日のノートを作成
+# - 昨日のタスクをレビュー
+# - 今日の計画を支援
 ```
 
-### Evening Routine (5 minutes)
+### 夜のルーティン (5分)
 ```bash
-# End of day
-# Complete reflection in daily note
+# 終業時
+# デイリーノートに振り返りを記入
 claude code /push
 
-# This saves everything to git
+# これによりgitに全てが保存されます
 ```
 
-### Weekly Review (30 minutes)
+### 週次レビュー (30分)
 ```bash
-# Sunday evening or Monday morning
+# 日曜日の夜または月曜日の朝
 claude code /weekly
 
-# Follow the guided review process
+# ガイド付きレビュープロセスに従う
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
-### Obsidian Won't Open Vault
-- Check folder permissions
-- Ensure path has no special characters
-- Try creating fresh vault and copying files
+### Obsidianがボルトを開かない
+- フォルダの権限を確認
+- パスに特殊文字が含まれていないことを確認
+- 新しいボルトを作成してファイルをコピーしてみる
 
-### Claude Commands Not Working
+### Claudeコマンドが動作しない
 ```bash
-# Verify Claude Code installation
+# Claude Codeのインストールを確認
 claude --version
 
-# Check command files exist
+# コマンドファイルが存在することを確認
 ls -la .claude/commands/
 
-# Try running directly
+# 直接実行してみる
 claude code < .claude/commands/daily.md
 ```
 
-### Git Issues
+### Gitの問題
 ```bash
-# If push fails
+# プッシュが失敗した場合
 git pull --rebase origin main
 git push
 
-# If large files cause issues
+# 大きなファイルが問題を引き起こす場合
 git lfs track "*.pdf"
 git lfs track "*.png"
 ```
 
-### Daily Note Not Created
-- Check date format in template
-- Verify Templates folder exists
-- Ensure template file is named correctly
+### デイリーノートが作成されない
+- テンプレートの日付形式を確認
+- Templatesフォルダが存在することを確認
+- テンプレートファイル名が正しいことを確認
 
-## Next Steps
+## 次のステップ
 
-1. **Read** [CUSTOMIZATION.md](CUSTOMIZATION.md) for advanced configuration
-2. **Explore** [WORKFLOW_EXAMPLES.md](WORKFLOW_EXAMPLES.md) for usage patterns
-3. **Join** the community (if available) for tips and support
-4. **Iterate** on your system - it should evolve with you
+1. **読む** [CUSTOMIZATION.md](CUSTOMIZATION.md) で高度な設定を確認
+2. **探索** [WORKFLOW_EXAMPLES.md](WORKFLOW_EXAMPLES.md) で使用パターンを学ぶ
+3. **参加** コミュニティ(利用可能な場合)でヒントやサポートを得る
+4. **反復** システムを改善 - あなたと共に進化するべきです
 
-## Getting Help
+## ヘルプの取得
 
-- **Documentation**: Check the docs/ folder
-- **Claude Code Help**: `claude --help`
-- **Obsidian Help**: [Obsidian Forum](https://forum.obsidian.md/)
-- **Git Help**: [Git Documentation](https://git-scm.com/doc)
+- **ドキュメント**: docs/フォルダを確認
+- **Claude Codeヘルプ**: `claude --help`
+- **Obsidianヘルプ**: [Obsidian Forum](https://forum.obsidian.md/)
+- **Gitヘルプ**: [Git Documentation](https://git-scm.com/doc)
 
 ---
 
-Congratulations! Your PKM system is now ready. Remember: the best system is the one you actually use. Start simple, be consistent, and evolve as needed.
+おめでとうございます! PKMシステムの準備が整いました。覚えておいてください: 最良のシステムは、実際に使うシステムです。シンプルに始め、一貫性を保ち、必要に応じて進化させましょう。
 
-**Pro Tip**: Spend the first week just using daily notes. Add complexity gradually as habits form.
+**プロのヒント**: 最初の週はデイリーノートだけを使用してください。習慣が形成されるにつれて、徐々に複雑さを追加しましょう。

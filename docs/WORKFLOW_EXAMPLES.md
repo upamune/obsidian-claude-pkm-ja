@@ -1,471 +1,471 @@
-# Workflow Examples
+# ワークフロー例
 
-Real-world scenarios showing how to use your PKM system effectively throughout your day, week, and projects.
+1日、1週間、プロジェクト全体を通じてPKMシステムを効果的に使用する方法を示す実世界のシナリオ。
 
-## Daily Workflows
+## 日次ワークフロー
 
-### Morning Routine (15 minutes)
+### 朝のルーティン (15分)
 
-#### 6:00 AM - Wake Up
+#### 6:00 AM - 起床
 ```bash
-# First, load your context
+# まず、コンテキストを読み込む
 claude code /onboard
 
-# Create today's daily note
+# 今日のデイリーノートを作成
 claude code /daily
 ```
 
-#### 6:05 AM - Review and Plan
-Claude helps you:
-1. Review yesterday's incomplete tasks
-2. Check calendar for fixed commitments
-3. Identify ONE big priority
-4. Set realistic time blocks
+#### 6:05 AM - レビューと計画
+Claudeが以下を支援します:
+1. 昨日の未完了タスクをレビュー
+2. 固定の予定のためにカレンダーを確認
+3. 一つの大きな優先事項を特定
+4. 現実的なタイムブロックを設定
 
-#### 6:10 AM - Set Intentions
+#### 6:10 AM - 意図の設定
 ```markdown
-## Today's Focus
-**ONE Thing:** Complete project proposal
+## 今日のフォーカス
+**一つのこと:** プロジェクト提案を完成させる
 
-## Intentions
-- Be present in meetings
-- Take breaks every 90 minutes
-- End work by 6 PM
+## 意図
+- 会議で集中する
+- 90分ごとに休憩を取る
+- 18時までに仕事を終える
 ```
 
-#### 6:15 AM - Ready to Start
+#### 6:15 AM - 開始準備完了
 ```bash
-# Optional: Get motivation
+# オプション: モチベーションを得る
 claude code "Give me a motivational quote related to my current goals"
 ```
 
-### Midday Check-in (5 minutes)
+### 正午のチェックイン (5分)
 
-#### 12:00 PM - Progress Review
+#### 12:00 PM - 進捗レビュー
 ```markdown
-## Midday Check
-- ✅ Completed: 4/8 tasks
-- 🔄 In Progress: Project proposal (70%)
-- ⚡ Energy Level: 7/10
-- 🎯 Afternoon Focus: Client meeting prep
+## 正午チェック
+- ✅ 完了: 4/8タスク
+- 🔄 進行中: プロジェクト提案 (70%)
+- ⚡ エネルギーレベル: 7/10
+- 🎯 午後のフォーカス: クライアント会議準備
 ```
 
-### Evening Shutdown (10 minutes)
+### 夜のシャットダウン (10分)
 
-#### 5:30 PM - Wrap Up
-1. Check off completed tasks
-2. Note incomplete items and why
-3. Capture any loose thoughts
+#### 5:30 PM - 片付け
+1. 完了したタスクをチェック
+2. 未完了項目とその理由を記録
+3. 散らばった思考をキャプチャ
 
-#### 5:35 PM - Reflect
+#### 5:35 PM - 振り返り
 ```markdown
-## End of Day Reflection
-### What Went Well?
-- Finished proposal ahead of schedule
-- Great breakthrough on design problem
+## 1日の終わりの振り返り
+### うまくいったこと
+- 提案を予定より早く完了
+- デザイン問題で素晴らしいブレークスルー
 
-### What Could Be Better?
-- Too many context switches
-- Skipped lunch break
+### 改善できること
+- コンテキストスイッチが多すぎた
+- 昼休みをスキップした
 
-### Tomorrow's #1 Priority
-- Review proposal with team
+### 明日の最優先事項
+- チームと提案をレビュー
 ```
 
-#### 5:40 PM - Save and Sync
+#### 5:40 PM - 保存と同期
 ```bash
 claude code /push "Daily work complete - {{date}}"
 ```
 
-## Weekly Workflows
+## 週次ワークフロー
 
-### Sunday Weekly Review (30 minutes)
+### 日曜日の週次レビュー (30分)
 
-#### Step 1: Create Review (5 min)
+#### ステップ1: レビューの作成 (5分)
 ```bash
 claude code /weekly
 ```
 
-#### Step 2: Review Last Week (10 min)
-Go through each daily note:
+#### ステップ2: 先週のレビュー (10分)
+各デイリーノートを確認:
 ```bash
 claude code "Summarize my accomplishments from the past week's daily notes"
 ```
 
-Look for patterns:
-- What times was I most productive?
-- What derailed my plans?
-- What victories can I celebrate?
+パターンを探す:
+- 最も生産的だった時間帯は?
+- 計画を狂わせたものは?
+- 祝福できる勝利は?
 
-#### Step 3: Plan Next Week (10 min)
+#### ステップ3: 来週の計画 (10分)
 ```markdown
-## Next Week's Plan
-### ONE Big Thing
-If nothing else, I will: [Complete Q1 report]
+## 来週の計画
+### 一つの大きなこと
+他に何もしなくても、これをする: [Q1レポートを完成]
 
-### Key Projects
-1. **Project Alpha** - Milestone: Design review
-2. **Learning Spanish** - Goal: Complete Chapter 4
-3. **Health** - Target: 4 workouts
+### 主要プロジェクト
+1. **プロジェクトアルファ** - マイルストーン: デザインレビュー
+2. **スペイン語学習** - ゴール: 第4章完了
+3. **健康** - 目標: 4回のワークアウト
 
-### Calendar Blocks
-- Mon 9-11 AM: Deep work on report
-- Wed 2-4 PM: Team planning
-- Fri 3-5 PM: Weekly review & planning
+### カレンダーブロック
+- 月 9-11 AM: レポートの深い作業
+- 水 2-4 PM: チーム計画
+- 金 3-5 PM: 週次レビューと計画
 ```
 
-#### Step 4: Clean Up (5 min)
+#### ステップ4: クリーンアップ (5分)
 ```bash
-# Archive old notes
+# 古いノートをアーカイブ
 claude code "Move daily notes older than 30 days to Archives"
 
-# Update project statuses
+# プロジェクトステータスを更新
 claude code "Review all active projects and update their status"
 
-# Commit everything
+# すべてをコミット
 claude code /push "Weekly review complete - Week {{week_number}}"
 ```
 
-### Monthly Review (1 hour)
+### 月次レビュー (1時間)
 
-#### First Sunday of Month
+#### 月の第一日曜日
 ```bash
-# Load full context
+# 完全なコンテキストを読み込む
 claude code /onboard all
 
-# Create monthly review
+# 月次レビューを作成
 claude code "Create a monthly review analyzing my progress toward yearly goals"
 ```
 
-Review Process:
-1. **Quantitative Analysis** (20 min)
-   - Count completed tasks
-   - Measure goal progress
-   - Track habit consistency
+レビュープロセス:
+1. **定量分析** (20分)
+   - 完了したタスクをカウント
+   - 目標進捗を測定
+   - 習慣の一貫性を追跡
 
-2. **Qualitative Reflection** (20 min)
-   - What themes emerged?
-   - What surprised you?
-   - What patterns need attention?
+2. **定性的振り返り** (20分)
+   - どんなテーマが現れた?
+   - 何に驚いた?
+   - 注意が必要なパターンは?
 
-3. **Planning Adjustment** (20 min)
-   - Update monthly goals
-   - Revise project priorities
-   - Adjust daily routines
+3. **計画の調整** (20分)
+   - 月次目標を更新
+   - プロジェクトの優先順位を修正
+   - 日次ルーティンを調整
 
-## Project Workflows
+## プロジェクトワークフロー
 
-### Starting a New Project
+### 新しいプロジェクトの開始
 
-#### Step 1: Create Structure
+#### ステップ1: 構造の作成
 ```bash
 claude code "Create a new project called 'Website Redesign' with standard structure"
 ```
 
-#### Step 2: Define Success
+#### ステップ2: 成功の定義
 ```markdown
-# Project: Website Redesign
+# プロジェクト: ウェブサイトリデザイン
 
-## Success Criteria
-1. New design live by March 1
-2. Page load time < 2 seconds
-3. Mobile-first responsive design
-4. Accessibility score > 95
+## 成功基準
+1. 3月1日までに新デザイン公開
+2. ページロード時間 < 2秒
+3. モバイルファーストのレスポンシブデザイン
+4. アクセシビリティスコア > 95
 
-## Milestones
-- [ ] Week 1: Requirements gathered
-- [ ] Week 2: Wireframes complete
-- [ ] Week 3: Design approved
-- [ ] Week 4: Development started
+## マイルストーン
+- [ ] 第1週: 要件収集完了
+- [ ] 第2週: ワイヤーフレーム完成
+- [ ] 第3週: デザイン承認
+- [ ] 第4週: 開発開始
 ```
 
-#### Step 3: Create Project CLAUDE.md
+#### ステップ3: プロジェクトCLAUDE.mdの作成
 ```markdown
-# Context for Claude: Website Redesign
+# Claudeのためのコンテキスト: ウェブサイトリデザイン
 
-## Project Status
-Currently in planning phase
+## プロジェクトステータス
+現在計画フェーズ
 
-## Key Decisions
-- Using React + Next.js
-- Hosting on Vercel
-- Design system: Tailwind
+## 主要な決定事項
+- React + Next.jsを使用
+- Vercelでホスティング
+- デザインシステム: Tailwind
 
-## When Helping
-- Remind me about accessibility
-- Suggest performance optimizations
-- Keep mobile-first in mind
+## 支援する際
+- アクセシビリティを思い出させる
+- パフォーマンス最適化を提案
+- モバイルファーストを念頭に置く
 ```
 
-### Daily Project Work
+### 日次プロジェクト作業
 
-#### Starting Project Time
+#### プロジェクト時間の開始
 ```bash
-# Load project context
+# プロジェクトコンテキストを読み込む
 claude code /onboard Projects/WebsiteRedesign
 
-# Get oriented
+# 方向性を確認
 claude code "What should I focus on for this project today?"
 ```
 
-#### During Work
+#### 作業中
 ```markdown
-## Project Log - {{date}}
-### What I Did
-- Completed wireframes for homepage
-- Reviewed competitor sites
-- Met with stakeholder
+## プロジェクトログ - {{date}}
+### 実行したこと
+- ホームページのワイヤーフレームを完成
+- 競合サイトをレビュー
+- ステークホルダーとミーティング
 
-### Decisions Made
-- Go with single-page design
-- Use system fonts for speed
+### 行った決定
+- 単一ページデザインにする
+- 速度のためにシステムフォントを使用
 
-### Next Steps
-- Get design feedback
-- Start component library
+### 次のステップ
+- デザインフィードバックを得る
+- コンポーネントライブラリを開始
 ```
 
-#### Project Check-in
+#### プロジェクトチェックイン
 ```bash
 claude code "Review my project progress and suggest next priorities"
 ```
 
-### Completing a Project
+### プロジェクトの完了
 
-#### Project Closure
+#### プロジェクトクロージャー
 ```bash
-# Generate project summary
+# プロジェクトサマリーを生成
 claude code "Create a project completion summary with lessons learned"
 
-# Archive project
+# プロジェクトをアーカイブ
 claude code "Move 'Website Redesign' project to Archives with completion date"
 
-# Update goals
+# 目標を更新
 claude code "Update my monthly and yearly goals to reflect project completion"
 ```
 
-## Learning Workflows
+## 学習ワークフロー
 
-### Daily Learning Routine
+### 日次学習ルーティン
 
-#### Morning Learning (30 min)
+#### 朝の学習 (30分)
 ```markdown
-## Today's Learning
-### Topic: Spanish Subjunctive
-### Resource: Chapter 4, pages 45-50
-### Practice: 10 exercises
+## 今日の学習
+### トピック: スペイン語の接続法
+### リソース: 第4章、45-50ページ
+### 練習: 10問
 
-### Notes
-- Subjunctive used for doubts/emotions
-- Trigger phrases: "Es posible que..."
-- Common mistake: Using indicative instead
+### メモ
+- 接続法は疑問や感情に使用
+- トリガーフレーズ: "Es posible que..."
+- よくある間違い: 接続法の代わりに直説法を使う
 
-### Anki Cards Created: 5
+### 作成したAnkiカード: 5枚
 ```
 
-#### Evening Review (15 min)
+#### 夕方のレビュー (15分)
 ```bash
 claude code "Quiz me on what I learned today about Spanish subjunctive"
 ```
 
-### Book Reading Workflow
+### 読書ワークフロー
 
-#### Starting a Book
+#### 本を読み始める
 ```bash
 claude code "Create a literature note for 'Atomic Habits' by James Clear"
 ```
 
-#### While Reading
+#### 読書中
 ```markdown
-## Atomic Habits - Reading Notes
+## Atomic Habits - 読書ノート
 
-### Chapter 2: How Habits Shape Identity
-**Key Idea**: Focus on who you want to become, not what you want to achieve
+### 第2章: 習慣がアイデンティティを形作る方法
+**重要なアイデア**: 達成したいことではなく、なりたい人に焦点を当てる
 
-**Quote**: "Every action is a vote for the type of person you wish to become"
+**引用**: 「すべての行動は、あなたがなりたい人のタイプへの投票です」
 
-**Personal Application**: Instead of "I want to write", say "I am a writer"
+**個人的な応用**: 「書きたい」ではなく「私は作家だ」と言う
 
-**Questions**:
-- How does this apply to my Spanish learning?
-- What identity am I reinforcing with daily notes?
+**質問**:
+- これはスペイン語学習にどう適用される?
+- デイリーノートでどんなアイデンティティを強化している?
 ```
 
-#### After Finishing
+#### 読了後
 ```bash
 claude code "Create a book summary and extract actionable insights from my Atomic Habits notes"
 ```
 
-## Mobile Workflows
+## モバイルワークフロー
 
-### On-the-Go Task Capture
+### 外出先でのタスクキャプチャ
 
-#### Via GitHub Issues
-1. Open GitHub mobile app
-2. Create issue with title: "Task: [Description]"
-3. Add label: "task"
-4. Claude automatically adds to daily note
+#### GitHub Issues経由
+1. GitHubモバイルアプリを開く
+2. タイトルでissueを作成: "Task: [説明]"
+3. ラベルを追加: "task"
+4. Claudeが自動的にデイリーノートに追加
 
-#### Via Voice Note
-1. Record voice memo
-2. Share to GitHub as issue
-3. Claude transcribes and processes
+#### ボイスメモ経由
+1. ボイスメモを録音
+2. GitHubにissueとして共有
+3. Claudeが文字起こしと処理
 
-### Mobile Weekly Review
+### モバイル週次レビュー
 
-#### From Phone
-1. Open GitHub mobile
-2. Review recent commits
-3. Create issue: "Weekly review needed"
-4. Claude generates review template
+#### スマートフォンから
+1. GitHubモバイルを開く
+2. 最近のコミットをレビュー
+3. issueを作成: "Weekly review needed"
+4. Claudeがレビューテンプレートを生成
 
-### Emergency Access
+### 緊急アクセス
 
-#### When Desktop Unavailable
+#### デスクトップが利用できない場合
 ```
-1. Access GitHub.com from any browser
-2. Navigate to your vault repository  
-3. Edit files directly in browser
-4. Changes sync when back at desktop
+1. 任意のブラウザからGitHub.comにアクセス
+2. ボルトリポジトリに移動
+3. ブラウザで直接ファイルを編集
+4. デスクトップに戻ったときに変更が同期
 ```
 
-## Integration Workflows
+## 統合ワークフロー
 
-### Email to Tasks
+### メールからタスクへ
 
-#### Morning Email Processing
+#### 朝のメール処理
 ```markdown
-## Inbox Processing - {{time}}
-- [ ] Reply: John re: Project timeline
-- [ ] Action: Submit expense report (attachment)
-- [ ] Read: Newsletter from industry blog
-- [ ] Archive: 15 promotional emails
+## インボックス処理 - {{time}}
+- [ ] 返信: ジョン、プロジェクトタイムラインについて
+- [ ] アクション: 経費報告を提出(添付ファイル)
+- [ ] 読む: 業界ブログからのニュースレター
+- [ ] アーカイブ: 15通のプロモーションメール
 ```
 
-### Meeting Notes
+### 会議ノート
 
-#### Before Meeting
+#### 会議前
 ```bash
 claude code "Create meeting note for 'Design Review' with standard agenda"
 ```
 
-#### During Meeting
+#### 会議中
 ```markdown
-## Design Review - {{date}} 2:00 PM
+## デザインレビュー - {{date}} 2:00 PM
 
-### Attendees
-- Me, Sarah, Tom, Lisa
+### 参加者
+- 私、サラ、トム、リサ
 
-### Agenda
-1. Review current designs ✅
-2. Discuss feedback ✅
-3. Next steps ⏸️
+### アジェンダ
+1. 現在のデザインをレビュー ✅
+2. フィードバックを議論 ✅
+3. 次のステップ ⏸️
 
-### Notes
-- Sarah: Likes color scheme, worried about contrast
-- Tom: Performance concerns with animations
-- Lisa: Accessibility audit needed
+### メモ
+- サラ: 配色が好き、コントラストが心配
+- トム: アニメーションのパフォーマンス懸念
+- リサ: アクセシビリティ監査が必要
 
-### Action Items
-- [ ] @Me: Update color contrast
-- [ ] @Tom: Performance testing
-- [ ] @Lisa: Schedule accessibility review
+### アクションアイテム
+- [ ] @Me: 色のコントラストを更新
+- [ ] @Tom: パフォーマンステスト
+- [ ] @Lisa: アクセシビリティレビューをスケジュール
 ```
 
-#### After Meeting
+#### 会議後
 ```bash
 claude code "Extract action items from meeting notes and add to my task list"
 ```
 
-## Advanced Workflows
+## 高度なワークフロー
 
-### Goal Cascade Review
+### 目標カスケードレビュー
 
-#### Quarterly Alignment
+#### 四半期ごとの整合性
 ```bash
 claude code "Analyze how my daily tasks over the past quarter aligned with my yearly goals"
 ```
 
-Output shows:
-- Time spent per goal area
-- Progress metrics
-- Misalignment areas
-- Recommendations
+出力:
+- 目標領域ごとに費やした時間
+- 進捗指標
+- ミスアライメント領域
+- 推奨事項
 
-### Habit Tracking Analysis
+### 習慣追跡分析
 
-#### Monthly Habit Review
+#### 月次習慣レビュー
 ```bash
 claude code "Analyze my habit completion rates and identify patterns"
 ```
 
-Shows:
-- Completion percentages
-- Best/worst days
-- Correlation with energy levels
-- Suggested adjustments
+表示内容:
+- 完了率
+- 最良/最悪の日
+- エネルギーレベルとの相関
+- 推奨調整
 
-### Knowledge Graph Building
+### 知識グラフ構築
 
-#### Connecting Ideas
+#### アイデアの接続
 ```bash
 claude code "Find connections between my recent learning notes and suggest knowledge links"
 ```
 
-Creates:
-- Concept maps
-- Related note suggestions
-- Knowledge gaps identified
-- Learning path recommendations
+作成内容:
+- コンセプトマップ
+- 関連ノートの提案
+- 特定された知識ギャップ
+- 学習パスの推奨
 
-## Troubleshooting Workflows
+## トラブルシューティングワークフロー
 
-### When Overwhelmed
+### 圧倒されているとき
 
 ```bash
 claude code "I'm overwhelmed. Help me identify my top 3 priorities from all my commitments"
 ```
 
-### When Stuck
+### 行き詰まっているとき
 
 ```bash
 claude code "I'm stuck on [problem]. Review my notes and suggest approaches"
 ```
 
-### When Behind
+### 遅れているとき
 
 ```bash
 claude code "I'm behind on my goals. Create a recovery plan for the next 2 weeks"
 ```
 
-## Seasonal Workflows
+## 季節のワークフロー
 
-### Year-End Review
+### 年末レビュー
 ```bash
-# December 31
+# 12月31日
 claude code "Generate comprehensive year in review from all my daily notes"
 ```
 
-### New Year Planning
+### 新年の計画
 ```bash
-# January 1
+# 1月1日
 claude code "Based on last year's patterns, help me set realistic goals for this year"
 ```
 
-### Spring Cleaning
+### 春の大掃除
 ```bash
-# Quarterly
+# 四半期ごと
 claude code "Identify and archive inactive projects and outdated notes"
 ```
 
 ---
 
-## Tips for Workflow Success
+## ワークフロー成功のヒント
 
-1. **Start Small**: Master daily notes before adding complexity
-2. **Be Consistent**: Same time, same process, every day
-3. **Iterate Weekly**: Adjust what's not working
-4. **Track Patterns**: Notice what helps or hinders
-5. **Automate Gradually**: Add automation as patterns stabilize
+1. **小さく始める**: 複雑さを追加する前にデイリーノートをマスター
+2. **一貫性を保つ**: 同じ時間、同じプロセス、毎日
+3. **週次で反復**: うまくいかないものを調整
+4. **パターンを追跡**: 何が助けになり、何が妨げになるかに注意
+5. **徐々に自動化**: パターンが安定したら自動化を追加
 
-Remember: Workflows should reduce friction, not add it. If something feels heavy, simplify it.
+覚えておいてください: ワークフローは摩擦を減らすべきであり、増やすべきではありません。何かが重く感じたら、それを単純化してください。

@@ -1,201 +1,202 @@
-# Weekly Review Command
+# 週次レビューコマンド
 
-Facilitates your weekly review process by creating a new review note and helping you reflect on the past week while planning the next.
+新しいレビューノートを作成し、先週を振り返りながら次週を計画できるよう、週次レビュープロセスを促進します。
 
-## Installation
-Copy this file to `.claude/commands/weekly.md` in your vault root.
+## インストール
 
-## Usage
+このファイルをvaultルートの`.claude/commands/weekly.md`にコピーします。
+
+## 使用方法
 ```
 claude code /weekly
 ```
 
-## Configuration
-Customize these settings for your workflow:
+## 設定
+ワークフローに合わせてこれらの設定をカスタマイズします：
 
 ```javascript
-// Configuration (customize these)
+// 設定（カスタマイズしてください）
 const WEEKLY_FOLDER = "Goals";
 const WEEKLY_TEMPLATE = "Templates/Weekly Review Template.md";
-const REVIEW_DAY = 0; // 0=Sunday, 1=Monday, etc.
-const TIME_INVESTMENT_TARGET = 30; // minutes for review
+const REVIEW_DAY = 0; // 0=日曜日、1=月曜日、など
+const TIME_INVESTMENT_TARGET = 30; // レビューの分数
 ```
 
-## What This Command Does
+## このコマンドが行うこと
 
-1. **Creates Weekly Review Note**
-   - Uses weekly review template
-   - Names it with current week's date
-   - Places in Goals folder
+1. **週次レビューノートを作成**
+   - 週次レビューテンプレートを使用
+   - 今週の日付で名前を付ける
+   - Goalsフォルダに配置
 
-2. **Guides Review Process**
-   - Reviews last week's accomplishments
-   - Identifies incomplete tasks
-   - Plans upcoming week
-   - Aligns with monthly goals
+2. **レビュープロセスをガイド**
+   - 先週の達成事項をレビュー
+   - 未完了タスクを特定
+   - 来週を計画
+   - 月次目標と整合
 
-3. **Automates Housekeeping**
-   - Archives old daily notes
-   - Updates project statuses
-   - Cleans up completed tasks
+3. **ハウスキーピングを自動化**
+   - 古いデイリーノートをアーカイブ
+   - プロジェクトステータスを更新
+   - 完了したタスクをクリーンアップ
 
-## Review Process Steps
+## レビュープロセスステップ
 
-### Step 1: Reflection (10 minutes)
-- Review daily notes from past week
-- Identify wins and challenges
-- Capture lessons learned
+### ステップ1: リフレクション（10分）
+- 先週のデイリーノートをレビュー
+- 成果と課題を特定
+- 学んだ教訓をキャプチャ
 
-### Step 2: Goal Alignment (10 minutes)
-- Check monthly goal progress
-- Adjust weekly priorities
-- Ensure alignment with yearly goals
+### ステップ2: 目標との整合（10分）
+- 月次目標の進捗をチェック
+- 週次優先事項を調整
+- 年間目標との整合を確保
 
-### Step 3: Planning (10 minutes)
-- Set ONE big thing for the week
-- Schedule important tasks
-- Block time for deep work
+### ステップ3: 計画（10分）
+- 週の1つの大きなことを設定
+- 重要なタスクをスケジュール
+- 深い作業のための時間をブロック
 
-## Interactive Prompts
+## インタラクティブプロンプト
 
-The command will guide you through:
+コマンドは以下を通じてガイドします：
 
-1. **"What were your top 3 wins this week?"**
-   - Celebrates progress
-   - Builds momentum
-   - Documents achievements
+1. **「今週の上位3つの成果は何でしたか？」**
+   - 進捗を祝う
+   - 勢いを築く
+   - 達成事項を記録
 
-2. **"What were your main challenges?"**
-   - Identifies obstacles
-   - Plans solutions
-   - Learns from difficulties
+2. **「主な課題は何でしたか？」**
+   - 障害を特定
+   - 解決策を計画
+   - 困難から学ぶ
 
-3. **"What's your ONE big thing next week?"**
-   - Forces prioritization
-   - Creates focus
-   - Drives meaningful progress
+3. **「来週の1つの大きなことは何ですか？」**
+   - 優先順位付けを強制
+   - フォーカスを作る
+   - 意味のある進捗を推進
 
-## Weekly Review Checklist
+## 週次レビューチェックリスト
 
-The command helps you:
-- [ ] Review all daily notes
-- [ ] Process inbox items
-- [ ] Update project statuses
-- [ ] Check upcoming calendar
-- [ ] Review monthly goals
-- [ ] Plan next week's priorities
-- [ ] Block time for important work
-- [ ] Clean digital workspace
-- [ ] Archive completed items
-- [ ] Commit changes to Git
+コマンドは以下を支援します：
+- [ ] すべてのデイリーノートをレビュー
+- [ ] インボックスアイテムを処理
+- [ ] プロジェクトステータスを更新
+- [ ] 今後のカレンダーをチェック
+- [ ] 月次目標をレビュー
+- [ ] 来週の優先事項を計画
+- [ ] 重要な作業のための時間をブロック
+- [ ] デジタルワークスペースをクリーン
+- [ ] 完了したアイテムをアーカイブ
+- [ ] 変更をGitにコミット
 
-## Automation Features
+## 自動化機能
 
-### Auto-Archive
-Moves daily notes older than 30 days to Archives:
+### 自動アーカイブ
+30日以上前のデイリーノートをArchivesに移動：
 ```javascript
 const ARCHIVE_AFTER_DAYS = 30;
-// Automatically moves old notes to Archives/YYYY/MM/
+// 自動的に古いノートをArchives/YYYY/MM/に移動
 ```
 
-### Project Status Update
-Prompts for each active project:
+### プロジェクトステータス更新
+各アクティブプロジェクトに対してプロンプト：
 ```javascript
-// For each project folder:
-// - Update completion percentage
-// - Note blockers
-// - Set next actions
+// 各プロジェクトフォルダに対して：
+// - 完了率を更新
+// - ブロッカーを記録
+// - 次のアクションを設定
 ```
 
-### Habit Tracking
-Calculates habit success rates:
+### 習慣トラッキング
+習慣の成功率を計算：
 ```javascript
-// Counts habit checkboxes from daily notes
-// Shows completion percentage
-// Identifies patterns
+// デイリーノートから習慣チェックボックスをカウント
+// 完了率を表示
+// パターンを特定
 ```
 
-## Customization Options
+## カスタマイズオプション
 
-### Different Review Days
+### 異なるレビュー曜日
 ```javascript
-// For Monday reviews:
+// 月曜日レビューの場合：
 const REVIEW_DAY = 1;
 
-// For Friday reviews:
+// 金曜日レビューの場合：
 const REVIEW_DAY = 5;
 ```
 
-### Monthly Reviews
-Add monthly review trigger:
+### 月次レビュー
+月次レビュートリガーを追加：
 ```javascript
 const today = new Date();
 const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
 if (today.getDate() === lastDayOfMonth) {
-  // Trigger monthly review too
+  // 月次レビューもトリガー
 }
 ```
 
-### Sprint-Based Reviews
-For agile workflows:
+### スプリントベースのレビュー
+アジャイルワークフロー用：
 ```javascript
-const SPRINT_LENGTH = 14; // days
+const SPRINT_LENGTH = 14; // 日数
 const SPRINT_START = new Date('2024-01-01');
-// Calculate sprint number and adjust review
+// スプリント番号を計算してレビューを調整
 ```
 
-## Integration with Goals
+## 目標との統合
 
-The command automatically:
-- Links to [[2. Monthly Goals]]
-- Updates [[1. Yearly Goals]] progress
-- Creates new week entry in review log
+コマンドは自動的に：
+- [[2. Monthly Goals]]にリンク
+- [[1. Yearly Goals]]の進捗を更新
+- レビューログに新しい週のエントリを作成
 
-## Best Practices
+## ベストプラクティス
 
-### Consistent Timing
-- Same day each week
-- Same time if possible
-- Block calendar time
-- Treat as non-negotiable
+### 一貫したタイミング
+- 毎週同じ曜日
+- 可能であれば同じ時間
+- カレンダーの時間をブロック
+- 譲れないものとして扱う
 
-### Preparation
-- Clean inbox before review
-- Have calendar ready
-- Gather project updates
-- Review any feedback
+### 準備
+- レビュー前にインボックスをクリーン
+- カレンダーを用意
+- プロジェクト更新を収集
+- フィードバックをレビュー
 
-### Follow-through
-- Share highlights with team/family
-- Update external systems
-- Communicate changes
-- Celebrate wins
+### フォロースルー
+- ハイライトをチーム/家族と共有
+- 外部システムを更新
+- 変更を伝達
+- 成果を祝う
 
-## Troubleshooting
+## トラブルシューティング
 
-### Review not created?
-- Check template exists
-- Verify folder structure
-- Ensure write permissions
+### レビューが作成されない？
+- テンプレートが存在するか確認
+- フォルダ構造を確認
+- 書き込み権限を確保
 
-### Links broken?
-- Verify file naming
-- Check date formats
-- Update link syntax
+### リンクが壊れている？
+- ファイル命名を確認
+- 日付形式をチェック
+- リンク構文を更新
 
-### Too time-consuming?
-- Use timer for each section
-- Prepare throughout week
-- Simplify template
+### 時間がかかりすぎる？
+- 各セクションにタイマーを使用
+- 週を通して準備
+- テンプレートを簡素化
 
-## Related Commands
-- `/daily` - Create daily note
-- `/push` - Commit to Git
-- `/onboard` - Load all context
+## 関連コマンド
+- `/daily` - デイリーノートの作成
+- `/push` - Gitにコミット
+- `/onboard` - すべてのコンテキストをロード
 
 ---
 
-*Command Version: 1.0*
-*Optimal Time: Sunday evening or Monday morning*
+*コマンドバージョン: 1.0*
+*最適な時間: 日曜日の夜または月曜日の朝*
 
-**Remember:** The best review is the one you actually do. Keep it simple and consistent!
+**覚えておいてください：** 最良のレビューは、実際に行うレビューです。シンプルで一貫性を保ちましょう！

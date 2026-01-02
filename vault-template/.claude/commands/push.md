@@ -1,128 +1,129 @@
-# Git Push Command
+# Git Push コマンド
 
-Automates the Git workflow to save your notes with a meaningful commit message and push to remote repository.
+意味のあるコミットメッセージでノートを保存し、リモートリポジトリにプッシュするGitワークフローを自動化します。
 
-## Installation
-Copy this file to `.claude/commands/push.md` in your vault root.
+## インストール
 
-## Usage
+このファイルをvaultルートの`.claude/commands/push.md`にコピーします。
+
+## 使用方法
 ```
 claude code /push
 ```
 
-Or with a custom message:
+またはカスタムメッセージと共に：
 ```
-claude code /push "Completed project planning"
+claude code /push "プロジェクト計画完了"
 ```
 
-## Configuration
-Customize these settings:
+## 設定
+これらの設定をカスタマイズします：
 
 ```javascript
-// Configuration
+// 設定
 const DEFAULT_REMOTE = "origin";
 const DEFAULT_BRANCH = "main";
-const AUTO_PULL_FIRST = true; // Pull before pushing to avoid conflicts
-const INCLUDE_TIMESTAMP = true; // Add timestamp to commit message
+const AUTO_PULL_FIRST = true; // プッシュ前にプルして競合を避ける
+const INCLUDE_TIMESTAMP = true; // コミットメッセージにタイムスタンプを追加
 ```
 
-## What This Command Does
+## このコマンドが行うこと
 
-1. **Stages All Changes**
-   - Adds all modified files
-   - Includes new files
-   - Removes deleted files
+1. **すべての変更をステージング**
+   - すべての変更されたファイルを追加
+   - 新しいファイルを含む
+   - 削除されたファイルを削除
 
-2. **Creates Smart Commit Message**
-   - Uses provided message, or
-   - Auto-generates from changes
-   - Includes date/time stamp
-   - Summarizes key modifications
+2. **スマートなコミットメッセージを作成**
+   - 提供されたメッセージを使用、または
+   - 変更から自動生成
+   - 日付/時刻スタンプを含む
+   - 主要な変更を要約
 
-3. **Syncs with Remote**
-   - Pulls latest changes (if enabled)
-   - Pushes to remote repository
-   - Handles merge conflicts gracefully
+3. **リモートと同期**
+   - 最新の変更をプル（有効な場合）
+   - リモートリポジトリにプッシュ
+   - マージ競合を適切に処理
 
-## Commit Message Format
+## コミットメッセージ形式
 
-### Automatic Messages
-Based on your changes:
+### 自動メッセージ
+変更に基づいて：
 ```
-Daily note for 2024-01-15 + 3 project updates
-- Added: Daily Notes/2024-01-15.md
-- Modified: Projects/Learning Spanish/notes.md
-- Modified: Goals/2. Monthly Goals.md
-```
-
-### With Timestamp
-```
-[2024-01-15 09:30] Completed weekly review
+2024-01-15のデイリーノート + 3つのプロジェクト更新
+- 追加: Daily Notes/2024-01-15.md
+- 変更: Projects/Learning Spanish/notes.md
+- 変更: Goals/2. Monthly Goals.md
 ```
 
-### Manual Message
+### タイムスタンプ付き
 ```
-claude code /push "Major project milestone reached"
+[2024-01-15 09:30] 週次レビュー完了
 ```
 
-## Smart Features
+### 手動メッセージ
+```
+claude code /push "主要なプロジェクトマイルストーンに到達"
+```
 
-### Conflict Prevention
+## スマート機能
+
+### 競合防止
 ```javascript
-// Always pull before push
+// 常にプッシュ前にプル
 if (AUTO_PULL_FIRST) {
   git pull --rebase origin main
 }
 ```
 
-### Change Summary
-Analyzes your changes:
-- Daily notes added
-- Projects modified
-- Goals updated
-- Templates changed
+### 変更サマリー
+変更を分析：
+- 追加されたデイリーノート
+- 変更されたプロジェクト
+- 更新された目標
+- 変更されたテンプレート
 
-### Safety Checks
-- Verifies Git repository exists
-- Checks for uncommitted changes
-- Ensures remote is configured
-- Validates branch exists
+### 安全性チェック
+- Gitリポジトリの存在を確認
+- コミットされていない変更をチェック
+- リモートが設定されていることを確認
+- ブランチが存在することを検証
 
-## Workflow Integration
+## ワークフロー統合
 
-### Morning Routine
+### 朝のルーティン
 ```bash
-claude code /daily          # Create daily note
-# ... work on notes ...
-claude code /push "Morning planning complete"
+claude code /daily          # デイリーノートを作成
+# ... ノートで作業 ...
+claude code /push "朝の計画完了"
 ```
 
-### End of Day
+### 1日の終わり
 ```bash
-# Complete daily reflection
-claude code /push           # Auto-message with summary
+# デイリーリフレクションを完了
+claude code /push           # サマリー付き自動メッセージ
 ```
 
-### After Weekly Review
+### 週次レビュー後
 ```bash
-claude code /weekly         # Run weekly review
-claude code /push "Weekly review - Week 3"
+claude code /weekly         # 週次レビューを実行
+claude code /push "週次レビュー - 第3週"
 ```
 
-## Advanced Options
+## 高度なオプション
 
-### Multiple Remotes
+### 複数のリモート
 ```javascript
-// Push to multiple remotes
+// 複数のリモートにプッシュ
 const REMOTES = ["origin", "backup"];
 REMOTES.forEach(remote => {
   git push remote main
 });
 ```
 
-### Branch-Based Workflow
+### ブランチベースのワークフロー
 ```javascript
-// Create feature branches for projects
+// プロジェクト用のフィーチャーブランチを作成
 const project = "new-feature";
 git checkout -b project
 git add .
@@ -130,33 +131,33 @@ git commit -m message
 git push -u origin project
 ```
 
-### Automated Backups
+### 自動バックアップ
 ```javascript
-// Schedule automatic pushes
-const BACKUP_INTERVAL = 3600000; // 1 hour
+// 自動プッシュをスケジュール
+const BACKUP_INTERVAL = 3600000; // 1時間
 setInterval(() => {
   git add .
-  git commit -m "Automated backup"
+  git commit -m "自動バックアップ"
   git push
 }, BACKUP_INTERVAL);
 ```
 
-## Git Configuration
+## Git設定
 
-### Initial Setup
+### 初期セットアップ
 ```bash
-# Initialize repository
+# リポジトリを初期化
 git init
 
-# Add remote
+# リモートを追加
 git remote add origin https://github.com/username/vault.git
 
-# Set user info
+# ユーザー情報を設定
 git config user.name "Your Name"
 git config user.email "your.email@example.com"
 ```
 
-### Recommended .gitignore
+### 推奨される.gitignore
 ```
 .obsidian/workspace*
 .obsidian/cache
@@ -164,98 +165,98 @@ git config user.email "your.email@example.com"
 .DS_Store
 ```
 
-## Commit Message Best Practices
+## コミットメッセージのベストプラクティス
 
-### Good Messages
-- ✅ "Completed Q1 planning and project kickoff"
-- ✅ "Daily note: Fixed bug in authentication"
-- ✅ "Weekly review - adjusted monthly goals"
+### 良いメッセージ
+- ✅ "Q1計画とプロジェクトキックオフ完了"
+- ✅ "デイリーノート: 認証のバグ修正"
+- ✅ "週次レビュー - 月次目標を調整"
 
-### Avoid
-- ❌ "Updates"
-- ❌ "Changes"
+### 避けるべき
+- ❌ "更新"
+- ❌ "変更"
 - ❌ "WIP"
 
-## Handling Conflicts
+## 競合の処理
 
-If conflicts occur:
+競合が発生した場合：
 
-1. **Auto-resolve attempts**
-   - Favors local changes for notes
-   - Merges both versions when possible
+1. **自動解決の試み**
+   - ノートのローカル変更を優先
+   - 可能な場合は両方のバージョンをマージ
 
-2. **Manual resolution needed**
-   - Opens conflict markers
-   - Prompts for resolution
-   - Guides through process
+2. **手動解決が必要**
+   - 競合マーカーを開く
+   - 解決を促す
+   - プロセスをガイド
 
-## Mobile Sync via GitHub
+## GitHub経由のモバイル同期
 
-This enables:
-- View notes on GitHub mobile app
-- Create issues for tasks
-- Review changes on any device
-- Emergency access from any browser
+これにより以下が可能になります：
+- GitHubモバイルアプリでノートを表示
+- タスク用のIssueを作成
+- 任意のデバイスで変更をレビュー
+- 任意のブラウザから緊急アクセス
 
-## Security Considerations
+## セキュリティに関する考慮事項
 
-### Private Repository
-Always use private repos for personal notes:
+### プライベートリポジトリ
+個人ノートには常にプライベートリポジトリを使用：
 ```bash
 # GitHub CLI
 gh repo create vault --private
 
-# Or via settings
+# または設定経由
 # Repository Settings > Make Private
 ```
 
-### Sensitive Information
-Never commit:
-- Passwords
-- API keys
-- Personal identification
-- Financial information
+### 機密情報
+コミットしてはいけないもの：
+- パスワード
+- APIキー
+- 個人識別情報
+- 金融情報
 
-Use `.gitignore` for sensitive files:
+機密ファイルには`.gitignore`を使用：
 ```
 private/
 credentials.md
 .env
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
-### Push Rejected?
+### プッシュが拒否された？
 ```bash
-# Pull first
+# まずプル
 git pull --rebase origin main
-# Then push again
+# 再度プッシュ
 git push origin main
 ```
 
-### Not a Git Repository?
+### Gitリポジトリではない？
 ```bash
-# Initialize
+# 初期化
 git init
-# Add remote
+# リモートを追加
 git remote add origin [URL]
 ```
 
-### Large Files Issue?
+### 大きなファイルの問題？
 ```bash
-# Use Git LFS for images/attachments
+# 画像/添付ファイルにGit LFSを使用
 git lfs track "*.png"
 git lfs track "*.pdf"
 ```
 
-## Related Commands
-- `/daily` - Create daily note
-- `/weekly` - Run weekly review
-- `/onboard` - Load context
+## 関連コマンド
+- `/daily` - デイリーノートの作成
+- `/weekly` - 週次レビューの実行
+- `/onboard` - コンテキストのロード
 
 ---
 
-*Command Version: 1.0*
-*Requires: Git installed and configured*
+*コマンドバージョン: 1.0*
+*要件: Gitがインストールされ設定されていること*
 
-**Pro Tip:** Commit early and often - your future self will thank you!
+**プロヒント:** 早めに頻繁にコミットしましょう - 未来の自分が感謝します！

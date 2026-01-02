@@ -1,127 +1,127 @@
 ---
 name: goal-tracking
-description: Track progress toward 3-year, yearly, monthly, and weekly goals. Calculate completion percentages, surface stalled goals, connect daily tasks to objectives. Use for goal reviews and progress tracking.
+description: 3年、年次、月次、週次目標への進捗を追跡します。完了率を計算し、停滞している目標を表示し、日々のタスクを目標に接続します。目標レビューと進捗追跡に使用します。
 allowed-tools: Read, Grep, Glob, Edit
 ---
 
-# Goal Tracking Skill
+# 目標トラッキングスキル
 
-Track and manage the cascading goal system from long-term vision to daily tasks.
+長期ビジョンから日々のタスクまでのカスケード目標システムを追跡・管理します。
 
-## Goal Hierarchy
+## 目標階層
 
 ```
-Goals/0. Three Year Goals.md   <- Vision (Life areas)
+Goals/0. Three Year Goals.md   <- ビジョン（ライフエリア）
     ↓
-Goals/1. Yearly Goals.md       <- Annual objectives
+Goals/1. Yearly Goals.md       <- 年間目標
     ↓
-Goals/2. Monthly Goals.md      <- Current month focus
+Goals/2. Monthly Goals.md      <- 今月のフォーカス
     ↓
-Goals/3. Weekly Review.md      <- Weekly planning
+Goals/3. Weekly Review.md      <- 週次計画
     ↓
-Daily Notes/*.md               <- Daily tasks and actions
+Daily Notes/*.md               <- デイリータスクとアクション
 ```
 
-## Goal File Formats
+## 目標ファイル形式
 
-### Three Year Goals
+### 3年目標
 ```markdown
-## Life Areas
-- Career: [Vision statement]
-- Health: [Vision statement]
-- Relationships: [Vision statement]
-- Financial: [Vision statement]
-- Learning: [Vision statement]
-- Personal: [Vision statement]
+## ライフエリア
+- キャリア：[ビジョンステートメント]
+- 健康：[ビジョンステートメント]
+- 人間関係：[ビジョンステートメント]
+- 金融：[ビジョンステートメント]
+- 学習：[ビジョンステートメント]
+- 個人：[ビジョンステートメント]
 ```
 
-### Yearly Goals
+### 年間目標
 ```markdown
-## 2024 Goals
-- [ ] Goal 1 (XX% complete)
-- [ ] Goal 2 (XX% complete)
-- [x] Goal 3 (100% complete)
+## 2024年の目標
+- [ ] 目標1（XX%完了）
+- [ ] 目標2（XX%完了）
+- [x] 目標3（100%完了）
 ```
 
-### Monthly Goals
+### 月次目標
 ```markdown
-## This Month's Focus
-1. **Primary:** [Main focus]
-2. **Secondary:** [Supporting goal]
-3. **Stretch:** [If time permits]
+## 今月のフォーカス
+1. **主要：** [メインフォーカス]
+2. **副次的：** [サポート目標]
+3. **ストレッチ：** [時間があれば]
 
-### Key Results
-- [ ] Measurable outcome 1
-- [ ] Measurable outcome 2
+### 主要結果
+- [ ] 測定可能な成果1
+- [ ] 測定可能な成果2
 ```
 
-## Progress Calculation
+## 進捗計算
 
-### Checklist-Based Goals
+### チェックリストベースの目標
 ```
-Progress = (Completed checkboxes / Total checkboxes) * 100
-```
-
-### Metric-Based Goals
-```
-Progress = (Current value / Target value) * 100
+進捗 = （完了したチェックボックス / 全チェックボックス） * 100
 ```
 
-### Time-Based Goals
+### メトリックベースの目標
 ```
-Progress = (Days elapsed / Total days) * 100
+進捗 = （現在の値 / 目標値） * 100
 ```
 
-## Common Operations
+### 時間ベースの目標
+```
+進捗 = （経過日数 / 全日数） * 100
+```
 
-### View Goal Progress
-1. Read all goal files
-2. Parse checkbox completion rates
-3. Calculate overall and per-goal progress
-4. Identify stalled or at-risk goals
+## 一般的な操作
 
-### Update Goal Status
-1. Find goal in appropriate file
-2. Update checkbox or percentage
-3. Add date stamp for significant milestones
-4. Update related weekly review
+### 目標進捗の表示
+1. すべての目標ファイルを読む
+2. チェックボックスの完了率を解析
+3. 全体および目標ごとの進捗を計算
+4. 停滞またはリスクのある目標を特定
 
-### Connect Task to Goal
-When adding tasks to daily notes:
-1. Identify which goal the task supports
-2. Add goal reference: `Supports: [[1. Yearly Goals#Goal Name]]`
-3. Use appropriate priority tag
+### 目標ステータスの更新
+1. 適切なファイルで目標を検索
+2. チェックボックスまたは進捗率を更新
+3. 重要なマイルストーンに日付スタンプを追加
+4. 関連する週次レビューを更新
 
-### Surface Stalled Goals
-1. Check last activity date for each goal
-2. Flag goals with no progress in 14+ days
-3. Suggest actions to restart momentum
+### タスクを目標に接続
+デイリーノートにタスクを追加する際：
+1. タスクがサポートする目標を特定
+2. 目標参照を追加：`サポート: [[1. Yearly Goals#目標名]]`
+3. 適切な優先度タグを使用
 
-## Progress Report Format
+### 停滞している目標を表示
+1. 各目標の最終活動日をチェック
+2. 14日以上進捗がない目標をフラグ
+3. 勢いを再開するアクションを提案
+
+## 進捗レポート形式
 
 ```markdown
-## Goal Progress Report
+## 目標進捗レポート
 
-### Overall: XX%
+### 全体：XX%
 
-### By Goal
-| Goal | Progress | Last Activity | Status |
+### 目標別
+| 目標 | 進捗 | 最終活動 | ステータス |
 |------|----------|---------------|--------|
-| Goal 1 | 75% | 2 days ago | On Track |
-| Goal 2 | 30% | 14 days ago | Stalled |
+| 目標1 | 75% | 2日前 | 順調 |
+| 目標2 | 30% | 14日前 | 停滞 |
 
-### This Week's Contributions
-- [Task] -> [[Goal 1]]
-- [Task] -> [[Goal 2]]
+### 今週の貢献
+- [タスク] -> [[目標1]]
+- [タスク] -> [[目標2]]
 
-### Recommended Focus
-1. [Stalled goal needs attention]
-2. [Nearly complete goal - finish it]
+### 推奨フォーカス
+1. [停滞している目標は注意が必要]
+2. [ほぼ完了の目標 - 完了させる]
 ```
 
-## Integration Points
+## 統合ポイント
 
-- Weekly review: Full progress assessment
-- Daily planning: Surface relevant goals
-- Monthly review: Adjust goals as needed
-- Quarterly review: Cascade from 3-year vision
+- 週次レビュー：完全な進捗評価
+- 日次計画：関連する目標を表示
+- 月次レビュー：必要に応じて目標を調整
+- 四半期レビュー：3年ビジョンからカスケード

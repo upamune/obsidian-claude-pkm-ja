@@ -2,136 +2,136 @@
 paths: "Projects/**/*.md"
 ---
 
-# Project Management Rules
+# プロジェクト管理ルール
 
-These conventions apply to project folders and documentation.
+これらの規約はプロジェクトフォルダとドキュメントに適用されます。
 
-## Project Structure
+## プロジェクト構造
 
-Each project gets its own folder:
+各プロジェクトは独自のフォルダを持ちます：
 ```
 Projects/
 └── Project-Name/
-    ├── CLAUDE.md           # Required: Project context for AI
-    ├── README.md           # Optional: Overview if complex
-    ├── notes/              # Optional: Related notes
-    └── resources/          # Optional: Reference materials
+    ├── CLAUDE.md           # 必須：AI用のプロジェクトコンテキスト
+    ├── README.md           # オプション：複雑な場合の概要
+    ├── notes/              # オプション：関連ノート
+    └── resources/          # オプション：参考資料
 ```
 
-## Project CLAUDE.md
+## プロジェクトCLAUDE.md
 
-Every project must have a CLAUDE.md file with:
+すべてのプロジェクトには以下を含むCLAUDE.mdファイルが必要：
 
 ```markdown
-# Project: [Name]
+# プロジェクト: [名前]
 
-## Overview
-[1-2 sentence description of what this project is]
+## 概要
+[このプロジェクトが何であるかの1-2文の説明]
 
-## Status
-- **Phase:** Planning | Active | On Hold | Complete
-- **Progress:** X%
-- **Started:** YYYY-MM-DD
-- **Target:** YYYY-MM-DD
+## ステータス
+- **フェーズ:** 計画中 | アクティブ | 保留中 | 完了
+- **進捗:** X%
+- **開始:** YYYY-MM-DD
+- **目標:** YYYY-MM-DD
 
-## Goals
-What success looks like for this project.
+## 目標
+このプロジェクトの成功がどのように見えるか。
 
-## Current Focus
-What I'm actively working on right now.
+## 現在のフォーカス
+現在積極的に取り組んでいること。
 
-## Key Decisions
-Important decisions made and their rationale.
+## 重要な決定
+行われた重要な決定とその理由。
 
-## Next Actions
-- [ ] Immediate next step
-- [ ] Following step
+## 次のアクション
+- [ ] 直近の次のステップ
+- [ ] 次のステップ
 
-## Blockers
-Anything preventing progress.
+## ブロッカー
+進捗を妨げているもの。
 
-## Resources
-- [[Related Note]]
-- [External Link](url)
+## リソース
+- [[関連ノート]]
+- [外部リンク](url)
 
-## Notes for Claude
-[Any specific context Claude should know when helping with this project]
+## Claudeのためのメモ
+[このプロジェクトを支援する際にClaudeが知っておくべき具体的なコンテキスト]
 ```
 
-## Project Status Values
+## プロジェクトステータス値
 
-Use consistent status labels:
-- `Planning` - Defining scope and approach
-- `Active` - Currently being worked on
-- `On Hold` - Temporarily paused (note reason)
-- `Blocked` - Waiting on external dependency
-- `Review` - Work complete, needs review
-- `Complete` - Done and ready for archive
+一貫したステータスラベルを使用：
+- `計画中` - スコープとアプローチの定義
+- `アクティブ` - 現在作業中
+- `保留中` - 一時的に停止（理由を記載）
+- `ブロック中` - 外部依存関係を待機
+- `レビュー` - 作業完了、レビュー必要
+- `完了` - 完了しアーカイブ準備完了
 
-## Progress Tracking
+## 進捗トラッキング
 
-### Percentage Guidelines
-- 0-10%: Planning and setup
-- 10-30%: Initial implementation
-- 30-70%: Core work
-- 70-90%: Refinement and polish
-- 90-100%: Final review and completion
+### 進捗率のガイドライン
+- 0-10%：計画とセットアップ
+- 10-30%：初期実装
+- 30-70%：コア作業
+- 70-90%：改善と仕上げ
+- 90-100%：最終レビューと完了
 
-### Update Frequency
-- Update progress weekly at minimum
-- Update status when it changes
-- Update blockers immediately
+### 更新頻度
+- 最低週1回進捗を更新
+- 変更時にステータスを更新
+- ブロッカーは即座に更新
 
-## Linking Projects
+## プロジェクトのリンク
 
-### To Goals
-Link projects to their parent goals:
+### 目標へ
+プロジェクトを親目標にリンク：
 ```markdown
-**Supports:** [[1. Yearly Goals#Goal Name]]
+**サポート:** [[1. Yearly Goals#目標名]]
 ```
 
-### To Daily Notes
-Reference project work in daily notes:
+### デイリーノートへ
+デイリーノートでプロジェクト作業を参照：
 ```markdown
-## Work Log
-- Worked on [[Project Name]] - completed X
+## 作業ログ
+- [[プロジェクト名]]に取り組んだ - Xを完了
 ```
 
-### Between Projects
-Link related projects:
+### プロジェクト間
+関連プロジェクトをリンク：
 ```markdown
-**Related:** [[Other Project]]
+**関連:** [[他のプロジェクト]]
 ```
 
-## Project Lifecycle
+## プロジェクトライフサイクル
 
-### Starting a Project
-1. Create folder in `Projects/`
-2. Create CLAUDE.md from template
-3. Link to relevant goal
-4. Define first next action
-5. Set target completion date
+### プロジェクトの開始
+1. `Projects/`にフォルダを作成
+2. テンプレートからCLAUDE.mdを作成
+3. 関連する目標にリンク
+4. 最初の次のアクションを定義
+5. 目標完了日を設定
 
-### During Project
-1. Update CLAUDE.md with progress
-2. Log work in daily notes
-3. Capture decisions and rationale
-4. Track blockers immediately
-5. Adjust timeline if needed
+### プロジェクト中
+1. 進捗でCLAUDE.mdを更新
+2. デイリーノートに作業を記録
+3. 決定と理由をキャプチャ
+4. ブロッカーを即座に追跡
+5. 必要に応じてタイムラインを調整
 
-### Completing a Project
-1. Update status to Complete
-2. Add completion date and summary
-3. Document lessons learned
-4. Move folder to Archives/Projects/
-5. Update goal progress
+### プロジェクトの完了
+1. ステータスを完了に更新
+2. 完了日とサマリーを追加
+3. 学んだ教訓を文書化
+4. フォルダをArchives/Projects/に移動
+5. 目標の進捗を更新
 
-## Best Practices
+## ベストプラクティス
 
-1. Keep project scope realistic
-2. One primary focus at a time
-3. Break large projects into phases
-4. Review all active projects weekly
-5. Archive completed projects promptly
-6. Document decisions as they're made
-7. Link to relevant context liberally
+1. プロジェクトスコープを現実的に保つ
+2. 一度に1つの主要フォーカス
+3. 大きなプロジェクトをフェーズに分割
+4. すべてのアクティブプロジェクトを週次でレビュー
+5. 完了したプロジェクトを速やかにアーカイブ
+6. 決定は行われたときに文書化
+7. 関連するコンテキストに自由にリンク

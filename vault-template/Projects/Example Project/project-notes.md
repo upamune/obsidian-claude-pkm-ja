@@ -1,194 +1,194 @@
-# Learning Spanish - Project Notes
+# スペイン語学習 - プロジェクトノート
 
-## Study Log
+## 学習ログ
 
-### Week 1 - Getting Started
-**Date:** January 1-7, 2024
+### 第1週 - スタート
+**日付：** 2024年1月1-7日
 
-**What I Learned:**
-- Spanish alphabet pronunciation differs from English
-- Rolled R's are harder than expected
-- Basic greetings and introductions
-- Numbers 1-100
+**学んだこと：**
+- スペイン語のアルファベットの発音は英語と異なる
+- 巻き舌のRは予想より難しい
+- 基本的な挨拶と自己紹介
+- 数字1-100
 
-**Practice Completed:**
-- 3.5 hours total study time
-- Created first 50 Anki cards
-- Had first tutoring session
+**完了した練習：**
+- 合計3.5時間の学習時間
+- 最初の50枚のAnkiカードを作成
+- 最初の家庭教師セッション
 
-**Reflections:**
-- Morning practice works better than evening
-- Need to practice speaking out loud more
-- Anki reviews are effective for memorization
-
----
-
-### Week 2 - Building Foundations
-**Date:** January 8-14, 2024
-
-**What I Learned:**
-- Present tense conjugations for regular verbs
-- Basic question words (qué, quién, dónde, etc.)
-- Days of the week and months
-- Common phrases for shopping
-
-**Practice Completed:**
-- 5 hours total study time
-- Added 75 new vocabulary words
-- First conversation exchange (struggled but succeeded!)
-
-**Challenges:**
-- Mixing up ser vs estar
-- Forgetting to match adjective gender
-- Speaking anxiety in conversation practice
-
-**Breakthrough Moment:**
-Successfully ordered coffee in Spanish at local café!
+**振り返り：**
+- 朝の練習の方が夕方よりうまくいく
+- 声に出して話す練習をもっとする必要がある
+- Ankiの復習は記憶に効果的
 
 ---
 
-## Vocabulary Lists
+### 第2週 - 基礎構築
+**日付：** 2024年1月8-14日
 
-### Essential Verbs
-- ser/estar - to be
-- tener - to have
-- hacer - to do/make
-- poder - can/to be able
-- querer - to want
-- ir - to go
-- venir - to come
-- decir - to say
-- dar - to give
-- ver - to see
+**学んだこと：**
+- 規則動詞の現在形活用
+- 基本的な疑問詞（qué、quién、dóndeなど）
+- 曜日と月
+- 買い物の一般的なフレーズ
 
-### Daily Routine Vocabulary
-- despertarse - to wake up
-- levantarse - to get up
-- desayunar - to have breakfast
-- trabajar - to work
-- almorzar - to have lunch
-- estudiar - to study
-- cenar - to have dinner
-- acostarse - to go to bed
+**完了した練習：**
+- 合計5時間の学習時間
+- 75の新しい語彙を追加
+- 最初の会話交換（苦労したが成功！）
+
+**課題：**
+- serとestarを混同する
+- 形容詞の性を一致させるのを忘れる
+- 会話練習での話す不安
+
+**ブレークスルーの瞬間：**
+地元のカフェでスペイン語でコーヒーを注文することに成功！
 
 ---
 
-## Grammar Notes
+## 語彙リスト
+
+### 必須動詞
+- ser/estar - である
+- tener - 持っている
+- hacer - する/作る
+- poder - できる
+- querer - 欲しい
+- ir - 行く
+- venir - 来る
+- decir - 言う
+- dar - 与える
+- ver - 見る
+
+### 日常ルーティンの語彙
+- despertarse - 目が覚める
+- levantarse - 起きる
+- desayunar - 朝食を食べる
+- trabajar - 働く
+- almorzar - 昼食を食べる
+- estudiar - 勉強する
+- cenar - 夕食を食べる
+- acostarse - 寝る
+
+---
+
+## 文法ノート
 
 ### Ser vs Estar
-**SER** - Permanent characteristics
-- Description: Ella es alta (She is tall)
-- Occupation: Soy profesor (I am a teacher)
-- Characteristics: El libro es interesante (The book is interesting)
-- Time: Son las tres (It's 3 o'clock)
-- Origin: Somos de México (We're from Mexico)
+**SER** - 永続的な特性
+- 描写：Ella es alta（彼女は背が高い）
+- 職業：Soy profesor（私は教師です）
+- 特性：El libro es interesante（その本は興味深い）
+- 時間：Son las tres（3時です）
+- 出身：Somos de México（私たちはメキシコ出身です）
 
-**ESTAR** - Temporary states/locations
-- Location: Estoy en casa (I'm at home)
-- Emotions: Está feliz (He is happy)
-- Temporary conditions: La comida está fría (The food is cold)
-- Progressive: Estoy estudiando (I am studying)
-
----
-
-## Useful Resources Found
-
-### Podcasts
-1. **SpanishPod101** - Great for beginners
-2. **Coffee Break Spanish** - 15-minute daily lessons
-3. **Duolingo Spanish Podcast** - Stories for intermediate
-
-### YouTube Channels
-1. **SpanishDict** - Grammar explanations
-2. **Butterfly Spanish** - Fun and engaging
-3. **Spanish with Paul** - Structured lessons
-
-### Practice Websites
-- **Conjuguemos** - Grammar practice
-- **News in Slow Spanish** - Listening practice
-- **HelloTalk** - Find conversation partners
+**ESTAR** - 一時的な状態/場所
+- 場所：Estoy en casa（私は家にいます）
+- 感情：Está feliz（彼は幸せです）
+- 一時的な状態：La comida está fría（食べ物が冷たい）
+- 進行形：Estoy estudiando（私は勉強しています）
 
 ---
 
-## Conversation Practice Templates
+## 見つけた役立つリソース
 
-### Introducing Yourself
-```
-Hola, me llamo [name].
-Soy de [country/city].
-Tengo [age] años.
-Soy [occupation].
-Me gusta [hobby/interest].
-Estoy aprendiendo español porque [reason].
-```
+### ポッドキャスト
+1. **SpanishPod101** - 初心者に最適
+2. **Coffee Break Spanish** - 15分の毎日のレッスン
+3. **Duolingo Spanish Podcast** - 中級者向けのストーリー
 
-### Ordering at Restaurant
+### YouTubeチャンネル
+1. **SpanishDict** - 文法の説明
+2. **Butterfly Spanish** - 楽しくて魅力的
+3. **Spanish with Paul** - 構造化されたレッスン
+
+### 練習ウェブサイト
+- **Conjuguemos** - 文法練習
+- **News in Slow Spanish** - リスニング練習
+- **HelloTalk** - 会話パートナーを見つける
+
+---
+
+## 会話練習テンプレート
+
+### 自己紹介
 ```
-Waiter: ¿Qué desea?
-You: Quisiera [dish], por favor.
-Waiter: ¿Algo de beber?
-You: Sí, [beverage], por favor.
-Waiter: ¿Algo más?
-You: No, eso es todo. Gracias.
-[Later]
-You: La cuenta, por favor.
+Hola, me llamo [名前].
+Soy de [国/都市].
+Tengo [年齢] años.
+Soy [職業].
+Me gusta [趣味/興味].
+Estoy aprendiendo español porque [理由].
 ```
 
----
-
-## Monthly Progress Review
-
-### January 2024
-**Goals Set:** ✅ 
-- Complete textbook chapters 1-2
-- Learn 200 vocabulary words
-- Have 4 tutoring sessions
-- Practice daily for 30 minutes
-
-**Goals Achieved:**
-- ✅ Completed chapters 1-2
-- ⚠️ Learned 175 words (87.5%)
-- ✅ Had 4 tutoring sessions
-- ⚠️ Practiced 25/31 days (80%)
-
-**Key Wins:**
-- Established daily practice routine
-- Found good language exchange partner
-- Can introduce myself confidently
-
-**Areas for Improvement:**
-- Need more listening practice
-- Should speak out loud more
-- Grammar exercises need more time
-
-**February Goals:**
-- Complete chapters 3-4
-- Add 200 more vocabulary words
-- Increase speaking practice to 2x per week
-- Maintain 30-minute daily minimum
+### レストランでの注文
+```
+ウェイター：¿Qué desea?
+あなた：Quisiera [料理], por favor.
+ウェイター：¿Algo de beber?
+あなた：Sí, [飲み物], por favor.
+ウェイター：¿Algo más?
+あなた：No, eso es todo. Gracias.
+[後で]
+あなた：La cuenta, por favor.
+```
 
 ---
 
-## Project Reflections
+## 月次進捗レビュー
 
-### What's Working Well
-- Anki for vocabulary retention
-- Morning study sessions
-- Weekly tutor accountability
-- Immersion through Spanish music
+### 2024年1月
+**設定した目標：** ✅
+- 教科書の第1-2章を完了
+- 200の語彙を学ぶ
+- 4回の家庭教師セッション
+- 毎日30分練習
 
-### What Needs Adjustment
-- Need structured grammar practice
-- Should record myself speaking
-- Find more opportunities for real conversation
-- Add more writing practice
+**達成した目標：**
+- ✅ 第1-2章を完了
+- ⚠️ 175語を学習（87.5%）
+- ✅ 4回の家庭教師セッション
+- ⚠️ 31日中25日練習（80%）
 
-### Motivation Reminders
-- Why I started: Want to travel South America
-- Dream scenario: Having deep conversations with native speakers
-- Milestone celebration planned: Spanish movie marathon at 6 months
-- End goal: Pass DELE B2 and travel to Spain
+**主な成果：**
+- 日々の練習ルーティンを確立
+- 良い言語交換パートナーを見つけた
+- 自信を持って自己紹介ができる
+
+**改善すべき領域：**
+- もっとリスニング練習が必要
+- 声に出して話す練習をもっとすべき
+- 文法練習にもっと時間が必要
+
+**2月の目標：**
+- 第3-4章を完了
+- さらに200の語彙を追加
+- スピーキング練習を週2回に増やす
+- 毎日最低30分を維持
 
 ---
 
-*This is an example project note. Your actual project notes would contain your specific learning journey, challenges, and victories.*
+## プロジェクトの振り返り
+
+### うまくいっていること
+- 語彙保持のためのAnki
+- 朝の学習セッション
+- 週1回の家庭教師の説明責任
+- スペイン音楽によるイマージョン
+
+### 調整が必要なこと
+- 構造化された文法練習が必要
+- 自分の話す様子を録音すべき
+- 実際の会話のための機会をもっと見つける
+- もっとライティング練習を追加
+
+### モチベーションのリマインダー
+- 始めた理由：南米を旅行したい
+- 夢のシナリオ：ネイティブスピーカーと深い会話をする
+- マイルストーン祝賀計画：6か月でスペイン語映画マラソン
+- 最終目標：DELE B2に合格してスペインに旅行
+
+---
+
+*これは例のプロジェクトノートです。実際のプロジェクトノートには、あなた固有の学習の旅、課題、勝利が含まれます。*

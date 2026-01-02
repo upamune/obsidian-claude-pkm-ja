@@ -1,259 +1,259 @@
-# Project: [PROJECT NAME]
+# プロジェクト：[プロジェクト名]
 
-## 📋 Project Overview
+## 📋 プロジェクト概要
 
-### Purpose
-*Why does this project exist? What problem does it solve?*
+### 目的
+*このプロジェクトはなぜ存在しますか？どんな問題を解決しますか？*
 
-[CUSTOMIZE: Clear statement of project purpose]
+[カスタマイズ：プロジェクトの目的の明確な記述]
 
-### Success Criteria
-*How will we know when this project is complete and successful?*
+### 成功基準
+*このプロジェクトがいつ完了し、成功したかをどのように知りますか？*
 
-1. [Specific, measurable outcome]
-2. [Specific, measurable outcome]
-3. [Specific, measurable outcome]
+1. [具体的で測定可能な成果]
+2. [具体的で測定可能な成果]
+3. [具体的で測定可能な成果]
 
-### Timeline
-- **Start Date:** {{date:YYYY-MM-DD}}
-- **Target Completion:** [DATE]
-- **Actual Completion:** [To be filled]
+### タイムライン
+- **開始日：** {{date:YYYY-MM-DD}}
+- **目標完了日：** [日付]
+- **実際の完了日：** [記入予定]
 
-### Priority Level
-- [ ] 🔴 Critical - Business/Life Essential
-- [ ] 🟡 Important - Significant Impact
-- [ ] 🟢 Nice to Have - Improvement/Enhancement
-
----
-
-## 🎯 Goals & Objectives
-
-### Primary Goal
-[CUSTOMIZE: Main goal this project achieves]
-
-### Supporting Objectives
-1. [Objective that supports the goal]
-2. [Objective that supports the goal]
-3. [Objective that supports the goal]
-
-### Link to Annual Goals
-*How does this connect to [[1. Yearly Goals]]?*
-
-[Explain connection]
+### 優先度レベル
+- [ ] 🔴 重要 - ビジネス/人生に不可欠
+- [ ] 🟡 重要 - 大きな影響
+- [ ] 🟢 できればやる - 改善/拡張
 
 ---
 
-## 👥 Stakeholders
+## 🎯 目標と目的
 
-### Project Owner
-- **Name:** [Your name or responsible party]
-- **Role:** [Decision maker]
+### 主要目標
+[カスタマイズ：このプロジェクトが達成する主要目標]
 
-### Team Members / Collaborators
-- **[Name]:** [Role/Responsibility]
-- **[Name]:** [Role/Responsibility]
+### サポート目的
+1. [目標をサポートする目的]
+2. [目標をサポートする目的]
+3. [目標をサポートする目的]
 
-### External Dependencies
-- **[Person/Team]:** [What they provide]
-- **[Person/Team]:** [What they provide]
+### 年間目標とのリンク
+*これは[[1. Yearly Goals]]とどのようにつながっていますか？*
 
----
-
-## 📊 Scope
-
-### In Scope
-*What this project WILL include*
-- ✅ [Included deliverable/feature]
-- ✅ [Included deliverable/feature]
-- ✅ [Included deliverable/feature]
-
-### Out of Scope
-*What this project WILL NOT include*
-- ❌ [Excluded item - save for later]
-- ❌ [Excluded item - save for later]
-- ❌ [Excluded item - save for later]
-
-### Constraints
-- **Budget:** [If applicable]
-- **Time:** [Hard deadlines]
-- **Resources:** [Limitations]
+[つながりを説明]
 
 ---
 
-## 🗺️ Milestones & Phases
+## 👥 ステークホルダー
 
-### Phase 1: [PHASE NAME]
-**Target Date:** [DATE]
-**Status:** [Not Started/In Progress/Complete]
+### プロジェクトオーナー
+- **名前：** [あなたの名前または責任者]
+- **役割：** [意思決定者]
 
-Key Deliverables:
-- [ ] [Deliverable 1]
-- [ ] [Deliverable 2]
-- [ ] [Deliverable 3]
+### チームメンバー/協力者
+- **[名前]：** [役割/責任]
+- **[名前]：** [役割/責任]
 
-### Phase 2: [PHASE NAME]
-**Target Date:** [DATE]
-**Status:** [Not Started/In Progress/Complete]
-
-Key Deliverables:
-- [ ] [Deliverable 1]
-- [ ] [Deliverable 2]
-- [ ] [Deliverable 3]
-
-### Phase 3: [PHASE NAME]
-**Target Date:** [DATE]
-**Status:** [Not Started/In Progress/Complete]
-
-Key Deliverables:
-- [ ] [Deliverable 1]
-- [ ] [Deliverable 2]
-- [ ] [Deliverable 3]
+### 外部依存関係
+- **[人/チーム]：** [提供するもの]
+- **[人/チーム]：** [提供するもの]
 
 ---
 
-## ✅ Task List
+## 📊 スコープ
 
-### Current Sprint/Week
-- [ ] **Priority 1:** [Task] - Due: [DATE]
-- [ ] **Priority 2:** [Task] - Due: [DATE]
-- [ ] **Priority 3:** [Task] - Due: [DATE]
+### スコープ内
+*このプロジェクトに含まれるもの*
+- ✅ [含まれる成果物/機能]
+- ✅ [含まれる成果物/機能]
+- ✅ [含まれる成果物/機能]
 
-### Backlog
-- [ ] [Future task]
-- [ ] [Future task]
-- [ ] [Future task]
+### スコープ外
+*このプロジェクトに含まれないもの*
+- ❌ [除外項目 - 後で保存]
+- ❌ [除外項目 - 後で保存]
+- ❌ [除外項目 - 後で保存]
 
-### Completed
-- [x] [Completed task] - [DATE]
-- [x] [Completed task] - [DATE]
-
----
-
-## 📝 Project Log
-
-### [DATE] - [TITLE]
-**What happened:** [Brief description]
-**Decision made:** [If applicable]
-**Next steps:** [Action items]
-
-### [DATE] - [TITLE]
-**What happened:** [Brief description]
-**Decision made:** [If applicable]
-**Next steps:** [Action items]
+### 制約
+- **予算：** [該当する場合]
+- **時間：** [厳格な期限]
+- **リソース：** [制限]
 
 ---
 
-## 🚧 Risks & Issues
+## 🗺️ マイルストーンとフェーズ
 
-### Active Risks
-1. **Risk:** [Description]
-   - **Impact:** [High/Medium/Low]
-   - **Mitigation:** [How to prevent/handle]
+### フェーズ1：[フェーズ名]
+**目標日：** [日付]
+**ステータス：** [未開始/進行中/完了]
 
-2. **Risk:** [Description]
-   - **Impact:** [High/Medium/Low]
-   - **Mitigation:** [How to prevent/handle]
+主要成果物：
+- [ ] [成果物1]
+- [ ] [成果物2]
+- [ ] [成果物3]
 
-### Current Issues
-1. **Issue:** [Description]
-   - **Status:** [Investigating/Resolving/Blocked]
-   - **Owner:** [Who's handling]
-   - **Resolution:** [Plan to fix]
+### フェーズ2：[フェーズ名]
+**目標日：** [日付]
+**ステータス：** [未開始/進行中/完了]
 
----
+主要成果物：
+- [ ] [成果物1]
+- [ ] [成果物2]
+- [ ] [成果物3]
 
-## 💰 Resources & Budget
+### フェーズ3：[フェーズ名]
+**目標日：** [日付]
+**ステータス：** [未開始/進行中/完了]
 
-### Time Investment
-- **Estimated Hours:** [X hours]
-- **Actual Hours:** [Track as you go]
-
-### Financial Investment
-- **Budget:** $[Amount]
-- **Spent:** $[Amount]
-- **Remaining:** $[Amount]
-
-### Tools & Resources Needed
-- [Tool/Resource 1]
-- [Tool/Resource 2]
-- [Tool/Resource 3]
+主要成果物：
+- [ ] [成果物1]
+- [ ] [成果物2]
+- [ ] [成果物3]
 
 ---
 
-## 📚 Reference Materials
+## ✅ タスクリスト
 
-### Documentation
-- [Link to important doc]
-- [Link to important doc]
+### 現在のスプリント/週
+- [ ] **優先度1：** [タスク] - 期限：[日付]
+- [ ] **優先度2：** [タスク] - 期限：[日付]
+- [ ] **優先度3：** [タスク] - 期限：[日付]
 
-### Research & Inspiration
-- [Article/Resource]
-- [Article/Resource]
+### バックログ
+- [ ] [将来のタスク]
+- [ ] [将来のタスク]
+- [ ] [将来のタスク]
 
-### Related Projects
-- [[Project Name]] - [How it relates]
-- [[Project Name]] - [How it relates]
-
----
-
-## 🎉 Success Metrics
-
-### Quantitative Metrics
-- **Metric 1:** [Target] vs [Actual]
-- **Metric 2:** [Target] vs [Actual]
-- **Metric 3:** [Target] vs [Actual]
-
-### Qualitative Outcomes
-- [Describe quality improvement]
-- [Describe satisfaction measure]
-- [Describe learning outcome]
+### 完了
+- [x] [完了したタスク] - [日付]
+- [x] [完了したタスク] - [日付]
 
 ---
 
-## 📤 Deliverables
+## 📝 プロジェクトログ
 
-### Final Deliverables
-1. **[Deliverable Name]**
-   - Format: [Document/Code/Product]
-   - Location: [Where to find it]
-   - Status: [Draft/Review/Final]
+### [日付] - [タイトル]
+**何が起こったか：** [簡単な説明]
+**行われた決定：** [該当する場合]
+**次のステップ：** [アクションアイテム]
 
-2. **[Deliverable Name]**
-   - Format: [Document/Code/Product]
-   - Location: [Where to find it]
-   - Status: [Draft/Review/Final]
-
----
-
-## 🔄 Project Review
-
-### Lessons Learned
-*To be completed at project end*
-
-**What went well:**
-- 
-
-**What could be improved:**
-- 
-
-**What to do differently next time:**
-- 
-
-### Follow-up Actions
-- [ ] [Post-project task]
-- [ ] [Post-project task]
+### [日付] - [タイトル]
+**何が起こったか：** [簡単な説明]
+**行われた決定：** [該当する場合]
+**次のステップ：** [アクションアイテム]
 
 ---
 
-## 🔗 Quick Links
-- [[Projects/]] - All projects
-- [[2. Monthly Goals]] - Current month
-- [[1. Yearly Goals]] - Annual objectives
+## 🚧 リスクと課題
+
+### アクティブなリスク
+1. **リスク：** [説明]
+   - **影響：** [高/中/低]
+   - **軽減策：** [予防/対処方法]
+
+2. **リスク：** [説明]
+   - **影響：** [高/中/低]
+   - **軽減策：** [予防/対処方法]
+
+### 現在の課題
+1. **課題：** [説明]
+   - **ステータス：** [調査中/解決中/ブロック中]
+   - **オーナー：** [対処者]
+   - **解決策：** [修正計画]
 
 ---
 
-*Project Created: {{date:YYYY-MM-DD}}*
-*Last Updated: {{date:YYYY-MM-DD}}*
-*Status: [Active/On Hold/Complete]*
+## 💰 リソースと予算
 
-**Project Mantra:** [CUSTOMIZE: Inspiring quote or reminder for this project]
+### 時間投資
+- **推定時間：** [X時間]
+- **実際の時間：** [進行中に追跡]
+
+### 財務投資
+- **予算：** $[金額]
+- **使用：** $[金額]
+- **残り：** $[金額]
+
+### 必要なツールとリソース
+- [ツール/リソース1]
+- [ツール/リソース2]
+- [ツール/リソース3]
+
+---
+
+## 📚 参考資料
+
+### ドキュメント
+- [重要なドキュメントへのリンク]
+- [重要なドキュメントへのリンク]
+
+### 研究とインスピレーション
+- [記事/リソース]
+- [記事/リソース]
+
+### 関連プロジェクト
+- [[プロジェクト名]] - [関連性]
+- [[プロジェクト名]] - [関連性]
+
+---
+
+## 🎉 成功指標
+
+### 定量的指標
+- **指標1：** [目標] vs [実際]
+- **指標2：** [目標] vs [実際]
+- **指標3：** [目標] vs [実際]
+
+### 定性的成果
+- [品質改善の説明]
+- [満足度の測定]
+- [学習成果]
+
+---
+
+## 📤 成果物
+
+### 最終成果物
+1. **[成果物名]**
+   - 形式：[ドキュメント/コード/製品]
+   - 場所：[どこで見つかるか]
+   - ステータス：[ドラフト/レビュー/最終]
+
+2. **[成果物名]**
+   - 形式：[ドキュメント/コード/製品]
+   - 場所：[どこで見つかるか]
+   - ステータス：[ドラフト/レビュー/最終]
+
+---
+
+## 🔄 プロジェクトレビュー
+
+### 学んだ教訓
+*プロジェクト終了時に完了*
+
+**うまくいったこと：**
+-
+
+**改善できること：**
+-
+
+**次回違う方法でやること：**
+-
+
+### フォローアップアクション
+- [ ] [プロジェクト後のタスク]
+- [ ] [プロジェクト後のタスク]
+
+---
+
+## 🔗 クイックリンク
+- [[Projects/]] - すべてのプロジェクト
+- [[2. Monthly Goals]] - 今月
+- [[1. Yearly Goals]] - 年間目標
+
+---
+
+*プロジェクト作成日：{{date:YYYY-MM-DD}}*
+*最終更新日：{{date:YYYY-MM-DD}}*
+*ステータス：[アクティブ/保留中/完了]*
+
+**プロジェクトマントラ：** [カスタマイズ：このプロジェクトのための刺激的な引用またはリマインダー]

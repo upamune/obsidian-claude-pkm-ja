@@ -5,125 +5,125 @@ tags: daily-note
 
 # {{date:dddd, MMMM DD, YYYY}}
 
-_[CUSTOMIZE THIS: Add your personal mission statement or daily reminder here]_
-*Example: "Every day, I choose to grow, contribute, and live with intention."*
+_[カスタマイズ：ここにあなたの個人的なミッションステートメントまたは日々のリマインダーを追加]_
+*例：「毎日、私は成長し、貢献し、意図を持って生きることを選択する。」*
 
 ---
 
-## 🎯 Today's Focus
-*What's the ONE thing that would make today a win?*
+## 🎯 今日のフォーカス
+*今日を勝利にする1つのことは何か？*
 
-**Today's Priority:** 
-
----
-
-## ⏰ Time Blocks
-*Plan your day with intentional time allocation*
-
-- **Morning (6-9am):** [Morning routine/Deep work]
-- **Mid-Morning (9-12pm):** [Primary work block]
-- **Afternoon (12-3pm):** [Meetings/Collaboration]
-- **Late Afternoon (3-6pm):** [Secondary work block]
-- **Evening (6-9pm):** [Personal/Family time]
+**今日の最優先事項：**
 
 ---
 
-## ✅ Tasks
+## ⏰ タイムブロック
+*意図的な時間配分で1日を計画する*
 
-### 🔴 Must Do Today
-- [ ] [PRIORITY: Task that must be completed]
-- [ ] [PRIORITY: Critical deadline or commitment]
-
-### 💼 Work
-- [ ] [Work task 1]
-- [ ] [Work task 2]
-- [ ] [Work task 3]
-
-### 🏠 Personal
-- [ ] [Personal task 1]
-- [ ] [Personal task 2]
-
-### 📚 Learning/Growth
-- [ ] [Learning activity]
-- [ ] [Reading/Course progress]
-
-### 🏃 Health/Wellness
-- [ ] Morning routine completed
-- [ ] Exercise: [Type and duration]
-- [ ] Meditation: [X minutes]
-- [ ] Water intake: [X glasses]
+- **朝（6-9時）：** [朝のルーティン/集中作業]
+- **午前中（9-12時）：** [主要作業ブロック]
+- **午後（12-15時）：** [ミーティング/コラボレーション]
+- **午後遅く（15-18時）：** [二次作業ブロック]
+- **夜（18-21時）：** [個人/家族の時間]
 
 ---
 
-## 💡 Ideas & Thoughts
-*Capture anything that comes to mind*
+## ✅ タスク
 
-- 
+### 🔴 今日必ずやる
+- [ ] [優先事項：完了必須のタスク]
+- [ ] [優先事項：重要な期限またはコミットメント]
 
----
+### 💼 仕事
+- [ ] [仕事タスク1]
+- [ ] [仕事タスク2]
+- [ ] [仕事タスク3]
 
-## 📝 Notes from Today
-*Meeting notes, important information, key decisions*
+### 🏠 個人
+- [ ] [個人タスク1]
+- [ ] [個人タスク2]
 
-### Meetings
-- **[Meeting Name]:** 
-  - Key points:
-  - Action items:
+### 📚 学習/成長
+- [ ] [学習活動]
+- [ ] [読書/コース進捗]
 
-### Important Info
-- 
-
----
-
-## 🌟 Gratitude
-*Three things I'm grateful for today*
-
-1. 
-2. 
-3. 
+### 🏃 健康/ウェルネス
+- [ ] 朝のルーティン完了
+- [ ] 運動：[種類と時間]
+- [ ] 瞑想：[X分]
+- [ ] 水分摂取：[Xグラス]
 
 ---
 
-## 🔍 End of Day Reflection
-*Complete before bed*
+## 💡 アイデア & 思考
+*頭に浮かんだことをキャプチャする*
 
-### What Went Well?
-- 
-
-### What Could Be Better?
-- 
-
-### What Did I Learn?
-- 
-
-### Tomorrow's #1 Priority
-- 
-
-### Energy Level Today
-- Physical: [1-10]
-- Mental: [1-10]
-- Emotional: [1-10]
+-
 
 ---
 
-## 📊 Daily Metrics
-- Deep Work Time: [X hours]
-- Shallow Work Time: [X hours]
-- Tasks Completed: [X/Y]
-- Inbox Zero: [Y/N]
-- Screen Time: [X hours]
+## 📝 今日のメモ
+*ミーティングノート、重要情報、主要な決定*
+
+### ミーティング
+- **[ミーティング名]：**
+  - 要点：
+  - アクションアイテム：
+
+### 重要情報
+-
 
 ---
 
-## 🔗 Related
-- [[3. Weekly Review|This Week's Plan]]
-- [[2. Monthly Goals|This Month's Focus]]
-- Yesterday: [[{{date-1:YYYY-MM-DD}}]]
-- Tomorrow: [[{{date+1:YYYY-MM-DD}}]]
+## 🌟 感謝
+*今日感謝していること3つ*
+
+1.
+2.
+3.
 
 ---
 
-*Day [X] of 365*
-*Week [X] of 52*
+## 🔍 1日の振り返り
+*就寝前に完了する*
 
-**Today's Affirmation:** [CUSTOMIZE: Add a daily affirmation or quote]
+### うまくいったこと
+-
+
+### もっと良くできること
+-
+
+### 学んだこと
+-
+
+### 明日の最優先事項
+-
+
+### 今日のエネルギーレベル
+- 身体的：[1-10]
+- 精神的：[1-10]
+- 感情的：[1-10]
+
+---
+
+## 📊 デイリーメトリクス
+- 集中作業時間：[X時間]
+- 浅い作業時間：[X時間]
+- 完了タスク：[X/Y]
+- インボックスゼロ：[はい/いいえ]
+- スクリーンタイム：[X時間]
+
+---
+
+## 🔗 関連
+- [[3. Weekly Review|今週の計画]]
+- [[2. Monthly Goals|今月のフォーカス]]
+- 昨日：[[{{date-1:YYYY-MM-DD}}]]
+- 明日：[[{{date+1:YYYY-MM-DD}}]]
+
+---
+
+*365日中の[X]日目*
+*52週中の[X]週目*
+
+**今日のアファメーション：** [カスタマイズ：日々のアファメーションや引用を追加]

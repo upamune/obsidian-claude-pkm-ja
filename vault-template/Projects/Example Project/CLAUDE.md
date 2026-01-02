@@ -1,71 +1,71 @@
-# Project Context: Learning Spanish
+# プロジェクトコンテキスト：スペイン語学習
 
-## Project Overview
-This is an example project showing how to structure a learning project in your PKM system. Replace this with your actual project details.
+## プロジェクト概要
+これはPKMシステムで学習プロジェクトを構造化する方法を示す例のプロジェクトです。実際のプロジェクトの詳細に置き換えてください。
 
-**Goal:** Achieve conversational fluency in Spanish within 12 months
-**Started:** January 1, 2024
-**Target Completion:** December 31, 2024
-**Status:** Active - 25% Complete
+**目標：** 12か月以内にスペイン語で会話レベルの流暢さを達成する
+**開始日：** 2024年1月1日
+**目標完了日：** 2024年12月31日
+**ステータス：** アクティブ - 25%完了
 
-## Current Focus
-- Working through Chapter 3 of textbook
-- Practicing daily conversations with language partner
-- Building vocabulary (currently at ~500 words)
+## 現在のフォーカス
+- 教科書の第3章を学習中
+- 言語パートナーとの日々の会話練習
+- 語彙を構築中（現在約500語）
 
-## Key Decisions Made
-1. **Learning Method:** Combination of self-study + tutoring + immersion
-2. **Daily Commitment:** 30 minutes minimum, 1 hour target
-3. **Success Metric:** Pass DELE B2 exam by year end
+## 行われた主要な決定
+1. **学習方法：** 自習 + 家庭教師 + イマージョンの組み合わせ
+2. **日々のコミットメント：** 最低30分、目標1時間
+3. **成功指標：** 年末までにDELE B2試験に合格
 
-## Resources Being Used
-- **Primary Textbook:** "Complete Spanish" by DK
-- **App:** Anki for spaced repetition (500+ cards created)
-- **Tutor:** Weekly 1-hour sessions on italki
-- **Practice Partner:** Language exchange twice weekly
+## 使用しているリソース
+- **主要教科書：** DKの「Complete Spanish」
+- **アプリ：** 間隔反復学習用のAnki（500枚以上のカードを作成）
+- **家庭教師：** italkiで週1回1時間のセッション
+- **練習パートナー：** 週2回の言語交換
 
-## Weekly Routine
-- **Monday:** Grammar study (30 min)
-- **Tuesday:** Conversation practice (1 hour)
-- **Wednesday:** Vocabulary building (30 min)
-- **Thursday:** Listening practice with podcasts (30 min)
-- **Friday:** Writing practice (30 min)
-- **Weekend:** Review and cultural immersion (movies/music)
+## 週次ルーティン
+- **月曜日：** 文法学習（30分）
+- **火曜日：** 会話練習（1時間）
+- **水曜日：** 語彙構築（30分）
+- **木曜日：** ポッドキャストでリスニング練習（30分）
+- **金曜日：** ライティング練習（30分）
+- **週末：** 復習と文化的イマージョン（映画/音楽）
 
-## Milestones Completed
-- [x] Complete Spanish alphabet and pronunciation
-- [x] Master present tense conjugations
-- [x] Build 250-word core vocabulary
-- [ ] Hold 5-minute conversation
-- [ ] Read first Spanish novel
-- [ ] Pass DELE B1 practice exam
+## 完了したマイルストーン
+- [x] スペイン語のアルファベットと発音を完了
+- [x] 現在形の活用を習得
+- [x] 250語のコア語彙を構築
+- [ ] 5分間の会話を行う
+- [ ] 最初のスペイン語小説を読む
+- [ ] DELE B1練習試験に合格
 
-## Current Challenges
-1. **Subjunctive mood** - Still confusing, need more practice
-2. **Listening comprehension** - Native speakers talk too fast
-3. **Time management** - Struggling to maintain daily practice
+## 現在の課題
+1. **接続法** - まだ混乱している、もっと練習が必要
+2. **リスニング理解** - ネイティブスピーカーは速すぎる
+3. **時間管理** - 日々の練習を維持するのに苦労している
 
-## Next Actions
-- [ ] Complete Chapter 3 exercises
-- [ ] Schedule extra tutoring for subjunctive
-- [ ] Find Spanish conversation group locally
-- [ ] Create Anki deck for irregular verbs
+## 次のアクション
+- [ ] 第3章の練習問題を完了
+- [ ] 接続法のために追加の家庭教師を予約
+- [ ] 地元のスペイン語会話グループを見つける
+- [ ] 不規則動詞用のAnkiデッキを作成
 
-## Notes for Claude
-When helping with this project:
-- Remind me to do daily practice if I haven't logged it
-- Help create example sentences for new vocabulary
-- Suggest immersion activities based on my interests
-- Track my streak and celebrate milestones
-- Provide encouragement when I'm struggling
+## Claudeへのメモ
+このプロジェクトを支援する際は：
+- 日々の練習を記録していない場合はリマインドする
+- 新しい語彙の例文作成を手伝う
+- 私の興味に基づいたイマージョン活動を提案する
+- 連続記録を追跡し、マイルストーンを祝う
+- 苦労しているときは励ましを提供する
 
-## Success Metrics
-- **Words learned:** 500/3000 target
-- **Conversation time:** 15 hours logged
-- **Chapters completed:** 3/12
-- **Practice streak:** 14 days
+## 成功指標
+- **学習した単語：** 500/3000目標
+- **会話時間：** 15時間記録
+- **完了した章：** 3/12
+- **練習の連続日数：** 14日
 
-## Project-Specific Tags
+## プロジェクト固有のタグ
 - `#spanish/vocabulary`
 - `#spanish/grammar`
 - `#spanish/practice`
@@ -73,4 +73,4 @@ When helping with this project:
 
 ---
 
-*This is an example project. Replace with your own project details, maintaining this structure for consistency across all projects.*
+*これは例のプロジェクトです。すべてのプロジェクトで一貫性を保つため、この構造を維持しながら、独自のプロジェクトの詳細に置き換えてください。*

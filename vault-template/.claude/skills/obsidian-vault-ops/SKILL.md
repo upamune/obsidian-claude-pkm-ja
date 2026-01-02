@@ -1,55 +1,55 @@
 ---
 name: obsidian-vault-ops
-description: Read and write Obsidian vault files, manage wiki-links, process markdown with YAML frontmatter. Use when working with vault file operations, creating notes, or managing links.
+description: Obsidian vaultファイルの読み書き、wikiリンクの管理、YAMLフロントマター付きマークダウンの処理。vaultファイル操作、ノート作成、リンク管理の際に使用します。
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
-# Obsidian Vault Operations Skill
+# Obsidian Vault操作スキル
 
-Core operations for reading, writing, and managing files in an Obsidian vault.
+Obsidian vault内のファイルの読み取り、書き込み、管理のためのコア操作。
 
-## Vault Structure
+## Vault構造
 
 ```
 vault-root/
-├── CLAUDE.md           # Main context (always read first)
-├── Daily Notes/        # YYYY-MM-DD.md format
-├── Goals/              # Goal cascade files
-├── Projects/           # Project folders with CLAUDE.md
-├── Templates/          # Reusable note structures
-└── Archives/           # Completed/inactive content
+├── CLAUDE.md           # メインコンテキスト（常に最初に読む）
+├── Daily Notes/        # YYYY-MM-DD.md形式
+├── Goals/              # 目標カスケードファイル
+├── Projects/           # CLAUDE.md付きプロジェクトフォルダ
+├── Templates/          # 再利用可能なノート構造
+└── Archives/           # 完了/非アクティブコンテンツ
 ```
 
-## File Operations
+## ファイル操作
 
-### Reading Notes
-- Use Glob to find files: `*.md`, `Daily Notes/*.md`
-- Read CLAUDE.md first for vault context
-- Check for wiki-links to related notes
+### ノートの読み取り
+- Globでファイルを検索：`*.md`、`Daily Notes/*.md`
+- vaultコンテキストのためにまずCLAUDE.mdを読む
+- 関連ノートへのwikiリンクをチェック
 
-### Creating Notes
-1. Check if note already exists
-2. Use appropriate template if available
-3. Add YAML frontmatter with date and tags
-4. Insert wiki-links to related notes
+### ノートの作成
+1. ノートがすでに存在するかチェック
+2. 利用可能な場合は適切なテンプレートを使用
+3. 日付とタグを含むYAMLフロントマターを追加
+4. 関連ノートへのwikiリンクを挿入
 
-### Editing Notes
-- Preserve YAML frontmatter structure
-- Maintain existing wiki-links
-- Use consistent heading hierarchy
-- Apply standard tag format
+### ノートの編集
+- YAMLフロントマター構造を保持
+- 既存のwikiリンクを維持
+- 一貫した見出し階層を使用
+- 標準タグ形式を適用
 
-## Wiki-Link Format
+## WikiリンクUSD形式
 
 ```markdown
-[[Note Name]]                    # Simple link
-[[Note Name|Display Text]]       # Link with alias
-[[Note Name#Section]]            # Link to section
+[[ノート名]]                    # シンプルなリンク
+[[ノート名|表示テキスト]]       # エイリアス付きリンク
+[[ノート名#セクション]]         # セクションへのリンク
 ```
 
-## YAML Frontmatter
+## YAMLフロントマター
 
-Standard frontmatter structure:
+標準的なフロントマター構造：
 ```yaml
 ---
 date: 2024-01-15
@@ -58,38 +58,38 @@ status: active
 ---
 ```
 
-## Template Variables
+## テンプレート変数
 
-When processing templates, replace:
-- `{{date}}` - Today's date (YYYY-MM-DD)
-- `{{date:format}}` - Formatted date
-- `{{date-1}}` - Yesterday
-- `{{date+1}}` - Tomorrow
-- `{{time}}` - Current time
+テンプレートを処理する際に置換：
+- `{{date}}` - 今日の日付（YYYY-MM-DD）
+- `{{date:format}}` - フォーマットされた日付
+- `{{date-1}}` - 昨日
+- `{{date+1}}` - 明日
+- `{{time}}` - 現在時刻
 
-## Common Patterns
+## 一般的なパターン
 
-### Daily Note Creation
-1. Calculate today's date in YYYY-MM-DD format
-2. Check if `Daily Notes/{date}.md` exists
-3. If not, read `Templates/Daily Template.md`
-4. Replace template variables
-5. Write to `Daily Notes/{date}.md`
+### デイリーノート作成
+1. YYYY-MM-DD形式で今日の日付を計算
+2. `Daily Notes/{date}.md`が存在するかチェック
+3. 存在しない場合、`Templates/Daily Template.md`を読む
+4. テンプレート変数を置換
+5. `Daily Notes/{date}.md`に書き込み
 
-### Finding Related Notes
-1. Extract key terms from current note
-2. Search vault for matching content
-3. Suggest wiki-links to related notes
+### 関連ノートの検索
+1. 現在のノートから重要な用語を抽出
+2. マッチングコンテンツをvaultで検索
+3. 関連ノートへのwikiリンクを提案
 
-### Tag Operations
-- Priority: `#priority/high`, `#priority/medium`, `#priority/low`
-- Status: `#active`, `#waiting`, `#completed`, `#archived`
-- Context: `#work`, `#personal`, `#health`, `#learning`
+### タグ操作
+- 優先度：`#priority/high`、`#priority/medium`、`#priority/low`
+- ステータス：`#active`、`#waiting`、`#completed`、`#archived`
+- コンテキスト：`#work`、`#personal`、`#health`、`#learning`
 
-## Best Practices
+## ベストプラクティス
 
-1. Always check CLAUDE.md for vault-specific conventions
-2. Preserve existing structure when editing
-3. Use relative paths for internal links
-4. Add frontmatter to new notes
-5. Link to relevant goals when creating tasks
+1. vault固有の規約については常にCLAUDE.mdをチェック
+2. 編集時に既存の構造を保持
+3. 内部リンクには相対パスを使用
+4. 新しいノートにフロントマターを追加
+5. タスクを作成する際は関連する目標にリンク

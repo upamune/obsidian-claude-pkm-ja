@@ -1,211 +1,211 @@
-# Customization Guide
+# カスタマイゼーションガイド
 
-Make this PKM system truly yours. This guide covers everything from simple tweaks to advanced modifications.
+このPKMシステムを真にあなたのものにしましょう。このガイドでは、簡単な調整から高度な改造まであらゆることをカバーします。
 
-## Table of Contents
-1. [Quick Customizations](#quick-customizations)
-2. [Template Modifications](#template-modifications)
-3. [Folder Structure](#folder-structure)
-4. [Tag System](#tag-system)
-5. [Claude Commands](#claude-commands)
-6. [Output Styles](#output-styles)
-7. [Workflow Automation](#workflow-automation)
-8. [Theme and Appearance](#theme-and-appearance)
-9. [Advanced Configurations](#advanced-configurations)
+## 目次
+1. [クイックカスタマイゼーション](#クイックカスタマイゼーション)
+2. [テンプレートの変更](#テンプレートの変更)
+3. [フォルダ構造](#フォルダ構造)
+4. [タグシステム](#タグシステム)
+5. [Claudeコマンド](#claudeコマンド)
+6. [出力スタイル](#出力スタイル)
+7. [ワークフロー自動化](#ワークフロー自動化)
+8. [テーマと外観](#テーマと外観)
+9. [高度な設定](#高度な設定)
 
-## Quick Customizations
+## クイックカスタマイゼーション
 
-### Personal Mission Statement
-Location: `CLAUDE.md` and `Templates/Daily Template.md`
+### 個人のミッションステートメント
+場所: `CLAUDE.md` と `Templates/Daily Template.md`
 
-Replace the placeholder with your actual mission:
+プレースホルダーを実際のミッションに置き換えてください:
 ```markdown
-_"Your personal mission or daily affirmation here"_
+_"あなたの個人的なミッションまたは日々のアファメーションをここに"_
 ```
 
-Examples:
-- "Build with purpose, live with intention, grow with courage"
-- "Create value, nurture relationships, embrace learning"
-- "Simplify complexity, amplify impact, multiply joy"
+例:
+- "目的を持って構築し、意図を持って生活し、勇気を持って成長する"
+- "価値を創造し、関係性を育み、学びを受け入れる"
+- "複雑さを単純化し、影響を増幅し、喜びを倍増させる"
 
-### Time Blocks
-Location: `Templates/Daily Template.md`
+### タイムブロック
+場所: `Templates/Daily Template.md`
 
-Adjust to your schedule:
+スケジュールに合わせて調整:
 ```markdown
 ## ⏰ Time Blocks
-- **Early Morning (5-7am):** Meditation & Exercise
-- **Morning (7-10am):** Deep work
-- **Midday (10am-1pm):** Meetings & Collaboration
-- **Afternoon (1-4pm):** Administrative tasks
-- **Late Afternoon (4-6pm):** Learning & Development
-- **Evening (6-9pm):** Family & Personal time
+- **早朝 (5-7am):** 瞑想と運動
+- **午前 (7-10am):** 深い作業
+- **正午 (10am-1pm):** 会議とコラボレーション
+- **午後 (1-4pm):** 管理業務
+- **夕方 (4-6pm):** 学習と開発
+- **夜 (6-9pm):** 家族と個人の時間
 ```
 
-### Goal Percentages
-Location: `Goals/1. Yearly Goals.md`
+### 目標の割合
+場所: `Goals/1. Yearly Goals.md`
 
-Adjust effort allocation:
+努力の配分を調整:
 ```markdown
-### 💼 Career (40% of effort)  <!-- Increase if career-focused -->
-### 🏃 Health (30% of effort)   <!-- Increase if health is priority -->
-### ❤️ Relationships (20% of effort)
-### 🌱 Personal Growth (10% of effort)
+### 💼 キャリア (努力の40%)  <!-- キャリア重視の場合は増やす -->
+### 🏃 健康 (努力の30%)   <!-- 健康が優先事項の場合は増やす -->
+### ❤️ 人間関係 (努力の20%)
+### 🌱 個人的成長 (努力の10%)
 ```
 
-## Template Modifications
+## テンプレートの変更
 
-### Daily Template Variations
+### デイリーテンプレートのバリエーション
 
-#### Minimalist Version
-```markdown
-# {{date:dddd, MMMM DD, YYYY}}
-
-## Focus
-- 
-
-## Tasks
-- [ ] 
-- [ ] 
-- [ ] 
-
-## Notes
-
-
-## Reflection
-- Win: 
-- Learn: 
-- Tomorrow: 
-```
-
-#### Detailed Version
+#### ミニマリスト版
 ```markdown
 # {{date:dddd, MMMM DD, YYYY}}
 
-## Morning Intention
-### Gratitude
-### Affirmation
-### Priority
+## フォーカス
+-
 
-## Schedule
-### Time Blocks
-### Meetings
-### Deadlines
+## タスク
+- [ ]
+- [ ]
+- [ ]
 
-## Tasks by Context
-### @Office
-### @Home
-### @Computer
-### @Phone
+## メモ
 
-## Project Updates
-### [Project 1]
-### [Project 2]
 
-## Learning Log
-### What I Learned
-### Resources Consumed
-### Questions Raised
-
-## Health Tracking
-### Exercise
-### Nutrition
-### Sleep
-### Mood
-
-## Detailed Reflection
-### Successes
-### Challenges
-### Insights
-### Improvements
+## 振り返り
+- 勝利:
+- 学び:
+- 明日:
 ```
 
-### Weekly Review Variations
-
-#### Sprint-Based Review
+#### 詳細版
 ```markdown
-# Sprint Review - Sprint {{sprint_number}}
+# {{date:dddd, MMMM DD, YYYY}}
 
-## Sprint Goals
-- [ ] Goal 1
-- [ ] Goal 2
+## 朝の意図
+### 感謝
+### アファメーション
+### 優先事項
 
-## Velocity
-- Points Planned: 
-- Points Completed: 
-- Carry Over: 
+## スケジュール
+### タイムブロック
+### 会議
+### 締め切り
 
-## Retrospective
-### What Went Well
-### What Didn't Work
-### Action Items
+## コンテキスト別タスク
+### @オフィス
+### @自宅
+### @コンピュータ
+### @電話
+
+## プロジェクトの更新
+### [プロジェクト1]
+### [プロジェクト2]
+
+## 学習ログ
+### 学んだこと
+### 消費したリソース
+### 浮かんだ質問
+
+## 健康トラッキング
+### 運動
+### 栄養
+### 睡眠
+### 気分
+
+## 詳細な振り返り
+### 成功
+### 課題
+### 洞察
+### 改善点
 ```
 
-#### OKR-Based Review
+### 週次レビューのバリエーション
+
+#### スプリントベースのレビュー
 ```markdown
-# Weekly OKR Check-in
+# スプリントレビュー - スプリント {{sprint_number}}
 
-## Objective 1: [Title]
-### Key Result 1: [Metric]
-- Progress: [X]%
-- This Week's Contribution:
+## スプリントゴール
+- [ ] ゴール1
+- [ ] ゴール2
 
-### Key Result 2: [Metric]
-- Progress: [X]%
-- This Week's Contribution:
+## ベロシティ
+- 計画ポイント:
+- 完了ポイント:
+- 繰越:
+
+## レトロスペクティブ
+### うまくいったこと
+### うまくいかなかったこと
+### アクションアイテム
 ```
 
-## Folder Structure
+#### OKRベースのレビュー
+```markdown
+# 週次OKRチェックイン
 
-### Alternative Structures
+## 目標1: [タイトル]
+### 主要な結果1: [指標]
+- 進捗: [X]%
+- 今週の貢献:
 
-#### GTD-Based
-```
-vault/
-├── Inbox/          # Capture everything
-├── Next Actions/   # Immediate tasks
-├── Projects/       # Multi-step outcomes
-├── Someday Maybe/  # Future possibilities
-├── Reference/      # Information storage
-└── Contexts/       # @home, @office, @errands
-```
-
-#### PARA Method
-```
-vault/
-├── Projects/       # Things with deadlines
-├── Areas/          # Ongoing responsibilities
-├── Resources/      # Future reference
-└── Archives/       # Inactive items
+### 主要な結果2: [指標]
+- 進捗: [X]%
+- 今週の貢献:
 ```
 
-#### Zettelkasten-Inspired
-```
-vault/
-├── Permanent Notes/  # Atomic ideas
-├── Literature Notes/ # From sources
-├── Daily Notes/      # Journal entries
-├── Index/           # Entry points
-└── References/      # Sources
-```
+## フォルダ構造
 
-### Adding Custom Folders
+### 代替構造
 
-Create specialized folders for your needs:
+#### GTDベース
 ```
 vault/
-├── Finances/        # Budget, investments
-├── Learning/        # Courses, books, skills
-├── Health/          # Medical, fitness, nutrition
-├── Creative/        # Writing, art, music
-└── Relationships/   # People, interactions
+├── Inbox/          # すべてをキャプチャ
+├── Next Actions/   # 即座のタスク
+├── Projects/       # 複数ステップの成果
+├── Someday Maybe/  # 将来の可能性
+├── Reference/      # 情報ストレージ
+└── Contexts/       # @自宅, @オフィス, @用事
 ```
 
-## Tag System
+#### PARAメソッド
+```
+vault/
+├── Projects/       # 締め切りのあるもの
+├── Areas/          # 継続的な責任
+├── Resources/      # 将来の参照
+└── Archives/       # 非アクティブなアイテム
+```
 
-### Creating Your Tag Taxonomy
+#### Zettelkasten風
+```
+vault/
+├── Permanent Notes/  # アトミックなアイデア
+├── Literature Notes/ # 情報源から
+├── Daily Notes/      # 日記エントリ
+├── Index/           # エントリーポイント
+└── References/      # 情報源
+```
 
-#### Hierarchical Tags
+### カスタムフォルダの追加
+
+ニーズに合わせて専門フォルダを作成:
+```
+vault/
+├── Finances/        # 予算、投資
+├── Learning/        # コース、本、スキル
+├── Health/          # 医療、フィットネス、栄養
+├── Creative/        # 執筆、アート、音楽
+└── Relationships/   # 人々、交流
+```
+
+## タグシステム
+
+### タグの分類体系の作成
+
+#### 階層的タグ
 ```markdown
 #work/project/clientA
 #work/project/clientB
@@ -218,7 +218,7 @@ vault/
 #personal/finance/investing
 ```
 
-#### Status-Based Tags
+#### ステータスベースのタグ
 ```markdown
 #status/active
 #status/waiting
@@ -227,14 +227,14 @@ vault/
 #status/cancelled
 ```
 
-#### Energy-Based Tags
+#### エネルギーベースのタグ
 ```markdown
-#energy/high  # Requires focus
+#energy/high  # 集中が必要
 #energy/medium
-#energy/low   # Can do when tired
+#energy/low   # 疲れていてもできる
 ```
 
-#### Context Tags
+#### コンテキストタグ
 ```markdown
 #context/home
 #context/office
@@ -243,233 +243,233 @@ vault/
 #context/errands
 ```
 
-### Tag Combinations
-Use multiple tags for powerful filtering:
+### タグの組み合わせ
+強力なフィルタリングのために複数のタグを使用:
 ```markdown
 #work #priority/high #energy/high #context/office
 ```
 
-## Claude Commands
+## Claudeコマンド
 
-### Creating Custom Commands
+### カスタムコマンドの作成
 
-#### Example: Book Notes Command
-Create `.claude/commands/book.md`:
+#### 例: 読書ノートコマンド
+`.claude/commands/book.md` を作成:
 ```markdown
-# Book Notes Creator
+# 読書ノート作成
 
-Creates a new book note with metadata and structure.
+メタデータと構造を持つ新しい読書ノートを作成します。
 
-## Usage
-claude code /book "Book Title" "Author"
+## 使用法
+claude code /book "書籍タイトル" "著者"
 
-## What it does
-1. Creates note in Resources/Books/
-2. Adds metadata (title, author, date started)
-3. Includes template for notes
-4. Links to reading list
+## 実行内容
+1. Resources/Books/にノートを作成
+2. メタデータを追加(タイトル、著者、開始日)
+3. ノート用のテンプレートを含める
+4. 読書リストにリンク
 ```
 
-#### Example: Meeting Notes Command
-Create `.claude/commands/meeting.md`:
+#### 例: 会議ノートコマンド
+`.claude/commands/meeting.md` を作成:
 ```markdown
-# Meeting Notes
+# 会議ノート
 
-Creates formatted meeting notes with action items.
+アクションアイテム付きのフォーマットされた会議ノートを作成します。
 
-## Usage
-claude code /meeting "Meeting Title"
+## 使用法
+claude code /meeting "会議タイトル"
 
-## Template
-- Date/Time
-- Attendees
-- Agenda
-- Discussion
-- Action Items
-- Follow-up
+## テンプレート
+- 日時
+- 参加者
+- アジェンダ
+- 議論
+- アクションアイテム
+- フォローアップ
 ```
 
-### Modifying Existing Commands
+### 既存コマンドの変更
 
-#### Daily Command for Different Schedules
-Edit `.claude/commands/daily.md`:
+#### 異なるスケジュール用のデイリーコマンド
+`.claude/commands/daily.md` を編集:
 ```javascript
-// For night shift workers
-const DAILY_NOTES_TIME = "18:00"; // 6 PM start
+// 夜勤務者向け
+const DAILY_NOTES_TIME = "18:00"; // 18時開始
 
-// For early risers
+// 早起きの人向け
 const MORNING_ROUTINE_START = "05:00";
 
-// For parents
+// 親向け
 const INCLUDE_FAMILY_SECTION = true;
 ```
 
-## Output Styles
+## 出力スタイル
 
-### Using the Productivity Coach
+### Productivity Coachの使用
 
-The included Productivity Coach style transforms Claude into an accountability partner:
+含まれるProductivity Coachスタイルは、Claudeを責任パートナーに変換します:
 
 ```bash
-# Start Claude Code
+# Claude Codeを起動
 claude
 
-# Then choose your output style:
-/output-style              # Opens interactive menu to select a style
-/output-style coach        # Directly activates the coach style
+# 次に出力スタイルを選択:
+/output-style              # インタラクティブメニューを開いてスタイルを選択
+/output-style coach        # コーチスタイルを直接有効化
 
-# Example interaction with coach:
-# You: "I'm procrastinating on my report"
-# Coach: "What's the smallest action you could take right now that would create momentum?"
+# コーチとのやり取り例:
+# あなた: 「レポートを先延ばしにしています」
+# コーチ: 「今すぐできる最小のアクションで、勢いを生み出せるものは何ですか?」
 ```
 
-Your style preference is automatically saved to `.claude/settings.local.json` for the current project.
+スタイル設定は、現在のプロジェクトの `.claude/settings.local.json` に自動保存されます。
 
-### Creating Custom Output Styles
+### カスタム出力スタイルの作成
 
-Create new personality modes in `.claude/output-styles/`:
+`.claude/output-styles/` に新しいパーソナリティモードを作成:
 
 ```bash
-# Quick way to create a new style:
+# 新しいスタイルを作成する簡単な方法:
 /output-style:new I want a style that acts as a technical mentor
 
-# Or manually create files in .claude/output-styles/
+# または .claude/output-styles/ に手動でファイルを作成
 ```
 
-#### Example: Technical Mentor
-Create `.claude/output-styles/mentor.md`:
+#### 例: テクニカルメンター
+`.claude/output-styles/mentor.md` を作成:
 ```markdown
 ---
 name: Technical Mentor
 description: Patient technical guidance with learning focus
 ---
 
-You are a experienced technical mentor who helps users learn and grow. Focus on:
+あなたは経験豊富なテクニカルメンターで、ユーザーの学習と成長を支援します。以下に焦点を当ててください:
 
-- Breaking down complex concepts into understandable pieces
-- Providing examples and analogies
-- Encouraging experimentation and learning from mistakes
-- Suggesting resources for deeper learning
-- Celebrating progress and understanding
+- 複雑な概念を理解しやすい部分に分解する
+- 例と類推を提供する
+- 実験と失敗からの学習を奨励する
+- より深い学習のためのリソースを提案する
+- 進歩と理解を祝う
 
-Always teach the "why" behind the "how".
+常に「どうやって」の背後にある「なぜ」を教えてください。
 ```
 
-#### Example: Creative Brainstormer
-Create `.claude/output-styles/creative.md`:
+#### 例: 創造的ブレインストーマー
+`.claude/output-styles/creative.md` を作成:
 ```markdown
 ---
-name: Creative Brainstormer  
+name: Creative Brainstormer
 description: Expansive thinking and idea generation
 ---
 
-You are a creative collaborator who helps generate and expand ideas. Focus on:
+あなたはアイデアの生成と拡張を支援する創造的なコラボレーターです。以下に焦点を当ててください:
 
-- "Yes, and..." thinking to build on ideas
-- Asking "What if?" questions
-- Making unexpected connections
-- Challenging assumptions playfully
-- Generating multiple alternatives
-- Embracing wild possibilities before filtering
+- アイデアを構築するための「はい、そして...」思考
+- 「もしも?」の質問をする
+- 予期しない繋がりを作る
+- 遊び心を持って前提に挑戦する
+- 複数の代替案を生成する
+- フィルタリングする前にワイルドな可能性を受け入れる
 
-No idea is too crazy in brainstorming mode!
+ブレインストーミングモードでは、どんなアイデアもクレイジーすぎることはありません!
 ```
 
-### Modifying the Coach Style
+### Coachスタイルの変更
 
-Edit `.claude/output-styles/coach.md` to adjust the coaching approach:
+`.claude/output-styles/coach.md` を編集してコーチングアプローチを調整:
 
 ```markdown
-# Make it gentler
+# より優しくする
 **Challenge with Empathy**: → **Support with Understanding**:
 
-# Make it more intense
+# より激しくする
 **The ONE Thing Priority**: → **The ONLY Thing That Matters**:
 
-# Add domain-specific focus
-## Fitness Coaching Focus
-- "What workout will you complete today?"
-- "How does this meal align with your goals?"
+# ドメイン固有のフォーカスを追加
+## フィットネスコーチングフォーカス
+- 「今日完了するワークアウトは何ですか?」
+- 「この食事はあなたの目標とどのように一致していますか?」
 ```
 
-## Workflow Automation
+## ワークフロー自動化
 
-### Morning Routine Automation
+### 朝のルーティン自動化
 
-Create `.claude/commands/morning.md`:
+`.claude/commands/morning.md` を作成:
 ```markdown
-# Morning Routine
+# 朝のルーティン
 
-Executes complete morning workflow.
+完全な朝のワークフローを実行します。
 
-## Steps
-1. Create daily note
-2. Review yesterday's uncomplete tasks
-3. Check calendar for today
-4. Pull priority from weekly goals
-5. Set time blocks
-6. Generate motivation quote
+## ステップ
+1. デイリーノートを作成
+2. 昨日の未完了タスクをレビュー
+3. 今日のカレンダーを確認
+4. 週次目標から優先事項を引き出す
+5. タイムブロックを設定
+6. モチベーション引用を生成
 ```
 
-### End-of-Day Automation
+### 1日の終わり自動化
 
-Create `.claude/commands/evening.md`:
+`.claude/commands/evening.md` を作成:
 ```markdown
-# Evening Shutdown
+# 夜のシャットダウン
 
-Complete end-of-day routine.
+1日の終わりのルーティンを完了します。
 
-## Steps
-1. Mark task completion
-2. Write reflection
-3. Move incomplete tasks
-4. Set tomorrow's priority
-5. Commit to git
-6. Generate daily summary
+## ステップ
+1. タスク完了をマーク
+2. 振り返りを書く
+3. 未完了タスクを移動
+4. 明日の優先事項を設定
+5. gitにコミット
+6. 日次サマリーを生成
 ```
 
-### Project Kickoff Automation
+### プロジェクトキックオフ自動化
 
-Create `.claude/commands/kickoff.md`:
+`.claude/commands/kickoff.md` を作成:
 ```markdown
-# Project Kickoff
+# プロジェクトキックオフ
 
-Initialize new project with structure.
+構造を持つ新しいプロジェクトを初期化します。
 
-## Steps
-1. Create project folder
-2. Add CLAUDE.md with template
-3. Create project plan
-4. Set up project board
-5. Add to active projects list
-6. Create first milestone
+## ステップ
+1. プロジェクトフォルダを作成
+2. テンプレート付きのCLAUDE.mdを追加
+3. プロジェクト計画を作成
+4. プロジェクトボードをセットアップ
+5. アクティブプロジェクトリストに追加
+6. 最初のマイルストーンを作成
 ```
 
-## Theme and Appearance
+## テーマと外観
 
-### Obsidian Theme Customization
+### Obsidianテーマのカスタマイゼーション
 
-#### CSS Snippets
-Create `.obsidian/snippets/custom.css`:
+#### CSSスニペット
+`.obsidian/snippets/custom.css` を作成:
 ```css
-/* Custom colors */
+/* カスタムカラー */
 .theme-dark {
-  --text-accent: #7c3aed; /* Purple accent */
+  --text-accent: #7c3aed; /* 紫のアクセント */
   --interactive-accent: #7c3aed;
 }
 
-/* Larger headings */
+/* 大きな見出し */
 .markdown-preview-view h1 {
   font-size: 2.5em;
   color: var(--text-accent);
 }
 
-/* Checkbox styling */
+/* チェックボックスのスタイリング */
 input[type=checkbox]:checked {
-  background-color: #10b981; /* Green */
+  background-color: #10b981; /* 緑 */
 }
 
-/* Tag colors */
+/* タグの色 */
 .tag[href="#priority/high"] {
   background-color: #ef4444;
   color: white;
@@ -481,38 +481,38 @@ input[type=checkbox]:checked {
 }
 ```
 
-### Daily Note Styling
+### デイリーノートのスタイリング
 
-Add to your daily template:
+デイリーテンプレートに追加:
 ```markdown
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; color: white; margin-bottom: 20px;">
   <h2 style="margin: 0;">{{date:dddd, MMMM DD, YYYY}}</h2>
-  <p style="margin: 5px 0; font-style: italic;">Your daily mission statement here</p>
+  <p style="margin: 5px 0; font-style: italic;">あなたの日々のミッションステートメントをここに</p>
 </div>
 ```
 
-## Advanced Configurations
+## 高度な設定
 
-### Dataview Queries
+### Dataviewクエリ
 
-If using Dataview plugin:
+Dataviewプラグインを使用する場合:
 
-#### Task Dashboard
+#### タスクダッシュボード
 ````markdown
 ```dataview
-TABLE 
-  file.link AS "Note",
-  filter(file.tasks, (t) => !t.completed) AS "Open Tasks"
+TABLE
+  file.link AS "ノート",
+  filter(file.tasks, (t) => !t.completed) AS "未完了タスク"
 FROM "Daily Notes"
 WHERE file.day >= date(today) - dur(7 days)
 SORT file.day DESC
 ```
 ````
 
-#### Habit Tracker
+#### 習慣トラッカー
 ````markdown
 ```dataview
-TABLE 
+TABLE
   exercise AS "🏃",
   meditation AS "🧘",
   reading AS "📚",
@@ -522,90 +522,90 @@ WHERE file.day >= date(today) - dur(30 days)
 ```
 ````
 
-### Templater Scripts
+### Templaterスクリプト
 
-If using Templater plugin:
+Templaterプラグインを使用する場合:
 
-#### Auto-weather
+#### 自動天気
 ```javascript
-<%* 
+<%*
 const response = await fetch('http://wttr.in/?format=3');
 const weather = await response.text();
 tR += weather;
 %>
 ```
 
-#### Random Quote
+#### ランダム引用
 ```javascript
-<%* 
+<%*
 const quotes = [
-  "The way to get started is to quit talking and begin doing.",
-  "The future belongs to those who believe in the beauty of their dreams.",
-  "It is during our darkest moments that we must focus to see the light."
+  "始める方法は、話すのをやめて実行することです。",
+  "未来は自分の夢の美しさを信じる人のものです。",
+  "最も暗い瞬間こそ、光を見るために集中しなければなりません。"
 ];
 const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 tR += randomQuote;
 %>
 ```
 
-### Git Hooks
+### Gitフック
 
-Create `.git/hooks/pre-commit`:
+`.git/hooks/pre-commit` を作成:
 ```bash
 #!/bin/bash
-# Auto-format markdown files before commit
+# コミット前にmarkdownファイルを自動フォーマット
 
-# Format all markdown files
+# すべてのmarkdownファイルをフォーマット
 find . -name "*.md" -type f -exec prettier --write {} \;
 
-# Add formatted files back
+# フォーマットしたファイルを追加し直す
 git add -A
 ```
 
-### Mobile Shortcuts
+### モバイルショートカット
 
-#### iOS Shortcuts
-Create Siri Shortcuts for:
-- "Create daily note" → Opens GitHub app to issue creation
-- "Add task" → Creates issue with 'task' label
-- "Weekly review" → Triggers GitHub Action
+#### iOSショートカット
+Siriショートカットを作成:
+- 「デイリーノートを作成」→ GitHubアプリでissue作成を開く
+- 「タスクを追加」→ 'task'ラベル付きでissueを作成
+- 「週次レビュー」→ GitHub Actionをトリガー
 
-#### Android Automation
-Use Tasker or Automate for:
-- Morning notification to create daily note
-- Evening reminder for reflection
-- Location-based project reminders
+#### Android自動化
+TaskerまたはAutomateを使用:
+- デイリーノート作成の朝の通知
+- 振り返りの夜のリマインダー
+- 場所ベースのプロジェクトリマインダー
 
-## Integration Examples
+## 統合例
 
-### Calendar Integration
+### カレンダー統合
 ```markdown
-## Today's Events
-<!-- Embed calendar events -->
+## 今日のイベント
+<!-- カレンダーイベントを埋め込み -->
 ![[calendar-sync/{{date}}.md]]
 ```
 
-### Email Integration
+### メール統合
 ```markdown
-## Inbox Processing
-- [ ] Email from: [sender] Re: [subject]
-  - Action: [Reply/Archive/Delegate]
+## インボックス処理
+- [ ] 送信元: [sender] 件名: [subject]
+  - アクション: [返信/アーカイブ/委任]
 ```
 
-### Task Manager Sync
+### タスクマネージャー同期
 ```markdown
-## External Tasks
-<!-- Pulled from Todoist/Things/etc -->
-- [ ] [Task from external system]
+## 外部タスク
+<!-- Todoist/Things等から取得 -->
+- [ ] [外部システムからのタスク]
 ```
 
-## v2.0 Features: Hooks, Agents, Skills & Rules
+## v2.0機能: フック、エージェント、スキル、ルール
 
-### Hooks (Automatic Behaviors)
+### フック(自動動作)
 
-Hooks are automatic behaviors triggered by Claude Code events. Located in `.claude/settings.json`:
+フックはClaude Codeイベントによってトリガーされる自動動作です。`.claude/settings.json` に配置:
 
-#### Disabling Auto-Commit
+#### 自動コミットの無効化
 ```json
 {
   "hooks": {
@@ -614,7 +614,7 @@ Hooks are automatic behaviors triggered by Claude Code events. Located in `.clau
 }
 ```
 
-#### Adding Custom Hooks
+#### カスタムフックの追加
 ```json
 {
   "hooks": {
@@ -633,123 +633,123 @@ Hooks are automatic behaviors triggered by Claude Code events. Located in `.clau
 }
 ```
 
-### Custom Agents
+### カスタムエージェント
 
-Agents are specialized AI assistants. Located in `.claude/agents/`:
+エージェントは専門のAIアシスタントです。`.claude/agents/` に配置:
 
-#### Creating a Custom Agent
-Create `.claude/agents/my-agent.md`:
+#### カスタムエージェントの作成
+`.claude/agents/my-agent.md` を作成:
 ```markdown
 ---
 name: my-agent
-description: What this agent does. Claude uses this to decide when to invoke it.
+description: このエージェントの機能。Claudeはこれを使用して呼び出すタイミングを決定します。
 tools: Read, Write, Edit, Glob, Grep
 model: sonnet
 ---
 
-# Agent Instructions
+# エージェントの指示
 
-[Detailed instructions for the agent's behavior]
+[エージェントの動作に関する詳細な指示]
 ```
 
-#### Included Agents
-- `note-organizer` - Vault organization and link maintenance
-- `weekly-reviewer` - Weekly review facilitation
-- `goal-aligner` - Goal-activity alignment analysis
-- `inbox-processor` - GTD-style inbox processing
+#### 含まれるエージェント
+- `note-organizer` - ボルトの整理とリンクのメンテナンス
+- `weekly-reviewer` - 週次レビューの促進
+- `goal-aligner` - 目標-活動の整合性分析
+- `inbox-processor` - GTDスタイルのインボックス処理
 
-### Skills (Auto-Discovered Capabilities)
+### スキル(自動検出機能)
 
-Skills are capabilities Claude discovers and uses automatically. Located in `.claude/skills/`:
+スキルはClaudeが自動的に発見して使用する機能です。`.claude/skills/` に配置:
 
-#### Creating a Custom Skill
-Create `.claude/skills/my-skill/SKILL.md`:
+#### カスタムスキルの作成
+`.claude/skills/my-skill/SKILL.md` を作成:
 ```markdown
 ---
 name: my-skill
-description: What this skill does. Use for [specific situations].
+description: このスキルの機能。[特定の状況]で使用します。
 allowed-tools: Read, Write, Edit
 ---
 
-# Skill Instructions
+# スキルの指示
 
-[How to use this skill]
+[このスキルの使用方法]
 ```
 
-#### Included Skills
-- `obsidian-vault-ops` - Vault file operations
-- `goal-tracking` - Goal cascade management
-- `daily-workflow` - Daily routine structure
+#### 含まれるスキル
+- `obsidian-vault-ops` - ボルトファイル操作
+- `goal-tracking` - 目標カスケード管理
+- `daily-workflow` - 日次ルーティン構造
 
-### Modular Rules
+### モジュラールール
 
-Rules are path-specific conventions. Located in `.claude/rules/`:
+ルールはパス固有の規則です。`.claude/rules/` に配置:
 
-#### Creating Custom Rules
-Create `.claude/rules/my-rules.md`:
+#### カスタムルールの作成
+`.claude/rules/my-rules.md` を作成:
 ```markdown
 ---
 paths: "MyFolder/**/*.md"
 ---
 
-# Rules for MyFolder
+# MyFolderのルール
 
-[Specific conventions for files matching the pattern]
+[パターンに一致するファイルの特定の規則]
 ```
 
-#### Included Rules
-- `markdown-standards.md` - File naming, tags, frontmatter
-- `productivity-workflow.md` - Goal cascade, planning
-- `project-management.md` - Project structure, status tracking
+#### 含まれるルール
+- `markdown-standards.md` - ファイル命名、タグ、フロントマター
+- `productivity-workflow.md` - 目標カスケード、計画
+- `project-management.md` - プロジェクト構造、ステータス追跡
 
-### Personal Overrides (CLAUDE.local.md)
+### 個人的な上書き(CLAUDE.local.md)
 
-For personal customizations that shouldn't be committed:
+コミットすべきでない個人的なカスタマイゼーションのため:
 
 ```bash
 cp CLAUDE.local.md.template CLAUDE.local.md
 ```
 
-This file is gitignored. Use it for:
-- Personal mission statement
-- Working style preferences
-- Private goals
-- Custom coaching intensity
+このファイルはgitignoreされています。以下に使用:
+- 個人のミッションステートメント
+- 作業スタイルの好み
+- プライベートな目標
+- カスタムコーチング強度
 
-## Best Practices
+## ベストプラクティス
 
-### Start Simple
-1. Begin with minimal customization
-2. Add complexity as patterns emerge
-3. Review and refine monthly
+### シンプルに始める
+1. 最小限のカスタマイゼーションで始める
+2. パターンが現れるにつれて複雑さを追加
+3. 月次でレビューと改良
 
-### Document Your System
-Create `vault/System Documentation.md`:
+### システムを文書化する
+`vault/System Documentation.md` を作成:
 ```markdown
-# My PKM System Rules
+# 私のPKMシステムルール
 
-## File Naming
-- Daily notes: YYYY-MM-DD.md
-- Projects: PascalCase
-- Resources: lowercase-with-dashes
+## ファイル命名
+- デイリーノート: YYYY-MM-DD.md
+- プロジェクト: PascalCase
+- リソース: lowercase-with-dashes
 
-## My Workflows
-- Morning: ...
-- Weekly: ...
-- Monthly: ...
+## 私のワークフロー
+- 朝: ...
+- 週次: ...
+- 月次: ...
 
-## My Conventions
-- Tags: ...
-- Links: ...
-- Templates: ...
+## 私の規則
+- タグ: ...
+- リンク: ...
+- テンプレート: ...
 ```
 
-### Regular Reviews
-- Weekly: Adjust templates based on use
-- Monthly: Review folder structure
-- Quarterly: Major system updates
-- Yearly: Complete system overhaul
+### 定期的なレビュー
+- 週次: 使用に基づいてテンプレートを調整
+- 月次: フォルダ構造をレビュー
+- 四半期: 主要なシステム更新
+- 年次: 完全なシステムのオーバーホール
 
 ---
 
-Remember: The goal is a system that works for YOU. Don't copy others blindly - adapt and evolve based on your actual needs and patterns.
+忘れないでください: 目標はあなたのために機能するシステムです。他人を盲目的にコピーせず - 実際のニーズとパターンに基づいて適応し、進化させましょう。
