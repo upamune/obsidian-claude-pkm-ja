@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Obsidian PKM Customization Helper
-# This script helps you customize your PKM system interactively
+# Obsidian PKM カスタマイズヘルパー
+# PKMシステムを対話的にカスタマイズするためのスクリプトです
 
 set -e
 
-# Colors
+# 色設定
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -14,60 +14,60 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-# Banner
+# バナー
 echo -e "${MAGENTA}"
 echo "╔═══════════════════════════════════════════════════╗"
-echo "║      PKM Customization Assistant                 ║"
-echo "║      Personalize Your System                     ║"
+echo "║      PKM カスタマイズアシスタント                ║"
+echo "║      システムをパーソナライズ                    ║"
 echo "╚═══════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
-# Find vault directory
+# vault ディレクトリを探す
 if [ -f ".setup_complete" ]; then
     VAULT_PATH="$(pwd)"
 else
-    read -p "Enter path to your vault: " VAULT_PATH
+    read -p "vault のパスを入力してください: " VAULT_PATH
     VAULT_PATH="${VAULT_PATH/#\~/$HOME}"
 fi
 
 if [ ! -d "$VAULT_PATH" ]; then
-    echo -e "${RED}Error: Vault not found at $VAULT_PATH${NC}"
+    echo -e "${RED}エラー: Vault が見つかりません: $VAULT_PATH${NC}"
     exit 1
 fi
 
 cd "$VAULT_PATH"
 
-# Function to show menu
+# メニュー表示関数
 show_menu() {
-    echo -e "\n${CYAN}What would you like to customize?${NC}"
+    echo -e "\n${CYAN}何をカスタマイズしますか？${NC}"
     echo "=================================="
-    echo "1. Personal Mission & Values"
-    echo "2. Goal System (3-year, yearly, monthly)"
-    echo "3. Daily Note Template"
-    echo "4. Weekly Review Process"
-    echo "5. Tag System"
-    echo "6. Time Blocks & Schedule"
-    echo "7. Project Templates"
-    echo "8. Claude Context (CLAUDE.md)"
-    echo "9. Folder Structure"
-    echo "10. Create Custom Command"
-    echo "0. Exit"
+    echo "1. 個人のミッション・価値観"
+    echo "2. ゴールシステム（3年、年間、月間）"
+    echo "3. デイリーノートテンプレート"
+    echo "4. ウィークリーレビュープロセス"
+    echo "5. タグシステム"
+    echo "6. タイムブロック・スケジュール"
+    echo "7. プロジェクトテンプレート"
+    echo "8. Claude コンテキスト（CLAUDE.md）"
+    echo "9. フォルダ構造"
+    echo "10. カスタムコマンドの作成"
+    echo "0. 終了"
     echo ""
-    read -p "Choose an option (0-10): " choice
+    read -p "オプションを選択 (0-10): " choice
 }
 
-# Function 1: Customize Mission
+# 機能 1: ミッションのカスタマイズ
 customize_mission() {
-    echo -e "\n${BLUE}Personal Mission & Values${NC}"
+    echo -e "\n${BLUE}個人のミッション・価値観${NC}"
     echo "=========================="
-    
-    echo "Your personal mission statement guides your daily decisions."
-    echo "Example: 'Create value through technology while nurturing relationships'"
+
+    echo "個人のミッションステートメントは日々の意思決定を導きます。"
+    echo "例: 「テクノロジーを通じて価値を創造しながら、人間関係を大切にする」"
     echo ""
-    read -p "Enter your mission statement: " MISSION
-    
+    read -p "ミッションステートメントを入力してください: " MISSION
+
     if [ -n "$MISSION" ]; then
-        # Update mission in CLAUDE.md placeholder
+        # CLAUDE.md のプレースホルダーを更新
         if [ -f "CLAUDE.md" ]; then
             cp "CLAUDE.md" "CLAUDE.md.bak"
             if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -77,7 +77,7 @@ customize_mission() {
             fi
         fi
 
-        # Update mission line in Daily Template placeholder
+        # デイリーテンプレートのプレースホルダーを更新
         if [ -f "Templates/Daily Template.md" ]; then
             cp "Templates/Daily Template.md" "Templates/Daily Template.md.bak"
             if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -87,120 +87,120 @@ customize_mission() {
             fi
         fi
 
-        echo -e "${GREEN}✓ Mission statement updated${NC}"
+        echo -e "${GREEN}✓ ミッションステートメントを更新しました${NC}"
     fi
-    
-    echo -e "\n${BLUE}Core Values${NC}"
-    echo "What are your top 3 values?"
-    read -p "Value 1: " VALUE1
-    read -p "Value 2: " VALUE2
-    read -p "Value 3: " VALUE3
-    
-    # Create values file
+
+    echo -e "\n${BLUE}核となる価値観${NC}"
+    echo "あなたの3つの大切な価値観は何ですか？"
+    read -p "価値観 1: " VALUE1
+    read -p "価値観 2: " VALUE2
+    read -p "価値観 3: " VALUE3
+
+    # 価値観ファイルを作成
     cat > "Values.md" << EOF
-# My Core Values
+# 私の核となる価値観
 
 ## 1. $VALUE1
-Why this matters to me:
+なぜこれが大切か:
 
 ## 2. $VALUE2
-Why this matters to me:
+なぜこれが大切か:
 
 ## 3. $VALUE3
-Why this matters to me:
+なぜこれが大切か:
 
 ---
-*These values guide my decisions and priorities.*
+*これらの価値観が私の意思決定と優先順位を導きます。*
 EOF
-    
-    echo -e "${GREEN}✓ Values documented${NC}"
+
+    echo -e "${GREEN}✓ 価値観を記録しました${NC}"
 }
 
-# Function 2: Customize Goals
+# 機能 2: ゴールのカスタマイズ
 customize_goals() {
-    echo -e "\n${BLUE}Goal System Setup${NC}"
+    echo -e "\n${BLUE}ゴールシステムのセットアップ${NC}"
     echo "=================="
-    
-    echo "Let's set up your cascading goals..."
+
+    echo "カスケードゴールを設定しましょう..."
     echo ""
-    
-    # 3-Year Vision
-    echo -e "${CYAN}3-Year Vision${NC}"
-    echo "Where do you want to be in 3 years?"
-    read -p "Career: " CAREER_3Y
-    read -p "Health: " HEALTH_3Y
-    read -p "Relationships: " RELATIONSHIP_3Y
-    read -p "Financial: " FINANCIAL_3Y
-    
-    # Update 3-year goals file
+
+    # 3年ビジョン
+    echo -e "${CYAN}3年ビジョン${NC}"
+    echo "3年後、どこにいたいですか？"
+    read -p "キャリア: " CAREER_3Y
+    read -p "健康: " HEALTH_3Y
+    read -p "人間関係: " RELATIONSHIP_3Y
+    read -p "経済面: " FINANCIAL_3Y
+
+    # 3年ゴールファイルを更新
     cat > "Goals/0. Three Year Goals.md" << EOF
-# Three Year Goals ($(date +%Y)-$(($(date +%Y)+3)))
+# 3年ゴール ($(date +%Y)-$(($(date +%Y)+3)))
 
-## 🌟 Vision Statement
-In three years, I will have achieved:
+## 🌟 ビジョンステートメント
+3年後、私は以下を達成しています:
 
-### 💼 Career & Professional Development
+### 💼 キャリア・専門的成長
 - $CAREER_3Y
 
-### 🏃 Health & Wellness
+### 🏃 健康・ウェルネス
 - $HEALTH_3Y
 
-### ❤️ Relationships & Family
+### ❤️ 人間関係・家族
 - $RELATIONSHIP_3Y
 
-### 💰 Financial Security
+### 💰 経済的安定
 - $FINANCIAL_3Y
 
 ---
-*Created: $(date +%Y-%m-%d)*
+*作成日: $(date +%Y-%m-%d)*
 EOF
-    
-    echo -e "${GREEN}✓ 3-year goals set${NC}"
-    
-    # This Year's Focus
-    echo -e "\n${CYAN}This Year's Focus${NC}"
-    read -p "What's your ONE metric that matters this year? " ONE_METRIC
-    read -p "What's this year's theme word? " THEME
-    
-    # Update yearly goals
+
+    echo -e "${GREEN}✓ 3年ゴールを設定しました${NC}"
+
+    # 今年のフォーカス
+    echo -e "\n${CYAN}今年のフォーカス${NC}"
+    read -p "今年の最も重要な指標は何ですか？ " ONE_METRIC
+    read -p "今年のテーマワードは？ " THEME
+
+    # 年間ゴールを更新
     YEAR=$(date +%Y)
     sed -i.bak "s/\[CUSTOMIZE THIS:.*\]/$ONE_METRIC/" "Goals/1. Yearly Goals.md" 2>/dev/null || true
-    
-    echo -e "${GREEN}✓ Yearly goals configured${NC}"
+
+    echo -e "${GREEN}✓ 年間ゴールを設定しました${NC}"
 }
 
-# Function 3: Customize Daily Template
+# 機能 3: デイリーテンプレートのカスタマイズ
 customize_daily() {
-    echo -e "\n${BLUE}Daily Note Customization${NC}"
+    echo -e "\n${BLUE}デイリーノートのカスタマイズ${NC}"
     echo "========================"
-    
-    echo "Let's customize your daily note structure..."
+
+    echo "デイリーノートの構造をカスタマイズしましょう..."
     echo ""
-    
-    # Time preferences
-    echo "When does your day typically start?"
-    read -p "Wake time (e.g., 6:00 AM): " WAKE_TIME
-    
-    echo "When does your workday start?"
-    read -p "Work start (e.g., 9:00 AM): " WORK_START
-    
-    echo "When does your workday end?"
-    read -p "Work end (e.g., 5:00 PM): " WORK_END
-    
-    # Categories
-    echo -e "\n${CYAN}Task Categories${NC}"
-    echo "What categories do you want to track? (comma-separated)"
-    echo "Default: Work, Personal, Learning, Health"
-    read -p "Your categories: " CATEGORIES
-    CATEGORIES=${CATEGORIES:-"Work,Personal,Learning,Health"}
-    
-    # Habits
-    echo -e "\n${CYAN}Daily Habits${NC}"
-    echo "What habits do you want to track? (comma-separated)"
-    echo "Example: Exercise, Meditation, Reading, Journaling"
-    read -p "Your habits: " HABITS
-    
-    # Generate custom template
+
+    # 時間の設定
+    echo "あなたの1日は通常何時に始まりますか？"
+    read -p "起床時刻 (例: 6:00 AM): " WAKE_TIME
+
+    echo "仕事は何時に始まりますか？"
+    read -p "仕事開始時刻 (例: 9:00 AM): " WORK_START
+
+    echo "仕事は何時に終わりますか？"
+    read -p "仕事終了時刻 (例: 5:00 PM): " WORK_END
+
+    # カテゴリ
+    echo -e "\n${CYAN}タスクカテゴリ${NC}"
+    echo "トラッキングしたいカテゴリは何ですか？（カンマ区切り）"
+    echo "デフォルト: 仕事, 個人, 学習, 健康"
+    read -p "カテゴリ: " CATEGORIES
+    CATEGORIES=${CATEGORIES:-"仕事,個人,学習,健康"}
+
+    # 習慣
+    echo -e "\n${CYAN}デイリー習慣${NC}"
+    echo "トラッキングしたい習慣は何ですか？（カンマ区切り）"
+    echo "例: 運動, 瞑想, 読書, 日記"
+    read -p "習慣: " HABITS
+
+    # カスタムテンプレートを生成
     cat > "Templates/Daily Template - Custom.md" << EOF
 ---
 date: {{date}}
@@ -209,405 +209,405 @@ tags: daily-note
 
 # {{date:dddd, MMMM DD, YYYY}}
 
-## 🎯 Today's Focus
-**ONE Thing:** 
+## 🎯 今日のフォーカス
+**最も重要なこと:**
 
-## ⏰ Schedule
-- **$WAKE_TIME - Morning Routine**
-- **$WORK_START - Work Block**
-- **12:00 PM - Lunch Break**
-- **1:00 PM - Afternoon Work**
-- **$WORK_END - End of Work**
-- **Evening - Personal Time**
+## ⏰ スケジュール
+- **$WAKE_TIME - モーニングルーティン**
+- **$WORK_START - ワークブロック**
+- **12:00 PM - 昼休憩**
+- **1:00 PM - 午後の仕事**
+- **$WORK_END - 仕事終了**
+- **夕方 - 個人時間**
 
-## ✅ Tasks
+## ✅ タスク
 EOF
-    
-    # Add categories
+
+    # カテゴリを追加
     IFS=',' read -ra CATS <<< "$CATEGORIES"
     for cat in "${CATS[@]}"; do
-        cat=$(echo "$cat" | xargs)  # Trim whitespace
+        cat=$(echo "$cat" | xargs)  # 空白をトリム
         echo -e "\n### $cat\n- [ ] " >> "Templates/Daily Template - Custom.md"
     done
-    
-    # Add habits section
-    echo -e "\n## 🧘 Habits" >> "Templates/Daily Template - Custom.md"
+
+    # 習慣セクションを追加
+    echo -e "\n## 🧘 習慣" >> "Templates/Daily Template - Custom.md"
     IFS=',' read -ra HABS <<< "$HABITS"
     for hab in "${HABS[@]}"; do
         hab=$(echo "$hab" | xargs)
         echo "- [ ] $hab" >> "Templates/Daily Template - Custom.md"
     done
-    
-    # Add reflection
+
+    # 振り返りを追加
     cat >> "Templates/Daily Template - Custom.md" << EOF
 
-## 💭 Notes & Ideas
+## 💭 メモ・アイデア
 
 
-## 🔍 End of Day Reflection
-### What went well?
-- 
+## 🔍 1日の振り返り
+### うまくいったこと
+-
 
-### What could be better?
-- 
+### 改善できること
+-
 
-### Tomorrow's priority:
-- 
+### 明日の優先事項
+-
 
 ---
-*Day {{date:D}} of 365*
+*365日中の {{date:D}} 日目*
 EOF
-    
-    echo -e "${GREEN}✓ Custom daily template created${NC}"
+
+    echo -e "${GREEN}✓ カスタムデイリーテンプレートを作成しました${NC}"
 }
 
-# Function 4: Customize Weekly Review
+# 機能 4: ウィークリーレビューのカスタマイズ
 customize_weekly() {
-    echo -e "\n${BLUE}Weekly Review Customization${NC}"
+    echo -e "\n${BLUE}ウィークリーレビューのカスタマイズ${NC}"
     echo "============================"
-    
-    echo "When do you prefer to do your weekly review?"
-    echo "1. Sunday Evening"
-    echo "2. Monday Morning"
-    echo "3. Friday Afternoon"
-    echo "4. Saturday Morning"
-    read -p "Choose (1-4): " REVIEW_TIME
-    
+
+    echo "ウィークリーレビューはいつ行いますか？"
+    echo "1. 日曜日の夜"
+    echo "2. 月曜日の朝"
+    echo "3. 金曜日の午後"
+    echo "4. 土曜日の朝"
+    read -p "選択 (1-4): " REVIEW_TIME
+
     case $REVIEW_TIME in
-        1) REVIEW_DAY="Sunday Evening" ;;
-        2) REVIEW_DAY="Monday Morning" ;;
-        3) REVIEW_DAY="Friday Afternoon" ;;
-        4) REVIEW_DAY="Saturday Morning" ;;
-        *) REVIEW_DAY="Sunday Evening" ;;
+        1) REVIEW_DAY="日曜日の夜" ;;
+        2) REVIEW_DAY="月曜日の朝" ;;
+        3) REVIEW_DAY="金曜日の午後" ;;
+        4) REVIEW_DAY="土曜日の朝" ;;
+        *) REVIEW_DAY="日曜日の夜" ;;
     esac
-    
-    echo -e "\nHow long for your review?"
-    read -p "Minutes (default 30): " REVIEW_DURATION
+
+    echo -e "\nレビューにどのくらい時間をかけますか？"
+    read -p "分数 (デフォルト 30): " REVIEW_DURATION
     REVIEW_DURATION=${REVIEW_DURATION:-30}
-    
-    # Create custom weekly review
+
+    # カスタムウィークリーレビューを作成
     cat > "Templates/Weekly Review - Custom.md" << EOF
-# Weekly Review - {{date:YYYY [Week] w}}
-**Review Time:** $REVIEW_DAY ($REVIEW_DURATION minutes)
+# ウィークリーレビュー - {{date:YYYY [Week] w}}
+**レビュー時間:** $REVIEW_DAY ($REVIEW_DURATION 分)
 
-## 📊 Quick Metrics
-- Tasks Completed: /
-- Goals Progress: %
-- Energy Average: /10
+## 📊 クイックメトリクス
+- 完了タスク数: /
+- ゴール進捗: %
+- 平均エネルギー: /10
 
-## 🔍 Last Week
+## 🔍 先週の振り返り
 
-### Top 3 Wins
-1. 
-2. 
-3. 
+### トップ3の成果
+1.
+2.
+3.
 
-### Top 3 Challenges
-1. 
-2. 
-3. 
+### トップ3の課題
+1.
+2.
+3.
 
-### Key Insight
-- 
+### 重要な気づき
+-
 
-## 📅 Next Week
+## 📅 来週の計画
 
-### ONE Big Thing
-If nothing else: 
+### 最も重要な1つのこと
+何もできなかったとしても、これだけは:
 
-### Priority Projects
-1. 
-2. 
-3. 
+### 優先プロジェクト
+1.
+2.
+3.
 
-### Scheduled Blocks
-- Deep Work: 
-- Meetings: 
-- Personal: 
+### スケジュール予定
+- 集中作業時間:
+- ミーティング:
+- 個人時間:
 
-## 🧹 Cleanup
-- [ ] Process inbox
-- [ ] Review calendar
-- [ ] Update project status
-- [ ] Archive old notes
-- [ ] Plan time blocks
+## 🧹 クリーンアップ
+- [ ] インボックスを処理
+- [ ] カレンダーをレビュー
+- [ ] プロジェクトステータスを更新
+- [ ] 古いノートをアーカイブ
+- [ ] タイムブロックを計画
 
 ---
-*Review completed in: ___ minutes*
+*レビュー所要時間: ___ 分*
 EOF
-    
-    echo -e "${GREEN}✓ Weekly review customized for $REVIEW_DAY${NC}"
+
+    echo -e "${GREEN}✓ ウィークリーレビューを $REVIEW_DAY 用にカスタマイズしました${NC}"
 }
 
-# Function 5: Customize Tags
+# 機能 5: タグシステムのカスタマイズ
 customize_tags() {
-    echo -e "\n${BLUE}Tag System Setup${NC}"
+    echo -e "\n${BLUE}タグシステムのセットアップ${NC}"
     echo "================="
-    
-    echo "Let's create your personalized tag system..."
-    echo ""
-    
-    echo "Choose tag style:"
-    echo "1. Hierarchical (#area/subarea/specific)"
-    echo "2. Flat (#area-specific)"
-    echo "3. Prefix-based (#p-project, #a-area)"
-    read -p "Style (1-3): " TAG_STYLE
-    
-    echo -e "\nEnter your main life areas (comma-separated):"
-    echo "Example: work, personal, health, finance, learning"
-    read -p "Your areas: " AREAS
-    
-    # Create tag reference
-    cat > "Tag System.md" << EOF
-# My Tag System
 
-## Structure
+    echo "パーソナライズされたタグシステムを作成しましょう..."
+    echo ""
+
+    echo "タグスタイルを選択:"
+    echo "1. 階層型 (#分野/サブ分野/具体的)"
+    echo "2. フラット型 (#分野-具体的)"
+    echo "3. プレフィックス型 (#p-プロジェクト, #a-分野)"
+    read -p "スタイル (1-3): " TAG_STYLE
+
+    echo -e "\n主要な生活分野を入力してください（カンマ区切り）:"
+    echo "例: 仕事, 個人, 健康, 財務, 学習"
+    read -p "あなたの分野: " AREAS
+
+    # タグリファレンスを作成
+    cat > "Tag System.md" << EOF
+# 私のタグシステム
+
+## 構造
 EOF
-    
+
     case $TAG_STYLE in
         1)
-            echo "Hierarchical tags:" >> "Tag System.md"
+            echo "階層型タグ:" >> "Tag System.md"
             IFS=',' read -ra AREA_ARRAY <<< "$AREAS"
             for area in "${AREA_ARRAY[@]}"; do
                 area=$(echo "$area" | xargs)
                 echo "- #$area/" >> "Tag System.md"
-                echo "  - #$area/active" >> "Tag System.md"
-                echo "  - #$area/waiting" >> "Tag System.md"
-                echo "  - #$area/someday" >> "Tag System.md"
+                echo "  - #$area/進行中" >> "Tag System.md"
+                echo "  - #$area/待機中" >> "Tag System.md"
+                echo "  - #$area/いつか" >> "Tag System.md"
             done
             ;;
         2)
-            echo "Flat tags:" >> "Tag System.md"
+            echo "フラット型タグ:" >> "Tag System.md"
             IFS=',' read -ra AREA_ARRAY <<< "$AREAS"
             for area in "${AREA_ARRAY[@]}"; do
                 area=$(echo "$area" | xargs)
                 echo "- #$area" >> "Tag System.md"
-                echo "- #${area}-active" >> "Tag System.md"
-                echo "- #${area}-waiting" >> "Tag System.md"
+                echo "- #${area}-進行中" >> "Tag System.md"
+                echo "- #${area}-待機中" >> "Tag System.md"
             done
             ;;
         3)
-            echo "Prefix-based tags:" >> "Tag System.md"
-            echo "- #p- (projects)" >> "Tag System.md"
-            echo "- #a- (areas)" >> "Tag System.md"
-            echo "- #t- (topics)" >> "Tag System.md"
-            echo "- #s- (status)" >> "Tag System.md"
+            echo "プレフィックス型タグ:" >> "Tag System.md"
+            echo "- #p- (プロジェクト)" >> "Tag System.md"
+            echo "- #a- (分野)" >> "Tag System.md"
+            echo "- #t- (トピック)" >> "Tag System.md"
+            echo "- #s- (ステータス)" >> "Tag System.md"
             ;;
     esac
-    
+
     cat >> "Tag System.md" << EOF
 
-## Status Tags
-- #active - Currently working on
-- #waiting - Blocked or waiting
-- #someday - Future consideration
-- #done - Completed
-- #cancelled - No longer relevant
+## ステータスタグ
+- #進行中 - 現在作業中
+- #待機中 - ブロックされているか待機中
+- #いつか - 将来の検討事項
+- #完了 - 完了済み
+- #中止 - もはや関連性なし
 
-## Priority Tags
-- #priority/high - Must do today
-- #priority/medium - This week
-- #priority/low - When possible
+## 優先度タグ
+- #優先度/高 - 今日必須
+- #優先度/中 - 今週中
+- #優先度/低 - 可能な時に
 
-## Energy Tags
-- #energy/high - Requires focus
-- #energy/medium - Normal energy
-- #energy/low - Can do when tired
+## エネルギータグ
+- #エネルギー/高 - 集中力が必要
+- #エネルギー/中 - 通常のエネルギー
+- #エネルギー/低 - 疲れていてもできる
 
-## Quick Search Queries
-- Find all active: tag:#active
-- Today's priorities: tag:#priority/high
-- Waiting items: tag:#waiting
+## クイック検索クエリ
+- すべての進行中を検索: tag:#進行中
+- 今日の優先事項: tag:#優先度/高
+- 待機中のアイテム: tag:#待機中
 EOF
-    
-    echo -e "${GREEN}✓ Tag system created${NC}"
+
+    echo -e "${GREEN}✓ タグシステムを作成しました${NC}"
 }
 
-# Function 6: Customize Time Blocks
+# 機能 6: タイムブロックのカスタマイズ
 customize_time_blocks() {
-    echo -e "\n${BLUE}Time Block Customization${NC}"
+    echo -e "\n${BLUE}タイムブロックのカスタマイズ${NC}"
     echo "========================"
-    
-    echo "Let's set up your ideal time blocks..."
+
+    echo "理想的なタイムブロックを設定しましょう..."
     echo ""
-    
-    echo "What type of schedule do you follow?"
-    echo "1. Traditional (9-5)"
-    echo "2. Early Bird (5am start)"
-    echo "3. Night Owl (work late)"
-    echo "4. Flexible/Remote"
-    echo "5. Shift Work"
-    read -p "Choose (1-5): " SCHEDULE_TYPE
-    
+
+    echo "どのタイプのスケジュールですか？"
+    echo "1. 伝統的（9-5）"
+    echo "2. 早起き（5時スタート）"
+    echo "3. 夜型（遅めに作業）"
+    echo "4. フレキシブル・リモート"
+    echo "5. シフトワーク"
+    read -p "選択 (1-5): " SCHEDULE_TYPE
+
     case $SCHEDULE_TYPE in
         1)
-            BLOCKS="6-7 AM: Morning Routine
-7-8 AM: Planning & Email
-8-9 AM: Commute
-9-12 PM: Deep Work
-12-1 PM: Lunch
-1-3 PM: Meetings
-3-5 PM: Admin Tasks
-5-6 PM: Wrap Up
-6-9 PM: Personal Time"
+            BLOCKS="6-7 AM: モーニングルーティン
+7-8 AM: 計画とメール
+8-9 AM: 通勤
+9-12 PM: 集中作業
+12-1 PM: 昼食
+1-3 PM: ミーティング
+3-5 PM: 管理業務
+5-6 PM: まとめ作業
+6-9 PM: 個人時間"
             ;;
         2)
-            BLOCKS="5-6 AM: Morning Routine
-6-8 AM: Deep Work
-8-9 AM: Exercise
-9-12 PM: Focused Work
-12-1 PM: Lunch
-1-3 PM: Meetings
-3-5 PM: Project Time
-5-7 PM: Family Time
-7-9 PM: Personal Projects"
+            BLOCKS="5-6 AM: モーニングルーティン
+6-8 AM: 集中作業
+8-9 AM: 運動
+9-12 PM: 集中ワーク
+12-1 PM: 昼食
+1-3 PM: ミーティング
+3-5 PM: プロジェクト時間
+5-7 PM: 家族時間
+7-9 PM: 個人プロジェクト"
             ;;
         3)
-            BLOCKS="8-9 AM: Slow Morning
-9-10 AM: Exercise
-10-12 PM: Admin Tasks
-12-1 PM: Lunch
-1-4 PM: Meetings
-4-6 PM: Break/Personal
-6-8 PM: Dinner
-8-12 AM: Deep Work"
+            BLOCKS="8-9 AM: ゆっくりとした朝
+9-10 AM: 運動
+10-12 PM: 管理業務
+12-1 PM: 昼食
+1-4 PM: ミーティング
+4-6 PM: 休憩・個人時間
+6-8 PM: 夕食
+8-12 AM: 集中作業"
             ;;
         4)
-            BLOCKS="7-8 AM: Morning Routine
-8-10 AM: Deep Work Block 1
-10-12 PM: Communication Block
-12-1 PM: Lunch & Walk
-1-3 PM: Deep Work Block 2
-3-4 PM: Admin/Email
-4-5 PM: Planning Tomorrow
-5-7 PM: Personal Time
-7-9 PM: Learning/Side Projects"
+            BLOCKS="7-8 AM: モーニングルーティン
+8-10 AM: 集中作業ブロック1
+10-12 PM: コミュニケーションブロック
+12-1 PM: 昼食と散歩
+1-3 PM: 集中作業ブロック2
+3-4 PM: 管理業務・メール
+4-5 PM: 明日の計画
+5-7 PM: 個人時間
+7-9 PM: 学習・副業プロジェクト"
             ;;
         5)
-            echo "Enter your shift schedule:"
-            read -p "Shift start: " SHIFT_START
-            read -p "Shift end: " SHIFT_END
-            BLOCKS="Custom shift: $SHIFT_START - $SHIFT_END"
+            echo "シフトスケジュールを入力してください:"
+            read -p "シフト開始: " SHIFT_START
+            read -p "シフト終了: " SHIFT_END
+            BLOCKS="カスタムシフト: $SHIFT_START - $SHIFT_END"
             ;;
     esac
-    
-    # Create time block template
-    cat > "Time Blocks.md" << EOF
-# My Ideal Time Blocks
 
-## Default Schedule
+    # タイムブロックテンプレートを作成
+    cat > "Time Blocks.md" << EOF
+# 私の理想的なタイムブロック
+
+## デフォルトスケジュール
 $BLOCKS
 
-## Deep Work Times
-Best focus: [CUSTOMIZE]
-Good focus: [CUSTOMIZE]
-Low focus: [CUSTOMIZE]
+## 集中作業時間
+最高の集中力: [カスタマイズ]
+良好な集中力: [カスタマイズ]
+低い集中力: [カスタマイズ]
 
-## Rules
-1. Protect deep work blocks
-2. Batch similar tasks
-3. Include breaks
-4. End day with planning
+## ルール
+1. 集中作業ブロックを守る
+2. 同種のタスクをまとめる
+3. 休憩を含める
+4. 1日の終わりに計画する
 
-## Weekly Variations
-- Monday: Planning focus
-- Tuesday-Thursday: Execution
-- Friday: Review & wrap-up
+## 週ごとの変更
+- 月曜日: 計画重視
+- 火曜日〜木曜日: 実行
+- 金曜日: レビューとまとめ
 
 ---
-*Adjust based on energy and priorities*
+*エネルギーと優先順位に応じて調整*
 EOF
-    
-    echo -e "${GREEN}✓ Time blocks configured${NC}"
+
+    echo -e "${GREEN}✓ タイムブロックを設定しました${NC}"
 }
 
-# Function 10: Create Custom Command
+# 機能 10: カスタムコマンドの作成
 create_custom_command() {
-    echo -e "\n${BLUE}Create Custom Claude Command${NC}"
+    echo -e "\n${BLUE}カスタム Claude コマンドの作成${NC}"
     echo "============================="
-    
-    read -p "Command name (e.g., 'report'): " CMD_NAME
-    read -p "Command description: " CMD_DESC
-    
-    echo "What should this command do?"
-    echo "1. Create a specific type of note"
-    echo "2. Run a workflow/process"
-    echo "3. Generate a report"
-    echo "4. Perform maintenance"
-    read -p "Choose (1-4): " CMD_TYPE
-    
-    # Create command file
+
+    read -p "コマンド名（例: 'report'）: " CMD_NAME
+    read -p "コマンドの説明: " CMD_DESC
+
+    echo "このコマンドは何をしますか？"
+    echo "1. 特定のタイプのノートを作成"
+    echo "2. ワークフロー・プロセスを実行"
+    echo "3. レポートを生成"
+    echo "4. メンテナンスを実行"
+    read -p "選択 (1-4): " CMD_TYPE
+
+    # コマンドファイルを作成
     cat > ".claude/commands/$CMD_NAME.md" << EOF
-# $CMD_NAME Command
+# $CMD_NAME コマンド
 
 $CMD_DESC
 
-## Usage
+## 使用方法
 \`\`\`
 claude code /$CMD_NAME
 \`\`\`
 
-## What This Command Does
+## このコマンドが行うこと
 EOF
-    
+
     case $CMD_TYPE in
         1)
-            read -p "Note template name: " TEMPLATE
+            read -p "ノートテンプレート名: " TEMPLATE
             cat >> ".claude/commands/$CMD_NAME.md" << EOF
-1. Creates a new note from template
-2. Names it appropriately
-3. Places in correct folder
+1. テンプレートから新しいノートを作成
+2. 適切に名前を付ける
+3. 正しいフォルダに配置
 
-## Configuration
+## 設定
 const TEMPLATE_PATH = "Templates/$TEMPLATE.md";
-const OUTPUT_FOLDER = "[CUSTOMIZE]";
+const OUTPUT_FOLDER = "[カスタマイズ]";
 EOF
             ;;
         2)
             cat >> ".claude/commands/$CMD_NAME.md" << EOF
-1. Executes workflow steps
-2. Updates relevant files
-3. Generates output
+1. ワークフローステップを実行
+2. 関連ファイルを更新
+3. 出力を生成
 
-## Workflow Steps
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+## ワークフローステップ
+1. [ステップ 1]
+2. [ステップ 2]
+3. [ステップ 3]
 EOF
             ;;
         3)
             cat >> ".claude/commands/$CMD_NAME.md" << EOF
-1. Analyzes specified data
-2. Generates formatted report
-3. Saves to designated location
+1. 指定されたデータを分析
+2. フォーマットされたレポートを生成
+3. 指定された場所に保存
 
-## Report Sections
-- Summary
-- Details
-- Recommendations
+## レポートセクション
+- サマリー
+- 詳細
+- 推奨事項
 EOF
             ;;
         4)
             cat >> ".claude/commands/$CMD_NAME.md" << EOF
-1. Performs maintenance tasks
-2. Cleans up files
-3. Optimizes structure
+1. メンテナンスタスクを実行
+2. ファイルをクリーンアップ
+3. 構造を最適化
 
-## Tasks
-- Archive old files
-- Update indices
-- Clean duplicates
+## タスク
+- 古いファイルをアーカイブ
+- インデックスを更新
+- 重複を削除
 EOF
             ;;
     esac
-    
-    echo -e "${GREEN}✓ Custom command '/$CMD_NAME' created${NC}"
+
+    echo -e "${GREEN}✓ カスタムコマンド '/$CMD_NAME' を作成しました${NC}"
 }
 
-# Main loop
+# メインループ
 while true; do
     show_menu
-    
+
     case $choice in
         1) customize_mission ;;
         2) customize_goals ;;
@@ -615,24 +615,24 @@ while true; do
         4) customize_weekly ;;
         5) customize_tags ;;
         6) customize_time_blocks ;;
-        7) echo "Project template customization coming soon..." ;;
-        8) echo "Edit CLAUDE.md directly for now..." ;;
-        9) echo "Folder structure customization coming soon..." ;;
+        7) echo "プロジェクトテンプレートのカスタマイズは近日公開予定..." ;;
+        8) echo "今のところ CLAUDE.md を直接編集してください..." ;;
+        9) echo "フォルダ構造のカスタマイズは近日公開予定..." ;;
         10) create_custom_command ;;
-        0) 
-            echo -e "\n${GREEN}Customization complete!${NC}"
-            echo "Your PKM system has been personalized."
-            
-            # Commit changes
+        0)
+            echo -e "\n${GREEN}カスタマイズが完了しました！${NC}"
+            echo "PKM システムがパーソナライズされました。"
+
+            # 変更をコミット
             cd "$VAULT_PATH"
             git add .
-            git commit -m "Customization updates - $(date +%Y-%m-%d)" 2>/dev/null || true
-            
+            git commit -m "カスタマイズの更新 - $(date +%Y-%m-%d)" 2>/dev/null || true
+
             exit 0
             ;;
-        *) echo -e "${RED}Invalid option${NC}" ;;
+        *) echo -e "${RED}無効なオプションです${NC}" ;;
     esac
-    
-    echo -e "\n${CYAN}Press Enter to continue...${NC}"
+
+    echo -e "\n${CYAN}Enter キーを押して続行...${NC}"
     read
 done

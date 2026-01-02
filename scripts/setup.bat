@@ -1,245 +1,245 @@
 @echo off
-REM Obsidian + Claude Code PKM Setup Script for Windows
-REM This script automates the initial setup of your PKM system
+REM Obsidian + Claude Code PKM セットアップスクリプト（Windows用）
+REM PKMシステムの初期セットアップを自動化するスクリプトです
 
 setlocal enabledelayedexpansion
 
-REM Colors setup (Windows 10+)
+REM カラー設定（Windows 10+）
 echo.
 
 echo =====================================
-echo   Obsidian + Claude Code PKM Setup
+echo   Obsidian + Claude Code PKM セットアップ
 echo   Version 1.0 for Windows
 echo =====================================
 echo.
 
-REM Step 1: Check Prerequisites
-echo Step 1: Checking Prerequisites
+REM ステップ 1: 前提条件のチェック
+echo ステップ 1: 前提条件のチェック
 echo ==============================
 
-REM Check for Git
+REM Git のチェック
 where git >nul 2>nul
 if %errorlevel%==0 (
-    echo [OK] Git is installed
+    echo [OK] Git がインストールされています
     git --version
 ) else (
-    echo [ERROR] Git is not installed
-    echo Please install Git from: https://git-scm.com/
+    echo [エラー] Git がインストールされていません
+    echo Git をインストールしてください: https://git-scm.com/
     pause
     exit /b 1
 )
 
-REM Check for Claude Code
+REM Claude Code のチェック
 where claude >nul 2>nul
 if %errorlevel%==0 (
-    echo [OK] Claude Code is installed
+    echo [OK] Claude Code がインストールされています
 ) else (
-    echo [WARNING] Claude Code CLI not found
-    echo Install from: https://code.claude.com/docs
-    set /p CONTINUE="Continue without Claude Code? (y/n): "
+    echo [警告] Claude Code CLI が見つかりません
+    echo インストール先: https://code.claude.com/docs
+    set /p CONTINUE="Claude Code なしで続行しますか？ (y/n): "
     if /i not "!CONTINUE!"=="y" exit /b 1
 )
 
 echo.
 
-REM Step 2: Get Vault Location
-echo Step 2: Choose Vault Location
+REM ステップ 2: Vault の場所選択
+echo ステップ 2: Vault の場所選択
 echo ==============================
 
 set DEFAULT_VAULT=%USERPROFILE%\Documents\ObsidianPKM
-set /p VAULT_PATH="Where should we create your vault? [%DEFAULT_VAULT%]: "
+set /p VAULT_PATH="Vault を作成する場所 [%DEFAULT_VAULT%]: "
 if "%VAULT_PATH%"=="" set VAULT_PATH=%DEFAULT_VAULT%
 
-REM Check if directory exists
+REM ディレクトリの存在確認
 if exist "%VAULT_PATH%" (
-    echo [WARNING] Directory already exists: %VAULT_PATH%
-    set /p USE_EXISTING="Use existing directory? Files may be overwritten (y/n): "
+    echo [警告] ディレクトリが既に存在します: %VAULT_PATH%
+    set /p USE_EXISTING="既存のディレクトリを使用しますか？ファイルが上書きされる可能性があります (y/n): "
     if /i not "!USE_EXISTING!"=="y" (
-        echo Setup cancelled
+        echo セットアップをキャンセルしました
         pause
         exit /b 1
     )
 ) else (
     mkdir "%VAULT_PATH%"
-    echo [OK] Created vault directory: %VAULT_PATH%
+    echo [OK] Vault ディレクトリを作成しました: %VAULT_PATH%
 )
 
 echo.
 
-REM Step 3: Copy Vault Template
-echo Step 3: Setting Up Vault Structure
+REM ステップ 3: Vault テンプレートのコピー
+echo ステップ 3: Vault 構造のセットアップ
 echo ===================================
 
 set SCRIPT_DIR=%~dp0
 set TEMPLATE_DIR=%SCRIPT_DIR%..\vault-template
 
-echo Copying template files...
+echo テンプレートファイルをコピー中...
 xcopy /E /I /Y "%TEMPLATE_DIR%\*" "%VAULT_PATH%\" >nul 2>nul
-echo [OK] Vault structure created
+echo [OK] Vault 構造を作成しました
 
 echo.
 
-REM Step 4: Set Up Claude Commands
-echo Step 4: Setting Up Claude Commands
+REM ステップ 4: Claude コマンドのセットアップ
+echo ステップ 4: Claude コマンドのセットアップ
 echo ===================================
 
 where claude >nul 2>nul
 if %errorlevel%==0 (
-    REM Commands are already in vault-template\.claude\commands\
-    REM Just need to initialize Claude
+    REM コマンドは既に vault-template\.claude\commands\ にあります
+    REM Claude を初期化するだけでよい
     cd /d "%VAULT_PATH%"
-    
-    REM Check if commands were copied
+
+    REM コマンドがコピーされたか確認
     if exist "%VAULT_PATH%\.claude\commands" (
-        echo [OK] Claude commands already in place
+        echo [OK] Claude コマンドは既に配置されています
     ) else (
-        echo [WARNING] Claude commands directory not found
+        echo [警告] Claude コマンドディレクトリが見つかりません
     )
-    
-    REM Initialize Claude in vault
+
+    REM Vault 内で Claude を初期化
     claude init 2>nul
-    echo [OK] Claude Code initialized in vault
+    echo [OK] Vault 内で Claude Code を初期化しました
 ) else (
-    echo [WARNING] Skipping Claude Code setup - not installed
+    echo [警告] Claude Code のセットアップをスキップ - インストールされていません
 )
 
 echo.
 
-REM Step 5: Initialize Git
-echo Step 5: Git Repository Setup
+REM ステップ 5: Git の初期化
+echo ステップ 5: Git リポジトリのセットアップ
 echo ============================
 
 cd /d "%VAULT_PATH%"
 
 if exist .git (
-    echo [WARNING] Git repository already exists
+    echo [警告] Git リポジトリは既に存在します
 ) else (
     git init >nul
-    echo [OK] Git repository initialized
+    echo [OK] Git リポジトリを初期化しました
 )
 
-REM Configure Git
-set /p GIT_NAME="Enter your name for Git commits: "
-set /p GIT_EMAIL="Enter your email for Git commits: "
+REM Git の設定
+set /p GIT_NAME="Git コミット用の名前を入力: "
+set /p GIT_EMAIL="Git コミット用のメールアドレスを入力: "
 
 if not "%GIT_NAME%"=="" (
     git config user.name "%GIT_NAME%"
-    echo [OK] Git user name set
+    echo [OK] Git ユーザー名を設定しました
 )
 
 if not "%GIT_EMAIL%"=="" (
     git config user.email "%GIT_EMAIL%"
-    echo [OK] Git user email set
+    echo [OK] Git メールアドレスを設定しました
 )
 
-REM Initial commit
+REM 初回コミット
 git add . >nul 2>nul
 git commit -m "Initial PKM setup" >nul 2>nul
-echo [OK] Initial commit created
+echo [OK] 初回コミットを作成しました
 
 echo.
 
-REM Step 6: GitHub Setup (Optional)
-echo Step 6: GitHub Integration - Optional
+REM ステップ 6: GitHub セットアップ（オプション）
+echo ステップ 6: GitHub 連携 - オプション
 echo ======================================
 
-set /p SETUP_GITHUB="Do you want to set up GitHub integration? (y/n): "
+set /p SETUP_GITHUB="GitHub 連携をセットアップしますか？ (y/n): "
 if /i "%SETUP_GITHUB%"=="y" (
-    set /p GITHUB_URL="Enter your GitHub repository URL (or press Enter to skip): "
-    
+    set /p GITHUB_URL="GitHub リポジトリの URL を入力（スキップする場合は Enter）: "
+
     if not "!GITHUB_URL!"=="" (
         git remote add origin "!GITHUB_URL!" 2>nul || git remote set-url origin "!GITHUB_URL!"
-        echo [OK] GitHub remote configured
-        
-        set /p PUSH_NOW="Push to GitHub now? (y/n): "
+        echo [OK] GitHub リモートを設定しました
+
+        set /p PUSH_NOW="今すぐ GitHub にプッシュしますか？ (y/n): "
         if /i "!PUSH_NOW!"=="y" (
             git push -u origin main 2>nul || git push -u origin master
-            echo [OK] Pushed to GitHub
+            echo [OK] GitHub にプッシュしました
         )
-        
-        REM Set up GitHub Action
+
+        REM GitHub Action のセットアップ
         mkdir "%VAULT_PATH%\.github\workflows" 2>nul
         copy "%SCRIPT_DIR%..\github-actions\claude.yml" "%VAULT_PATH%\.github\workflows\" >nul
-        echo [OK] GitHub Action workflow copied
-        echo [NOTE] Remember to add CLAUDE_CODE_OAUTH_TOKEN to repository secrets
+        echo [OK] GitHub Action ワークフローをコピーしました
+        echo [注意] リポジトリのシークレットに CLAUDE_CODE_OAUTH_TOKEN を追加することを忘れないでください
     )
 )
 
 echo.
 
-REM Step 7: Personalization
-echo Step 7: Initial Personalization
+REM ステップ 7: パーソナライゼーション
+echo ステップ 7: 初期パーソナライゼーション
 echo ================================
 
 echo.
-echo What's your personal mission or life purpose?
-echo Example: Build meaningful technology while maintaining balance
-set /p MISSION="Your mission: "
+echo あなたの個人的なミッションや人生の目的は何ですか？
+echo 例: バランスを保ちながら意味のあるテクノロジーを構築する
+set /p MISSION="あなたのミッション: "
 
 if not "%MISSION%"=="" (
-    REM This is simplified - proper text replacement in batch is complex
-    echo [OK] Personal mission noted - please update CLAUDE.md manually
+    REM バッチでのテキスト置換は複雑なため、簡略化しています
+    echo [OK] 個人的なミッションを記録しました - CLAUDE.md を手動で更新してください
 )
 
 echo.
-echo What's your main focus right now?
-set /p FOCUS="Current focus: "
+echo 今の主なフォーカスは何ですか？
+set /p FOCUS="現在のフォーカス: "
 
-REM Create first daily note (locale-agnostic date via PowerShell)
+REM 最初のデイリーノートを作成（PowerShell 経由でロケールに依存しない日付取得）
 for /f %%I in ('powershell -NoProfile -Command "Get-Date -Format yyyy-MM-dd"') do set TODAY=%%I
 set DAILY_NOTE=%VAULT_PATH%\Daily Notes\%TODAY%.md
 
 if not exist "%DAILY_NOTE%" (
-    echo Creating your first daily note...
+    echo 最初のデイリーノートを作成中...
     copy "%VAULT_PATH%\Templates\Daily Template.md" "%DAILY_NOTE%" >nul
-    echo [OK] First daily note created: %TODAY%.md
+    echo [OK] 最初のデイリーノートを作成しました: %TODAY%.md
 )
 
-REM Inject focus into Today's Priority if provided
+REM フォーカスが入力されていれば「今日の優先事項」に追加
 if not "%FOCUS%"=="" (
-    powershell -NoProfile -Command "(Get-Content -Raw '%DAILY_NOTE%') -replace '\\*\\*Today''s Priority:\\*\\*','**Today''s Priority:** %FOCUS%' | Set-Content -Encoding UTF8 '%DAILY_NOTE%'"
+    powershell -NoProfile -Command "(Get-Content -Raw '%DAILY_NOTE%') -replace '\\*\\*Today''s Priority:\\*\\*','**今日の優先事項:** %FOCUS%' | Set-Content -Encoding UTF8 '%DAILY_NOTE%'"
 )
 
 echo.
 
-REM Step 8: Final Setup
-echo Step 8: Finalizing Setup
+REM ステップ 8: 最終セットアップ
+echo ステップ 8: セットアップの完了
 echo ========================
 
-REM Create a setup completion marker
+REM セットアップ完了マーカーを作成
 echo Setup completed on %date% %time% > "%VAULT_PATH%\.setup_complete"
 
-REM Commit personalization
+REM パーソナライゼーションをコミット
 cd /d "%VAULT_PATH%"
 git add . >nul 2>nul
 git commit -m "Personalized PKM setup" >nul 2>nul
 
 echo.
 echo =============================================
-echo          Setup Complete!
+echo          セットアップ完了！
 echo =============================================
 echo.
-echo Your PKM system is ready at: %VAULT_PATH%
+echo PKM システムの準備ができました: %VAULT_PATH%
 echo.
-echo Next steps:
-echo 1. Open Obsidian and select your vault folder
-echo 2. Explore the Goals folder to set your objectives
-echo 3. Start using daily notes with: claude code /daily
-echo 4. Run weekly reviews with: claude code /weekly
+echo 次のステップ:
+echo 1. Obsidian を開いて Vault フォルダを選択
+echo 2. Goals フォルダを確認して目標を設定
+echo 3. デイリーノートを使い始める: claude code /daily
+echo 4. ウィークリーレビューを実行: claude code /weekly
 echo.
-echo Quick Commands:
-echo   cd "%VAULT_PATH%"      - Navigate to your vault
-echo   claude code /onboard   - Load context into Claude
-echo   claude code /daily     - Create today's note
-echo   claude code /push      - Save changes to Git
+echo クイックコマンド:
+echo   cd "%VAULT_PATH%"      - Vault に移動
+echo   claude code /onboard   - Claude にコンテキストをロード
+echo   claude code /daily     - 今日のノートを作成
+echo   claude code /push      - Git に変更を保存
 echo.
-echo Read the documentation in docs\ for detailed guidance
+echo 詳細なガイダンスは docs\ 内のドキュメントをお読みください
 echo.
 
-REM Offer to open Obsidian
-set /p OPEN_OBSIDIAN="Open Obsidian now? (y/n): "
+REM Obsidian を開く
+set /p OPEN_OBSIDIAN="今すぐ Obsidian を開きますか？ (y/n): "
 if /i "!OPEN_OBSIDIAN!"=="y" (
-    REM Try common install locations, then PATH
+    REM 一般的なインストール場所を試してから PATH を確認
     if exist "%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe" (
         start "" "%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe"
     ) else if exist "%LOCALAPPDATA%\Obsidian\Obsidian.exe" (
@@ -247,7 +247,7 @@ if /i "!OPEN_OBSIDIAN!"=="y" (
     ) else (
         where obsidian >nul 2>nul && start "" obsidian
     )
-    echo [OK] Obsidian launched
+    echo [OK] Obsidian を起動しました
 )
 
 echo.
