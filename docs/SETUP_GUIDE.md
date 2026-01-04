@@ -51,15 +51,15 @@ chmod +x scripts/setup.sh
 ```
 
 セットアップスクリプトは以下を行います:
-1. ボルトの保存場所を尋ねます
-2. ボルトテンプレートをコピーします
+1. Vaultの保存場所を尋ねます
+2. Vaultテンプレートをコピーします
 3. Claudeコマンドをセットアップします
 4. gitを初期化します(希望する場合)
 
 ### ステップ3: 手動セットアップ (スクリプトが失敗した場合)
 
 ```bash
-# ボルトテンプレートを希望する場所にコピー
+# Vaultテンプレートを希望する場所にコピー
 cp -r vault-template ~/Documents/ObsidianPKM
 
 # .claude/commandsディレクトリはテンプレートに既に含まれています
@@ -75,14 +75,14 @@ git init
 
 ### ステップ1: Obsidianを開く
 1. Obsidianを起動
-2. 「フォルダをボルトとして開く」をクリック
-3. ボルトフォルダに移動
+2. 「フォルダをVaultとして開く」をクリック
+3. Vaultフォルダに移動
 4. 「選択」をクリック
 
 ### ステップ2: 信頼と有効化
 プロンプトが表示されたら:
 - 「作者を信頼してプラグインを有効にする」をクリック (コミュニティプラグインを追加した場合)
-- テンプレートボルトでは安全です
+- テンプレートVaultでは安全です
 
 ### ステップ3: 初期探索
 1. ルートにある `CLAUDE.md` を開く
@@ -101,29 +101,29 @@ git init
 
 ### v2.0の新機能: プラグイン機能
 
-ボルトには、高度な機能を持つ完全なClaude Codeプラグインが含まれています:
+Vaultには、高度な機能を持つ完全なClaude Codeプラグインが含まれています:
 
 | 機能 | 説明 |
 |---------|-------------|
 | **フック** | ファイル変更時の自動コミット、セッション初期化 |
 | **エージェント** | ノート整理、週次レビュー、目標整合性のための専門AIアシスタント |
-| **スキル** | ボルト操作、目標追跡、日次ワークフローの自動検出機能 |
+| **スキル** | Vault操作、目標追跡、日次ワークフローの自動検出機能 |
 | **ルール** | Markdown、生産性、プロジェクトのパス固有の規則 |
-| **ステータスライン** | ボルト統計のターミナル表示(ノート数、インボックス、未コミット変更) |
+| **ステータスライン** | Vault統計のターミナル表示(ノート数、インボックス、未コミット変更) |
 
-これらはボルトのセットアップが完了すると自動的に動作します。
+これらはVaultのセットアップが完了すると自動的に動作します。
 
 ### ステップ1: Claude Codeの設定
 
 ```bash
-# ボルトに移動
+# Vaultに移動
 cd ~/Documents/ObsidianPKM
 
 # Claude Codeの初期化
 claude init
 
 # 接続のテスト
-claude "Hello, I'm setting up my PKM system"
+claude "こんにちは、PKMシステムをセットアップしています"
 ```
 
 ### ステップ2: コマンドのセットアップ
@@ -141,17 +141,17 @@ ls .claude/commands/
 
 ```bash
 # コンテキストを読み込む
-claude code /onboard
+claude /onboard
 
 # 最初のデイリーノートを作成
-claude code /daily
+claude /daily
 
 # Daily Notes/に新しいファイルが表示されるはずです
 ```
 
 ### ステップ4: 出力スタイルの設定
 
-ボルトには、Claudeをより責任重視にする「Productivity Coach」出力スタイルが含まれています:
+Vaultには、Claudeをより責任重視にする「Productivity Coach」出力スタイルが含まれています:
 
 ```bash
 # Claude Codeを起動
@@ -170,25 +170,25 @@ claude
 
 ### ステップ5: エージェントの使用 (v2.0の新機能)
 
-ボルトには一般的なPKMタスク用の4つの専門エージェントが含まれています:
+Vaultには一般的なPKMタスク用の4つの専門エージェントが含まれています:
 
 ```bash
-# ボルトを整理し、壊れたリンクを修正
-claude "Use the note-organizer agent to audit my vault"
+# Vaultを整理し、壊れたリンクを修正
+claude "note-organizerエージェントを使ってVaultを監査して"
 
 # ガイド付き週次レビューを実行
-claude "Use the weekly-reviewer agent to help with my weekly review"
+claude "weekly-reviewerエージェントを使って週次レビューを手伝って"
 
 # 目標の整合性を確認
-claude "Use the goal-aligner agent to analyze my recent activity"
+claude "goal-alignerエージェントを使って最近の活動を分析して"
 
 # インボックスを処理
-claude "Use the inbox-processor agent to clear my inbox"
+claude "inbox-processorエージェントを使ってインボックスを処理して"
 ```
 
 ### ステップ6: コンテキストのカスタマイズ
 
-ボルトのルートにある `CLAUDE.md` を編集:
+Vaultのルートにある `CLAUDE.md` を編集:
 1. 個人のミッションステートメントを追加
 2. 作業の好みを定義
 3. 現在の焦点領域を設定
@@ -279,7 +279,7 @@ cp github-actions/claude.yml .github/workflows/
 
 ```bash
 # Claudeを使用
-claude code "Create a new project folder for [Your Project Name]"
+claude "新しいプロジェクトフォルダを [プロジェクト名] で作成して"
 
 # または手動で
 1. Projects/にフォルダを作成
@@ -291,7 +291,7 @@ claude code "Create a new project folder for [Your Project Name]"
 
 全てが正常に動作していることを確認するため、このチェックリストを実行してください:
 
-- [ ] Obsidianがエラーなくボルトを開ける
+- [ ] ObsidianがエラーなくVaultを開ける
 - [ ] CLAUDE.mdに個人のコンテンツが設定されている
 - [ ] `/daily` コマンドで今日のノートが作成される
 - [ ] `/onboard` コマンドでコンテキストが読み込まれる
@@ -305,8 +305,8 @@ claude code "Create a new project folder for [Your Project Name]"
 ### 朝のルーティン (5分)
 ```bash
 # 1日を開始
-claude code /onboard
-claude code /daily
+claude /onboard
+claude /daily
 
 # Claudeが実行すること:
 # - 今日のノートを作成
@@ -318,7 +318,7 @@ claude code /daily
 ```bash
 # 終業時
 # デイリーノートに振り返りを記入
-claude code /push
+claude /push
 
 # これによりgitに全てが保存されます
 ```
@@ -326,17 +326,17 @@ claude code /push
 ### 週次レビュー (30分)
 ```bash
 # 日曜日の夜または月曜日の朝
-claude code /weekly
+claude /weekly
 
 # ガイド付きレビュープロセスに従う
 ```
 
 ## トラブルシューティング
 
-### Obsidianがボルトを開かない
+### ObsidianがVaultを開かない
 - フォルダの権限を確認
 - パスに特殊文字が含まれていないことを確認
-- 新しいボルトを作成してファイルをコピーしてみる
+- 新しいVaultを作成してファイルをコピーしてみる
 
 ### Claudeコマンドが動作しない
 ```bash
@@ -347,7 +347,7 @@ claude --version
 ls -la .claude/commands/
 
 # 直接実行してみる
-claude code < .claude/commands/daily.md
+claude < .claude/commands/daily.md
 ```
 
 ### Gitの問題

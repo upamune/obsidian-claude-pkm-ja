@@ -32,8 +32,8 @@
 
 ### Obsidianの問題
 
-#### 「ボルトを開けません」エラー
-**問題**: Obsidianがボルトフォルダを開けない
+#### 「Vaultを開けません」エラー
+**問題**: ObsidianがVaultフォルダを開けない
 
 **解決策**:
 1. フォルダが存在することを確認:
@@ -131,7 +131,7 @@
 **解決策**:
 1. 特定のコンテキストを読み込む:
    ```bash
-   claude code /onboard Projects/CurrentProject
+   claude /onboard Projects/CurrentProject
    ```
 
 2. CLAUDE.mdファイルをクリーンアップ:
@@ -141,7 +141,7 @@
 3. 選択的読み込みを使用:
    ```bash
    # 古いプロジェクトをスキップ
-   claude code /onboard --exclude Archives
+   claude /onboard --exclude Archives
    ```
 
 ### Gitの問題
@@ -297,10 +297,10 @@
 ### パフォーマンスの問題
 
 #### Obsidianが遅い
-**問題**: ボルトの読み込みや応答に時間がかかる
+**問題**: Vaultの読み込みや応答に時間がかかる
 
 **解決策**:
-1. ボルトサイズを削減:
+1. Vaultサイズを削減:
    ```bash
    # 古いノートをアーカイブ
    mv "Daily Notes/2023*" Archives/2023/
@@ -348,7 +348,7 @@
 ```
 
 #### iCloud同期の問題
-- ボルトをiCloud Driveに置かない
+- VaultをiCloud Driveに置かない
 - 代わりにGitで同期を使用
 - またはObsidian Syncサービスを使用
 
@@ -405,14 +405,14 @@ git checkout COMMIT_HASH -- path/to/file.md
 # またはBackups (Linux)
 ```
 
-### ボルトの再構築
+### Vaultの再構築
 
-ボルトが破損している場合:
+Vaultが破損している場合:
 ```bash
-# 1. 現在のボルトをバックアップ
+# 1. 現在のVaultをバックアップ
 cp -r ~/Documents/ObsidianPKM ~/Documents/ObsidianPKM.backup
 
-# 2. 新しいボルトを作成
+# 2. 新しいVaultを作成
 cp -r vault-template ~/NewVault
 
 # 3. ノートをコピー
@@ -441,7 +441,7 @@ git commit -m "Rebuilt vault"
 #### 週次
 ```bash
 # クリーンアップ
-claude code "Archive completed tasks and old notes"
+claude "完了したタスクと古いノートをアーカイブして"
 
 # バックアップ
 git push origin main
@@ -450,7 +450,7 @@ git push origin main
 #### 月次
 ```bash
 # 最適化
-claude code "Identify and remove duplicate content"
+claude "重複したコンテンツを特定して削除して"
 
 # 更新
 git pull origin main
@@ -459,7 +459,7 @@ git pull origin main
 #### 四半期ごと
 ```bash
 # システムのレビュー
-claude code "Analyze vault structure and suggest improvements"
+claude "Vault構造を分析して改善案を提案して"
 
 # 依存関係のクリーン
 rm -rf node_modules .obsidian/cache
@@ -495,7 +495,7 @@ claude --version
 git status
 git remote -v
 
-# ボルト構造
+# Vault構造
 ls -la ~/Documents/ObsidianPKM
 ```
 

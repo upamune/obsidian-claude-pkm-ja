@@ -9,10 +9,10 @@
 #### 6:00 AM - 起床
 ```bash
 # まず、コンテキストを読み込む
-claude code /onboard
+claude /onboard
 
 # 今日のデイリーノートを作成
-claude code /daily
+claude /daily
 ```
 
 #### 6:05 AM - レビューと計画
@@ -36,7 +36,7 @@ Claudeが以下を支援します:
 #### 6:15 AM - 開始準備完了
 ```bash
 # オプション: モチベーションを得る
-claude code "Give me a motivational quote related to my current goals"
+claude "現在の目標に関連するモチベーション引用をください"
 ```
 
 ### 正午のチェックイン (5分)
@@ -74,7 +74,7 @@ claude code "Give me a motivational quote related to my current goals"
 
 #### 5:40 PM - 保存と同期
 ```bash
-claude code /push "Daily work complete - {{date}}"
+claude /push "日次作業完了 - {{date}}"
 ```
 
 ## 週次ワークフロー
@@ -83,13 +83,13 @@ claude code /push "Daily work complete - {{date}}"
 
 #### ステップ1: レビューの作成 (5分)
 ```bash
-claude code /weekly
+claude /weekly
 ```
 
 #### ステップ2: 先週のレビュー (10分)
 各デイリーノートを確認:
 ```bash
-claude code "Summarize my accomplishments from the past week's daily notes"
+claude "先週のデイリーノートから達成事項を要約して"
 ```
 
 パターンを探す:
@@ -117,13 +117,13 @@ claude code "Summarize my accomplishments from the past week's daily notes"
 #### ステップ4: クリーンアップ (5分)
 ```bash
 # 古いノートをアーカイブ
-claude code "Move daily notes older than 30 days to Archives"
+claude "30日より古いデイリーノートをArchivesに移動して"
 
 # プロジェクトステータスを更新
-claude code "Review all active projects and update their status"
+claude "すべてのアクティブなプロジェクトをレビューしてステータスを更新して"
 
 # すべてをコミット
-claude code /push "Weekly review complete - Week {{week_number}}"
+claude /push "週次レビュー完了 - 第{{week_number}}週"
 ```
 
 ### 月次レビュー (1時間)
@@ -131,10 +131,10 @@ claude code /push "Weekly review complete - Week {{week_number}}"
 #### 月の第一日曜日
 ```bash
 # 完全なコンテキストを読み込む
-claude code /onboard all
+claude /onboard all
 
 # 月次レビューを作成
-claude code "Create a monthly review analyzing my progress toward yearly goals"
+claude "年間目標への進捗を分析する月次レビューを作成して"
 ```
 
 レビュープロセス:
@@ -159,7 +159,7 @@ claude code "Create a monthly review analyzing my progress toward yearly goals"
 
 #### ステップ1: 構造の作成
 ```bash
-claude code "Create a new project called 'Website Redesign' with standard structure"
+claude "標準構造で 'Website Redesign' という新しいプロジェクトを作成して"
 ```
 
 #### ステップ2: 成功の定義
@@ -202,10 +202,10 @@ claude code "Create a new project called 'Website Redesign' with standard struct
 #### プロジェクト時間の開始
 ```bash
 # プロジェクトコンテキストを読み込む
-claude code /onboard Projects/WebsiteRedesign
+claude /onboard Projects/WebsiteRedesign
 
 # 方向性を確認
-claude code "What should I focus on for this project today?"
+claude "今日このプロジェクトで何に集中すべきですか?"
 ```
 
 #### 作業中
@@ -227,7 +227,7 @@ claude code "What should I focus on for this project today?"
 
 #### プロジェクトチェックイン
 ```bash
-claude code "Review my project progress and suggest next priorities"
+claude "プロジェクトの進捗をレビューして次の優先事項を提案して"
 ```
 
 ### プロジェクトの完了
@@ -235,13 +235,13 @@ claude code "Review my project progress and suggest next priorities"
 #### プロジェクトクロージャー
 ```bash
 # プロジェクトサマリーを生成
-claude code "Create a project completion summary with lessons learned"
+claude "学んだ教訓を含むプロジェクト完了サマリーを作成して"
 
 # プロジェクトをアーカイブ
-claude code "Move 'Website Redesign' project to Archives with completion date"
+claude "完了日とともに 'Website Redesign' プロジェクトをArchivesに移動して"
 
 # 目標を更新
-claude code "Update my monthly and yearly goals to reflect project completion"
+claude "プロジェクト完了を反映して月次および年次目標を更新して"
 ```
 
 ## 学習ワークフロー
@@ -265,14 +265,14 @@ claude code "Update my monthly and yearly goals to reflect project completion"
 
 #### 夕方のレビュー (15分)
 ```bash
-claude code "Quiz me on what I learned today about Spanish subjunctive"
+claude "今日学んだスペイン語の接続法についてクイズを出して"
 ```
 
 ### 読書ワークフロー
 
 #### 本を読み始める
 ```bash
-claude code "Create a literature note for 'Atomic Habits' by James Clear"
+claude "ジェームス・クリアの 'Atomic Habits' の文献ノートを作成して"
 ```
 
 #### 読書中
@@ -293,7 +293,7 @@ claude code "Create a literature note for 'Atomic Habits' by James Clear"
 
 #### 読了後
 ```bash
-claude code "Create a book summary and extract actionable insights from my Atomic Habits notes"
+claude "Atomic Habitsのノートから本の要約と実行可能な洞察を抽出して"
 ```
 
 ## モバイルワークフロー
@@ -324,7 +324,7 @@ claude code "Create a book summary and extract actionable insights from my Atomi
 #### デスクトップが利用できない場合
 ```
 1. 任意のブラウザからGitHub.comにアクセス
-2. ボルトリポジトリに移動
+2. Vaultリポジトリに移動
 3. ブラウザで直接ファイルを編集
 4. デスクトップに戻ったときに変更が同期
 ```
@@ -346,7 +346,7 @@ claude code "Create a book summary and extract actionable insights from my Atomi
 
 #### 会議前
 ```bash
-claude code "Create meeting note for 'Design Review' with standard agenda"
+claude "標準アジェンダで 'Design Review' の会議ノートを作成して"
 ```
 
 #### 会議中
@@ -374,7 +374,7 @@ claude code "Create meeting note for 'Design Review' with standard agenda"
 
 #### 会議後
 ```bash
-claude code "Extract action items from meeting notes and add to my task list"
+claude "会議ノートからアクションアイテムを抽出してタスクリストに追加して"
 ```
 
 ## 高度なワークフロー
@@ -383,7 +383,7 @@ claude code "Extract action items from meeting notes and add to my task list"
 
 #### 四半期ごとの整合性
 ```bash
-claude code "Analyze how my daily tasks over the past quarter aligned with my yearly goals"
+claude "過去四半期の日次タスクが年間目標とどのように整合していたかを分析して"
 ```
 
 出力:
@@ -396,7 +396,7 @@ claude code "Analyze how my daily tasks over the past quarter aligned with my ye
 
 #### 月次習慣レビュー
 ```bash
-claude code "Analyze my habit completion rates and identify patterns"
+claude "習慣の完了率を分析してパターンを特定して"
 ```
 
 表示内容:
@@ -409,7 +409,7 @@ claude code "Analyze my habit completion rates and identify patterns"
 
 #### アイデアの接続
 ```bash
-claude code "Find connections between my recent learning notes and suggest knowledge links"
+claude "最近の学習ノート間の関連を見つけて知識リンクを提案して"
 ```
 
 作成内容:
@@ -423,19 +423,19 @@ claude code "Find connections between my recent learning notes and suggest knowl
 ### 圧倒されているとき
 
 ```bash
-claude code "I'm overwhelmed. Help me identify my top 3 priorities from all my commitments"
+claude "圧倒されています。すべてのコミットメントから最優先の3つを特定するのを手伝って"
 ```
 
 ### 行き詰まっているとき
 
 ```bash
-claude code "I'm stuck on [problem]. Review my notes and suggest approaches"
+claude "[問題] で行き詰まっています。ノートをレビューしてアプローチを提案して"
 ```
 
 ### 遅れているとき
 
 ```bash
-claude code "I'm behind on my goals. Create a recovery plan for the next 2 weeks"
+claude "目標に遅れています。次の2週間のリカバリープランを作成して"
 ```
 
 ## 季節のワークフロー
@@ -443,19 +443,19 @@ claude code "I'm behind on my goals. Create a recovery plan for the next 2 weeks
 ### 年末レビュー
 ```bash
 # 12月31日
-claude code "Generate comprehensive year in review from all my daily notes"
+claude "すべてのデイリーノートから包括的な年次レビューを生成して"
 ```
 
 ### 新年の計画
 ```bash
 # 1月1日
-claude code "Based on last year's patterns, help me set realistic goals for this year"
+claude "昨年のパターンに基づいて、今年の現実的な目標を設定するのを手伝って"
 ```
 
 ### 春の大掃除
 ```bash
 # 四半期ごと
-claude code "Identify and archive inactive projects and outdated notes"
+claude "非アクティブなプロジェクトと古いノートを特定してアーカイブして"
 ```
 
 ---

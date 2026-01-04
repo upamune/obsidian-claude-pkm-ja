@@ -261,7 +261,7 @@ vault/
 メタデータと構造を持つ新しい読書ノートを作成します。
 
 ## 使用法
-claude code /book "書籍タイトル" "著者"
+claude /book "書籍タイトル" "著者"
 
 ## 実行内容
 1. Resources/Books/にノートを作成
@@ -278,7 +278,7 @@ claude code /book "書籍タイトル" "著者"
 アクションアイテム付きのフォーマットされた会議ノートを作成します。
 
 ## 使用法
-claude code /meeting "会議タイトル"
+claude /meeting "会議タイトル"
 
 ## テンプレート
 - 日時
@@ -653,7 +653,7 @@ model: sonnet
 ```
 
 #### 含まれるエージェント
-- `note-organizer` - ボルトの整理とリンクのメンテナンス
+- `note-organizer` - Vaultの整理とリンクのメンテナンス
 - `weekly-reviewer` - 週次レビューの促進
 - `goal-aligner` - 目標-活動の整合性分析
 - `inbox-processor` - GTDスタイルのインボックス処理
@@ -677,7 +677,7 @@ allowed-tools: Read, Write, Edit
 ```
 
 #### 含まれるスキル
-- `obsidian-vault-ops` - ボルトファイル操作
+- `obsidian-vault-ops` - Vaultファイル操作
 - `goal-tracking` - 目標カスケード管理
 - `daily-workflow` - 日次ルーティン構造
 
