@@ -80,7 +80,12 @@ VAULT_PATH=${VAULT_PATH:-$DEFAULT_VAULT}
 # チルダを展開
 VAULT_PATH="${VAULT_PATH/#\~/$HOME}"
 
-# ディレクトリの存在確認
+# Convert to absolute path if relative
+if [[ "$VAULT_PATH" != /* ]]; then
+    VAULT_PATH="$(pwd)/$VAULT_PATH"
+fi
+
+# Check if directory exists
 if [ -d "$VAULT_PATH" ]; then
     print_warning "ディレクトリが既に存在します: $VAULT_PATH"
     read -p "既存のディレクトリを使用しますか？ファイルが上書きされる可能性があります (y/n): " -n 1 -r
@@ -180,16 +185,77 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
         read -p "今すぐ GitHub にプッシュしますか？ (y/n): " -n 1 -r
         echo
+        PUSH_SUCCESS=false
         if [[ $REPLY =~ ^[Yy]$ ]]; then
-            git push -u origin main 2>/dev/null || git push -u origin master
-            print_success "GitHub にプッシュしました"
+            # Get current branch name
+            CURRENT_BRANCH=$(git branch --show-current)
+            if git push -u origin "$CURRENT_BRANCH" 2>&1; then
+                print_success "Pushed to GitHub"
+                PUSH_SUCCESS=true
+            else
+                print_warning "Push failed - the remote repository may already have content"
+                echo ""
+                echo "How would you like to proceed?"
+                echo "  1) Force push (overwrites remote content - use for fresh vault repos)"
+                echo "  2) Skip (push manually later)"
+                read -p "Choose [1/2]: " -n 1 -r PUSH_CHOICE
+                echo ""
+
+                case $PUSH_CHOICE in
+                    1)
+                        print_warning "Force pushing will overwrite any existing content in the remote repository"
+                        read -p "Are you sure? (y/n): " -n 1 -r
+                        echo
+                        if [[ $REPLY =~ ^[Yy]$ ]]; then
+                            if git push -u origin "$CURRENT_BRANCH" --force; then
+                                print_success "Force pushed to GitHub"
+                                PUSH_SUCCESS=true
+                            else
+                                print_error "Force push failed"
+                            fi
+                        else
+                            print_info "Skipping push"
+                        fi
+                        ;;
+                    *)
+                        print_info "Skipping push. You can push manually later with:"
+                        echo "  cd \"$VAULT_PATH\" && git push -u origin $CURRENT_BRANCH"
+                        ;;
+                esac
+            fi
         fi
 
-        # GitHub Action のセットアップ
-        mkdir -p "$VAULT_PATH/.github/workflows"
-        cp "$SCRIPT_DIR/../github-actions/claude.yml" "$VAULT_PATH/.github/workflows/"
-        print_success "GitHub Action ワークフローをコピーしました"
-        print_warning "リポジトリのシークレットに CLAUDE_CODE_OAUTH_TOKEN を追加することを忘れないでください"
+        # Set up GitHub Action only if push succeeded
+        if [ "$PUSH_SUCCESS" = true ]; then
+            mkdir -p "$VAULT_PATH/.github/workflows"
+            cp "$SCRIPT_DIR/../github-actions/claude.yml" "$VAULT_PATH/.github/workflows/"
+            print_success "GitHub Action workflow copied"
+
+            echo ""
+            print_warning "GitHub Actions requires a Claude Code OAuth token to work"
+            echo ""
+            echo "To set up the token:"
+            echo "  1. Get your token from: https://code.claude.com/docs/en/github-actions"
+            echo "  2. Go to your repo: $GITHUB_URL/settings/secrets/actions"
+            echo "  3. Click 'New repository secret'"
+            echo "  4. Name: CLAUDE_CODE_OAUTH_TOKEN"
+            echo "  5. Value: [paste your token]"
+            echo ""
+
+            # Offer to open the setup page
+            read -p "Open token setup page in browser? (y/n): " -n 1 -r
+            echo
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                TOKEN_URL="https://code.claude.com/docs/en/github-actions"
+                if command_exists xdg-open; then
+                    xdg-open "$TOKEN_URL" 2>/dev/null || print_info "Visit: $TOKEN_URL"
+                elif command_exists open; then
+                    open "$TOKEN_URL" 2>/dev/null || print_info "Visit: $TOKEN_URL"
+                else
+                    print_info "Visit: $TOKEN_URL"
+                fi
+            fi
+        fi
     fi
 fi
 

@@ -126,18 +126,18 @@ claude init
 claude "こんにちは、PKMシステムをセットアップしています"
 ```
 
-### ステップ2: コマンドのセットアップ
+### Step 2: Verify Skills
 
 ```bash
-# コマンドは既に.claude/commands/にあるはずです
-# 存在を確認:
-ls .claude/commands/
+# Skills are in .claude/skills/ with each skill in its own directory
+# Verify they exist:
+ls .claude/skills/
 
-# 以下が表示されるはずです:
-# daily.md  weekly.md  push.md  onboard.md
+# You should see:
+# daily/  weekly/  push/  onboard/  goal-tracking/  obsidian-vault-ops/
 ```
 
-### ステップ3: コマンドのテスト
+### Step 3: Test Skills
 
 ```bash
 # コンテキストを読み込む
@@ -291,14 +291,14 @@ claude "新しいプロジェクトフォルダを [プロジェクト名] で�
 
 全てが正常に動作していることを確認するため、このチェックリストを実行してください:
 
-- [ ] ObsidianがエラーなくVaultを開ける
-- [ ] CLAUDE.mdに個人のコンテンツが設定されている
-- [ ] `/daily` コマンドで今日のノートが作成される
-- [ ] `/onboard` コマンドでコンテキストが読み込まれる
-- [ ] Gitコミットがローカルで動作する
-- [ ] GitHubリモートが接続されている(使用する場合)
-- [ ] Goalsファイルに目標が設定されている
-- [ ] デイリーテンプレートがカスタマイズされている
+- [ ] Obsidian opens your vault without errors
+- [ ] CLAUDE.md has your personalized content
+- [ ] `/daily` skill creates today's note
+- [ ] `/onboard` skill loads your context
+- [ ] Git commits work locally
+- [ ] GitHub remote is connected (if using)
+- [ ] Goals files have your objectives
+- [ ] Daily template has your customizations
 
 ## 日次ワークフロー
 
@@ -338,16 +338,16 @@ claude /weekly
 - パスに特殊文字が含まれていないことを確認
 - 新しいVaultを作成してファイルをコピーしてみる
 
-### Claudeコマンドが動作しない
+### Skills Not Working
 ```bash
 # Claude Codeのインストールを確認
 claude --version
 
-# コマンドファイルが存在することを確認
-ls -la .claude/commands/
+# Check skill directories exist
+ls -la .claude/skills/
 
-# 直接実行してみる
-claude < .claude/commands/daily.md
+# Verify a skill file exists
+cat .claude/skills/daily/SKILL.md
 ```
 
 ### Gitの問題

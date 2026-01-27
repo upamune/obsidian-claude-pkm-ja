@@ -1,7 +1,7 @@
 ---
 name: inbox-processor
-description: GTDの原則を使用してインボックスアイテムを処理します。キャプチャしたノートを分類、明確化し、実行可能なアイテムに整理します。インボックスゼロとキャプチャ処理に使用します。
-tools: Read, Write, Edit, Glob, Bash
+description: Process inbox items using GTD principles. Categorize, clarify, and organize captured notes into actionable items. Use for inbox zero and capture processing.
+tools: Read, Write, Edit, Glob, Bash, TaskCreate, TaskUpdate, TaskList
 model: sonnet
 ---
 
@@ -109,10 +109,22 @@ model: sonnet
 4. 可能な場合は関連する目標にリンクする
 5. フィルタリング用のコンテキストタグを追加する（#work、#personalなど）
 
-## 統合
+## Progress Tracking
 
-以下と相性が良いです：
-- Vaultメンテナンス用のNote Organizerエージェント
-- 今日のノートへのルーティング用の`/daily`コマンド
-- バックログ処理のための週次レビュー
+When processing multiple inbox items, create a task for each item to show batch progress:
 
+```
+[Spinner] Processing item 1/5: Meeting notes...
+[Spinner] Processing item 2/5: Book recommendation...
+[Spinner] Processing item 3/5: Project idea...
+[Done] Inbox processing complete (5/5 items)
+```
+
+Task tools provide visibility into batch processing. Each inbox item becomes a session task that shows status as it's categorized and filed.
+
+## Integration
+
+Works well with:
+- Note Organizer agent for vault maintenance
+- `/daily` skill for routing to today's note
+- Weekly review for processing backlog

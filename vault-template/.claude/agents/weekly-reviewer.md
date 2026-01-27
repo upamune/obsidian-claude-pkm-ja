@@ -1,7 +1,7 @@
 ---
 name: weekly-reviewer
-description: 包括的な週次レビュープロセスを促進します。過去1週間のデイリーノートを分析し、目標の進捗を計算し、来週の計画を支援します。日曜日/月曜日の週次レビューに使用します。
-tools: Read, Write, Edit, Glob, Grep
+description: Facilitate comprehensive weekly review process. Analyze past week's daily notes, calculate goal progress, and help plan next week. Use for Sunday/Monday weekly reviews.
+tools: Read, Write, Edit, Glob, Grep, TaskCreate, TaskUpdate, TaskList
 model: sonnet
 ---
 
@@ -79,10 +79,28 @@ Productivity Coach出力スタイルがアクティブな場合、問いかけ�
 - "来週の計画は、うまくいかなかったパターンとどう違いますか？"
 - "他のすべてを簡単にする1つのことは何ですか？"
 
-## 統合
+## Progress Tracking
 
-以下と相性が良いです：
-- 構造化されたワークフローのための`/weekly`コマンド
-- 深い分析のためのGoal Alignerエージェント
-- 古いノートのアーカイブのためのNote Organizerエージェント
+Track the 3-phase review process with task dependencies:
 
+```
+Task 1: Collect - blocked by nothing
+Task 2: Reflect - blocked by Task 1
+Task 3: Plan - blocked by Task 2
+
+[Spinner] Phase 1: Collecting from daily notes...
+[Done] Phase 1 complete
+[Spinner] Phase 2: Reflecting on goals...
+[Done] Phase 2 complete
+[Spinner] Phase 3: Planning next week...
+[Done] Weekly review complete (3/3 phases)
+```
+
+Dependencies ensure phases complete in order. Task tools provide visibility into the 30-minute review process.
+
+## Integration
+
+Works well with:
+- `/weekly` skill for structured workflow
+- Goal Aligner agent for deep analysis
+- Note Organizer agent for archiving old notes

@@ -1,19 +1,25 @@
-# Obsidian + Claude Code PKM スターターキット 🚀
+**📊 [Take the quick poll](https://github.com/ballred/obsidian-claude-pkm/discussions/4)** - Help shape what gets built next!
+
+---
+
+# Obsidian + Claude Code PKM Starter Kit 🚀
 
 Obsidianの強力なノート作成機能とClaude CodeのAIアシスタンスを組み合わせた、完全な個人ナレッジマネジメントシステムです。15分以内にゼロから完全に機能するPKMを構築できます。
 
-> **Note:** これは [ballred/obsidian-claude-pkm](https://github.com/ballred/obsidian-claude-pkm) の日本語翻訳版です。
+**v2.1** - Unified skills pattern (skills and slash commands merged), hooks, agents, and rules.
 
 **v2.0** - フック、カスタムエージェント、スキル、モジュール型ルールを追加しました。
 
 ## ✨ 機能
 
-### コアPKM
-- **🎯 目標連携システム** - 3年ビジョンから日次タスクまでの階層的な目標管理
-- **📅 デイリーノートシステム** - 構造化された日次計画と振り返り
-- **📱 モバイル対応** - GitHub連携によりあらゆるデバイスでノート管理
-- **🔄 バージョン管理** - 自動Gitバックアップで思考を失わない
-- **🎨 完全カスタマイズ可能** - テンプレートと構造を自分のニーズに合わせて調整
+### AI-Powered (v2.1)
+- **⚡ Unified Skills** - Skills and slash commands merged (`/daily`, `/weekly`, `/push`, `/onboard`)
+- **🪝 Hooks** - Auto-commit on save, session initialization
+- **🤖 Custom Agents** - Note organizer, weekly reviewer, goal aligner, inbox processor
+- **📏 Modular Rules** - Path-specific conventions for markdown, productivity, projects
+- **🧠 Output Styles** - Productivity Coach for accountability
+- **📊 Status Line** - Vault stats in terminal (note count, inbox, uncommitted changes)
+- **👁️ Progress Visibility** - See spinner updates during multi-step operations like morning routines
 
 ### AI機能 (v2.0)
 - **🪝 フック** - 保存時の自動コミット、セッション初期化
@@ -78,17 +84,19 @@ Your Vault/
 ├── .claude-plugin/
 │   └── plugin.json              # プラグインマニフェスト
 ├── .claude/
-│   ├── commands/                # スラッシュコマンド (/daily, /weekly, /push, /onboard)
-│   ├── agents/                  # カスタムAIエージェント（新機能）
+│   ├── agents/                  # Custom AI agents
 │   │   ├── note-organizer.md
 │   │   ├── weekly-reviewer.md
 │   │   ├── goal-aligner.md
 │   │   └── inbox-processor.md
-│   ├── skills/                  # 自動検出される機能（新機能）
-│   │   ├── obsidian-vault-ops/
-│   │   ├── goal-tracking/
-│   │   └── daily-workflow/
-│   ├── hooks/                   # イベント自動化（新機能）
+│   ├── skills/                  # Unified skills (invoke with /skill-name)
+│   │   ├── daily/               # /daily - Create daily notes, routines
+│   │   ├── weekly/              # /weekly - Weekly review process
+│   │   ├── push/                # /push - Git commit and push
+│   │   ├── onboard/             # /onboard - Load vault context
+│   │   ├── goal-tracking/       # Auto: Track goal progress
+│   │   └── obsidian-vault-ops/  # Auto: Vault file operations
+│   ├── hooks/                   # Event automation (NEW)
 │   │   ├── session-init.sh
 │   │   └── auto-commit.sh
 │   ├── rules/                   # パス固有の規約（新機能）

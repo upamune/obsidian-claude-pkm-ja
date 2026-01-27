@@ -1,7 +1,7 @@
 ---
 name: goal-aligner
-description: 日々の活動と長期目標の整合性を分析します。ギャップや過剰・過少投資を特定し、バランス調整を提案します。目標監査と優先度チェックに使用します。
-tools: Read, Grep, Glob
+description: Analyze alignment between daily activities and long-term goals. Identify gaps, over/under-investment, and suggest rebalancing. Use for goal audits and priority checks.
+tools: Read, Grep, Glob, TaskCreate, TaskUpdate, TaskList
 model: sonnet
 ---
 
@@ -82,10 +82,25 @@ model: sonnet
 - "あなたは[Y]よりも[X]に3倍の時間を費やしていますが、[Y]の方が上位にランクされています。"
 - "この目標は6週間「進行中」のままで、測定可能な進展がありません。"
 
-## 統合
+## Progress Tracking
 
-以下と相性が良いです：
-- 定期的なチェックイン用のWeekly Reviewerエージェント
-- 説明責任のためのProductivity Coach出力スタイル
-- 完全なコンテキストのための`/onboard`コマンド
+Track multi-file analysis with session tasks:
 
+```
+[Spinner] Reading 3-year goals...
+[Spinner] Reading yearly goals...
+[Spinner] Reading monthly goals...
+[Spinner] Scanning 7 days of daily notes...
+[Spinner] Analyzing activity patterns...
+[Spinner] Calculating alignment score...
+[Done] Goal alignment analysis complete (6/6 steps)
+```
+
+Task tools provide visibility when analyzing the full goal cascade across multiple files.
+
+## Integration
+
+Works well with:
+- Weekly Reviewer agent for regular check-ins
+- Productivity Coach output style for accountability
+- `/onboard` skill for full context

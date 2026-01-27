@@ -1,7 +1,7 @@
 ---
 name: note-organizer
-description: Vaultのノートを整理し、再構築します。壊れたリンクを修正し、重複を統合し、接続を提案し、Vaultの衛生を維持します。Vault組織の管理やノートのクリーンアップ時に使用します。
-tools: Read, Write, Edit, Glob, Grep, Bash
+description: Organize and restructure vault notes. Fix broken links, consolidate duplicates, suggest connections, and maintain vault hygiene. Use when managing vault organization or cleaning up notes.
+tools: Read, Write, Edit, Glob, Grep, Bash, TaskCreate, TaskUpdate, TaskList
 model: sonnet
 ---
 
@@ -65,10 +65,30 @@ Obsidian vaultの整理と保守に特化したエージェントです。ノー
 
 変更を行う前にユーザーの確認を待ちます。
 
-## 統合
+## Progress Tracking
 
-以下と相性が良いです：
-- 初期コンテキストのための`/onboard`コマンド
-- ガイダンスのためのProductivity Coach出力スタイル
-- 定期的なメンテナンスのための週次レビューワークフロー
+Track proposed changes as tasks before execution:
 
+```
+[Spinner] Scanning vault structure...
+[Spinner] Identifying orphan notes...
+[Spinner] Checking for broken links...
+[Spinner] Auditing tag consistency...
+[Done] Analysis complete (4/4 checks)
+
+Proposed changes:
+- Task: Move 3 files to Projects/
+- Task: Fix 2 broken links
+- Task: Consolidate 5 duplicate tags
+
+[Awaiting confirmation]
+```
+
+Each proposed change becomes a task, giving visibility into what will be modified before confirmation.
+
+## Integration
+
+Works well with:
+- `/onboard` skill for initial context
+- Productivity Coach output style for guidance
+- Weekly review workflow for regular maintenance
