@@ -1,137 +1,137 @@
 ---
 name: onboard
-description: Load CLAUDE.md context files from vault for comprehensive understanding. Discovers hierarchical context, recent notes, and project states. Use at start of session or when Claude needs full vault context.
+description: VaultからCLAUDE.mdコンテキストファイルを読み込み、包括的な理解を提供します。階層的なコンテキスト、最近のノート、プロジェクト状態を発見します。セッション開始時、またはClaudeがVault全体のコンテキストを必要とする際に使用します。
 allowed-tools: Read, Glob, Grep
 user-invocable: true
 ---
 
-# Onboard Skill
+# Onboard スキル
 
-Loads all CLAUDE.md files from your vault to provide comprehensive context for intelligent assistance.
+Vaultからすべての CLAUDE.md ファイルを読み込み、インテリジェントなアシスタンスのための包括的なコンテキストを提供します。
 
-## Usage
+## 使い方
 
-Invoke with `/onboard` or ask Claude to learn about your vault.
+`/onboard` で呼び出すか、ClaudeにVaultについて学ぶように依頼します。
 
-### Full Context Load
+### 完全なコンテキスト読み込み
 ```
 /onboard
 ```
 
-### Specific Project Context
+### 特定のプロジェクトコンテキスト
 ```
 /onboard Projects/MyProject
 ```
 
-## What This Skill Does
+## このスキルが行うこと
 
-1. **Discovers Context Files**
-   - Searches for all CLAUDE.md files
-   - Traverses project directories
-   - Respects depth limits
+1. **コンテキストファイルの発見**
+   - すべての CLAUDE.md ファイルを検索
+   - プロジェクトディレクトリを走査
+   - 深さ制限を尊重
 
-2. **Loads Hierarchical Context**
-   - Root CLAUDE.md first (global context)
-   - Project-specific CLAUDE.md files
-   - Recent daily notes for current state
+2. **階層的なコンテキストの読み込み**
+   - ルート CLAUDE.md を最初に（グローバルコンテキスト）
+   - プロジェクト固有の CLAUDE.md ファイル
+   - 現在の状態を把握するための最近のデイリーノート
 
-3. **Builds Understanding**
-   - Your personal mission/goals
-   - Project structures and status
-   - Workflow preferences
-   - Custom conventions
+3. **理解の構築**
+   - あなたの個人的なミッション/目標
+   - プロジェクトの構造とステータス
+   - ワークフローの設定
+   - カスタム規約
 
-## Context Hierarchy
+## コンテキスト階層
 
 ```
 vault/
-├── CLAUDE.md                 # [1] Global context - loaded first
+├── CLAUDE.md                 # [1] グローバルコンテキスト - 最初に読み込み
 ├── Projects/
 │   ├── Project A/
-│   │   └── CLAUDE.md         # [2] Project context
+│   │   └── CLAUDE.md         # [2] プロジェクトコンテキスト
 │   └── Project B/
-│       └── CLAUDE.md         # [3] Another project context
+│       └── CLAUDE.md         # [3] 別のプロジェクトコンテキスト
 └── Areas/
     └── Health/
-        └── CLAUDE.md         # [4] Area-specific context
+        └── CLAUDE.md         # [4] エリア固有のコンテキスト
 ```
 
-## CLAUDE.md File Structure
+## CLAUDE.md ファイル構造
 
-### Root CLAUDE.md Should Include
+### ルート CLAUDE.md に含めるべき内容
 ```markdown
 # System Context for Claude
 
 ## Personal Mission
-[Your life mission/purpose]
+[あなたの人生のミッション/目的]
 
 ## Current Focus
-[What you're working on now]
+[現在取り組んでいること]
 
 ## Preferences
-- Writing style: [Formal/Casual/Technical]
-- Detail level: [High/Medium/Low]
+- Writing style: [フォーマル/カジュアル/技術的]
+- Detail level: [高/中/低]
 
 ## Conventions
-- File naming: [Your patterns]
-- Tag system: [Your tags]
+- File naming: [あなたのパターン]
+- Tag system: [あなたのタグ]
 ```
 
-### Project CLAUDE.md Should Include
+### プロジェクト CLAUDE.md に含めるべき内容
 ```markdown
-# Project: [Name]
+# Project: [名前]
 
 ## Overview
-[What this project is about]
+[このプロジェクトについて]
 
 ## Current Status
-[Where things stand]
+[現在の状況]
 
 ## Key Decisions
-[Important choices made]
+[行われた重要な選択]
 
 ## Next Steps
-[What needs to happen]
+[次に必要なこと]
 ```
 
-## Smart Context Loading
+## スマートなコンテキスト読み込み
 
-### Recent Activity
-Automatically considers:
-- Last 7 days of daily notes
-- Current week's review
-- Recently modified projects
+### 最近のアクティビティ
+自動的に考慮される内容：
+- 過去7日間のデイリーノート
+- 今週のレビュー
+- 最近変更されたプロジェクト
 
-### Selective Loading
-For focused assistance:
+### 選択的な読み込み
+集中的なアシスタンスのために：
 ```
-/onboard Projects/WebApp      # Only specific project
-/onboard Goals                # Only goals context
+/onboard Projects/WebApp      # 特定のプロジェクトのみ
+/onboard Goals                # 目標コンテキストのみ
 ```
 
-## Use Cases
+## ユースケース
 
-### Starting a Session
+### セッション開始時
 ```
 /onboard
-"Help me plan my day based on my goals"
+「目標に基づいて今日の計画を立てるのを手伝って」
 ```
 
-### Project Work
+### プロジェクト作業
 ```
 /onboard Projects/MyApp
-"Help me refactor the authentication module"
+「認証モジュールのリファクタリングを手伝って」
 ```
 
-### Weekly Planning
+### 週次計画
 ```
 /onboard Goals
-"Analyze my week and suggest improvements"
+「今週を分析して改善提案をして」
 ```
 
-## Context Variables
+## コンテキスト変数
 
-Your CLAUDE.md files can include preferences:
+CLAUDE.md ファイルには設定を含めることができます：
 
 ```markdown
 ## Variables for Claude
@@ -140,42 +140,42 @@ Your CLAUDE.md files can include preferences:
 - COMMUNICATION_STYLE: Direct and concise
 ```
 
-## Best Practices
+## ベストプラクティス
 
-### Keep Context Updated
-- Review CLAUDE.md files monthly
-- Update after major decisions
-- Remove outdated information
-- Add new learnings
+### コンテキストを最新に保つ
+- CLAUDE.md ファイルを月次でレビュー
+- 重要な決定後に更新
+- 古い情報を削除
+- 新しい学びを追加
 
-### Be Specific
-- Clear project descriptions
-- Specific preferences
-- Concrete examples
-- Defined conventions
+### 具体的に記述する
+- 明確なプロジェクト説明
+- 具体的な設定
+- 具体例
+- 定義された規約
 
-### Hierarchical Information
-- Global → Area → Project → Task
-- General → Specific
-- Strategic → Tactical
+### 階層的な情報
+- グローバル → エリア → プロジェクト → タスク
+- 一般的 → 具体的
+- 戦略的 → 戦術的
 
-## Privacy & Security
+## プライバシーとセキュリティ
 
-### Never Include in CLAUDE.md
-- Passwords or credentials
-- Personal identification numbers
-- Financial account details
-- Private API keys
+### CLAUDE.md に絶対に含めてはいけないもの
+- パスワードや認証情報
+- 個人識別番号
+- 金融口座の詳細
+- プライベート API キー
 
-### Safe Context Examples
-- "I work in healthcare technology"
-- "My projects involve web development"
-- "I prefer morning work sessions"
+### 安全なコンテキストの例
+- 「ヘルステクノロジー分野で働いています」
+- 「私のプロジェクトはWeb開発を含みます」
+- 「午前中の作業セッションを好みます」
 
-## Integration
+## 統合
 
-Works with:
-- All other skills (provides context)
-- `/daily` - Better daily planning with context
-- `/weekly` - Informed weekly reviews
-- Goal tracking - Understand goal cascade
+次のものと連携：
+- すべての他のスキル（コンテキストを提供）
+- `/daily` - コンテキストによるより良い日次計画
+- `/weekly` - 情報に基づいた週次レビュー
+- 目標追跡 - 目標カスケードの理解

@@ -1,6 +1,6 @@
 ---
 name: goal-aligner
-description: Analyze alignment between daily activities and long-term goals. Identify gaps, over/under-investment, and suggest rebalancing. Use for goal audits and priority checks.
+description: 日々の活動と長期目標の整合性を分析します。ギャップ、過剰/過少投資を特定し、再配分を提案します。目標監査と優先度チェックに使用します。
 tools: Read, Grep, Glob, TaskCreate, TaskUpdate, TaskList
 model: sonnet
 ---
@@ -82,25 +82,25 @@ model: sonnet
 - "あなたは[Y]よりも[X]に3倍の時間を費やしていますが、[Y]の方が上位にランクされています。"
 - "この目標は6週間「進行中」のままで、測定可能な進展がありません。"
 
-## Progress Tracking
+## 進捗追跡
 
-Track multi-file analysis with session tasks:
+セッションタスクを使用して複数ファイルの分析を追跡します：
 
 ```
-[Spinner] Reading 3-year goals...
-[Spinner] Reading yearly goals...
-[Spinner] Reading monthly goals...
-[Spinner] Scanning 7 days of daily notes...
-[Spinner] Analyzing activity patterns...
-[Spinner] Calculating alignment score...
-[Done] Goal alignment analysis complete (6/6 steps)
+[Spinner] 3年目標を読み込んでいます...
+[Spinner] 年間目標を読み込んでいます...
+[Spinner] 月次目標を読み込んでいます...
+[Spinner] 7日分のデイリーノートをスキャンしています...
+[Spinner] 活動パターンを分析しています...
+[Spinner] 整合性スコアを計算しています...
+[Done] 目標整合性分析完了（6/6ステップ）
 ```
 
-Task tools provide visibility when analyzing the full goal cascade across multiple files.
+タスクツールは、複数ファイルにわたる完全な目標カスケードを分析する際に可視性を提供します。
 
-## Integration
+## 統合
 
-Works well with:
-- Weekly Reviewer agent for regular check-ins
-- Productivity Coach output style for accountability
-- `/onboard` skill for full context
+以下と連携します：
+- 定期的なチェックインのためのWeekly Reviewerエージェント
+- 説明責任のためのProductivity Coachアウトプットスタイル
+- 完全なコンテキスト取得のための`/onboard`スキル

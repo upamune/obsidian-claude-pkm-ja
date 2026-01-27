@@ -1,6 +1,6 @@
 ---
 name: goal-tracking
-description: Track progress toward 3-year, yearly, monthly, and weekly goals. Calculate completion percentages, surface stalled goals, connect daily tasks to objectives. Use for goal reviews and progress tracking.
+description: 3年、年次、月次、週次目標の進捗を追跡します。完了率の計算、停滞している目標の抽出、日々のタスクと目標の接続を行います。目標レビューと進捗トラッキングに使用します。
 allowed-tools: Read, Grep, Glob, Edit, TaskCreate, TaskUpdate, TaskList, TaskGet
 ---
 
@@ -119,58 +119,58 @@ Daily Notes/*.md               <- デイリータスクとアクション
 2. [ほぼ完了の目標 - 完了させる]
 ```
 
-## Task-Based Progress Tracking
+## タスクベースの進捗トラッキング
 
-The goal tracking skill uses session tasks when generating comprehensive progress reports.
+目標トラッキングスキルは、包括的な進捗レポートを生成する際にセッションタスクを使用します。
 
-### Progress Report Tasks
+### 進捗レポートタスク
 
-Create tasks at skill start:
+スキル開始時にタスクを作成：
 
 ```
 TaskCreate:
-  subject: "Read three-year goals"
-  description: "Load vision statements from Goals/0. Three Year Goals.md"
-  activeForm: "Reading three-year goals..."
+  subject: "3年目標を読み取る"
+  description: "Goals/0. Three Year Goals.mdからビジョンステートメントを読み込む"
+  activeForm: "3年目標を読み取り中..."
 
 TaskCreate:
-  subject: "Read yearly goals"
-  description: "Load annual objectives from Goals/1. Yearly Goals.md"
-  activeForm: "Reading yearly goals..."
+  subject: "年次目標を読み取る"
+  description: "Goals/1. Yearly Goals.mdから年間目標を読み込む"
+  activeForm: "年次目標を読み取り中..."
 
 TaskCreate:
-  subject: "Read monthly goals"
-  description: "Load current month focus from Goals/2. Monthly Goals.md"
-  activeForm: "Reading monthly goals..."
+  subject: "月次目標を読み取る"
+  description: "Goals/2. Monthly Goals.mdから今月のフォーカスを読み込む"
+  activeForm: "月次目標を読み取り中..."
 
 TaskCreate:
-  subject: "Scan recent daily notes"
-  description: "Find task completions and goal contributions from past week"
-  activeForm: "Scanning recent daily notes..."
+  subject: "最近のデイリーノートをスキャン"
+  description: "過去1週間のタスク完了と目標への貢献を検索"
+  activeForm: "最近のデイリーノートをスキャン中..."
 
 TaskCreate:
-  subject: "Calculate completion percentages"
-  description: "Compute progress for each goal based on checkboxes and metrics"
-  activeForm: "Calculating completion percentages..."
+  subject: "完了率を計算"
+  description: "チェックボックスとメトリックに基づいて各目標の進捗を計算"
+  activeForm: "完了率を計算中..."
 
 TaskCreate:
-  subject: "Identify stalled goals"
-  description: "Flag goals with no progress in 14+ days"
-  activeForm: "Identifying stalled goals..."
+  subject: "停滞している目標を特定"
+  description: "14日以上進捗がない目標をフラグ付け"
+  activeForm: "停滞している目標を特定中..."
 ```
 
-### Dependencies
+### 依存関係
 
-Goal file reads can run in parallel, but analysis depends on having all data:
+目標ファイルの読み取りは並列実行可能ですが、分析はすべてのデータが必要です：
 ```
-TaskUpdate: "Scan recent daily notes", addBlockedBy: [read-monthly-goals-id]
-TaskUpdate: "Calculate completion percentages", addBlockedBy: [scan-recent-daily-notes-id]
-TaskUpdate: "Identify stalled goals", addBlockedBy: [calculate-completion-percentages-id]
+TaskUpdate: "最近のデイリーノートをスキャン", addBlockedBy: [read-monthly-goals-id]
+TaskUpdate: "完了率を計算", addBlockedBy: [scan-recent-daily-notes-id]
+TaskUpdate: "停滞している目標を特定", addBlockedBy: [calculate-completion-percentages-id]
 ```
 
-Mark each task `in_progress` when starting, `completed` when done using TaskUpdate.
+各タスクは開始時に`in_progress`、完了時にTaskUpdateを使用して`completed`にマークします。
 
-Task tools are session-scoped and don't persist—your actual goal progress is tracked through markdown checkboxes and percentages in your goal files.
+タスクツールはセッションスコープであり永続化されません。実際の目標進捗は、目標ファイル内のマークダウンチェックボックスとパーセンテージを通じて追跡されます。
 
 ## Integration Points
 

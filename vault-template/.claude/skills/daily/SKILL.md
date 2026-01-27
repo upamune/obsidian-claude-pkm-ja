@@ -1,253 +1,253 @@
 ---
 name: daily
-description: Create daily notes and manage morning, midday, and evening routines. Structure daily planning, task review, and end-of-day reflection. Use for daily productivity routines or when asked to create today's note.
+description: デイリーノートの作成と朝・昼・夕方のルーティンを管理します。日々の計画、タスクレビュー、終日の振り返りを構造化します。毎日の生産性ルーティンや、今日のノートを作成するよう依頼された場合に使用します。
 allowed-tools: Read, Write, Edit, Glob, Grep, TaskCreate, TaskUpdate, TaskList, TaskGet
 user-invocable: true
 ---
 
-# Daily Workflow Skill
+# デイリーワークフロースキル
 
-Creates daily notes and provides structured workflows for morning planning, midday check-ins, and evening shutdowns.
+デイリーノートを作成し、朝の計画、昼のチェックイン、夕方のシャットダウンのための構造化されたワークフローを提供します。
 
-## Usage
+## 使い方
 
-Invoke with `/daily` or ask Claude to create today's note or help with daily routines.
+`/daily`で起動するか、Claudeに今日のノートを作成するよう依頼するか、デイリールーティンの手伝いを依頼します。
 
-### Create Today's Note
+### 今日のノートを作成
 ```
 /daily
 ```
 
-Or simply ask:
-- "Create today's daily note"
-- "Start my morning routine"
-- "Help me with evening shutdown"
+または単純に以下のように依頼:
+- "今日のデイリーノートを作成して"
+- "朝のルーティンを開始して"
+- "夕方のシャットダウンを手伝って"
 
-## Daily Note Creation
+## デイリーノートの作成
 
-### What Happens
-1. **Checks if today's note exists**
-   - If yes: Opens the existing note
-   - If no: Creates new note from template
+### 何が起こるか
+1. **今日のノートが存在するかチェック**
+   - 存在する場合: 既存のノートを開く
+   - 存在しない場合: テンプレートから新しいノートを作成
 
-2. **Template Processing**
-   - Replaces `{{date}}` with today's date
-   - Replaces `{{date:format}}` with formatted dates
-   - Handles date arithmetic (e.g., `{{date-1}}` for yesterday)
+2. **テンプレート処理**
+   - `{{date}}`を今日の日付に置換
+   - `{{date:format}}`をフォーマットされた日付に置換
+   - 日付演算を処理（例：昨日を表す`{{date-1}}`）
 
-3. **Automatic Organization**
-   - Places note in `Daily Notes/` folder
-   - Names file with today's date (YYYY-MM-DD.md)
-   - Preserves template structure
+3. **自動整理**
+   - `Daily Notes/`フォルダにノートを配置
+   - 今日の日付でファイルに名前を付ける（YYYY-MM-DD.md）
+   - テンプレート構造を保持
 
-### Template Variables
-Your daily template can use:
-- `{{date}}` - Today's date in default format
-- `{{date:dddd}}` - Day name (e.g., Monday)
-- `{{date:MMMM DD, YYYY}}` - Formatted date
-- `{{date-1:YYYY-MM-DD}}` - Yesterday's date
-- `{{date+1:YYYY-MM-DD}}` - Tomorrow's date
-- `{{time}}` - Current time
+### テンプレート変数
+デイリーテンプレートで使用可能:
+- `{{date}}` - デフォルトフォーマットの今日の日付
+- `{{date:dddd}}` - 曜日名（例：月曜日）
+- `{{date:MMMM DD, YYYY}}` - フォーマットされた日付
+- `{{date-1:YYYY-MM-DD}}` - 昨日の日付
+- `{{date+1:YYYY-MM-DD}}` - 明日の日付
+- `{{time}}` - 現在時刻
 
-## Morning Routine (5-10 minutes)
+## 朝のルーティン（5-10分）
 
-### Automated Steps
-1. Create today's daily note (if not exists)
-2. Pull incomplete tasks from yesterday
-3. Review weekly goals for today's priority
-4. Surface any calendar events or deadlines
+### 自動ステップ
+1. 今日のデイリーノートを作成（存在しない場合）
+2. 昨日の未完了タスクを引き継ぐ
+3. 今日の優先事項のために週次目標をレビュー
+4. カレンダーイベントや締め切りを表示
 
-### Interactive Prompts
-- "What's your ONE thing for today?"
-- "What might get in the way?"
-- "How do you want to feel at end of day?"
+### 対話的プロンプト
+- "今日の最も重要な1つのことは何ですか？"
+- "何が邪魔になる可能性がありますか？"
+- "1日の終わりにどう感じたいですか？"
 
-### Morning Checklist
-- [ ] Daily note created
-- [ ] Yesterday's incomplete tasks reviewed
-- [ ] ONE priority identified
-- [ ] Time blocks set
-- [ ] Potential obstacles identified
+### 朝のチェックリスト
+- [ ] デイリーノート作成完了
+- [ ] 昨日の未完了タスクをレビュー
+- [ ] 1つの優先事項を特定
+- [ ] 時間ブロックを設定
+- [ ] 潜在的な障害を特定
 
-## Midday Check-in (2-3 minutes)
+## 昼のチェックイン（2-3分）
 
-### Quick Review
-1. Check morning task completion
-2. Compare actual vs planned time use
-3. Assess energy level
-4. Identify afternoon priorities
+### クイックレビュー
+1. 午前中のタスク完了状況を確認
+2. 実際と計画の時間使用を比較
+3. エネルギーレベルを評価
+4. 午後の優先事項を特定
 
-### Adjustments
-- Reschedule incomplete morning tasks
-- Add urgent items that emerged
-- Reorder by current energy level
-- Note any blockers
+### 調整
+- 未完了の午前タスクを再スケジュール
+- 発生した緊急項目を追加
+- 現在のエネルギーレベルで並び替え
+- ブロッカーをメモ
 
-### Midday Questions
-- "How's your energy right now?"
-- "What's the most important thing for this afternoon?"
-- "What can you let go of today?"
+### 昼の質問
+- "今のエネルギーレベルはどうですか？"
+- "今日の午後で最も重要なことは何ですか？"
+- "今日手放せることは何ですか？"
 
-## Evening Shutdown (5 minutes)
+## 夕方のシャットダウン（5分）
 
-### Capture
-1. Mark completed tasks with [x]
-2. Add notes and learnings
-3. Log energy levels (1-10)
-4. Record gratitude items
+### キャプチャ
+1. 完了したタスクに[x]をマーク
+2. ノートと学びを追加
+3. エネルギーレベルを記録（1-10）
+4. 感謝項目を記録
 
-### Reflect
-- What went well today?
-- What could be better?
-- What did I learn?
-- What am I grateful for?
+### 振り返り
+- 今日うまくいったことは？
+- より良くできることは？
+- 何を学んだか？
+- 何に感謝しているか？
 
-### Prepare
-1. Identify tomorrow's priority (preview)
-2. Move incomplete tasks to tomorrow or delete
-3. Commit changes to git (`/push`)
+### 準備
+1. 明日の優先事項を特定（プレビュー）
+2. 未完了タスクを明日に移動または削除
+3. gitに変更をコミット（`/push`）
 
-### Shutdown Checklist
-- [ ] All tasks updated (done/moved/deleted)
-- [ ] Reflection completed
-- [ ] Tomorrow's priority identified
-- [ ] Changes committed
+### シャットダウンチェックリスト
+- [ ] すべてのタスクを更新（完了/移動/削除）
+- [ ] 振り返り完了
+- [ ] 明日の優先事項を特定
+- [ ] 変更をコミット
 
-## Daily Note Structure
+## デイリーノート構造
 
-Standard daily note template:
+標準的なデイリーノートテンプレート:
 
 ```markdown
 # {{date}}
 
 ## Focus
-> What's the ONE thing that would make today successful?
+> 今日を成功させる1つのことは何ですか？
 
 ## Time Blocks
-- Morning (9-12):
-- Afternoon (12-5):
-- Evening (5+):
+- 朝（9-12）:
+- 午後（12-5）:
+- 夕方（5+）:
 
 ## Tasks
-### Must Do Today
+### 今日必ずやること
 - [ ]
 
-### Work
+### 仕事
 - [ ]
 
-### Personal
+### 個人
 - [ ]
 
 ## Notes
-[Capture thoughts, meeting notes, ideas]
+[思考、ミーティングノート、アイデアをキャプチャ]
 
 ## Reflection
-- **Wins:**
-- **Challenges:**
-- **Learned:**
-- **Grateful for:**
-- **Energy:** /10
-- **Tomorrow's priority:**
+- **成功:**
+- **課題:**
+- **学び:**
+- **感謝:**
+- **エネルギー:** /10
+- **明日の優先事項:**
 ```
 
-## Time Block Strategies
+## 時間ブロック戦略
 
-### Energy-Based
-- High energy tasks in morning
-- Administrative work after lunch
-- Creative work when naturally alert
+### エネルギーベース
+- 朝に高エネルギータスク
+- 昼食後に事務作業
+- 自然に冴えている時にクリエイティブな作業
 
-### Context-Based
-- Batch similar tasks together
-- Minimize context switching
-- Protect deep work blocks
+### コンテキストベース
+- 似たタスクをまとめる
+- コンテキストスイッチを最小化
+- 集中作業ブロックを保護
 
-## Configuration
+## 設定
 
-Customize paths to match your vault:
-- Daily notes folder: `Daily Notes/`
-- Template location: `Templates/Daily Template.md`
-- Date format: `YYYY-MM-DD`
+Vaultに合わせてパスをカスタマイズ:
+- デイリーノートフォルダ: `Daily Notes/`
+- テンプレート場所: `Templates/Daily Template.md`
+- 日付フォーマット: `YYYY-MM-DD`
 
-### Different Date Formats
-- `YYYY-MM-DD` - Standard ISO format (recommended)
-- `MM-DD-YYYY` - US format
-- `DD-MM-YYYY` - European format
-- `YYYY-MM-DD-ddd` - Include day abbreviation
+### 異なる日付フォーマット
+- `YYYY-MM-DD` - 標準ISO形式（推奨）
+- `MM-DD-YYYY` - 米国形式
+- `DD-MM-YYYY` - 欧州形式
+- `YYYY-MM-DD-ddd` - 曜日の略称を含む
 
-### Folder Organization by Month
-Organize daily notes by month/year:
+### 月別フォルダ整理
+月/年でデイリーノートを整理:
 ```
 Daily Notes/2024/01/2024-01-15.md
 ```
 
-## Task-Based Progress Tracking
+## タスクベースの進捗追跡
 
-The daily skill uses session tasks to show progress during multi-step routines.
+dailyスキルは、複数ステップのルーティン中の進捗を表示するためにセッションタスクを使用します。
 
-### Morning Routine Tasks
+### 朝のルーティンタスク
 
-Create tasks at skill start:
-
-```
-TaskCreate:
-  subject: "Create daily note"
-  description: "Create or open today's daily note from template"
-  activeForm: "Creating daily note..."
-
-TaskCreate:
-  subject: "Pull incomplete tasks"
-  description: "Carry forward uncompleted tasks from yesterday"
-  activeForm: "Pulling incomplete tasks from yesterday..."
-
-TaskCreate:
-  subject: "Surface relevant goals"
-  description: "Review weekly/monthly goals for today's priority"
-  activeForm: "Surfacing relevant goals..."
-
-TaskCreate:
-  subject: "Set time blocks"
-  description: "Establish time blocks based on energy and priorities"
-  activeForm: "Setting time blocks..."
-```
-
-### Dependencies
-
-Morning routine tasks run sequentially:
-```
-TaskUpdate: "Pull incomplete tasks", addBlockedBy: [create-daily-note-id]
-TaskUpdate: "Surface relevant goals", addBlockedBy: [pull-incomplete-tasks-id]
-TaskUpdate: "Set time blocks", addBlockedBy: [surface-relevant-goals-id]
-```
-
-### Evening Shutdown Tasks
+スキル開始時にタスクを作成:
 
 ```
 TaskCreate:
-  subject: "Update task statuses"
-  description: "Mark completed tasks, note blockers"
-  activeForm: "Updating task statuses..."
+  subject: "デイリーノートを作成"
+  description: "テンプレートから今日のデイリーノートを作成または開く"
+  activeForm: "デイリーノートを作成中..."
 
 TaskCreate:
-  subject: "Generate reflection prompts"
-  description: "Prompt for wins, challenges, learnings, gratitude"
-  activeForm: "Generating reflection prompts..."
+  subject: "未完了タスクを引き継ぐ"
+  description: "昨日の未完了タスクを繰り越す"
+  activeForm: "昨日の未完了タスクを引き継ぎ中..."
 
 TaskCreate:
-  subject: "Prepare tomorrow's preview"
-  description: "Identify tomorrow's priority and move incomplete tasks"
-  activeForm: "Preparing tomorrow's preview..."
+  subject: "関連する目標を表示"
+  description: "今日の優先事項のために週次/月次目標をレビュー"
+  activeForm: "関連する目標を表示中..."
+
+TaskCreate:
+  subject: "時間ブロックを設定"
+  description: "エネルギーと優先順位に基づいて時間ブロックを確立"
+  activeForm: "時間ブロックを設定中..."
 ```
 
-Mark each task `in_progress` when starting, `completed` when done using TaskUpdate.
+### 依存関係
 
-Task tools provide visibility into what's happening during longer operations. Tasks are session-scoped and don't persist between Claude sessions—your actual work items remain in your daily note markdown checkboxes.
+朝のルーティンタスクは順次実行:
+```
+TaskUpdate: "未完了タスクを引き継ぐ", addBlockedBy: [create-daily-note-id]
+TaskUpdate: "関連する目標を表示", addBlockedBy: [pull-incomplete-tasks-id]
+TaskUpdate: "時間ブロックを設定", addBlockedBy: [surface-relevant-goals-id]
+```
 
-## Integration
+### 夕方のシャットダウンタスク
 
-Works with:
-- `/push` - Commit end-of-day changes
-- `/weekly` - Weekly planning uses daily notes
-- `/onboard` - Load context before planning
-- Goal tracking skill - Align daily tasks to goals
-- Productivity Coach - Accountability for daily routines
+```
+TaskCreate:
+  subject: "タスクステータスを更新"
+  description: "完了したタスクをマーク、ブロッカーをメモ"
+  activeForm: "タスクステータスを更新中..."
+
+TaskCreate:
+  subject: "振り返りプロンプトを生成"
+  description: "成功、課題、学び、感謝についてプロンプト"
+  activeForm: "振り返りプロンプトを生成中..."
+
+TaskCreate:
+  subject: "明日のプレビューを準備"
+  description: "明日の優先事項を特定し、未完了タスクを移動"
+  activeForm: "明日のプレビューを準備中..."
+```
+
+TaskUpdateを使用して、開始時に各タスクを`in_progress`に、完了時に`completed`にマークします。
+
+タスクツールは、より長い操作中に何が起こっているかを可視化します。タスクはセッションスコープであり、Claudeセッション間で永続化されません。実際の作業項目はデイリーノートのマークダウンチェックボックスに残ります。
+
+## 統合
+
+以下と連携:
+- `/push` - 終日の変更をコミット
+- `/weekly` - 週次計画でデイリーノートを使用
+- `/onboard` - 計画前にコンテキストをロード
+- goal-trackingスキル - デイリータスクを目標に整合
+- Productivity Coach - デイリールーティンの説明責任

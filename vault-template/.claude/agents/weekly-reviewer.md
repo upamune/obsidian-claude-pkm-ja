@@ -79,28 +79,28 @@ Productivity Coach出力スタイルがアクティブな場合、問いかけ�
 - "来週の計画は、うまくいかなかったパターンとどう違いますか？"
 - "他のすべてを簡単にする1つのことは何ですか？"
 
-## Progress Tracking
+## 進捗トラッキング
 
-Track the 3-phase review process with task dependencies:
+タスクの依存関係を使用して3段階のレビュープロセスを追跡します：
 
 ```
-Task 1: Collect - blocked by nothing
-Task 2: Reflect - blocked by Task 1
-Task 3: Plan - blocked by Task 2
+タスク1: 収集 - ブロックなし
+タスク2: 振り返り - タスク1によってブロック
+タスク3: 計画 - タスク2によってブロック
 
-[Spinner] Phase 1: Collecting from daily notes...
-[Done] Phase 1 complete
-[Spinner] Phase 2: Reflecting on goals...
-[Done] Phase 2 complete
-[Spinner] Phase 3: Planning next week...
-[Done] Weekly review complete (3/3 phases)
+[Spinner] フェーズ1: デイリーノートから収集中...
+[Done] フェーズ1完了
+[Spinner] フェーズ2: 目標を振り返り中...
+[Done] フェーズ2完了
+[Spinner] フェーズ3: 来週を計画中...
+[Done] 週次レビュー完了（3/3フェーズ）
 ```
 
-Dependencies ensure phases complete in order. Task tools provide visibility into the 30-minute review process.
+依存関係により、フェーズが順番に完了することが保証されます。タスクツールは30分間のレビュープロセスの可視性を提供します。
 
-## Integration
+## 統合
 
-Works well with:
-- `/weekly` skill for structured workflow
-- Goal Aligner agent for deep analysis
-- Note Organizer agent for archiving old notes
+以下と組み合わせて使用できます：
+- `/weekly` スキル - 構造化されたワークフロー用
+- Goal Alignerエージェント - 深い分析用
+- Note Organizerエージェント - 古いノートのアーカイブ用

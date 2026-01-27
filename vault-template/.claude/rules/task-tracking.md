@@ -2,119 +2,119 @@
 paths: "**/*.md"
 ---
 
-# Session Task Tracking Conventions
+# セッションタスクトラッキング規約
 
-These conventions govern the use of Claude Code's session task tools (`TaskCreate`, `TaskUpdate`, `TaskList`) for providing progress visibility during multi-step operations.
+これらの規約は、複数ステップの操作中に進捗状況を可視化するためのClaude Codeセッションタスクツール（`TaskCreate`、`TaskUpdate`、`TaskList`）の使用方法を定めています。
 
-## Key Distinction
+## 重要な区別
 
-**Session tasks ≠ Your actual tasks**
+**セッションタスク ≠ 実際のタスク**
 
-- **Session tasks**: Temporary progress indicators that exist only during a Claude session
-- **Your tasks**: Markdown checkboxes in daily notes that persist across sessions
+- **セッションタスク**：Claudeセッション中のみ存在する一時的な進捗インジケーター
+- **実際のタスク**：デイリーノート内のマークダウンチェックボックスでセッション間で永続化される
 
-Session tasks show *what Claude is doing*. Markdown checkboxes track *what you need to do*.
+セッションタスクは*Claudeが何をしているか*を示します。マークダウンチェックボックスは*あなたが何をすべきか*を追跡します。
 
-## When to Use Session Tasks
+## セッションタスクを使用するタイミング
 
-Use session tasks for operations with 3+ distinct steps:
+3つ以上の明確なステップを持つ操作にセッションタスクを使用します：
 
-### Good Use Cases
-- Morning/evening routines (4+ steps)
-- Weekly review phases (3 phases)
-- Batch inbox processing (multiple items)
-- Multi-file analysis (goal cascade)
-- Vault organization audits
+### 適切なユースケース
+- 朝/夕方のルーチン（4つ以上のステップ）
+- 週次レビューフェーズ（3つのフェーズ）
+- バッチ形式のインボックス処理（複数項目）
+- 複数ファイルの分析（目標カスケード）
+- Vault整理監査
 
-### Skip Session Tasks For
-- Single file reads/writes
-- Quick lookups
-- Simple edits
-- 1-2 step operations
+### セッションタスクをスキップする場合
+- 単一ファイルの読み書き
+- クイック検索
+- シンプルな編集
+- 1-2ステップの操作
 
-## Task Naming Conventions
+## タスク命名規約
 
-### Subject (Imperative)
+### subject（命令形）
 ```
-Create daily note
-Pull incomplete tasks
-Calculate goal progress
-Process inbox item
-```
-
-### activeForm (Present Continuous)
-```
-Creating daily note...
-Pulling incomplete tasks...
-Calculating goal progress...
-Processing inbox item...
+デイリーノートを作成
+未完了タスクをプル
+目標進捗を計算
+インボックス項目を処理
 ```
 
-The `activeForm` appears in the spinner while the task runs.
-
-## Task Dependencies
-
-Use dependencies when order matters:
-
+### activeForm（現在進行形）
 ```
-Task 1: Collect (no dependencies)
-Task 2: Reflect (blockedBy: Task 1)
-Task 3: Plan (blockedBy: Task 2)
+デイリーノートを作成中...
+未完了タスクをプル中...
+目標進捗を計算中...
+インボックス項目を処理中...
 ```
 
-This ensures phases complete in sequence.
+`activeForm`はタスク実行中にスピナーに表示されます。
 
-## Progress Patterns
+## タスク依存関係
 
-### Sequential Steps
+順序が重要な場合は依存関係を使用します：
+
 ```
-[Spinner] Step 1 of 4: Creating daily note...
-[Spinner] Step 2 of 4: Pulling tasks...
-[Spinner] Step 3 of 4: Surfacing goals...
-[Spinner] Step 4 of 4: Setting time blocks...
-[Done] Morning routine complete (4/4)
+タスク1: 収集（依存関係なし）
+タスク2: 振り返り（blockedBy: タスク1）
+タスク3: 計画（blockedBy: タスク2）
 ```
 
-### Batch Processing
+これによりフェーズが順番に完了することを保証します。
+
+## 進捗パターン
+
+### 順次ステップ
 ```
-[Spinner] Processing item 1/5: Meeting notes...
-[Spinner] Processing item 2/5: Book idea...
+[スピナー] ステップ 1/4: デイリーノートを作成中...
+[スピナー] ステップ 2/4: タスクをプル中...
+[スピナー] ステップ 3/4: 目標を表示中...
+[スピナー] ステップ 4/4: タイムブロックを設定中...
+[完了] 朝のルーチン完了 (4/4)
+```
+
+### バッチ処理
+```
+[スピナー] 項目 1/5を処理中: 会議メモ...
+[スピナー] 項目 2/5を処理中: 本のアイデア...
 ...
-[Done] Inbox complete (5/5 items)
+[完了] インボックス完了 (5/5項目)
 ```
 
-### Phased Work
+### フェーズ化された作業
 ```
-[Done] Phase 1: Collect complete
-[Spinner] Phase 2: Reflect in progress...
-[Pending] Phase 3: Plan (blocked)
+[完了] フェーズ1: 収集完了
+[スピナー] フェーズ2: 振り返り進行中...
+[保留中] フェーズ3: 計画（ブロック中）
 ```
 
-## Status Transitions
+## ステータス遷移
 
 ```
 pending → in_progress → completed
 ```
 
-- Set `in_progress` when starting a task
-- Set `completed` only when fully done
-- Never mark incomplete work as completed
+- タスク開始時に`in_progress`を設定
+- 完全に完了した場合のみ`completed`を設定
+- 未完了の作業をcompletedとしてマークしない
 
-## Best Practices
+## ベストプラクティス
 
-1. **Create tasks upfront** - Create all tasks at the start of a multi-step operation
-2. **Update as you go** - Mark tasks in_progress before starting, completed after finishing
-3. **Use activeForm** - Always provide spinner text for user visibility
-4. **Keep it lightweight** - Don't over-task simple operations
-5. **Trust markdown for persistence** - Session tasks disappear; use checkboxes for real work
+1. **タスクを事前に作成** - 複数ステップの操作の開始時にすべてのタスクを作成
+2. **進行中に更新** - 開始前にin_progressをマーク、完了後にcompletedをマーク
+3. **activeFormを使用** - ユーザー可視性のため常にスピナーテキストを提供
+4. **軽量に保つ** - シンプルな操作を過剰にタスク化しない
+5. **永続化にはマークダウンを信頼** - セッションタスクは消える。実際の作業にはチェックボックスを使用
 
-## Integration with PKM
+## PKMとの統合
 
-Session tasks complement but don't replace:
+セッションタスクは以下を補完しますが、置き換えません：
 
-| Concern | Tool |
+| 関心事 | ツール |
 |---------|------|
-| Progress during session | Session tasks (TaskCreate/Update) |
-| Actual to-do items | Markdown checkboxes in daily notes |
-| Goal tracking | Percentages in goal files |
-| Project status | Project CLAUDE.md files |
+| セッション中の進捗 | セッションタスク（TaskCreate/Update） |
+| 実際のToDoアイテム | デイリーノート内のマークダウンチェックボックス |
+| 目標トラッキング | 目標ファイル内のパーセンテージ |
+| プロジェクトステータス | プロジェクトCLAUDE.mdファイル |

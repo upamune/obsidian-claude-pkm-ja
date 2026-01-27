@@ -1,50 +1,50 @@
 ---
 name: push
-description: Commit and push vault changes to Git with smart commit messages. Auto-stages files, creates meaningful commits, and syncs with remote. Use after making vault changes or at end of day.
+description: スマートなコミットメッセージでVaultの変更をコミットしてプッシュします。ファイルを自動ステージし、意味のあるコミットを作成し、リモートと同期します。Vaultの変更後や1日の終わりに使用します。
 allowed-tools: Bash, Read, Glob
 user-invocable: true
 ---
 
-# Git Push Skill
+# Git Push スキル
 
-Automates Git workflow to save your notes with meaningful commit messages and push to remote repository.
+意味のあるコミットメッセージでノートを保存し、リモートリポジトリにプッシュするGitワークフローを自動化します。
 
-## Usage
+## 使い方
 
-Invoke with `/push` or ask Claude to save/commit your changes.
+`/push`で呼び出すか、Claudeに変更を保存/コミットするよう依頼してください。
 
-### Basic Usage
+### 基本的な使い方
 ```
 /push
 ```
 
-### With Custom Message
+### カスタムメッセージ付き
 ```
-/push "Completed project planning"
+/push "プロジェクト計画を完了"
 ```
 
-## What This Skill Does
+## このスキルの機能
 
-1. **Stages All Changes**
-   - Adds all modified files
-   - Includes new files
-   - Removes deleted files
+1. **すべての変更をステージング**
+   - 変更されたファイルをすべて追加
+   - 新しいファイルを含める
+   - 削除されたファイルを除外
 
-2. **Creates Smart Commit Message**
-   - Uses provided message, or
-   - Auto-generates from changes
-   - Includes date/time stamp
-   - Summarizes key modifications
+2. **スマートなコミットメッセージを作成**
+   - 提供されたメッセージを使用、または
+   - 変更から自動生成
+   - 日時スタンプを含める
+   - 主要な変更を要約
 
-3. **Syncs with Remote**
-   - Pulls latest changes (if enabled)
-   - Pushes to remote repository
-   - Handles merge conflicts gracefully
+3. **リモートと同期**
+   - 最新の変更を取得（有効な場合）
+   - リモートリポジトリにプッシュ
+   - マージコンフリクトを適切に処理
 
-## Commit Message Format
+## コミットメッセージの形式
 
-### Automatic Messages
-Based on your changes:
+### 自動メッセージ
+変更に基づいて生成されます：
 ```
 Daily note for 2024-01-15 + 3 project updates
 - Added: Daily Notes/2024-01-15.md
@@ -52,62 +52,62 @@ Daily note for 2024-01-15 + 3 project updates
 - Modified: Goals/2. Monthly Goals.md
 ```
 
-### With Timestamp
+### タイムスタンプ付き
 ```
-[2024-01-15 09:30] Completed weekly review
-```
-
-## Workflow Integration
-
-### Morning Routine
-```
-/daily          # Create daily note
-# ... work on notes ...
-/push "Morning planning complete"
+[2024-01-15 09:30] 週次レビューを完了
 ```
 
-### End of Day
-```
-# Complete daily reflection
-/push           # Auto-message with summary
-```
+## ワークフロー統合
 
-### After Weekly Review
+### 朝のルーチン
 ```
-/weekly         # Run weekly review
-/push "Weekly review - Week 3"
+/daily          # デイリーノートを作成
+# ... ノート作業 ...
+/push "朝の計画を完了"
 ```
 
-## Git Operations
+### 1日の終わり
+```
+# デイリーリフレクションを完了
+/push           # 要約付き自動メッセージ
+```
 
-### Standard Flow
-1. `git add .` - Stage all changes
-2. `git commit -m "message"` - Create commit
-3. `git pull --rebase origin main` - Get remote changes
-4. `git push origin main` - Push to remote
+### 週次レビュー後
+```
+/weekly         # 週次レビューを実行
+/push "週次レビュー - 第3週"
+```
 
-### Safety Checks
-- Verify Git repository exists
-- Check for uncommitted changes
-- Ensure remote is configured
-- Validate branch exists
+## Git操作
 
-## Conflict Handling
+### 標準フロー
+1. `git add .` - すべての変更をステージング
+2. `git commit -m "message"` - コミットを作成
+3. `git pull --rebase origin main` - リモートの変更を取得
+4. `git push origin main` - リモートにプッシュ
 
-If conflicts occur:
-1. Auto-resolve attempts (favor local for notes)
-2. If manual resolution needed, guide through process
-3. Never force push without explicit request
+### 安全性チェック
+- Gitリポジトリの存在を確認
+- コミットされていない変更を確認
+- リモートが設定されていることを確認
+- ブランチの存在を検証
 
-## Security Considerations
+## コンフリクトの処理
 
-### Never Commit
-- Passwords or credentials
-- API keys
-- Personal identification
-- Financial information
+コンフリクトが発生した場合：
+1. 自動解決を試行（ノートについてはローカルを優先）
+2. 手動解決が必要な場合は、プロセスをガイド
+3. 明示的な要求なしに強制プッシュしない
 
-### Use .gitignore for
+## セキュリティ上の考慮事項
+
+### コミットしてはいけないもの
+- パスワードや認証情報
+- APIキー
+- 個人識別情報
+- 金融情報
+
+### .gitignoreを使用する対象
 ```
 private/
 credentials.md
@@ -118,28 +118,28 @@ credentials.md
 .DS_Store
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
-### Push Rejected?
-Pull first, then push again:
+### プッシュが拒否された場合
+まずプルしてから、再度プッシュしてください：
 ```bash
 git pull --rebase origin main
 git push origin main
 ```
 
-### Not a Git Repository?
+### Gitリポジトリではない場合
 ```bash
 git init
 git remote add origin [URL]
 ```
 
-### Large Files Issue?
-Consider Git LFS for images/attachments.
+### 大きなファイルの問題
+画像や添付ファイルにはGit LFSの使用を検討してください。
 
-## Integration
+## 統合
 
-Works with:
-- `/daily` - Commit after creating daily note
-- `/weekly` - Commit after weekly review
-- `/onboard` - No git needed for context loading
-- Auto-commit hook for automatic saves
+以下と連携します：
+- `/daily` - デイリーノート作成後にコミット
+- `/weekly` - 週次レビュー後にコミット
+- `/onboard` - コンテキスト読み込みにはgitは不要
+- 自動保存用の自動コミットフック

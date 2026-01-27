@@ -2,16 +2,16 @@
 
 このPKMシステムを真にあなたのものにしましょう。このガイドでは、簡単な調整から高度な改造まであらゆることをカバーします。
 
-## Table of Contents
-1. [Quick Customizations](#quick-customizations)
-2. [Template Modifications](#template-modifications)
-3. [Folder Structure](#folder-structure)
-4. [Tag System](#tag-system)
-5. [Skills (Unified Pattern)](#skills-unified-pattern)
-6. [Output Styles](#output-styles)
-7. [Workflow Automation](#workflow-automation)
-8. [Theme and Appearance](#theme-and-appearance)
-9. [Advanced Configurations](#advanced-configurations)
+## 目次
+1. [クイックカスタマイゼーション](#クイックカスタマイゼーション)
+2. [テンプレートの変更](#テンプレートの変更)
+3. [フォルダ構造](#フォルダ構造)
+4. [タグシステム](#タグシステム)
+5. [Skills (統合パターン)](#skills-統合パターン)
+6. [出力スタイル](#出力スタイル)
+7. [ワークフロー自動化](#ワークフロー自動化)
+8. [テーマと外観](#テーマと外観)
+9. [高度な設定](#高度な設定)
 
 ## クイックカスタマイゼーション
 
@@ -249,20 +249,20 @@ vault/
 #work #priority/high #energy/high #context/office
 ```
 
-## Skills (Unified Pattern)
+## Skills (統合パターン)
 
-In Claude Code v2.1+, skills and slash commands are unified. All capabilities are now skills that can be invoked with `/skill-name` or auto-discovered by Claude.
+Claude Code v2.1以降、スキルとスラッシュコマンドは統合されています。すべての機能は `/skill-name` で呼び出すか、Claudeが自動検出できるスキルとなっています。
 
-### Creating Custom Skills
+### カスタムスキルの作成
 
-Create a new skill directory with a `SKILL.md` file:
+`SKILL.md` ファイルを持つ新しいスキルディレクトリを作成します:
 
-#### Example: Book Notes Skill
-Create `.claude/skills/book-notes/SKILL.md`:
+#### 例: 読書ノートスキル
+`.claude/skills/book-notes/SKILL.md` を作成:
 ```markdown
 ---
 name: book-notes
-description: Create book notes with metadata. Use when starting a new book or organizing reading notes.
+description: メタデータ付きの読書ノートを作成します。新しい本を始めるときや読書ノートを整理する際に使用します。
 allowed-tools: Read, Write, Edit, Glob
 user-invocable: true
 ---
@@ -271,8 +271,8 @@ user-invocable: true
 
 メタデータと構造を持つ新しい読書ノートを作成します。
 
-## Usage
-Invoke with `/book-notes` or ask Claude to create a book note.
+## 使用方法
+`/book-notes` で呼び出すか、Claudeに読書ノートの作成を依頼します。
 
 ## 実行内容
 1. Resources/Books/にノートを作成
@@ -281,12 +281,12 @@ Invoke with `/book-notes` or ask Claude to create a book note.
 4. 読書リストにリンク
 ```
 
-#### Example: Meeting Notes Skill
-Create `.claude/skills/meeting-notes/SKILL.md`:
+#### 例: 会議ノートスキル
+`.claude/skills/meeting-notes/SKILL.md` を作成:
 ```markdown
 ---
 name: meeting-notes
-description: Create formatted meeting notes with action items. Use before or after meetings.
+description: アクションアイテム付きのフォーマットされた会議ノートを作成します。会議の前後に使用します。
 allowed-tools: Read, Write, Edit
 user-invocable: true
 ---
@@ -295,26 +295,26 @@ user-invocable: true
 
 アクションアイテム付きのフォーマットされた会議ノートを作成します。
 
-## Usage
-Invoke with `/meeting-notes` or ask Claude to create meeting notes.
+## 使用方法
+`/meeting-notes` で呼び出すか、Claudeに会議ノートの作成を依頼します。
 
-## Template Structure
-- Date/Time
-- Attendees
-- Agenda
-- Discussion
-- Action Items
-- Follow-up
+## テンプレート構造
+- 日時
+- 参加者
+- アジェンダ
+- 議論
+- アクションアイテム
+- フォローアップ
 ```
 
-### Modifying Existing Skills
+### 既存スキルの変更
 
-#### Daily Workflow for Different Schedules
-Edit `.claude/skills/daily/SKILL.md` to customize:
-- Daily notes folder location
-- Template path
-- Date format preferences
-- Time block structure
+#### 異なるスケジュールに対応したデイリーワークフロー
+`.claude/skills/daily/SKILL.md` を編集してカスタマイズ:
+- デイリーノートのフォルダの場所
+- テンプレートパス
+- 日付フォーマットの好み
+- タイムブロックの構造
 
 ## 出力スタイル
 
@@ -323,7 +323,7 @@ Edit `.claude/skills/daily/SKILL.md` to customize:
 含まれるProductivity Coachスタイルは、Claudeを責任パートナーに変換します:
 
 ```bash
-# Claude Codeを起動
+# Claude Code CLIを起動
 claude
 
 # 次に出力スタイルを選択:
@@ -408,11 +408,11 @@ description: Expansive thinking and idea generation
 
 ### 朝のルーティン自動化
 
-Create `.claude/skills/morning-routine/SKILL.md`:
+`.claude/skills/morning-routine/SKILL.md` を作成:
 ```markdown
 ---
 name: morning-routine
-description: Execute complete morning workflow with daily note, task review, and planning.
+description: デイリーノート、タスクレビュー、計画を含む完全な朝のワークフローを実行します。
 allowed-tools: Read, Write, Edit, Glob
 user-invocable: true
 ---
@@ -421,22 +421,22 @@ user-invocable: true
 
 完全な朝のワークフローを実行します。
 
-## Steps
-1. Create daily note
-2. Review yesterday's incomplete tasks
-3. Check calendar for today
-4. Pull priority from weekly goals
-5. Set time blocks
-6. Generate motivation quote
+## ステップ
+1. デイリーノートを作成
+2. 昨日の未完了タスクをレビュー
+3. 今日のカレンダーを確認
+4. 週次目標から優先事項を抽出
+5. タイムブロックを設定
+6. モチベーション引用を生成
 ```
 
 ### 1日の終わり自動化
 
-Create `.claude/skills/evening-shutdown/SKILL.md`:
+`.claude/skills/evening-shutdown/SKILL.md` を作成:
 ```markdown
 ---
 name: evening-shutdown
-description: Complete end-of-day routine with task review, reflection, and git commit.
+description: タスクレビュー、振り返り、gitコミットを含む1日の終わりのルーティンを完了します。
 allowed-tools: Read, Write, Edit, Bash
 user-invocable: true
 ---
@@ -456,11 +456,11 @@ user-invocable: true
 
 ### プロジェクトキックオフ自動化
 
-Create `.claude/skills/project-kickoff/SKILL.md`:
+`.claude/skills/project-kickoff/SKILL.md` を作成:
 ```markdown
 ---
 name: project-kickoff
-description: Initialize new project with standard structure, CLAUDE.md, and planning docs.
+description: 標準構造、CLAUDE.md、計画ドキュメントを含む新しいプロジェクトを初期化します。
 allowed-tools: Write, Edit, Glob, Bash
 user-invocable: true
 ---
@@ -632,11 +632,11 @@ TaskerまたはAutomateを使用:
 - [ ] [外部システムからのタスク]
 ```
 
-## v2.1 Features: Unified Skills, Hooks, Agents & Rules
+## v2.1の機能: 統合されたスキル、フック、エージェント、ルール
 
 ### フック(自動動作)
 
-フックはClaude Codeイベントによってトリガーされる自動動作です。`.claude/settings.json` に配置:
+フックはClaude Code CLIのイベントによってトリガーされる自動動作です。`.claude/settings.json` に配置:
 
 #### 自動コミットの無効化
 ```json
@@ -691,9 +691,9 @@ model: sonnet
 - `goal-aligner` - 目標-活動の整合性分析
 - `inbox-processor` - GTDスタイルのインボックス処理
 
-### Skills (Unified with Slash Commands)
+### Skills (スラッシュコマンドとの統合)
 
-Skills and slash commands are now unified in Claude Code v2.1+. All skills are located in `.claude/skills/`:
+Claude Code v2.1以降、スキルとスラッシュコマンドは統合されています。すべてのスキルは `.claude/skills/` に配置されます:
 
 #### カスタムスキルの作成
 `.claude/skills/my-skill/SKILL.md` を作成:
@@ -710,15 +710,15 @@ user-invocable: true
 [このスキルの使用方法]
 ```
 
-#### Included Skills
-| Skill | Invocation | Purpose |
+#### 含まれるスキル
+| スキル | 呼び出し方 | 目的 |
 |-------|------------|---------|
-| `daily` | `/daily` | Create daily notes, morning/midday/evening routines |
-| `weekly` | `/weekly` | Run weekly review, reflect and plan |
-| `push` | `/push` | Git commit and push |
-| `onboard` | `/onboard` | Load vault context |
-| `goal-tracking` | (auto) | Track goal progress |
-| `obsidian-vault-ops` | (auto) | Vault file operations |
+| `daily` | `/daily` | デイリーノートの作成、朝/昼/夕方のルーティン |
+| `weekly` | `/weekly` | 週次レビューの実行、振り返りと計画 |
+| `push` | `/push` | Gitコミットとプッシュ |
+| `onboard` | `/onboard` | Vaultコンテキストの読み込み |
+| `goal-tracking` | (自動) | 目標進捗の追跡 |
+| `obsidian-vault-ops` | (自動) | Vaultファイル操作 |
 
 ### モジュラールール
 

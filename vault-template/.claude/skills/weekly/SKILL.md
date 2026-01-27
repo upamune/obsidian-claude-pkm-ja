@@ -1,212 +1,212 @@
 ---
 name: weekly
-description: Facilitate weekly review process with reflection, goal alignment, and planning. Create review notes, analyze past week, plan next week. Use on Sundays or whenever doing weekly planning.
+description: 振り返り、目標の整合、計画を含む週次レビュープロセスを促進します。レビューノートを作成し、過去1週間を分析し、次週を計画します。日曜日または週次計画を行う際に使用します。
 allowed-tools: Read, Write, Edit, Glob, Grep, TaskCreate, TaskUpdate, TaskList, TaskGet
 user-invocable: true
 ---
 
-# Weekly Review Skill
+# 週次レビュースキル
 
-Facilitates your weekly review process by creating a review note and guiding reflection on the past week while planning the next.
+過去1週間を振り返り、次週を計画しながら、レビューノートを作成して週次レビュープロセスを促進します。
 
-## Usage
+## 使用方法
 
-Invoke with `/weekly` or ask Claude to help with your weekly review.
+`/weekly`で起動するか、Claudeに週次レビューのサポートを依頼します。
 
 ```
 /weekly
 ```
 
-## What This Skill Does
+## このスキルの機能
 
-1. **Creates Weekly Review Note**
-   - Uses weekly review template
-   - Names it with current week's date
-   - Places in Goals folder
+1. **週次レビューノートを作成**
+   - 週次レビューテンプレートを使用
+   - 今週の日付で命名
+   - Goalsフォルダに配置
 
-2. **Guides Review Process**
-   - Reviews last week's accomplishments
-   - Identifies incomplete tasks
-   - Plans upcoming week
-   - Aligns with monthly goals
+2. **レビュープロセスをガイド**
+   - 先週の達成事項をレビュー
+   - 未完了タスクを特定
+   - 次週を計画
+   - 月次目標と整合
 
-3. **Automates Housekeeping**
-   - Archives old daily notes
-   - Updates project statuses
-   - Cleans up completed tasks
+3. **ハウスキーピングを自動化**
+   - 古いデイリーノートをアーカイブ
+   - プロジェクトステータスを更新
+   - 完了タスクをクリーンアップ
 
-## Review Process Steps
+## レビュープロセスのステップ
 
-### Step 1: Reflection (10 minutes)
-- Review daily notes from past week
-- Identify wins and challenges
-- Capture lessons learned
+### ステップ1: 振り返り（10分）
+- 過去1週間のデイリーノートをレビュー
+- 成功と課題を特定
+- 学んだ教訓をキャプチャ
 
-### Step 2: Goal Alignment (10 minutes)
-- Check monthly goal progress
-- Adjust weekly priorities
-- Ensure alignment with yearly goals
+### ステップ2: 目標の整合（10分）
+- 月次目標の進捗を確認
+- 週次優先事項を調整
+- 年次目標との整合を確保
 
-### Step 3: Planning (10 minutes)
-- Set ONE big thing for the week
-- Schedule important tasks
-- Block time for deep work
+### ステップ3: 計画（10分）
+- 今週の1つの重要事項を設定
+- 重要なタスクをスケジュール
+- 集中作業のための時間をブロック
 
-## Interactive Prompts
+## 対話型プロンプト
 
-The skill guides you through:
+このスキルは以下をガイドします:
 
-1. **"What were your top 3 wins this week?"**
-   - Celebrates progress
-   - Builds momentum
-   - Documents achievements
+1. **「今週のトップ3の成功は何でしたか？」**
+   - 進捗を祝う
+   - 勢いを構築
+   - 達成事項を記録
 
-2. **"What were your main challenges?"**
-   - Identifies obstacles
-   - Plans solutions
-   - Learns from difficulties
+2. **「主な課題は何でしたか？」**
+   - 障害を特定
+   - 解決策を計画
+   - 困難から学ぶ
 
-3. **"What's your ONE big thing next week?"**
-   - Forces prioritization
-   - Creates focus
-   - Drives meaningful progress
+3. **「来週の1つの重要事項は何ですか？」**
+   - 優先順位付けを強制
+   - フォーカスを作成
+   - 意味のある進捗を推進
 
-## Weekly Review Checklist
+## 週次レビューチェックリスト
 
-- [ ] Review all daily notes
-- [ ] Process inbox items
-- [ ] Update project statuses
-- [ ] Check upcoming calendar
-- [ ] Review monthly goals
-- [ ] Plan next week's priorities
-- [ ] Block time for important work
-- [ ] Clean digital workspace
-- [ ] Archive completed items
-- [ ] Commit changes to Git
+- [ ] すべてのデイリーノートをレビュー
+- [ ] インボックス項目を処理
+- [ ] プロジェクトステータスを更新
+- [ ] 今後のカレンダーを確認
+- [ ] 月次目標をレビュー
+- [ ] 次週の優先事項を計画
+- [ ] 重要な作業のための時間をブロック
+- [ ] デジタルワークスペースをクリーン
+- [ ] 完了項目をアーカイブ
+- [ ] 変更をGitにコミット
 
-## Weekly Review Note Format
+## 週次レビューノート形式
 
 ```markdown
-# Weekly Review: YYYY-MM-DD
+# 週次レビュー: YYYY-MM-DD
 
-## Last Week's Wins
+## 先週の成功
 1.
 2.
 3.
 
-## Challenges & Lessons
-- Challenge:
-- Lesson:
+## 課題と教訓
+- 課題:
+- 教訓:
 
-## Goal Progress
-### Monthly Goals
-- [ ] Goal 1 (XX%)
-- [ ] Goal 2 (XX%)
+## 目標進捗
+### 月次目標
+- [ ] 目標1 (XX%)
+- [ ] 目標2 (XX%)
 
-### This Week's Contribution
-- [Task] -> [[Goal]]
+### 今週の貢献
+- [タスク] -> [[目標]]
 
-## Next Week Planning
+## 次週の計画
 
-### ONE Big Thing
+### 1つの重要事項
 >
 
-### Key Tasks
+### 主要タスク
 - [ ]
 - [ ]
 - [ ]
 
-### Time Blocks
-- Monday:
-- Tuesday:
-- Wednesday:
-- Thursday:
-- Friday:
+### 時間ブロック
+- 月曜日:
+- 火曜日:
+- 水曜日:
+- 木曜日:
+- 金曜日:
 
-## Notes
+## メモ
 ```
 
-## Automation Features
+## 自動化機能
 
-### Auto-Archive
-Suggest moving daily notes older than 30 days to Archives.
+### 自動アーカイブ
+30日以上経過したデイリーノートをArchivesに移動することを提案します。
 
-### Project Status Update
-For each active project:
-- Update completion percentage
-- Note blockers
-- Set next actions
+### プロジェクトステータス更新
+各アクティブプロジェクトについて:
+- 完了率を更新
+- 障害を記録
+- 次のアクションを設定
 
-### Habit Tracking
-Calculate habit success rates from daily notes:
-- Count habit checkboxes
-- Show completion percentage
-- Identify patterns
+### 習慣トラッキング
+デイリーノートから習慣の成功率を計算:
+- 習慣チェックボックスをカウント
+- 完了率を表示
+- パターンを特定
 
-## Best Practices
+## ベストプラクティス
 
-### Consistent Timing
-- Same day each week (Sunday recommended)
-- Same time if possible
-- Block calendar time
-- Treat as non-negotiable
+### 一貫したタイミング
+- 毎週同じ日（日曜日推奨）
+- 可能であれば同じ時間
+- カレンダー時間をブロック
+- 交渉不可として扱う
 
-### Preparation
-- Clean inbox before review
-- Have calendar ready
-- Gather project updates
-- Review any feedback
+### 準備
+- レビュー前にインボックスをクリーン
+- カレンダーを準備
+- プロジェクト更新を収集
+- フィードバックをレビュー
 
-### Follow-through
-- Share highlights with team/family
-- Update external systems
-- Communicate changes
-- Celebrate wins
+### フォロースルー
+- ハイライトをチーム/家族と共有
+- 外部システムを更新
+- 変更を伝達
+- 成功を祝う
 
-## Task-Based Progress Tracking
+## タスクベースの進捗トラッキング
 
-The weekly skill uses session tasks to show progress through the 3-phase review.
+週次スキルはセッションタスクを使用して、3段階のレビュープロセスの進捗を表示します。
 
-### Phase Tasks
+### フェーズタスク
 
-Create tasks at skill start:
+スキル開始時にタスクを作成:
 
 ```
 TaskCreate:
-  subject: "Phase 1: Collect"
-  description: "Gather daily notes from past week, extract wins and challenges"
-  activeForm: "Collecting daily notes and extracting highlights..."
+  subject: "フェーズ1: 収集"
+  description: "過去1週間のデイリーノートを収集し、成功と課題を抽出"
+  activeForm: "デイリーノートを収集し、ハイライトを抽出中..."
 
 TaskCreate:
-  subject: "Phase 2: Reflect"
-  description: "Calculate goal progress, analyze alignment gaps"
-  activeForm: "Calculating goal progress and alignment..."
+  subject: "フェーズ2: 振り返り"
+  description: "目標進捗を計算し、整合のギャップを分析"
+  activeForm: "目標進捗と整合を計算中..."
 
 TaskCreate:
-  subject: "Phase 3: Plan"
-  description: "Identify ONE Big Thing, plan daily focus areas for next week"
-  activeForm: "Planning next week's focus..."
+  subject: "フェーズ3: 計画"
+  description: "1つの重要事項を特定し、次週の日次フォーカスエリアを計画"
+  activeForm: "次週のフォーカスを計画中..."
 ```
 
-### Dependencies
+### 依存関係
 
-Phases must run in order:
+フェーズは順番に実行する必要があります:
 ```
-TaskUpdate: "Phase 2: Reflect", addBlockedBy: [phase-1-collect-id]
-TaskUpdate: "Phase 3: Plan", addBlockedBy: [phase-2-reflect-id]
+TaskUpdate: "フェーズ2: 振り返り", addBlockedBy: [phase-1-collect-id]
+TaskUpdate: "フェーズ3: 計画", addBlockedBy: [phase-2-reflect-id]
 ```
 
-Reflect is blocked until Collect completes. Plan is blocked until Reflect completes. This provides visibility into the 30-minute review process.
+振り返りは収集が完了するまでブロックされます。計画は振り返りが完了するまでブロックされます。これにより30分のレビュープロセスへの可視性が提供されます。
 
-Mark each task `in_progress` when starting, `completed` when done using TaskUpdate.
+開始時に各タスクを`in_progress`に、完了時に`completed`にTaskUpdateでマークします。
 
-Task tools are session-scoped and don't persist between Claude sessions—your actual weekly review content is saved in the review note.
+タスクツールはセッションスコープであり、Claudeセッション間では永続化されません。実際の週次レビューコンテンツはレビューノートに保存されます。
 
-## Integration
+## 統合
 
-Works with:
-- `/daily` - Reviews daily notes from the week
-- `/push` - Commit after completing review
-- `/onboard` - Load context for informed review
-- Goal tracking skill - Progress calculations
-- `/daily` skill - Plan next week's routines
+以下と連携します:
+- `/daily` - 週のデイリーノートをレビュー
+- `/push` - レビュー完了後にコミット
+- `/onboard` - 情報に基づいたレビューのためにコンテキストを読み込み
+- 目標トラッキングスキル - 進捗計算
+- `/daily`スキル - 次週のルーチンを計画

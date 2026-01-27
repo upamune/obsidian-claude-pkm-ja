@@ -19,7 +19,7 @@
 # Gitの確認
 git --version
 
-# Claude Codeの確認
+# Claudeの確認
 claude --version
 ```
 
@@ -113,31 +113,31 @@ Vaultには、高度な機能を持つ完全なClaude Codeプラグインが含�
 
 これらはVaultのセットアップが完了すると自動的に動作します。
 
-### ステップ1: Claude Codeの設定
+### ステップ1: Claudeの設定
 
 ```bash
 # Vaultに移動
 cd ~/Documents/ObsidianPKM
 
-# Claude Codeの初期化
+# Claudeの初期化
 claude init
 
 # 接続のテスト
 claude "こんにちは、PKMシステムをセットアップしています"
 ```
 
-### Step 2: Verify Skills
+### ステップ2: スキルの確認
 
 ```bash
-# Skills are in .claude/skills/ with each skill in its own directory
-# Verify they exist:
+# スキルは .claude/skills/ にあり、各スキルは独自のディレクトリにあります
+# 存在を確認:
 ls .claude/skills/
 
-# You should see:
+# 以下が表示されるはずです:
 # daily/  weekly/  push/  onboard/  goal-tracking/  obsidian-vault-ops/
 ```
 
-### Step 3: Test Skills
+### ステップ3: スキルのテスト
 
 ```bash
 # コンテキストを読み込む
@@ -180,7 +180,7 @@ claude "note-organizerエージェントを使ってVaultを監査して"
 claude "weekly-reviewerエージェントを使って週次レビューを手伝って"
 
 # 目標の整合性を確認
-claude "goal-alignerエージェントを使って最近の活動を分析して"
+claude "goal-alignerエージェントを使って最近のアクティビティを分析して"
 
 # インボックスを処理
 claude "inbox-processorエージェントを使ってインボックスを処理して"
@@ -279,7 +279,7 @@ cp github-actions/claude.yml .github/workflows/
 
 ```bash
 # Claudeを使用
-claude "新しいプロジェクトフォルダを [プロジェクト名] で作成して"
+claude "[プロジェクト名]用の新しいプロジェクトフォルダを作成して"
 
 # または手動で
 1. Projects/にフォルダを作成
@@ -291,14 +291,14 @@ claude "新しいプロジェクトフォルダを [プロジェクト名] で�
 
 全てが正常に動作していることを確認するため、このチェックリストを実行してください:
 
-- [ ] Obsidian opens your vault without errors
-- [ ] CLAUDE.md has your personalized content
-- [ ] `/daily` skill creates today's note
-- [ ] `/onboard` skill loads your context
-- [ ] Git commits work locally
-- [ ] GitHub remote is connected (if using)
-- [ ] Goals files have your objectives
-- [ ] Daily template has your customizations
+- [ ] Obsidianがエラーなくvaultを開く
+- [ ] CLAUDE.mdにパーソナライズされた内容がある
+- [ ] `/daily` スキルが今日のノートを作成する
+- [ ] `/onboard` スキルがコンテキストを読み込む
+- [ ] Gitコミットがローカルで動作する
+- [ ] GitHubリモートが接続されている(使用する場合)
+- [ ] Goalsファイルに目標が記載されている
+- [ ] デイリーテンプレートにカスタマイズが反映されている
 
 ## 日次ワークフロー
 
@@ -338,15 +338,15 @@ claude /weekly
 - パスに特殊文字が含まれていないことを確認
 - 新しいVaultを作成してファイルをコピーしてみる
 
-### Skills Not Working
+### スキルが動作しない
 ```bash
-# Claude Codeのインストールを確認
+# Claudeのインストールを確認
 claude --version
 
-# Check skill directories exist
+# スキルディレクトリが存在することを確認
 ls -la .claude/skills/
 
-# Verify a skill file exists
+# スキルファイルが存在することを確認
 cat .claude/skills/daily/SKILL.md
 ```
 
