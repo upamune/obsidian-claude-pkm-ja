@@ -1,0 +1,200 @@
+# Upstream 同期用 GitHub Action
+#
+# このワークフローは fork 元リポジトリ（ballred/obsidian-claude-pkm）の
+# 更新を検知し、Claude Code の /sync-upstream コマンドを実行して
+# 自動的に日本語化を行います。
+#
+# セットアップ手順:
+# 1. このファイルを .github/workflows/sync-upstream.yml にコピー
+# 2. Claude Code OAuth トークンを設定:
+#    - Settings > Secrets and variables > Actions に移動
+#    - "New repository secret" をクリック
+#    - Name: CLAUDE_CODE_OAUTH_TOKEN
+#    - Value: OAuth トークン（https://code.claude.com/docs/en/github-actions で取得）
+# 3. GitHub Actions の書き込み権限を有効化:
+#    - Settings > Actions > General に移動
+#    - "Workflow permissions" セクションで "Read and write permissions" を選択
+# 4. （オプション）upstream リモートが未設定の場合は以下を実行:
+#    git remote add upstream https://github.com/ballred/obsidian-claude-pkm.git
+
+name: Upstream 同期と日本語化
+
+on:
+  # 定期実行: 毎日 UTC 0:00（日本時間 9:00）にチェック
+  schedule:
+    - cron: '0 0 * * *'
+
+  # 手動実行を許可
+  workflow_dispatch:
+    inputs:
+      strategy:
+        description: 'マージ戦略'
+        required: false
+        default: 'theirs'
+        type: choice
+        options:
+          - 'theirs'  # upstream の変更を優先
+          - 'ours'    # 現在の変更を優先
+      force_sync:
+        description: '差分がなくても強制実行'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  UPSTREAM_REPO: 'ballred/obsidian-claude-pkm'
+  UPSTREAM_BRANCH: 'main'
+  TZ: 'Asia/Tokyo'
+
+jobs:
+  check-upstream:
+    name: Upstream の更新を確認
+    runs-on: ubuntu-latest
+    outputs:
+      has_updates: ${{ steps.check.outputs.has_updates }}
+      commit_count: ${{ steps.check.outputs.commit_count }}
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upstream リモートを設定
+        run: |
+          # upstream が既に設定されているか確認
+          if ! git remote get-url upstream 2>/dev/null; then
+            git remote add upstream https://github.com/${{ env.UPSTREAM_REPO }}.git
+          fi
+          git fetch upstream ${{ env.UPSTREAM_BRANCH }}
+
+      - name: 更新を確認
+        id: check
+        run: |
+          # upstream との差分を確認
+          COMMIT_COUNT=$(git rev-list HEAD..upstream/${{ env.UPSTREAM_BRANCH }} --count)
+          echo "commit_count=$COMMIT_COUNT" >> $GITHUB_OUTPUT
+
+          if [ "$COMMIT_COUNT" -gt 0 ] || [ "${{ github.event.inputs.force_sync }}" == "true" ]; then
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+            echo "::notice::Upstream に $COMMIT_COUNT 件の新しいコミットがあります"
+
+            # 変更の概要を表示
+            echo "### 取り込む変更:"
+            git log HEAD..upstream/${{ env.UPSTREAM_BRANCH }} --oneline
+          else
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+            echo "::notice::Upstream に更新はありません"
+          fi
+
+  sync-and-translate:
+    name: 同期と日本語化を実行
+    runs-on: ubuntu-latest
+    needs: check-upstream
+    if: needs.check-upstream.outputs.has_updates == 'true'
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Git ユーザーを設定
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Upstream リモートを設定
+        run: |
+          if ! git remote get-url upstream 2>/dev/null; then
+            git remote add upstream https://github.com/${{ env.UPSTREAM_REPO }}.git
+          fi
+          git fetch upstream ${{ env.UPSTREAM_BRANCH }}
+
+      - name: Claude Code で同期と翻訳を実行
+        uses: anthropics/claude-code-action@v1
+        with:
+          oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /sync-upstream ${{ github.event.inputs.strategy || 'theirs' }}
+
+            上記のカスタムスラッシュコマンドを実行して、upstream の変更をマージし、
+            変更されたMarkdownファイルを日本語化してください。
+
+            ユーザーへの確認は不要です。自動的に以下を実行してください:
+            1. upstream/main をマージ（戦略: ${{ github.event.inputs.strategy || 'theirs' }}）
+            2. 変更されたファイルを特定
+            3. Markdownファイルを日本語化
+            4. 変更をコミット（コミットメッセージは日本語で）
+
+            マージ済みの場合やコンフリクトがない場合は、翻訳作業に進んでください。
+          allowed_tools: |
+            Bash
+            Read
+            Write
+            Edit
+            Glob
+            Grep
+            Task
+          timeout_minutes: 30
+
+      - name: 変更をプッシュ
+        run: |
+          # 変更があればプッシュ
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "upstream の変更を同期し日本語化を実行" || true
+          fi
+          git push origin ${{ github.ref_name }}
+
+  notify-result:
+    name: 結果を通知
+    runs-on: ubuntu-latest
+    needs: [check-upstream, sync-and-translate]
+    if: always()
+
+    steps:
+      - name: 結果サマリーを作成
+        run: |
+          echo "## Upstream 同期結果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ needs.check-upstream.outputs.has_updates }}" == "true" ]; then
+            echo "- **検出された更新**: ${{ needs.check-upstream.outputs.commit_count }} コミット" >> $GITHUB_STEP_SUMMARY
+
+            if [ "${{ needs.sync-and-translate.result }}" == "success" ]; then
+              echo "- **同期状態**: :white_check_mark: 成功" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- **同期状態**: :x: 失敗" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "- **更新なし**: upstream に新しいコミットはありませんでした" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "実行時刻: $(TZ='Asia/Tokyo' date '+%Y-%m-%d %H:%M:%S JST')" >> $GITHUB_STEP_SUMMARY
+
+# ワークフロー設定のノート:
+#
+# トリガー設定:
+# - schedule: 毎日 UTC 0:00（日本時間 9:00）に自動実行
+# - workflow_dispatch: GitHub Actions タブから手動実行可能
+#
+# マージ戦略:
+# - theirs（デフォルト）: upstream の変更を優先
+# - ours: 現在のフォークの変更を優先
+#
+# 必要なシークレット:
+# - CLAUDE_CODE_OAUTH_TOKEN: Claude Code の OAuth トークン
+#
+# 注意事項:
+# - 初回実行前に upstream リモートが設定されている必要があります
+# - 大きな変更がある場合、Claude Code の実行に時間がかかる場合があります
+# - コンフリクトが発生した場合は手動での解決が必要な場合があります
+#
+# スケジュールの変更例:
+# - 毎時実行: '0 * * * *'
+# - 平日のみ: '0 0 * * 1-5'
+# - 週1回（月曜）: '0 0 * * 1'
